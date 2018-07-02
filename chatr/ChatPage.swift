@@ -2,6 +2,8 @@
 //  Chat Page.swift
 //  chatr
 //
+//  SideBar Implementation guidance: https://youtu.be/GOSIz7JbZMA by Yogesh Patel
+//
 //  Created by Mesert Kebed on 6/29/18.
 //  Copyright © 2018 Microsoft Intune. All rights reserved.
 //
@@ -70,6 +72,14 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             sideBarView.frame = CGRect(x: 0, y: 72, width: 0, height: 214)
             sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 214)
             UIView.commitAnimations()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 2 {
+            let aboutUs:AboutUsPage = self.storyboard?.instantiateViewController(withIdentifier: "aboutPage") as! AboutUsPage
+            
+            present(aboutUs, animated:true, completion: nil)
         }
     }
     

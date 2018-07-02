@@ -178,38 +178,46 @@
             </objects>
             <point key="canvasLocation" x="-98.400000000000006" y="784.85757121439292"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="dk6-fW-oZd">
+        <!--About Us Page-->
+        <scene sceneID="47h-Fv-CrZ">
             <objects>
-                <viewController storyboardIdentifier="About us Page" id="5PR-Ee-jnx" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6Dg-MZ-RqX">
+                <viewController storyboardIdentifier="aboutPage" id="oaO-zi-dIw" customClass="AboutUsPage" customModule="chatr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zn9-p0-0AB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8aO-ge-Rkw">
-                                <rect key="frame" x="16" y="90" width="343" height="273"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FE-Yx-I0i">
+                                <rect key="frame" x="0.0" y="21" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Chatr was built to demonstrate the integration of line-of-business apps with Microsoft Intune's iOS MAM SDK. Chatr is a messaging application that allows users to save and print their conversation transcript. 
-
-More information about the SDK is available here, and there is a developer guide accessible here.  </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" About us " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7F1-Uc-jEc">
-                                <rect key="frame" x="16" y="52" width="125" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="&lt; Back"/>
+                                <connections>
+                                    <segue destination="FOx-KW-RqY" kind="show" id="RJw-3n-qhc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" About us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0PI-4a-ARx">
+                                <rect key="frame" x="10" y="55" width="113" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MbI-f9-LlA">
+                                <rect key="frame" x="10" y="96" width="343" height="253"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="anK-gp-5Fk"/>
+                        <viewLayoutGuide key="safeArea" id="eEX-ab-4yu"/>
                     </view>
+                    <connections>
+                        <outlet property="aboutUsText" destination="MbI-f9-LlA" id="YiY-Rv-VS4"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2BU-TA-u2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PRC-jT-Xay" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="605.60000000000002" y="784.85757121439292"/>
         </scene>
@@ -312,4 +320,7 @@ More information about the SDK is available here, and there is a developer guide
         <image name="logo.jpg" width="500" height="500"/>
         <image name="menubar" width="222" height="178"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="RJw-3n-qhc"/>
+    </inferredMetricsTieBreakers>
 </document>
