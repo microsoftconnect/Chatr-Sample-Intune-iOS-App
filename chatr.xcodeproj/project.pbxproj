@@ -18,6 +18,7 @@
 		C01A681320E166CA00F80AFB /* SideBarTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A681220E166CA00F80AFB /* SideBarTableCell.swift */; };
 		C027B3B120E687DF00392A38 /* ChatPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027B3B020E687DF00392A38 /* ChatPage.swift */; };
 		C0571FB420EAAB57008716A8 /* AboutUsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0571FB320EAAB57008716A8 /* AboutUsPage.swift */; };
+		C0C3994820EC1F97007ACFBA /* ChatLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3994720EC1F97007ACFBA /* ChatLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		C01A681220E166CA00F80AFB /* SideBarTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarTableCell.swift; sourceTree = "<group>"; };
 		C027B3B020E687DF00392A38 /* ChatPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPage.swift; sourceTree = "<group>"; };
 		C0571FB320EAAB57008716A8 /* AboutUsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsPage.swift; sourceTree = "<group>"; };
+		C0C3994720EC1F97007ACFBA /* ChatLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				C01A67E120DAB03F00F80AFB /* ViewController.swift */,
 				C01A67E320DAB03F00F80AFB /* Main.storyboard */,
 				C0571FB320EAAB57008716A8 /* AboutUsPage.swift */,
+				C0C3994720EC1F97007ACFBA /* ChatLogic.swift */,
 				C027B3B020E687DF00392A38 /* ChatPage.swift */,
 				C01A681220E166CA00F80AFB /* SideBarTableCell.swift */,
 				C01A680D20DAE2BB00F80AFB /* logo.jpg */,
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0C3994820EC1F97007ACFBA /* ChatLogic.swift in Sources */,
 				C0571FB420EAAB57008716A8 /* AboutUsPage.swift in Sources */,
 				C01A67E220DAB03F00F80AFB /* ViewController.swift in Sources */,
 				C01A67E020DAB03F00F80AFB /* AppDelegate.swift in Sources */,

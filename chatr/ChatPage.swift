@@ -10,16 +10,34 @@
 
 import UIKit
 
+// global variables used for saving conversations
+var conversation = [(String)]()
+
 class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // variables used throughout this class
+    // variables used for creating the sidebar
     @IBOutlet weak var sideBarView: UIView!
     @IBOutlet weak var sideBarTable: UITableView!
     var isMenu:Bool = false                                         // variable that indiates if the menu is being  displayed
     var sideBarFeatures = ["Save","Print", "About us", "Log out"]   // the options on the sidebar
     var sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
     
-
+    // variables used for chat
+    @IBOutlet weak var typedChat: UITextField!
+    @IBOutlet weak var chatView: UIStackView!
+    
+    
+    
+    /*
+     * triggered when send button is pressed on chat page
+     * empties out the text field and creates a new view with the message filled in.
+     * Messages should appear on the right side of the page
+     */
+    @IBAction func sendChat(_ sender: UIButton) {
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

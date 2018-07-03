@@ -28,6 +28,7 @@ class AboutUsPage: UIViewController, UITextViewDelegate{
         self.aboutUsText.attributedText = text
         self.aboutUsText.isUserInteractionEnabled = true
         self.aboutUsText.isEditable = false
+        self.aboutUsText.layer.cornerRadius = 10
     }
 
     override func didReceiveMemoryWarning() {
