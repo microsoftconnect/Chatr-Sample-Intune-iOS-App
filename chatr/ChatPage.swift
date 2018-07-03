@@ -12,29 +12,28 @@ import UIKit
 
 class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    // variables used throughout this class
     @IBOutlet weak var sideBarView: UIView!
     @IBOutlet weak var sideBarTable: UITableView!
-    
-    var isMenu:Bool = false
-    
-    var sideBarFeatures = ["Save","Print", "About us", "Log out"]
-    var sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "profile")]
+    var isMenu:Bool = false                                         // variable that indiates if the menu is being  displayed
+    var sideBarFeatures = ["Save","Print", "About us", "Log out"]   // the options on the sidebar
+    var sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // when the view is loaded, hide the sidebar table
         sideBarView.isHidden = true
         sideBarTable.backgroundColor = UIColor.groupTableViewBackground
         isMenu = false
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sideBarFeatures.count
     }
@@ -46,6 +45,11 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    /*
+     * action trigger: the Chatr logo button on the top left
+     * Reveals/hides the sideBar menu when the button is pressed depending on the state.
+     * If the menu was hidden when the button is pressed, then it will reveal the menu and vise versa.
+     */
     @IBAction func sideBarMenu(_ sender: Any) {
         sideBarView.isHidden = false
         sideBarTable.isHidden = false
@@ -76,9 +80,10 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // when you press the About us option in the sideBar it presents the "aboutPage" view
+        // *** insert similar logic here to assign a view to a new option, the indexPath refers to the items in sideBarFeatures ***
         if indexPath.row == 2 {
             let aboutUs:AboutUsPage = self.storyboard?.instantiateViewController(withIdentifier: "aboutPage") as! AboutUsPage
-            
             present(aboutUs, animated:true, completion: nil)
         }
     }
