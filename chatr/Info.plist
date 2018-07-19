@@ -18,12 +18,23 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>IntuneMAMSettings</key>
+	<dict>
+		<key>MainStoryboardFile</key>
+		<string>Main</string>
+	</dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>https-intunemam</string>
+		<string>http-intunemam</string>
+		<string>microsoft-edge-https-intunemam</string>
+		<string>microsoft-edge-http-intunemam</string>
+		<string>ms-outlook-intunemam</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -40,6 +51,67 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.microsoft.intune.mam.public.text</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.microsoft.intune.mam.public.plain-text</string>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.microsoft.intune.mam.public.data</string>
+				<string>com.microsoft.intune.mam.public.content</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.microsoft.intune.mam.public.image</string>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.microsoft.intune.mam.public.url</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.microsoft.intune.mam.public.file-url</string>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.microsoft.intune.mam.public.data</string>
+				<string>com.microsoft.intune.mam.public.content</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.microsoft.intune.mam.public.text</string>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.microsoft.intune.mam.public.item</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.microsoft.intune.mam.public.data</string>
+		</dict>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.microsoft.intune.mam.public.content</string>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>com.microsoft.intune.mam.public.data</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.microsoft.intune.mam.public.url</string>
+		</dict>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.microsoft.intune.mam.public.item</string>
+		</dict>
 	</array>
 </dict>
 </plist>

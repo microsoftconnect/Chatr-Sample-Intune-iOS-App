@@ -3,6 +3,7 @@
 //  chatr
 //
 //  SideBar Implementation guidance: https://youtu.be/GOSIz7JbZMA by Yogesh Patel
+//  Other inspiration: https://stackoverflow.com/questions/31870206/how-to-insert-new-cell-into-uitableview-in-swift responses by EI Captain v2.0 and Dharmesh Kheni
 //
 //  Created by Mesert Kebed on 6/29/18.
 //  Copyright © 2018 Microsoft Intune. All rights reserved.
@@ -11,7 +12,7 @@
 import UIKit
 
 // global variables used for saving conversations
-var conversation = [(String)]()
+var conversation:[(sender:String, message:NSAttributedString)] = []
 
 class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -22,9 +23,10 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var sideBarFeatures = ["Save","Print", "About us", "Log out"]   // the options on the sidebar
     var sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
     
+    
     // variables used for chat
     @IBOutlet weak var typedChat: UITextField!
-    @IBOutlet weak var chatView: UIStackView!
+    @IBOutlet weak var chatTable: UITableView!
     
     
     
@@ -35,6 +37,43 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
      */
     @IBAction func sendChat(_ sender: UIButton) {
         
+        let align = NSMutableParagraphStyle()
+        align.alignment = .right
+        
+        let fromMessage = NSMutableAttributedString(string: typedChat.text!, attributes: [.paragraphStyle: align])
+        typedChat.text = ""
+        conversation.append((sender: "from", message: fromMessage))
+        
+        //update the message board to include the update
+        self.chatTable.beginUpdates()
+        self.chatTable.insertRows(at: [IndexPath.init(row: conversation.count-1, section: 0)], with: .automatic)
+        self.chatTable.endUpdates()
+        
+        replyChat()
+    }
+    
+    func replyChat() {
+        
+        let developerGuide: [NSAttributedStringKey : Any] = [.link: NSURL(string: "https://docs.microsoft.com/en-us/intune/app-sdk-ios")!, .foregroundColor: UIColor.blue]
+        let faqPage: [NSAttributedStringKey : Any] = [.link : NSURL(string: "https://docs.microsoft.com/en-us/intune/app-sdk-ios#faqs")!, .foregroundColor: UIColor.blue]
+        
+        let align = NSMutableParagraphStyle()
+        align.alignment = .left
+        
+        let replyMessage = NSMutableAttributedString(string: "Please refer to our documentation and read our faq page for any outstanding concerns. \nThank you.", attributes: [.paragraphStyle: align])
+        
+        
+        
+        replyMessage.setAttributes(developerGuide, range: NSMakeRange(20, 13))
+        replyMessage.setAttributes(faqPage, range: NSMakeRange(47, 3))
+        
+        
+        conversation.append((sender: "to", message: replyMessage))
+        
+        //update the message board to include the reply
+        self.chatTable.beginUpdates()
+        self.chatTable.insertRows(at: [IndexPath.init(row: conversation.count-1, section: 0)], with: .automatic)
+        self.chatTable.endUpdates()
     }
     
     
@@ -53,14 +92,28 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sideBarFeatures.count
+        if tableView == sideBarTable {          // this is the sideBar table
+            return sideBarFeatures.count
+        } else {                                // this is the conversations table
+            return conversation.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:SideBarTableCell = tableView.dequeueReusableCell(withIdentifier: "sideCell") as! SideBarTableCell
-        cell.cellImg.image = sideBarImg[indexPath.row]
-        cell.cellLbl.text = sideBarFeatures[indexPath.row]
-        return cell
+        if tableView == sideBarTable {
+            let cell:SideBarTableCell = tableView.dequeueReusableCell(withIdentifier: "sideCell") as! SideBarTableCell
+            cell.cellImg.image = sideBarImg[indexPath.row]
+            cell.cellLbl.text = sideBarFeatures[indexPath.row]
+            return cell
+        } else {
+            let sendMessageCell:chatTableViewCell = chatTable.dequeueReusableCell(withIdentifier: "chatCell") as! chatTableViewCell
+            
+            sendMessageCell.messageView.attributedText = conversation[indexPath.row].message
+            //sendMessageCell.sizeToFit()
+            // TODO: Alter the size of the cell to match dimensions of the text
+            //     : Change alignment of text to match the sender/reciever format
+            return sendMessageCell
+        }
     }
     
     /*
@@ -74,35 +127,37 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.view.bringSubview(toFront: sideBarView)
         if !isMenu {
             isMenu = true
-            sideBarView.frame = CGRect(x: 0, y: 72, width: 0, height: 214)
+            sideBarView.frame = CGRect(x: 0, y: 64, width: 0, height: 214)
             sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 214)
             UIView.setAnimationDuration(0.15)
             UIView.setAnimationDelegate(self)
             UIView.beginAnimations("sideBarAnimation", context: nil)
-            sideBarView.frame = CGRect(x: 0, y: 72, width: 187, height: 214)
+            sideBarView.frame = CGRect(x: 0, y: 64, width: 187, height: 214)
             sideBarTable.frame = CGRect(x: 0, y: 0, width: 187, height: 214)
             UIView.commitAnimations()
         } else {
             sideBarView.isHidden = true
             sideBarTable.isHidden = true
             isMenu = false
-            sideBarView.frame = CGRect(x: 0, y: 72, width: 187, height: 214)
+            sideBarView.frame = CGRect(x: 0, y: 64, width: 187, height: 214)
             sideBarTable.frame = CGRect(x: 0, y: 0, width: 187, height: 214)
             UIView.setAnimationDuration(0.15)
             UIView.setAnimationDelegate(self)
             UIView.beginAnimations("sideBarAnimation", context: nil)
-            sideBarView.frame = CGRect(x: 0, y: 72, width: 0, height: 214)
+            sideBarView.frame = CGRect(x: 0, y: 64, width: 0, height: 214)
             sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 214)
             UIView.commitAnimations()
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // when you press the About us option in the sideBar it presents the "aboutPage" view
-        // *** insert similar logic here to assign a view to a new option, the indexPath refers to the items in sideBarFeatures ***
-        if indexPath.row == 2 {
-            let aboutUs:AboutUsPage = self.storyboard?.instantiateViewController(withIdentifier: "aboutPage") as! AboutUsPage
-            present(aboutUs, animated:true, completion: nil)
+        if tableView == sideBarTable {
+            // when you press the About us option in the sideBar it presents the "aboutPage" view
+            // insert similar logic here to assign a view to a new option, the indexPath refers to the items in sideBarFeatures
+            if indexPath.row == 2 {
+                let aboutUs:AboutUsPage = self.storyboard?.instantiateViewController(withIdentifier: "aboutPage") as! AboutUsPage
+                present(aboutUs, animated:true, completion: nil)
+            }
         }
     }
     

@@ -19,6 +19,20 @@
 		C027B3B120E687DF00392A38 /* ChatPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027B3B020E687DF00392A38 /* ChatPage.swift */; };
 		C0571FB420EAAB57008716A8 /* AboutUsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0571FB320EAAB57008716A8 /* AboutUsPage.swift */; };
 		C0C3994820EC1F97007ACFBA /* ChatLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3994720EC1F97007ACFBA /* ChatLogic.swift */; };
+		C0E7DA0320EE766600EA7494 /* chatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E7DA0220EE766600EA7494 /* chatTableViewCell.swift */; };
+		C0E7DA0520FE888C00EA7494 /* IntuneMAM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */; };
+		C0E7DA0620FE888C00EA7494 /* IntuneMAM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C0E7DA0A20FE897200EA7494 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0920FE897200EA7494 /* MessageUI.framework */; };
+		C0E7DA0C20FE897900EA7494 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0B20FE897900EA7494 /* Security.framework */; };
+		C0E7DA0E20FE898500EA7494 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0D20FE898500EA7494 /* MobileCoreServices.framework */; };
+		C0E7DA1020FE898D00EA7494 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0F20FE898D00EA7494 /* SystemConfiguration.framework */; };
+		C0E7DA1220FE899900EA7494 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1120FE899900EA7494 /* libsqlite3.tbd */; };
+		C0E7DA1420FE89A300EA7494 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1320FE89A300EA7494 /* libc++.tbd */; };
+		C0E7DA1620FE89AD00EA7494 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1520FE89AD00EA7494 /* ImageIO.framework */; };
+		C0E7DA1820FE89B500EA7494 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1720FE89B500EA7494 /* LocalAuthentication.framework */; };
+		C0E7DA1A20FE89C800EA7494 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1920FE89C800EA7494 /* AudioToolbox.framework */; };
+		C0E7DA1C20FE89D400EA7494 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1B20FE89D400EA7494 /* QuartzCore.framework */; };
+		C0E7DA1E20FE89DB00EA7494 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1D20FE89DB00EA7494 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +51,20 @@
 			remoteInfo = chatr;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C0E7DA0720FE888C00EA7494 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C0E7DA0620FE888C00EA7494 /* IntuneMAM.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C01A67DC20DAB03F00F80AFB /* chatr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +85,20 @@
 		C027B3B020E687DF00392A38 /* ChatPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPage.swift; sourceTree = "<group>"; };
 		C0571FB320EAAB57008716A8 /* AboutUsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsPage.swift; sourceTree = "<group>"; };
 		C0C3994720EC1F97007ACFBA /* ChatLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogic.swift; sourceTree = "<group>"; };
+		C0E7DA0220EE766600EA7494 /* chatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatTableViewCell.swift; sourceTree = "<group>"; };
+		C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IntuneMAM.framework; sourceTree = "<group>"; };
+		C0E7DA0920FE897200EA7494 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C0E7DA0B20FE897900EA7494 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C0E7DA0D20FE898500EA7494 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C0E7DA0F20FE898D00EA7494 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C0E7DA1120FE899900EA7494 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C0E7DA1320FE89A300EA7494 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		C0E7DA1520FE89AD00EA7494 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		C0E7DA1720FE89B500EA7494 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		C0E7DA1920FE89C800EA7494 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C0E7DA1B20FE89D400EA7494 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C0E7DA1D20FE89DB00EA7494 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		C0E7DA1F20FE8CAC00EA7494 /* chatr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = chatr.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +106,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E7DA1E20FE89DB00EA7494 /* WebKit.framework in Frameworks */,
+				C0E7DA1C20FE89D400EA7494 /* QuartzCore.framework in Frameworks */,
+				C0E7DA1A20FE89C800EA7494 /* AudioToolbox.framework in Frameworks */,
+				C0E7DA1820FE89B500EA7494 /* LocalAuthentication.framework in Frameworks */,
+				C0E7DA1620FE89AD00EA7494 /* ImageIO.framework in Frameworks */,
+				C0E7DA1420FE89A300EA7494 /* libc++.tbd in Frameworks */,
+				C0E7DA1220FE899900EA7494 /* libsqlite3.tbd in Frameworks */,
+				C0E7DA1020FE898D00EA7494 /* SystemConfiguration.framework in Frameworks */,
+				C0E7DA0E20FE898500EA7494 /* MobileCoreServices.framework in Frameworks */,
+				C0E7DA0C20FE897900EA7494 /* Security.framework in Frameworks */,
+				C0E7DA0A20FE897200EA7494 /* MessageUI.framework in Frameworks */,
+				C0E7DA0520FE888C00EA7494 /* IntuneMAM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,10 +141,12 @@
 		C01A67D320DAB03F00F80AFB = {
 			isa = PBXGroup;
 			children = (
+				C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */,
 				C01A67DE20DAB03F00F80AFB /* chatr */,
 				C01A67F320DAB03F00F80AFB /* chatrTests */,
 				C01A67FE20DAB03F00F80AFB /* chatrUITests */,
 				C01A67DD20DAB03F00F80AFB /* Products */,
+				C0E7DA0820FE897100EA7494 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,9 +163,11 @@
 		C01A67DE20DAB03F00F80AFB /* chatr */ = {
 			isa = PBXGroup;
 			children = (
+				C0E7DA1F20FE8CAC00EA7494 /* chatr.entitlements */,
 				C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */,
 				C01A67E120DAB03F00F80AFB /* ViewController.swift */,
 				C01A67E320DAB03F00F80AFB /* Main.storyboard */,
+				C0E7DA0220EE766600EA7494 /* chatTableViewCell.swift */,
 				C0571FB320EAAB57008716A8 /* AboutUsPage.swift */,
 				C0C3994720EC1F97007ACFBA /* ChatLogic.swift */,
 				C027B3B020E687DF00392A38 /* ChatPage.swift */,
@@ -140,6 +198,24 @@
 			path = chatrUITests;
 			sourceTree = "<group>";
 		};
+		C0E7DA0820FE897100EA7494 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0E7DA1D20FE89DB00EA7494 /* WebKit.framework */,
+				C0E7DA1B20FE89D400EA7494 /* QuartzCore.framework */,
+				C0E7DA1920FE89C800EA7494 /* AudioToolbox.framework */,
+				C0E7DA1720FE89B500EA7494 /* LocalAuthentication.framework */,
+				C0E7DA1520FE89AD00EA7494 /* ImageIO.framework */,
+				C0E7DA1320FE89A300EA7494 /* libc++.tbd */,
+				C0E7DA1120FE899900EA7494 /* libsqlite3.tbd */,
+				C0E7DA0F20FE898D00EA7494 /* SystemConfiguration.framework */,
+				C0E7DA0D20FE898500EA7494 /* MobileCoreServices.framework */,
+				C0E7DA0B20FE897900EA7494 /* Security.framework */,
+				C0E7DA0920FE897200EA7494 /* MessageUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,6 +226,7 @@
 				C01A67D820DAB03F00F80AFB /* Sources */,
 				C01A67D920DAB03F00F80AFB /* Frameworks */,
 				C01A67DA20DAB03F00F80AFB /* Resources */,
+				C0E7DA0720FE888C00EA7494 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -209,6 +286,11 @@
 					C01A67DB20DAB03F00F80AFB = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					C01A67EF20DAB03F00F80AFB = {
 						CreatedOnToolsVersion = 9.2;
@@ -277,6 +359,7 @@
 			files = (
 				C0C3994820EC1F97007ACFBA /* ChatLogic.swift in Sources */,
 				C0571FB420EAAB57008716A8 /* AboutUsPage.swift in Sources */,
+				C0E7DA0320EE766600EA7494 /* chatTableViewCell.swift in Sources */,
 				C01A67E220DAB03F00F80AFB /* ViewController.swift in Sources */,
 				C01A67E020DAB03F00F80AFB /* AppDelegate.swift in Sources */,
 				C01A681320E166CA00F80AFB /* SideBarTableCell.swift in Sources */,
@@ -389,6 +472,8 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -438,6 +523,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -446,7 +533,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = chatr/chatr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UBF8T346G9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = chatr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatr;
@@ -460,7 +553,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = chatr/chatr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UBF8T346G9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = chatr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatr;
