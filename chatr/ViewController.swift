@@ -10,7 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    /*!
+     @param button action triggered when user presses the log in button
+     Sends the user through the ADAL Authentication flow for logging in
+    */
+    @IBAction func logInBtn(_ sender: Any) {
+        ObjCUtils.getToken(self)
+    }
     
+    @IBAction func logOutBtn(_ sender: Any) {
+        ObjCUtils.removeToken(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +31,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
     
 
 }

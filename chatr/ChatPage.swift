@@ -28,7 +28,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var typedChat: UITextField!
     @IBOutlet weak var chatTable: UITableView!
     
-    
+    // whole page for printing
+    @IBOutlet var wholePageView: UIView!
     
     /*
      * triggered when send button is pressed on chat page
@@ -111,7 +112,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             sendMessageCell.messageView.attributedText = conversation[indexPath.row].message
             //sendMessageCell.sizeToFit()
             // TODO: Alter the size of the cell to match dimensions of the text
-            //     : Change alignment of text to match the sender/reciever format
+            //     
             return sendMessageCell
         }
     }
@@ -127,13 +128,13 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.view.bringSubview(toFront: sideBarView)
         if !isMenu {
             isMenu = true
-            sideBarView.frame = CGRect(x: 0, y: 64, width: 0, height: 214)
-            sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 214)
+            sideBarView.frame = CGRect(x: 0, y: 64, width: 0, height: 233)
+            sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 233)
             UIView.setAnimationDuration(0.15)
             UIView.setAnimationDelegate(self)
             UIView.beginAnimations("sideBarAnimation", context: nil)
-            sideBarView.frame = CGRect(x: 0, y: 64, width: 187, height: 214)
-            sideBarTable.frame = CGRect(x: 0, y: 0, width: 187, height: 214)
+            sideBarView.frame = CGRect(x: 0, y: 64, width: 269, height: 233)
+            sideBarTable.frame = CGRect(x: 0, y: 0, width: 269, height: 233)
             UIView.commitAnimations()
         } else {
             sideBarView.isHidden = true
@@ -152,23 +153,41 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == sideBarTable {
-            // when you press the About us option in the sideBar it presents the "aboutPage" view
+            // complete an action based on the item pressed on the sidebar
             // insert similar logic here to assign a view to a new option, the indexPath refers to the items in sideBarFeatures
-            if indexPath.row == 2 {
+            if indexPath.row == 1 {
+                print()
+            } else if indexPath.row == 2 {
                 let aboutUs:AboutUsPage = self.storyboard?.instantiateViewController(withIdentifier: "aboutPage") as! AboutUsPage
                 present(aboutUs, animated:true, completion: nil)
             }
         }
     }
     
-    /*
-    // MARK: - Navigation
+    func print() {
+        // code logic modified from answer by Jody Heavener @ https://stackoverflow.com/questions/32403634/airprint-contents-of-a-uiview
+        let printInfo = UIPrintInfo(dictionary:nil)
+        printInfo.outputType = UIPrintInfoOutputType.general
+        printInfo.jobName = "Print chat page"
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let printController = UIPrintInteractionController.shared
+        printController.printInfo = printInfo
+        printController.printingItem = wholePageView.toImage()
+        printController.present(animated: true, completionHandler: nil)
     }
-    */
+}
 
+extension UIView {
+    // converts a UIView to an image
+    // used in the print() function for ChatPage
+    func toImage() -> UIImage {
+        // code logic modified from answer by Jody Heavener @ https://stackoverflow.com/questions/32403634/airprint-contents-of-a-uiview
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+        
+        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
 }
