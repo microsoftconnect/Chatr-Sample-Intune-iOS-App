@@ -150,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				C023DA9921010CDD00246456 /* ADAL.framework */,
-				C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */,
 				C01A67DE20DAB03F00F80AFB /* chatr */,
 				C01A67F320DAB03F00F80AFB /* chatrTests */,
 				C01A67FE20DAB03F00F80AFB /* chatrUITests */,
@@ -213,6 +212,7 @@
 		C0E7DA0820FE897100EA7494 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */,
 				C023DA9F210620D600246456 /* ADAL.framework */,
 				C0E7DA1D20FE89DB00EA7494 /* WebKit.framework */,
 				C0E7DA1B20FE89D400EA7494 /* QuartzCore.framework */,

@@ -35,6 +35,12 @@
 	<string>1</string>
 	<key>IntuneMAMSettings</key>
 	<dict>
+		<key>ADALClientId</key>
+		<string>3b8b98a5-94d4-48e7-af6a-d96dfc69763a</string>
+		<key>ADALAuthority</key>
+		<string>https://login.microsoftonline.com/common</string>
+		<key>ADALRedirectUri</key>
+		<string>chatr://Intune.chatr</string>
 		<key>MainStoryboardFile</key>
 		<string>Main</string>
 	</dict>

@@ -2,7 +2,7 @@
 //  Chat Page.swift
 //  chatr
 //
-//  SideBar Implementation guidance: https://youtu.be/GOSIz7JbZMA by Yogesh Patel
+//  Code for sidebar implementation adopted from: https://youtu.be/GOSIz7JbZMA by Yogesh Patel
 //  Other inspiration: https://stackoverflow.com/questions/31870206/how-to-insert-new-cell-into-uitableview-in-swift responses by EI Captain v2.0 and Dharmesh Kheni
 //
 //  Created by Mesert Kebed on 6/29/18.
@@ -11,7 +11,7 @@
 
 import UIKit
 
-// global variables used for saving conversations
+// global variable used for saving conversations
 var conversation:[(sender:String, message:NSAttributedString)] = []
 
 class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -28,13 +28,13 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var typedChat: UITextField!
     @IBOutlet weak var chatTable: UITableView!
     
-    // whole page for printing
+    // variables used for printing
     @IBOutlet var wholePageView: UIView!
     
-    /*
-     * triggered when send button is pressed on chat page
-     * empties out the text field and creates a new view with the message filled in.
-     * Messages should appear on the right side of the page
+    /*!
+        Button action triggered when send button is pressed on chat page
+     
+        Empties out the text field and creates a new view with the message.
      */
     @IBAction func sendChat(_ sender: UIButton) {
         
@@ -45,13 +45,15 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         typedChat.text = ""
         conversation.append((sender: "from", message: fromMessage))
         
-        //update the message board to include the update
+        // update the message board to include the update
         self.chatTable.beginUpdates()
         self.chatTable.insertRows(at: [IndexPath.init(row: conversation.count-1, section: 0)], with: .automatic)
         self.chatTable.endUpdates()
         
+        // send the reply
         replyChat()
     }
+    
     
     func replyChat() {
         
@@ -118,9 +120,10 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     /*
-     * action trigger: the Chatr logo button on the top left
-     * Reveals/hides the sideBar menu when the button is pressed depending on the state.
-     * If the menu was hidden when the button is pressed, then it will reveal the menu and vise versa.
+        Button action triggered when the the Chatr logo button on the top left is clicked
+     
+        Reveals/hides the sideBar menu when the button is pressed depending on the state
+            - If the menu was hidden when the button is pressed, then it will reveal the menu and vise versa.
      */
     @IBAction func sideBarMenu(_ sender: Any) {
         sideBarView.isHidden = false

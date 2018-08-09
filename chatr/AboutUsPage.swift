@@ -2,7 +2,7 @@
 //  AboutUsPage.swift
 //  chatr
 //
-//  Inspiration for inserting link in text: https://stackoverflow.com/questions/39238366/uitextvie-with-hyperlink-text response by Code Different
+//  Code for inserting link adopted from: https://stackoverflow.com/questions/39238366/uitextvie-with-hyperlink-text response by Code Different
 //
 //  Created by Mesert Kebed on 7/2/18.
 //  Copyright © 2018 Microsoft Intune. All rights reserved.
@@ -10,7 +10,7 @@
 
 import UIKit
 
-class AboutUsPage: UIViewController, UITextViewDelegate{
+class AboutUsPage: UIViewController, UITextViewDelegate, IntuneMAMPolicyDelegate{
     
     // variables used throughout this class
     @IBOutlet weak var aboutUsText: UITextView!

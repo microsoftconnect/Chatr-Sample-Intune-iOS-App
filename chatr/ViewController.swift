@@ -11,15 +11,22 @@ import UIKit
 class ViewController: UIViewController {
     
     /*!
-     @param button action triggered when user presses the log in button
-     Sends the user through the ADAL Authentication flow for logging in
+     Button action triggered when user presses the log in button
+     
+     Sends the user through the ADAL Authentication flow for logging in.
+     Triggers the "homePage" segue if login is successful; raises an alert if there is an error.
     */
     @IBAction func logInBtn(_ sender: Any) {
         ObjCUtils.getToken(self)
     }
     
+    /*!
+     Button action triggered when user presses the log out button
+     
+     Removes all of the token access for users of the app.
+     */
     @IBAction func logOutBtn(_ sender: Any) {
-        ObjCUtils.removeToken(self)
+        ObjCUtils.removeAppTokens()
     }
     
     override func viewDidLoad() {
