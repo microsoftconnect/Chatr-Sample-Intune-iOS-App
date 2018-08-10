@@ -96,11 +96,17 @@
              
          } else { // Sign in successful case
              printf("Successfully signed in");
+             //[[IntuneMAMEnrollmentManager instance] setDelegate:presentingViewController];
              
              NSString* userID = [self getSignedInUser];
+             //printf("%s", userID);
              
              // register the user account and attempt to enroll the app on behalf of this account
+             
              [[IntuneMAMEnrollmentManager instance] registerAndEnrollAccount:userID];
+             
+             //IntuneMAMEnrollmentStatus *status = [IntuneMAMEnrollmentStatus init];
+             //self.enrollmentRequestwithStatus(status);
              
              [presentingViewController performSegueWithIdentifier: @"homePage" sender:presentingViewController];
              //completionBlock(result.accessToken); --> TODO: Figure out what this function does
@@ -137,6 +143,24 @@
 + (BOOL) restartApplication
 {
     return false;
+}
+
+- (void)enrollmentRequestWithStatus:(IntuneMAMEnrollmentStatus*)status
+{
+    NSLog(@"enrollment result for identity %@ with status code %ld", status.identity, (unsigned long)status.statusCode);
+    NSLog(@"Debug Message: %@", status.errorString);
+}
+
+- (void)policyRequestWithStatus:(IntuneMAMEnrollmentStatus*)status
+{
+    NSLog(@"policy check-in result for identity %@ with status code %ld", status.identity, (unsigned long)status.statusCode);
+    NSLog(@"Debug Message: %@", status.errorString);
+}
+
+- (void)unenrollRequestWithStatus:(IntuneMAMEnrollmentStatus*)status
+{
+    NSLog(@"un-enroll result for identity %@ with status code %ld", status.identity, (unsigned long)status.statusCode);
+    NSLog(@"Debug Message: %@", status.errorString);
 }
 
 @end

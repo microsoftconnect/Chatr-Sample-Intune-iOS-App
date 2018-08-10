@@ -16,7 +16,6 @@
 		C01A680020DAB03F00F80AFB /* chatrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67FF20DAB03F00F80AFB /* chatrUITests.swift */; };
 		C01A680E20DAE2BB00F80AFB /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C01A680D20DAE2BB00F80AFB /* logo.jpg */; };
 		C01A681320E166CA00F80AFB /* SideBarTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A681220E166CA00F80AFB /* SideBarTableCell.swift */; };
-		C023DA9A21010CDD00246456 /* ADAL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C023DA9921010CDD00246456 /* ADAL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C023DAA12106519200246456 /* ObjCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C023DAA02106519200246456 /* ObjCUtils.m */; };
 		C027B3B120E687DF00392A38 /* ChatPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027B3B020E687DF00392A38 /* ChatPage.swift */; };
 		C0571FB420EAAB57008716A8 /* AboutUsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0571FB320EAAB57008716A8 /* AboutUsPage.swift */; };
@@ -61,7 +60,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C023DA9A21010CDD00246456 /* ADAL.framework in Embed Frameworks */,
 				C0E7DA0620FE888C00EA7494 /* IntuneMAM.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -85,7 +83,6 @@
 		C01A680120DAB03F00F80AFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C01A680D20DAE2BB00F80AFB /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpg; path = ../../Graphics/logo.jpg; sourceTree = "<group>"; };
 		C01A681220E166CA00F80AFB /* SideBarTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarTableCell.swift; sourceTree = "<group>"; };
-		C023DA9921010CDD00246456 /* ADAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ADAL.framework; path = adal/ADAL.framework; sourceTree = "<group>"; };
 		C023DA9C2101340200246456 /* chatr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chatr-Bridging-Header.h"; sourceTree = "<group>"; };
 		C023DA9F210620D600246456 /* ADAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADAL.framework; sourceTree = "<group>"; };
 		C023DAA02106519200246456 /* ObjCUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCUtils.m; sourceTree = "<group>"; };
@@ -149,7 +146,6 @@
 		C01A67D320DAB03F00F80AFB = {
 			isa = PBXGroup;
 			children = (
-				C023DA9921010CDD00246456 /* ADAL.framework */,
 				C01A67DE20DAB03F00F80AFB /* chatr */,
 				C01A67F320DAB03F00F80AFB /* chatrTests */,
 				C01A67FE20DAB03F00F80AFB /* chatrUITests */,

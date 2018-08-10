@@ -7,11 +7,12 @@
 //
 
 #import <IntuneMAM/IntuneMAMPolicyDelegate.h>
+#import <IntuneMAM/IntuneMAMEnrollmentDelegate.h>
 
 #ifndef ObjCUtils_h
 #define ObjCUtils_h
 
-@interface ObjCUtils : NSObject <IntuneMAMPolicyDelegate>
+@interface ObjCUtils : NSObject <IntuneMAMPolicyDelegate, IntuneMAMEnrollmentDelegate>
 
 + (NSString*) getSignedInUser;
 + (void)getToken: ( UIViewController* )presentingViewController;
