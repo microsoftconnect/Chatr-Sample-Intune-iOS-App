@@ -60,7 +60,7 @@
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="J5l-xG-qyR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="J5l-xG-qyR">
                                 <rect key="frame" x="115" y="53" width="539" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -256,6 +256,7 @@
                         <outlet property="sideBarView" destination="Ox3-Es-4vv" id="wml-43-Lep"/>
                         <outlet property="typedChat" destination="evh-Lq-AA5" id="1ga-6x-reh"/>
                         <outlet property="wholePageView" destination="Fqu-y0-NH1" id="WpA-gO-XeI"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="backToHomePage" id="Ymr-DL-epM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hq9-0b-uCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -416,7 +417,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo.jpg" width="500" height="500"/>
+        <image name="logo" width="512" height="512"/>
+        <image name="logo.jpg" width="1000" height="1000"/>
         <image name="menubar" width="222" height="178"/>
     </resources>
     <inferredMetricsTieBreakers>

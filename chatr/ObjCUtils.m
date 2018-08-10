@@ -96,17 +96,12 @@
              
          } else { // Sign in successful case
              printf("Successfully signed in");
-             //[[IntuneMAMEnrollmentManager instance] setDelegate:presentingViewController];
              
+             // get the id of the user that is currently signed in
              NSString* userID = [self getSignedInUser];
-             //printf("%s", userID);
              
              // register the user account and attempt to enroll the app on behalf of this account
-             
              [[IntuneMAMEnrollmentManager instance] registerAndEnrollAccount:userID];
-             
-             //IntuneMAMEnrollmentStatus *status = [IntuneMAMEnrollmentStatus init];
-             //self.enrollmentRequestwithStatus(status);
              
              [presentingViewController performSegueWithIdentifier: @"homePage" sender:presentingViewController];
              //completionBlock(result.accessToken); --> TODO: Figure out what this function does
@@ -137,13 +132,17 @@
 /*!
     Function as per IntuneMAMPolicyDelegate.h documentation.
  
-    Let's the SDK know that the restart of application when new MAM policies are recieved for the first time should be handled by the SDK.
+    Lets the SDK know that the restart of application when new MAM policies are recieved for the first time should be handled by the SDK.
     @return false
  */
 + (BOOL) restartApplication
 {
     return false;
 }
+
+/*!
+    Functions taken from https://docs.microsoft.com/en-us/intune/app-sdk-ios as per IntuneMAMEnrollmentDelegate.h documentation.
+ */
 
 - (void)enrollmentRequestWithStatus:(IntuneMAMEnrollmentStatus*)status
 {

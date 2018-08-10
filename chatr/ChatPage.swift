@@ -34,7 +34,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     /*!
         Button action triggered when send button is pressed on chat page
      
-        Empties out the text field and creates a new view with the message.
+        Empties out the text field, creates a new view with the message and triggers a response.
      */
     @IBAction func sendChat(_ sender: UIButton) {
         
@@ -54,9 +54,13 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         replyChat()
     }
     
-    
+   /*!
+        Creates a response message with links to the documentation and adds it to the chat view.
+        Called each time a message is sent.
+    */
     func replyChat() {
         
+        //create reply message
         let developerGuide: [NSAttributedStringKey : Any] = [.link: NSURL(string: "https://docs.microsoft.com/en-us/intune/app-sdk-ios")!, .foregroundColor: UIColor.blue]
         let faqPage: [NSAttributedStringKey : Any] = [.link : NSURL(string: "https://docs.microsoft.com/en-us/intune/app-sdk-ios#faqs")!, .foregroundColor: UIColor.blue]
         
@@ -64,13 +68,10 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         align.alignment = .left
         
         let replyMessage = NSMutableAttributedString(string: "Please refer to our documentation and read our faq page for any outstanding concerns. \nThank you.", attributes: [.paragraphStyle: align])
-        
-        
-        
         replyMessage.setAttributes(developerGuide, range: NSMakeRange(20, 13))
         replyMessage.setAttributes(faqPage, range: NSMakeRange(47, 3))
         
-        
+        // add it to the conversation list
         conversation.append((sender: "to", message: replyMessage))
         
         //update the message board to include the reply
@@ -129,7 +130,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sideBarView.isHidden = false
         sideBarTable.isHidden = false
         self.view.bringSubview(toFront: sideBarView)
+        
         if !isMenu {
+            // reveal sideBar menu
             isMenu = true
             sideBarView.frame = CGRect(x: 0, y: 64, width: 0, height: 233)
             sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 233)
@@ -139,7 +142,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             sideBarView.frame = CGRect(x: 0, y: 64, width: 269, height: 233)
             sideBarTable.frame = CGRect(x: 0, y: 0, width: 269, height: 233)
             UIView.commitAnimations()
-        } else {
+        }
+        else {
+            // hide sideBar menu
             sideBarView.isHidden = true
             sideBarTable.isHidden = true
             isMenu = false
@@ -154,6 +159,13 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    /*!
+        Actions within the side bar menu.
+        0 -> Save page (TODO)
+        1 -> Print page
+        2 -> Open About us page
+        3 -> Log out
+    */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == sideBarTable {
             // complete an action based on the item pressed on the sidebar
@@ -163,6 +175,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             } else if indexPath.row == 2 {
                 let aboutUs:AboutUsPage = self.storyboard?.instantiateViewController(withIdentifier: "aboutPage") as! AboutUsPage
                 present(aboutUs, animated:true, completion: nil)
+            } else if indexPath.row == 3 {
+                ObjCUtils.removeAppTokens()
+                performSegue(withIdentifier: "backToHomePage", sender: self)
             }
         }
     }
