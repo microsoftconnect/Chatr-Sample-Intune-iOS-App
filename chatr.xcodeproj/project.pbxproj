@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC6703AF212B1DEB00CBAD56 /* ADAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6703AD212B1CFA00CBAD56 /* ADAL.framework */; };
+		AC6703B0212B1DEB00CBAD56 /* ADAL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC6703AD212B1CFA00CBAD56 /* ADAL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C01A67E020DAB03F00F80AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */; };
 		C01A67E220DAB03F00F80AFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67E120DAB03F00F80AFB /* ViewController.swift */; };
 		C01A67E520DAB03F00F80AFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01A67E320DAB03F00F80AFB /* Main.storyboard */; };
@@ -60,6 +62,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				AC6703B0212B1DEB00CBAD56 /* ADAL.framework in Embed Frameworks */,
 				C0E7DA0620FE888C00EA7494 /* IntuneMAM.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -68,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AC6703AD212B1CFA00CBAD56 /* ADAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADAL.framework; sourceTree = "<group>"; };
 		C01A67DC20DAB03F00F80AFB /* chatr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C01A67E120DAB03F00F80AFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,10 +85,9 @@
 		C01A67FB20DAB03F00F80AFB /* chatrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chatrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C01A67FF20DAB03F00F80AFB /* chatrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatrUITests.swift; sourceTree = "<group>"; };
 		C01A680120DAB03F00F80AFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C01A680D20DAE2BB00F80AFB /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpg; path = ../../Graphics/logo.jpg; sourceTree = "<group>"; };
+		C01A680D20DAE2BB00F80AFB /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpg; path = ../logo.jpg; sourceTree = "<group>"; };
 		C01A681220E166CA00F80AFB /* SideBarTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarTableCell.swift; sourceTree = "<group>"; };
 		C023DA9C2101340200246456 /* chatr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chatr-Bridging-Header.h"; sourceTree = "<group>"; };
-		C023DA9F210620D600246456 /* ADAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADAL.framework; sourceTree = "<group>"; };
 		C023DAA02106519200246456 /* ObjCUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCUtils.m; sourceTree = "<group>"; };
 		C023DAA2210651E700246456 /* ObjCUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCUtils.h; sourceTree = "<group>"; };
 		C027B3B020E687DF00392A38 /* ChatPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPage.swift; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC6703AF212B1DEB00CBAD56 /* ADAL.framework in Frameworks */,
 				C0E7DA1E20FE89DB00EA7494 /* WebKit.framework in Frameworks */,
 				C0E7DA1C20FE89D400EA7494 /* QuartzCore.framework in Frameworks */,
 				C0E7DA1A20FE89C800EA7494 /* AudioToolbox.framework in Frameworks */,
@@ -208,8 +212,8 @@
 		C0E7DA0820FE897100EA7494 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC6703AD212B1CFA00CBAD56 /* ADAL.framework */,
 				C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */,
-				C023DA9F210620D600246456 /* ADAL.framework */,
 				C0E7DA1D20FE89DB00EA7494 /* WebKit.framework */,
 				C0E7DA1B20FE89D400EA7494 /* QuartzCore.framework */,
 				C0E7DA1920FE89C800EA7494 /* AudioToolbox.framework */,
@@ -553,6 +557,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = chatr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -577,6 +582,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = chatr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
