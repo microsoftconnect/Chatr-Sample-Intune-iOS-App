@@ -3,6 +3,7 @@
 //  chatr
 //
 //  Code for sidebar implementation adopted from: https://youtu.be/GOSIz7JbZMA by Yogesh Patel
+//  Code for alert message adopted from: https://www.simplifiedios.net/ios-show-alert-using-uialertcontroller/ by Belal Khan
 //  Other inspiration: https://stackoverflow.com/questions/31870206/how-to-insert-new-cell-into-uitableview-in-swift responses by EI Captain v2.0 and Dharmesh Kheni
 //
 //  Created by Mesert Kebed on 6/29/18.
@@ -13,6 +14,7 @@ import UIKit
 
 // global variable used for saving conversations
 var conversation:[(sender:String, message:NSAttributedString)] = []
+let savedConvo = UserDefaults.init()
 
 class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -88,6 +90,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sideBarView.isHidden = true
         sideBarTable.backgroundColor = UIColor.groupTableViewBackground
         isMenu = false
+        
+        print(ObjCUtils.getUserFirstName())
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -161,7 +166,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     /*!
         Actions within the side bar menu.
-        0 -> Save page (TODO)
+        0 -> Save page  
         1 -> Print page
         2 -> Open About us page
         3 -> Log out
@@ -170,20 +175,50 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if tableView == sideBarTable {
             // complete an action based on the item pressed on the sidebar
             // insert similar logic here to assign a view to a new option, the indexPath refers to the items in sideBarFeatures
-            if indexPath.row == 1 {
-                print()
+            if indexPath.row == 0 {
+                // check if save is allowed by policy
+                if ObjCUtils.isSaveToLocalDriveAllowed() {
+                    //save the conversation and present success alert to user
+                    savedConvo.set(conversation, forKey: "savedConversation ")
+                    let alert = UIAlertController(title: "Conversation Saved",
+                                                  message: "Your conversation has been successfully saved to your device.",
+                                                  preferredStyle: .alert)
+                    let closeAlert = UIAlertAction(title: "Ok",
+                                                   style: .default,
+                                                   handler: nil)
+                    alert.addAction(closeAlert)
+                    present(alert, animated: true, completion: nil)
+                }
+                else {
+                    let alert = UIAlertController(title: "Save is not allowed for this app",
+                                                  message: "Saving conversations to local storage has been disabled by your IT admin.",
+                                                  preferredStyle: .alert)
+                    let closeAlert = UIAlertAction(title: "Ok",
+                                                   style: .default,
+                                                   handler: nil)
+                    alert.addAction(closeAlert)
+                    present(alert, animated: true, completion: nil)
+                }
+            } else if indexPath.row == 1 {
+                // print conversation
+                printConvo()
             } else if indexPath.row == 2 {
+                // about us
                 let aboutUs:AboutUsPage = self.storyboard?.instantiateViewController(withIdentifier: "aboutPage") as! AboutUsPage
                 present(aboutUs, animated:true, completion: nil)
             } else if indexPath.row == 3 {
+                // log out
                 ObjCUtils.removeAppTokens()
                 performSegue(withIdentifier: "backToHomePage", sender: self)
             }
         }
     }
     
-    func print() {
-        // code logic modified from answer by Jody Heavener @ https://stackoverflow.com/questions/32403634/airprint-contents-of-a-uiview
+    /*!
+     
+    */
+    func printConvo() {
+        // code logic adopted from answer by Jody Heavener @ https://stackoverflow.com/questions/32403634/airprint-contents-of-a-uiview
         let printInfo = UIPrintInfo(dictionary:nil)
         printInfo.outputType = UIPrintInfoOutputType.general
         printInfo.jobName = "Print chat page"

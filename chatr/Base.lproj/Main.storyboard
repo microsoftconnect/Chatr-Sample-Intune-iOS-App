@@ -23,14 +23,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Looks like you have not been logged into an account yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zne-GF-nlp">
-                                        <rect key="frame" x="26" y="0.0" width="470" height="191"/>
+                                        <rect key="frame" x="35" y="0.0" width="461" height="191"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhY-If-DtU">
-                                        <rect key="frame" x="26" y="182" width="470" height="79"/>
+                                        <rect key="frame" x="35" y="207" width="461" height="54"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.070588235294117646" green="0.33725490196078434" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="30"/>
@@ -43,7 +43,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hda-AX-nLJ">
-                                        <rect key="frame" x="26" y="284" width="470" height="79"/>
+                                        <rect key="frame" x="35" y="284" width="461" height="54"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.75686274509803919" green="0.34901960784313724" blue="0.023529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="30"/>
@@ -61,7 +61,7 @@
                                 </accessibility>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="J5l-xG-qyR">
-                                <rect key="frame" x="115" y="53" width="539" height="504"/>
+                                <rect key="frame" x="132" y="53" width="522" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -90,7 +90,7 @@
                                 <color key="separatorColor" red="0.85490196080000003" green="0.91764705879999997" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.85490196078431369" green="0.91764705882352937" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" id="gW7-Q8-pxS" customClass="chatTableViewCell" customModule="chatr" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" id="gW7-Q8-pxS" customClass="chatTableViewCell" customModule="chatr" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gW7-Q8-pxS" id="q1J-tq-AkZ">
@@ -418,7 +418,7 @@
     </scenes>
     <resources>
         <image name="logo" width="512" height="512"/>
-        <image name="logo.jpg" width="1000" height="1000"/>
+        <image name="logo.jpg" width="1024" height="1024"/>
         <image name="menubar" width="222" height="178"/>
     </resources>
     <inferredMetricsTieBreakers>

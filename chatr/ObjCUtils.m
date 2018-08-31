@@ -27,12 +27,23 @@
 
 #import <IntuneMAM/IntuneMAMEnrollmentManager.h>
 #import <IntuneMAM/IntuneMAMPolicyDelegate.h>
+#import <IntuneMAM/IntuneMAMPolicyManager.h>
+#import <IntuneMAM/IntuneMAMAppConfigManager.h>
+#import <IntuneMAM/IntuneMAMAppConfig.h>
 #import "ObjCUtils.h"
 
 @implementation ObjCUtils
 
+// ** Constants used throughout code, change appropriately:
+//    clientID          --> Azure AD Application ID for your app from the Azure portal
+//    redirectUri       --> <scheme>://<bundle-id> | further details can be found @ https://docs.microsoft.com/en-gb/azure/active-directory/develop/quickstart-v1-ios
+#define CLIENTID @"3b5457ac-5240-43cc-8e93-6cd1b3bfadd5"
+#define REDIRECTURI @"chatr://Intune.chatr"
+
+
 /*!
-    Gets the userID of the user that is logged into the app based on the tokens in the cache
+    Gets the userID of the user that is logged into the app based on the tokens in the cache.
+    NOTE: This implementation is specific to a single user scenario
  
     @return userID, nil if no-one is logged in
  */
@@ -48,8 +59,7 @@
     for (ADTokenCacheItem *token in cacheItems) {
         NSString* clientID = token.clientId;
         
-        // ** change the string for the clientID to be the Azure AD Application ID from the Azure portal
-        if ([clientID isEqualToString:@"3b8b98a5-94d4-48e7-af6a-d96dfc69763a"]) {
+        if ([clientID isEqualToString:CLIENTID]) {
             userID = token.userInformation.userId;
         }
     }
@@ -71,12 +81,10 @@
     ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:@"https://login.microsoftonline.com/common" error:&error];
     
     // ** TO CHANGE:
-    //    clientID          --> Azure AD Application ID for your app from the Azure portal
-    //    redirectUri       --> <app-scheme>://<bundle-id> | further details can be found @ https://docs.microsoft.com/en-gb/azure/active-directory/develop/quickstart-v1-ios
     //    completionBlock   --> this is a function written by the developer that defines what happens in a success and failure case of authentication.
     [authContext acquireTokenWithResource:@"https://graph.windows.net"
-                                 clientId:@"3b8b98a5-94d4-48e7-af6a-d96dfc69763a"                          // Comes from App Portal
-                              redirectUri:[NSURL URLWithString:@"chatr://Intune.chatr"]                    // Comes from App Portal
+                                 clientId:CLIENTID
+                              redirectUri:[NSURL URLWithString:REDIRECTURI]
                           completionBlock:^(ADAuthenticationResult *result)
      {
          // Handles the case that sign in has failed
@@ -92,6 +100,7 @@
                                                                    handler:^(UIAlertAction * action) {
                                                                        [presentingViewController presentViewController:alert animated:YES completion:nil];
                                                                    }];
+             printf("Sign in failed, and no alert");
              [alert addAction:defaultAction];
              
          } else { // Sign in successful case
@@ -111,21 +120,22 @@
 
 
 /*!
-    Removes all of the tokens from the Cache. This will log out all of the users that are currently signed into the app.
-    For your apps: be sure to change the clientID --> This is the Application ID in the Azure portal
+    Removes all of the tokens from the Cache.
+    This will log out the user that are currently signed into the app. Single User logged in scenario
  */
 + (void)removeAppTokens
 {
     ADKeychainTokenCache* cache = [ADKeychainTokenCache defaultKeychainCache];
     
-    // Find the user that is signed in and log them out
+    // Find the user that is signed in
     NSString* userID = [self getSignedInUser];
     
     // deregister the user from the SDK and initate a selective wipe of the app
     [[IntuneMAMEnrollmentManager instance] deRegisterAndUnenrollAccount:userID withWipe:YES];
     
+    // delete all tokens associated with that userID and clientID
     [cache removeAllForUserId: userID
-                     clientId: @"3b8b98a5-94d4-48e7-af6a-d96dfc69763a"
+                     clientId: CLIENTID
                         error: nil];
 }
 
@@ -139,6 +149,49 @@
 {
     return false;
 }
+
+/*!
+    Function as per IntuneMAMPolicyDelegate.h documentation.
+ 
+    Lets the SDK handle the removal of data associated with a specified user. This is a design choice, developers can implement this function to handle the removal of the specified user data and return True when finished. Refer to detailed specs in the IntuneMAMPolicyDelegate.h documentation.
+    @return false
+ */
+- (BOOL) wipeDataForAccount:(NSString*)upn {
+    return false;
+}
+
+/*!
+    Checks if saving to local drive is allowed by policy. Used by the app to check before a save action goes on.
+    Modify the parameter in isSaveToAllowedForLocation to check for other Policy controlled save locations. Documentation in IntuneMAMPolicy.h
+ 
+    @return True if allowed, false otherwise
+ */
++ (BOOL) isSaveToLocalDriveAllowed
+{
+    // Find the user that is signed in
+    NSString* userID = [self getSignedInUser];
+    
+    // Check if save to is allowed by policy
+    return [[[IntuneMAMPolicyManager instance] policy] isSaveToAllowedForLocation: IntuneMAMSaveLocationLocalDrive withAccountName: userID];
+}
+
++ (NSString*) getUserFirstName
+{
+    // Find the user that is signed in
+    NSString* userID = [self getSignedInUser];
+    //IntuneMAMAppConfig *data = [[IntuneMAMAppConfigManager instance] appConfigForIdentity: userID];
+    //[IntuneMAMAppConfig stringValueForKey:"FirstName"];
+    //datastringValueForKey
+    printf("%s","beginning");
+    //for (NSDictionary *user in data) {
+        //for (NSString *key in user) {
+            //printf("%a", key);
+            
+        //}
+    //}
+    return @"Hii";
+}
+
 
 /*!
     Functions taken from https://docs.microsoft.com/en-us/intune/app-sdk-ios as per IntuneMAMEnrollmentDelegate.h documentation.

@@ -35,14 +35,16 @@
 	<string>1</string>
 	<key>IntuneMAMSettings</key>
 	<dict>
-		<key>ADALClientId</key>
-		<string>3b8b98a5-94d4-48e7-af6a-d96dfc69763a</string>
 		<key>ADALAuthority</key>
 		<string>https://login.microsoftonline.com/common</string>
+		<key>ADALClientId</key>
+		<string>3b5457ac-5240-43cc-8e93-6cd1b3bfadd5</string>
 		<key>ADALRedirectUri</key>
 		<string>chatr://Intune.chatr</string>
 		<key>MainStoryboardFile</key>
 		<string>Main</string>
+		<key>MAMPolicyRequired</key>
+		<string>YES</string>
 	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>

@@ -18,6 +18,9 @@
 + (void)getToken: ( UIViewController* )presentingViewController;
 + (void)removeAppTokens;
 + (BOOL) restartApplication;
++ (BOOL) isSaveToLocalDriveAllowed;
++ (NSString*) getUserFirstName;
+
 
 @end
 #endif /* ObjCUtils_h */
