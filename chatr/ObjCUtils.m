@@ -121,7 +121,7 @@
 
 /*!
     Removes all of the tokens from the Cache.
-    This will log out the user that are currently signed into the app. Single User logged in scenario
+    This will log out the user that are currently signed into the app. Specific to a single user scenario
  */
 + (void)removeAppTokens
 {
@@ -140,10 +140,10 @@
 }
 
 /*!
- Checks if saving to local drive is allowed by policy. Used by the app to check before a save action goes on.
- Modify the parameter in isSaveToAllowedForLocation to check for other Policy controlled save locations. Documentation in IntuneMAMPolicy.h
+    Checks if saving to local drive is allowed by policy. Used by the app to check if save is allowed, before the action is executed.
+    Modify the parameter in isSaveToAllowedForLocation to check for other APP controlled save locations. Documentation in IntuneMAMPolicy.h
  
- @return True if allowed, false otherwise
+    @return True if allowed, false otherwise
  */
 + (BOOL) isSaveToLocalDriveAllowed
 {
@@ -155,8 +155,9 @@
 }
 
 /*!
+    Gets the string value associated with "GroupName" from the app config setting on portal.azure.com
  
- @return groupName
+    @return groupName, Chatr if one is not set
  */
 + (NSString*) getUserGroupName
 {
@@ -166,6 +167,7 @@
     // Get the groupName value for the user - key value pairing set in the portal
     id<IntuneMAMAppConfig> data = [[IntuneMAMAppConfigManager instance] appConfigForIdentity: userID];
     NSString* groupName = [data stringValueForKey:@"GroupName" queryType:IntuneMAMStringAny];
+    
     if (groupName) {
         return groupName;
     }
@@ -197,7 +199,6 @@
 /*!
     Functions taken from https://docs.microsoft.com/en-us/intune/app-sdk-ios as per IntuneMAMEnrollmentDelegate.h documentation.
  */
-
 - (void)enrollmentRequestWithStatus:(IntuneMAMEnrollmentStatus*)status
 {
     NSLog(@"enrollment result for identity %@ with status code %ld", status.identity, (unsigned long)status.statusCode);

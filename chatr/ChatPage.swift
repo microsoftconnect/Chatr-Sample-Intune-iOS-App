@@ -2,12 +2,14 @@
 //  Chat Page.swift
 //  chatr
 //
-//  Code for sidebar implementation adopted from: https://youtu.be/GOSIz7JbZMA by Yogesh Patel
-//  Code for alert message adopted from: https://www.simplifiedios.net/ios-show-alert-using-uialertcontroller/ by Belal Khan
-//  Other inspiration: https://stackoverflow.com/questions/31870206/how-to-insert-new-cell-into-uitableview-in-swift responses by EI Captain v2.0 and Dharmesh Kheni
-//
 //  Created by Mesert Kebed on 6/29/18.
 //  Copyright © 2018 Microsoft Intune. All rights reserved.
+//
+//  Code for sidebar implementation adopted from: https://youtu.be/GOSIz7JbZMA by Yogesh Patel
+//  Code for alert message adopted from: https://www.simplifiedios.net/ios-show-alert-using-uialertcontroller/ by Belal Khan
+//  Code for print adopted from: https://stackoverflow.com/questions/32403634/airprint-contents-of-a-uiview answer by Jody Heavener
+//  Other inspiration: https://stackoverflow.com/questions/31870206/how-to-insert-new-cell-into-uitableview-in-swift responses by EI Captain v2.0 and Dharmesh Kheni
+//
 //
 
 import UIKit
@@ -16,7 +18,7 @@ import UIKit
 var conversation:[(sender:String, message:NSAttributedString)] = []
 let savedConvo = UserDefaults.init()
 
-class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     // variables used for creating the sidebar
     @IBOutlet weak var sideBarView: UIView!
@@ -98,6 +100,32 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // change user's group name on top of the chat page, one of the app config settings
         userFirstName.text = ObjCUtils.getUserGroupName()
         
+        let center:NotificationCenter = NotificationCenter.default;
+        center.addObserver(self, selector: #selector(keyboardShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        center.addObserver(self, selector: #selector(keyboardHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+    }
+    
+    @objc func keyboardShow(notification: Notification) {
+        let info:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        let keyboardY = self.view.frame.size.height - keyboardSize.height
+        let textFieldY:CGFloat! = typedChat.frame.origin.y
+        
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+            self.view.frame = CGRect(x:0, y:self.view.frame.origin.y - (textFieldY! - keyboardY + 50), width: self.view.bounds.width, height: self.view.bounds.height)
+        }, completion: nil)
+    }
+    
+    @objc func keyboardHide(notification: Notification) {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+            self.view.frame = CGRect(x:0, y:0, width: self.view.bounds.width, height: self.view.bounds.height)
+            }, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     override func didReceiveMemoryWarning() {
@@ -154,19 +182,26 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             UIView.commitAnimations()
         }
         else {
-            // hide sideBar menu
-            sideBarView.isHidden = true
-            sideBarTable.isHidden = true
-            isMenu = false
-            sideBarView.frame = CGRect(x: 0, y: 64, width: 187, height: 214)
-            sideBarTable.frame = CGRect(x: 0, y: 0, width: 187, height: 214)
-            UIView.setAnimationDuration(0.15)
-            UIView.setAnimationDelegate(self)
-            UIView.beginAnimations("sideBarAnimation", context: nil)
-            sideBarView.frame = CGRect(x: 0, y: 64, width: 0, height: 214)
-            sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 214)
-            UIView.commitAnimations()
+            hideSideBarMenu()
         }
+    }
+    
+    /*!
+        Hides the sidebar menu
+     */
+    func hideSideBarMenu() {
+        // hide sideBar menu
+        sideBarView.isHidden = true
+        sideBarTable.isHidden = true
+        isMenu = false
+        sideBarView.frame = CGRect(x: 0, y: 64, width: 187, height: 214)
+        sideBarTable.frame = CGRect(x: 0, y: 0, width: 187, height: 214)
+        UIView.setAnimationDuration(0.15)
+        UIView.setAnimationDelegate(self)
+        UIView.beginAnimations("sideBarAnimation", context: nil)
+        sideBarView.frame = CGRect(x: 0, y: 64, width: 0, height: 214)
+        sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 214)
+        UIView.commitAnimations()
     }
     
     /*!
@@ -195,7 +230,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     present(alert, animated: true, completion: nil)
                 }
                 else {
-                    let alert = UIAlertController(title: "Save is not allowed for this app",
+                    // alert the user that Save is disabled by APP
+                    let alert = UIAlertController(title: "Save Disabled",
                                                   message: "Saving conversations to local storage has been disabled by your IT admin.",
                                                   preferredStyle: .alert)
                     let closeAlert = UIAlertAction(title: "Ok",
@@ -219,14 +255,30 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    ///TODO EVALUATE IF NECESSARY
+    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
+        let duration = 0.3
+        let move: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
+        
+        UIView.beginAnimations("moveTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(duration)
+    }
+    
+   
+    
+    
+    
     /*!
-     
+        Presents the user with a print preview of the chat page.
+        Called by the side bar table
     */
     func printConvo() {
-        // code logic adopted from answer by Jody Heavener @ https://stackoverflow.com/questions/32403634/airprint-contents-of-a-uiview
+        hideSideBarMenu() // hide the side bar before you move on
+        
         let printInfo = UIPrintInfo(dictionary:nil)
         printInfo.outputType = UIPrintInfoOutputType.general
-        printInfo.jobName = "Print chat page"
+        printInfo.jobName = "Print Chat Page"
 
         let printController = UIPrintInteractionController.shared
         printController.printInfo = printInfo
