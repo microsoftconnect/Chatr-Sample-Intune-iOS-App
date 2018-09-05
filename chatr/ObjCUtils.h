@@ -19,7 +19,7 @@
 + (void)removeAppTokens;
 + (BOOL) restartApplication;
 + (BOOL) isSaveToLocalDriveAllowed;
-+ (NSString*) getUserFirstName;
++ (NSString*) getUserGroupName;
 
 
 @end

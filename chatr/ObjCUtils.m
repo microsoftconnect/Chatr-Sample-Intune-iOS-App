@@ -87,8 +87,7 @@
                               redirectUri:[NSURL URLWithString:REDIRECTURI]
                           completionBlock:^(ADAuthenticationResult *result)
      {
-         // Handles the case that sign in has failed
-         if (AD_SUCCEEDED != result.status){
+         if (AD_SUCCEEDED != result.status){    // Handles the case that sign in has failed
              printf("Sign in failed");
              
              // present the user with an alert asking them to sign in again.
@@ -103,17 +102,18 @@
              printf("Sign in failed, and no alert");
              [alert addAction:defaultAction];
              
-         } else { // Sign in successful case
+         } else {                               // Handles the case that sign in is successful
              printf("Successfully signed in");
              
              // get the id of the user that is currently signed in
              NSString* userID = [self getSignedInUser];
              
-             // register the user account and attempt to enroll the app on behalf of this account
+             // register and enroll the user account with the Intune MAM service,
+             // - fails silently look at enrollmentRequestWithStatus for debug messages
              [[IntuneMAMEnrollmentManager instance] registerAndEnrollAccount:userID];
              
+             // present the Chatr home page
              [presentingViewController performSegueWithIdentifier: @"homePage" sender:presentingViewController];
-             //completionBlock(result.accessToken); --> TODO: Figure out what this function does
          }
      }];
 }
@@ -140,6 +140,40 @@
 }
 
 /*!
+ Checks if saving to local drive is allowed by policy. Used by the app to check before a save action goes on.
+ Modify the parameter in isSaveToAllowedForLocation to check for other Policy controlled save locations. Documentation in IntuneMAMPolicy.h
+ 
+ @return True if allowed, false otherwise
+ */
++ (BOOL) isSaveToLocalDriveAllowed
+{
+    // Find the user that is signed in
+    NSString* userID = [self getSignedInUser];
+    
+    // Check if save to is allowed by policy
+    return [[[IntuneMAMPolicyManager instance] policy] isSaveToAllowedForLocation: IntuneMAMSaveLocationLocalDrive withAccountName: userID];
+}
+
+/*!
+ 
+ @return groupName
+ */
++ (NSString*) getUserGroupName
+{
+    // Find the user that is signed in
+    NSString* userID = [self getSignedInUser];
+    
+    // Get the groupName value for the user - key value pairing set in the portal
+    id<IntuneMAMAppConfig> data = [[IntuneMAMAppConfigManager instance] appConfigForIdentity: userID];
+    NSString* groupName = [data stringValueForKey:@"GroupName" queryType:IntuneMAMStringAny];
+    if (groupName) {
+        return groupName;
+    }
+    return @"Chatr";
+}
+
+
+/*!
     Function as per IntuneMAMPolicyDelegate.h documentation.
  
     Lets the SDK know that the restart of application when new MAM policies are recieved for the first time should be handled by the SDK.
@@ -159,39 +193,6 @@
 - (BOOL) wipeDataForAccount:(NSString*)upn {
     return false;
 }
-
-/*!
-    Checks if saving to local drive is allowed by policy. Used by the app to check before a save action goes on.
-    Modify the parameter in isSaveToAllowedForLocation to check for other Policy controlled save locations. Documentation in IntuneMAMPolicy.h
- 
-    @return True if allowed, false otherwise
- */
-+ (BOOL) isSaveToLocalDriveAllowed
-{
-    // Find the user that is signed in
-    NSString* userID = [self getSignedInUser];
-    
-    // Check if save to is allowed by policy
-    return [[[IntuneMAMPolicyManager instance] policy] isSaveToAllowedForLocation: IntuneMAMSaveLocationLocalDrive withAccountName: userID];
-}
-
-+ (NSString*) getUserFirstName
-{
-    // Find the user that is signed in
-    NSString* userID = [self getSignedInUser];
-    //IntuneMAMAppConfig *data = [[IntuneMAMAppConfigManager instance] appConfigForIdentity: userID];
-    //[IntuneMAMAppConfig stringValueForKey:"FirstName"];
-    //datastringValueForKey
-    printf("%s","beginning");
-    //for (NSDictionary *user in data) {
-        //for (NSString *key in user) {
-            //printf("%a", key);
-            
-        //}
-    //}
-    return @"Hii";
-}
-
 
 /*!
     Functions taken from https://docs.microsoft.com/en-us/intune/app-sdk-ios as per IntuneMAMEnrollmentDelegate.h documentation.

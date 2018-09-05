@@ -33,6 +33,10 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // variables used for printing
     @IBOutlet var wholePageView: UIView!
     
+    // variable to display user name on top of the chat page, default set to 'Chatr'
+    // Onpage load: updated to be user's first name based on targetted app config
+    @IBOutlet weak var userFirstName: UITextField!
+    
     /*!
         Button action triggered when send button is pressed on chat page
      
@@ -91,7 +95,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         sideBarTable.backgroundColor = UIColor.groupTableViewBackground
         isMenu = false
         
-        print(ObjCUtils.getUserFirstName())
+        // change user's group name on top of the chat page, one of the app config settings
+        userFirstName.text = ObjCUtils.getUserGroupName()
         
     }
 
