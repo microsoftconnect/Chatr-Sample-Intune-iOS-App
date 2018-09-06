@@ -36,7 +36,7 @@
 	<key>IntuneMAMSettings</key>
 	<dict>
 		<key>ADALAuthority</key>
-		<string>https://login.microsoftonline.com/common</string>
+		<string>https://login.windows.net/common</string>
 		<key>ADALClientId</key>
 		<string>3b5457ac-5240-43cc-8e93-6cd1b3bfadd5</string>
 		<key>ADALRedirectUri</key>

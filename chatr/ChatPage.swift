@@ -39,6 +39,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     // Onpage load: updated to be user's first name based on targetted app config
     @IBOutlet weak var userFirstName: UITextField!
     
+   
     /*!
         Button action triggered when send button is pressed on chat page
      
@@ -65,7 +66,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
    /*!
         Creates a response message with links to the documentation and adds it to the chat view.
         Called each time a message is sent.
-    */
+    */ 
     func replyChat() {
         
         //create reply message
@@ -100,12 +101,39 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         // change user's group name on top of the chat page, one of the app config settings
         userFirstName.text = ObjCUtils.getUserGroupName()
         
-        let center:NotificationCenter = NotificationCenter.default;
-        center.addObserver(self, selector: #selector(keyboardShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        center.addObserver(self, selector: #selector(keyboardHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardNotification(notification:)),
+                                               name: NSNotification.Name.UIKeyboardWillChangeFrame,
+                                               object: nil)
         
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardNotification(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let endFrameY = endFrame?.origin.y ?? 0
+            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
+            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            if endFrameY >= UIScreen.main.bounds.size.height {
+                //self.keyboardHeightLayoutConstraint?.constant = 0.0
+            } else {
+                //self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
+            }
+            UIView.animate(withDuration: duration,
+                           delay: TimeInterval(0),
+                           options: animationCurve,
+                           animations: { self.view.layoutIfNeeded() },
+                           completion: nil)
+        }
+    }
+    
+    /*
     @objc func keyboardShow(notification: Notification) {
         let info:NSDictionary = notification.userInfo! as NSDictionary
         let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
@@ -122,7 +150,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             self.view.frame = CGRect(x:0, y:0, width: self.view.bounds.width, height: self.view.bounds.height)
             }, completion: nil)
     }
-    
+    */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

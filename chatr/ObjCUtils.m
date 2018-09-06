@@ -55,7 +55,7 @@
     // Finds all of the tokens stored in the cache
     NSArray<ADTokenCacheItem *> *cacheItems= [cache allItems:nil];
     
-    // Find all tokens for the chatr client, and remove it from the cache. This will log out all of the users that are signed into the app
+    // Go through all of the tokens and grab the userID of the last token associated with the clientID Works for a single user scenario.
     for (ADTokenCacheItem *token in cacheItems) {
         NSString* clientID = token.clientId;
         
@@ -78,11 +78,11 @@
 + (void)getToken: ( UIViewController* )presentingViewController
 {
     ADAuthenticationError *error = nil;
-    ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:@"https://login.microsoftonline.com/common" error:&error];
+    ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:@"https://login.windows.net/common" error:&error];
     
     // ** TO CHANGE:
     //    completionBlock   --> this is a function written by the developer that defines what happens in a success and failure case of authentication.
-    [authContext acquireTokenWithResource:@"https://graph.windows.net"
+    [authContext acquireTokenWithResource:@"https://graph.microsoft.com"
                                  clientId:CLIENTID
                               redirectUri:[NSURL URLWithString:REDIRECTURI]
                           completionBlock:^(ADAuthenticationResult *result)
@@ -166,12 +166,19 @@
     
     // Get the groupName value for the user - key value pairing set in the portal
     id<IntuneMAMAppConfig> data = [[IntuneMAMAppConfigManager instance] appConfigForIdentity: userID];
-    NSString* groupName = [data stringValueForKey:@"GroupName" queryType:IntuneMAMStringAny];
     
-    if (groupName) {
-        return groupName;
+    // if there are no conflicts for that key, find the value associated with the key
+    if (! [data hasConflict:@"GroupName"]) {
+        NSString* groupName = [data stringValueForKey:@"GroupName" queryType:IntuneMAMStringAny];
+        
+        if (groupName) {
+            return groupName;
+        }
+    } else {
+        // resolve the conflict by taking the max value
+        return [data stringValueForKey:@"GroupName" queryType:IntuneMAMStringMax];
     }
-    return @"Chatr";
+    return @"Chatr";    // default, if none is set
 }
 
 
@@ -189,7 +196,8 @@
 /*!
     Function as per IntuneMAMPolicyDelegate.h documentation.
  
-    Lets the SDK handle the removal of data associated with a specified user. This is a design choice, developers can implement this function to handle the removal of the specified user data and return True when finished. Refer to detailed specs in the IntuneMAMPolicyDelegate.h documentation.
+    Lets the SDK handle the removal of data associated with a specified user.
+    This is a design choice, developers can implement this function to handle the removal of the specified user data and return True when finished. Read IntuneMAMPolicyDelegate.h documentation.
     @return false
  */
 - (BOOL) wipeDataForAccount:(NSString*)upn {
