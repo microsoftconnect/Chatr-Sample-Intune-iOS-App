@@ -21,8 +21,6 @@
 		C023DAA12106519200246456 /* ObjCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C023DAA02106519200246456 /* ObjCUtils.m */; };
 		C027B3B120E687DF00392A38 /* ChatPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027B3B020E687DF00392A38 /* ChatPage.swift */; };
 		C0571FB420EAAB57008716A8 /* AboutUsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0571FB320EAAB57008716A8 /* AboutUsPage.swift */; };
-		C061D964213593AA0090115A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C061D963213593A90090115A /* Settings.bundle */; };
-		C0C3994820EC1F97007ACFBA /* ChatLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C3994720EC1F97007ACFBA /* ChatLogic.swift */; };
 		C0E7DA0320EE766600EA7494 /* chatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E7DA0220EE766600EA7494 /* chatTableViewCell.swift */; };
 		C0E7DA0520FE888C00EA7494 /* IntuneMAM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */; };
 		C0E7DA0620FE888C00EA7494 /* IntuneMAM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -93,8 +91,6 @@
 		C023DAA2210651E700246456 /* ObjCUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCUtils.h; sourceTree = "<group>"; };
 		C027B3B020E687DF00392A38 /* ChatPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPage.swift; sourceTree = "<group>"; };
 		C0571FB320EAAB57008716A8 /* AboutUsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsPage.swift; sourceTree = "<group>"; };
-		C061D963213593A90090115A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		C0C3994720EC1F97007ACFBA /* ChatLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogic.swift; sourceTree = "<group>"; };
 		C0E7DA0220EE766600EA7494 /* chatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatTableViewCell.swift; sourceTree = "<group>"; };
 		C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IntuneMAM.framework; sourceTree = "<group>"; };
 		C0E7DA0920FE897200EA7494 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -152,7 +148,6 @@
 		C01A67D320DAB03F00F80AFB = {
 			isa = PBXGroup;
 			children = (
-				C061D963213593A90090115A /* Settings.bundle */,
 				C01A67DE20DAB03F00F80AFB /* chatr */,
 				C01A67F320DAB03F00F80AFB /* chatrTests */,
 				C01A67FE20DAB03F00F80AFB /* chatrUITests */,
@@ -180,7 +175,6 @@
 				C01A67E320DAB03F00F80AFB /* Main.storyboard */,
 				C0E7DA0220EE766600EA7494 /* chatTableViewCell.swift */,
 				C0571FB320EAAB57008716A8 /* AboutUsPage.swift */,
-				C0C3994720EC1F97007ACFBA /* ChatLogic.swift */,
 				C027B3B020E687DF00392A38 /* ChatPage.swift */,
 				C01A681220E166CA00F80AFB /* SideBarTableCell.swift */,
 				C01A680D20DAE2BB00F80AFB /* logo.jpg */,
@@ -348,7 +342,6 @@
 			files = (
 				C01A680E20DAE2BB00F80AFB /* logo.jpg in Resources */,
 				C01A67EA20DAB03F00F80AFB /* LaunchScreen.storyboard in Resources */,
-				C061D964213593AA0090115A /* Settings.bundle in Resources */,
 				C01A67E720DAB03F00F80AFB /* Assets.xcassets in Resources */,
 				C01A67E520DAB03F00F80AFB /* Main.storyboard in Resources */,
 			);
@@ -375,7 +368,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0C3994820EC1F97007ACFBA /* ChatLogic.swift in Sources */,
 				C0571FB420EAAB57008716A8 /* AboutUsPage.swift in Sources */,
 				C0E7DA0320EE766600EA7494 /* chatTableViewCell.swift in Sources */,
 				C01A67E220DAB03F00F80AFB /* ViewController.swift in Sources */,

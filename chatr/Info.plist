@@ -41,10 +41,10 @@
 		<string>3b5457ac-5240-43cc-8e93-6cd1b3bfadd5</string>
 		<key>ADALRedirectUri</key>
 		<string>chatr://Intune.chatr</string>
-		<key>MainStoryboardFile</key>
-		<string>Main</string>
 		<key>MAMPolicyRequired</key>
 		<string>YES</string>
+		<key>MainStoryboardFile</key>
+		<string>Main</string>
 	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
@@ -65,8 +65,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

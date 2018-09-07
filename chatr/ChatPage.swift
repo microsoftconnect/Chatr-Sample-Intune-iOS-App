@@ -39,7 +39,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     // Onpage load: updated to be user's first name based on targetted app config
     @IBOutlet weak var userFirstName: UITextField!
     
-   
+    // variable to move textfield for keyboard actions
+    @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
+    
     /*!
         Button action triggered when send button is pressed on chat page
      
@@ -121,9 +123,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
             let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
             if endFrameY >= UIScreen.main.bounds.size.height {
-                //self.keyboardHeightLayoutConstraint?.constant = 0.0
+                self.keyboardHeightLayoutConstraint?.constant = 10.0
             } else {
-                //self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
+                self.keyboardHeightLayoutConstraint?.constant = (endFrame?.size.height)! + 10.0
             }
             UIView.animate(withDuration: duration,
                            delay: TimeInterval(0),
@@ -133,28 +135,12 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     
-    /*
-    @objc func keyboardShow(notification: Notification) {
-        let info:NSDictionary = notification.userInfo! as NSDictionary
-        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        let keyboardY = self.view.frame.size.height - keyboardSize.height
-        let textFieldY:CGFloat! = typedChat.frame.origin.y
-        
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
-            self.view.frame = CGRect(x:0, y:self.view.frame.origin.y - (textFieldY! - keyboardY + 50), width: self.view.bounds.width, height: self.view.bounds.height)
-        }, completion: nil)
-    }
     
-    @objc func keyboardHide(notification: Notification) {
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
-            self.view.frame = CGRect(x:0, y:0, width: self.view.bounds.width, height: self.view.bounds.height)
-            }, completion: nil)
-    }
-    */
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -200,13 +186,13 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         if !isMenu {
             // reveal sideBar menu
             isMenu = true
-            sideBarView.frame = CGRect(x: 0, y: 64, width: 0, height: 233)
-            sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 233)
+            sideBarView.frame = CGRect(x: 0, y: 71, width: 0, height: 203)
+            sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 203)
             UIView.setAnimationDuration(0.15)
             UIView.setAnimationDelegate(self)
             UIView.beginAnimations("sideBarAnimation", context: nil)
-            sideBarView.frame = CGRect(x: 0, y: 64, width: 269, height: 233)
-            sideBarTable.frame = CGRect(x: 0, y: 0, width: 269, height: 233)
+            sideBarView.frame = CGRect(x: 0, y: 71, width: 112.33, height: 203)
+            sideBarTable.frame = CGRect(x: 0, y: 0, width: 112.33, height: 203)
             UIView.commitAnimations()
         }
         else {
@@ -222,13 +208,13 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         sideBarView.isHidden = true
         sideBarTable.isHidden = true
         isMenu = false
-        sideBarView.frame = CGRect(x: 0, y: 64, width: 187, height: 214)
-        sideBarTable.frame = CGRect(x: 0, y: 0, width: 187, height: 214)
+        sideBarView.frame = CGRect(x: 0, y: 71, width: 112.33, height: 203)
+        sideBarTable.frame = CGRect(x: 0, y: 0, width: 112.33, height: 203)
         UIView.setAnimationDuration(0.15)
         UIView.setAnimationDelegate(self)
         UIView.beginAnimations("sideBarAnimation", context: nil)
-        sideBarView.frame = CGRect(x: 0, y: 64, width: 0, height: 214)
-        sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 214)
+        sideBarView.frame = CGRect(x: 0, y: 71, width: 0, height: 203)
+        sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 203)
         UIView.commitAnimations()
     }
     
@@ -282,19 +268,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             }
         }
     }
-    
-    ///TODO EVALUATE IF NECESSARY
-    func moveTextField(textField: UITextField, moveDistance: Int, up: Bool) {
-        let duration = 0.3
-        let move: CGFloat = CGFloat(up ? moveDistance: -moveDistance)
-        
-        UIView.beginAnimations("moveTextField", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(duration)
-    }
-    
-   
-    
     
     
     /*!
