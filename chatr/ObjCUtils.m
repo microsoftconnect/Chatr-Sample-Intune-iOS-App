@@ -82,7 +82,7 @@
     
     // delete all tokens associated with that userID and clientID
     [cache removeAllForUserId: userID
-                     clientId: CLIENTID
+                     clientId: nil //TODO Figure out the appropriate way to do this
                         error: nil];
 }
 
