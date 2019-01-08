@@ -17,7 +17,7 @@ class ViewController: UIViewController {
      Triggers the "homePage" segue if login is successful; raises an alert if there is an error.
     */
     @IBAction func logInBtn(_ sender: Any) {
-        ObjCUtils.getToken(self)
+        ObjCUtils.login(self)
     }
     
     /*!

@@ -34,88 +34,35 @@
 
 @implementation ObjCUtils
 
-// ** Constants used throughout code, change appropriately:
-//    clientID          --> Azure AD Application ID for your app from the Azure portal
-//    redirectUri       --> <scheme>://<bundle-id> | further details can be found @ https://docs.microsoft.com/en-gb/azure/active-directory/develop/quickstart-v1-ios
-#define CLIENTID @"3b5457ac-5240-43cc-8e93-6cd1b3bfadd5"
-#define REDIRECTURI @"chatr://Intune.chatr"
-
 
 /*!
-    Gets the userID of the user that is logged into the app based on the tokens in the cache.
+    Gets the userID of the user that is logged into the app using the Intune API method registeredAccounts
     NOTE: This implementation is specific to a single user scenario
  
     @return userID, nil if no-one is logged in
  */
-+ (NSString*) getSignedInUser
++ (NSString*_Nullable) getSignedInUser
 {
-    ADKeychainTokenCache* cache = [ADKeychainTokenCache defaultKeychainCache];
-    NSString* userID = nil;
-    
-    // Finds all of the tokens stored in the cache
-    NSArray<ADTokenCacheItem *> *cacheItems= [cache allItems:nil];
-    
-    // Go through all of the tokens and grab the userID of the last token associated with the clientID Works for a single user scenario.
-    for (ADTokenCacheItem *token in cacheItems) {
-        NSString* clientID = token.clientId;
-        
-        if ([clientID isEqualToString:CLIENTID]) {
-            userID = token.userInformation.userId;
-        }
-    }
-    return userID;
+    return [[IntuneMAMEnrollmentManager instance] enrolledAccount];
 }
 
 
 /*!
-    Function adapted from the Azure AD library for objc @ https://github.com/AzureAD/azure-activedirectory-library-for-objc
+ Function logs in user through the Intune sign in flow. It will point them back to the app after authentication is complete.
+ This function also handles enrolling the user account to be managed by the MAM service. This is a feature of loginAndEnrollAccount
  
-    Directs the user to the Azure AD sign in flow, and will point them back to the app once the authentication token has been acquired.
-    This function also handles enrolling the user account to be managed by the MAM service
+ Note that this can be done using ADAL if desired, but is done with Intune in this app.
  
-    @param presentingViewController - The view controller calling this function
+ @param presentingViewController - The view controller calling this function
  */
-+ (void)getToken: ( UIViewController* )presentingViewController
++ (void)login: ( UIViewController* )presentingViewController
 {
-    ADAuthenticationError *error = nil;
-    ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:@"https://login.windows.net/common" error:&error];
     
-    // ** TO CHANGE:
-    //    completionBlock   --> this is a function written by the developer that defines what happens in a success and failure case of authentication.
-    [authContext acquireTokenWithResource:@"https://graph.microsoft.com"
-                                 clientId:CLIENTID
-                              redirectUri:[NSURL URLWithString:REDIRECTURI]
-                          completionBlock:^(ADAuthenticationResult *result)
-     {
-         if (AD_SUCCEEDED != result.status){    // Handles the case that sign in has failed
-             printf("Sign in failed");
-             
-             // present the user with an alert asking them to sign in again.
-             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error Authenticating"
-                                                                            message:@"There was an error while logging you into you account. Please check your log in credentials and try again."
-                                                                     preferredStyle:UIAlertControllerStyleAlert];
-             
-             UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                   handler:^(UIAlertAction * action) {
-                                                                       [presentingViewController presentViewController:alert animated:YES completion:nil];
-                                                                   }];
-             printf("Sign in failed, and no alert");
-             [alert addAction:defaultAction];
-             
-         } else {                               // Handles the case that sign in is successful
-             printf("Successfully signed in");
-             
-             // get the id of the user that is currently signed in
-             NSString* userID = [self getSignedInUser];
-             
-             // register and enroll the user account with the Intune MAM service,
-             // - fails silently look at enrollmentRequestWithStatus for debug messages
-             [[IntuneMAMEnrollmentManager instance] registerAndEnrollAccount:userID];
-             
-             // present the Chatr home page
-             [presentingViewController performSegueWithIdentifier: @"homePage" sender:presentingViewController];
-         }
-     }];
+    [[IntuneMAMEnrollmentManager instance] loginAndEnrollAccount:NULL];
+    
+    //TODO Do this only in the case of a successful login. Otherwise raise an alert. Use the enrollmentDelegate to check the status of the login
+    // present the Chatr home page
+    [presentingViewController performSegueWithIdentifier: @"homePage" sender:presentingViewController];
 }
 
 

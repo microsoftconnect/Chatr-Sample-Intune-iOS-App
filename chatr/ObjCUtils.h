@@ -24,14 +24,14 @@
 + (NSString*) getSignedInUser;
 
 /*!
- Function adapted from the Azure AD library for objc @ https://github.com/AzureAD/azure-activedirectory-library-for-objc
+ Function logs in user through the Intune sign in flow. It will point them back to the app after authentication is complete.
+ This function also handles enrolling the user account to be managed by the MAM service. This is a feature of loginAndEnrollAccount
  
- Directs the user to the Azure AD sign in flow, and will point them back to the app once the authentication token has been acquired.
- This function also handles enrolling the user account to be managed by the MAM service
+ Note that this can be done using ADAL if desired, but is done with Intune in this app.
  
  @param presentingViewController - The view controller calling this function
  */
-+ (void)getToken: (UIViewController*) presentingViewController;
++ (void)login: (UIViewController*) presentingViewController;
 
 /*!
  Removes all of the tokens from the Cache.
