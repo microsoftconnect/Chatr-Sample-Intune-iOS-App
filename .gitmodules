@@ -1,0 +1,3 @@
+[submodule "adal"]
+	path = adal
+	url = https://github.com/AzureAD/azure-activedirectory-library-for-objc
