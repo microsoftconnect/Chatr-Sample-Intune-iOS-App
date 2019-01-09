@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger, IntuneMAMStringQueryType)
 
 /**
  *  An array of Dictionaries containing all the AppConfig data sent
- *  by the MAM service.  If a configuration Dictionary was sent as
+ *  by the MAM service/MDM channel.  If a configuration Dictionary was sent as
  *  a tenant wide default configuration, the __IsDefault key will be
  *  present in that dictionary and the value for that key will be set
  *  to true.  The __IsDefault key will only be present in the Dictionary
@@ -40,7 +40,7 @@ typedef NS_ENUM(NSUInteger, IntuneMAMStringQueryType)
  *  these targeted App Configuration settings should always take
  *  precedence over the tenant wide default configuration settings.
  */
-@property (readonly) NSArray<NSDictionary*>* fullData;
+@property (readonly,nullable) NSArray<NSDictionary*>* fullData;
 
 /**
  *  TRUE if there are more than one targeted App Configuration settings
@@ -49,64 +49,64 @@ typedef NS_ENUM(NSUInteger, IntuneMAMStringQueryType)
  *  setting for the key as well as only one targeted App Configuration setting,
  *  as the targeted should take precedence and there is no need for further
  *  conflict resolution.  This method will return FALSE if there were no App
- *  Configuration settings sent from the MAM service for the key requested,
+ *  Configuration settings sent from the MAM service/MDM channel for the key requested,
  *  or if there are multiple, but all identical, settings for the same key.
  */
-- (BOOL) hasConflict: (NSString*) key;
+- (BOOL) hasConflict: (NSString*_Nonnull) key;
 
 /**
  *  Returns a BOOL value as an NSNumber object for the key provided
  *  based on the query type provided.  This method will return a nil
  *  if there are no App Configuration settings sent from the MAM
- *  service for the key requested.  This method will only return a
+ *  service/MDM channel for the key requested.  This method will only return a
  *  value from the tenant wide default configuration if it is the
- *  only value sent from the MAM service for the key provided.
+ *  only value sent from the MAM service/MDM channel for the key provided.
  */
-- (NSNumber*) boolValueForKey:(NSString*)key queryType:(IntuneMAMBoolQueryType)queryType;
+- (NSNumber*_Nullable) boolValueForKey:(NSString*_Nonnull)key queryType:(IntuneMAMBoolQueryType)queryType;
 
 /**
  *  Returns an NSNumber object for the key provided based on the query type provided.
  *  This method will return a nil if there are no App Configuration settings sent
- *  from the MAM service for the key requested.  This method will only return a
+ *  from the MAM service/MDM channel for the key requested.  This method will only return a
  *  value from the tenant wide default configuration if it is the
- *  only value sent from the MAM service for the key provided.
+ *  only value sent from the MAM service/MDM channel for the key provided.
  */
-- (NSNumber*) numberValueForKey:(NSString*)key queryType:(IntuneMAMNumberQueryType)queryType;
+- (NSNumber*_Nullable) numberValueForKey:(NSString*_Nonnull)key queryType:(IntuneMAMNumberQueryType)queryType;
 
 /**
  *  Returns an NSString object for the key provided based on the query type provided.
  *  This method will return a nil if there are no App Configuration settings sent
- *  from the MAM service for the key requested.  This method will only return a
+ *  from the MAM service/MDM channel for the key requested.  This method will only return a
  *  value from the tenant wide default configuration if it is the
- *  only value sent from the MAM service for the key provided.
+ *  only value sent from the MAM service/MDM channel for the key provided.
  */
-- (NSString*) stringValueForKey:(NSString*)key queryType:(IntuneMAMStringQueryType)queryType;
+- (NSString*_Nullable) stringValueForKey:(NSString*_Nonnull)key queryType:(IntuneMAMStringQueryType)queryType;
 
 /**
  *  Returns an array of BOOL values as an NSNumber objects for the key provided.
  *  This method will return an empty array if there are no App Configuration
- *  settings sent from the MAM service for the key requested.  This method will
+ *  settings sent from the MAM service/MDM channel for the key requested.  This method will
  *  only return a value from the tenant wide default configuration if it is the
- *  only value sent from the MAM service for the key provided.
+ *  only value sent from the MAM service/MDM channel for the key provided.
  */
-- (NSArray<NSNumber*>*) allBoolsForKey:(NSString*)key;
+- (NSArray<NSNumber*>*_Nullable) allBoolsForKey:(NSString*_Nonnull)key;
 
 /**
  *  Returns an array of NSNumber objects for the key provided.
  *  This method will return an empty array if there are no App Configuration
- *  settings sent from the MAM service for the key requested.  This method will
+ *  settings sent from the MAM service/MDM channel for the key requested.  This method will
  *  only return a value from the tenant wide default configuration if it is the
- *  only value sent from the MAM service for the key provided.
+ *  only value sent from the MAM service/MDM channel for the key provided.
  */
-- (NSArray<NSNumber*>*) allNumbersForKey:(NSString*)key;
+- (NSArray<NSNumber*>*_Nullable) allNumbersForKey:(NSString*_Nonnull)key;
 
 /**
  *  Returns an array of NSString objects for the key provided.
  *  This method will return an empty array if there are no App Configuration
- *  settings sent from the MAM service for the key requested.  This method will
+ *  settings sent from the MAM service/MDM channel for the key requested.  This method will
  *  only return a value from the tenant wide default configuration if it is the
- *  only value sent from the MAM service for the key provided.
+ *  only value sent from the MAM service/MDM channel for the key provided.
  */
-- (NSArray<NSString*>*) allStringsForKey:(NSString*)key;
+- (NSArray<NSString*>*_Nullable) allStringsForKey:(NSString*_Nonnull)key;
 
 @end
