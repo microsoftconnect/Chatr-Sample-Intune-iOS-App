@@ -30,7 +30,6 @@
 @class ADUserIdentifier;
 @class UIViewController;
 @class ADTokenCache;
-@class WKWebView;
 
 #if !TARGET_OS_IPHONE
 @protocol ADTokenCacheDelegate;
@@ -124,6 +123,11 @@ typedef enum
     BOOL _extendedLifetimeEnabled;
     NSString* _logComponent;
     NSUUID* _correlationId;
+#if __has_feature(objc_arc)
+    __weak WebViewType* _webView;
+#else 
+    WebViewType* _webView;
+#endif
 }
 
 #if TARGET_OS_IPHONE
@@ -264,7 +268,7 @@ typedef enum
 
 /*! Gets or sets the webview, which will be used for the credentials. If nil, the library will create a webview object
  when needed, leveraging the parentController property. */
-@property (weak) WKWebView* webView;
+@property (weak) WebViewType* webView;
 
 /*! Enable to return access token with extended lifetime during server outage. */
 @property BOOL extendedLifetimeEnabled;
@@ -340,7 +344,7 @@ typedef enum
  @param redirectUri The redirect URI according to OAuth2 protocol
  @param userId The user to be prepopulated in the credentials form. Additionally, if token is found in the cache,
  it may not be used if it belongs to different token. This parameter can be nil.
- @param queryParams The extra query parameters will be appended to the HTTP request to the authorization endpoint. This parameter can be nil. It should be URL-encoded.
+ @param queryParams The extra query parameters will be appended to the HTTP request to the authorization endpoint. This parameter can be nil.
  @param completionBlock The block to execute upon completion. You can use embedded block, e.g. "^(ADAuthenticationResult res){ <your logic here> }"
  */
 - (void)acquireTokenWithResource:(NSString*)resource
@@ -358,7 +362,7 @@ typedef enum
  @param promptBehavior Controls if any credentials UI will be shown
  @param userId The user to be prepopulated in the credentials form. Additionally, if token is found in the cache,
  it may not be used if it belongs to different token. This parameter can be nil.
- @param queryParams The extra query parameters will be appended to the HTTP request to the authorization endpoint. This parameter can be nil. It should be URL-encoded.
+ @param queryParams The extra query parameters will be appended to the HTTP request to the authorization endpoint. This parameter can be nil.
  @param completionBlock The block to execute upon completion. You can use embedded block, e.g. "^(ADAuthenticationResult res){ <your logic here> }"
  */
 - (void)acquireTokenWithResource:(NSString*)resource
@@ -376,7 +380,7 @@ typedef enum
  @param redirectUri The redirect URI according to OAuth2 protocol
  @param promptBehavior Controls if any credentials UI will be shown.
  @param userId An ADUserIdentifier object describing the user being authenticated
- @param queryParams The extra query parameters will be appended to the HTTP request to the authorization endpoint. This parameter can be nil. It should be URL-encoded.
+ @param queryParams The extra query parameters will be appended to the HTTP request to the authorization endpoint. This parameter can be nil.
  @param completionBlock the block to execute upon completion. You can use embedded block, e.g. "^(ADAuthenticationResult res){ <your logic here> }"
  */
 - (void)acquireTokenWithResource:(NSString*)resource
@@ -393,7 +397,7 @@ typedef enum
  @param redirectUri The redirect URI according to OAuth2 protocol
  @param promptBehavior Controls if any credentials UI will be shown.
  @param userId An ADUserIdentifier object describing the user being authenticated
- @param queryParams The extra query parameters will be appended to the HTTP request to the authorization endpoint. This parameter can be nil. It should be URL-encoded.
+ @param queryParams The extra query parameters will be appended to the HTTP request to the authorization endpoint. This parameter can be nil.
  @param claims The claims parameter that needs to be sent to authorization endpoint. It should be URL-encoded.
  @param completionBlock the block to execute upon completion. You can use embedded block, e.g. "^(ADAuthenticationResult res){ <your logic here> }"
  */

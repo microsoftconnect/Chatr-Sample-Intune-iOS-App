@@ -51,13 +51,8 @@
 @property uint expirationBuffer;
 
 #if TARGET_OS_IPHONE
-/*! deprecated: This is replaced by webviewPresentationStyle. */
-@property BOOL enableFullScreen __attribute((deprecated("Use the webviewPresentationStyle property instead.")));
-
-
-/*! Used for webView presentation. Default is UIModalPresentationFullScreen */
-@property UIModalPresentationStyle webviewPresentationStyle;
-
+/*! Used for the webView. Default is YES.*/
+@property BOOL enableFullScreen;
 #endif //TARGET_OS_IPHONE
 
 #if !TARGET_OS_IPHONE
