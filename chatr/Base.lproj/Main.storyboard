@@ -372,7 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hq9-0b-uCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-98.4375" y="784.5703125"/>
+            <point key="canvasLocation" x="-266" y="921"/>
         </scene>
         <!--About Us Page-->
         <scene sceneID="47h-Fv-CrZ">
@@ -538,6 +538,6 @@
         <image name="menubar" width="166.5" height="133.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rVh-xx-UXT"/>
+        <segue reference="Ilo-6o-cxY"/>
     </inferredMetricsTieBreakers>
 </document>

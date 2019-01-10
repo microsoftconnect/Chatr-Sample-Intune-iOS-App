@@ -13,7 +13,7 @@
 #define ObjCUtils_h
 
 @class UIViewController;
-@interface ObjCUtils : NSObject <IntuneMAMPolicyDelegate>
+@interface ObjCUtils : NSObject 
 
 /*!
  Gets the userID of the user that is logged into the app based on the tokens in the cache.

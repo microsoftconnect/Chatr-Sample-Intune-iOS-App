@@ -31,6 +31,7 @@
 #import <IntuneMAM/IntuneMAMAppConfig.h>
 #import <IntuneMAM/IntuneMAMDiagnosticConsole.h>
 #import "ObjCUtils.h"
+#import "EnrollmentDelegate.h"
 
 @implementation ObjCUtils
 
@@ -57,12 +58,11 @@
  */
 + (void)login: ( UIViewController* )presentingViewController
 {
-    
+    [IntuneMAMEnrollmentManager instance].delegate = [[enrollmentDelegateClass alloc] initWithViewController:presentingViewController];
     [[IntuneMAMEnrollmentManager instance] loginAndEnrollAccount:NULL]; //TODO test this to make sure it works as well and also add the enrollment delegate
     
     //TODO Do this only in the case of a successful login. Otherwise raise an alert. Use the enrollmentDelegate to check the status of the login
     // present the Chatr home page
-    [presentingViewController performSegueWithIdentifier: @"homePage" sender:presentingViewController];
 }
 
 
