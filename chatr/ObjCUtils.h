@@ -13,7 +13,7 @@
 #define ObjCUtils_h
 
 @class UIViewController;
-@interface ObjCUtils : NSObject <IntuneMAMPolicyDelegate, IntuneMAMEnrollmentDelegate>
+@interface ObjCUtils : NSObject <IntuneMAMPolicyDelegate>
 
 /*!
  Gets the userID of the user that is logged into the app based on the tokens in the cache.
@@ -38,6 +38,9 @@
  This will log out the user that are currently signed into the app. Specific to a single user scenario
  */
 + (void)removeAppTokens;
+
+
++ (void)displayConsole;
 
 /*!
  Checks if saving to local drive is allowed by policy. Used by the app to check if save is allowed, before the action is executed.

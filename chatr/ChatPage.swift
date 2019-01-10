@@ -24,8 +24,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     @IBOutlet weak var sideBarView: UIView!
     @IBOutlet weak var sideBarTable: UITableView!
     var isMenu:Bool = false                                         // variable that indiates if the menu is being  displayed
-    var sideBarFeatures = ["Save","Print", "About us", "Log out"]   // the options on the sidebar
-    var sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
+    var sideBarFeatures = ["Save","Print", "About us","Settings", "Log out"]   // the options on the sidebar
+    var sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "profile"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
     
     
     // variables used for chat
@@ -262,6 +262,10 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                 let aboutUs:AboutUsPage = self.storyboard?.instantiateViewController(withIdentifier: "aboutPage") as! AboutUsPage
                 present(aboutUs, animated:true, completion: nil)
             } else if indexPath.row == 3 {
+                // settings page
+                let settings:SettingsPage = self.storyboard?.instantiateViewController(withIdentifier: "settingsPage") as! SettingsPage
+                present(settings, animated:true, completion: nil)
+            } else if indexPath.row == 4 {
                 // log out
                 ObjCUtils.removeAppTokens()
                 performSegue(withIdentifier: "backToHomePage", sender: self)

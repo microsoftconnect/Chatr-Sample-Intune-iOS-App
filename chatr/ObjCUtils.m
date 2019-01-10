@@ -86,6 +86,12 @@
                         error: nil];
 }
 
++ (void)displayConsole
+{
+    IntuneMAMDiagnosticConsole * diagnosticConsole = [[IntuneMAMDiagnosticConsole alloc] init];
+    [diagnosticConsole IntuneMAMDiagnosticConsole]
+}
+
 /*!
     Checks if saving to local drive is allowed by policy. Used by the app to check if save is allowed, before the action is executed.
     Modify the parameter in isSaveToAllowedForLocation to check for other APP controlled save locations. Documentation in IntuneMAMPolicy.h
@@ -153,6 +159,10 @@
 
 /*!
     Functions taken from https://docs.microsoft.com/en-us/intune/app-sdk-ios as per IntuneMAMEnrollmentDelegate.h documentation.
+ */
+
+/*!
+ The EnrollmentDelegateClass
  */
 - (void)enrollmentRequestWithStatus:(IntuneMAMEnrollmentStatus*)status
 {
