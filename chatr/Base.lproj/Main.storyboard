@@ -140,37 +140,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="40.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Display Intune diagnostics console" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9d-a1-pZv">
-                                                    <rect key="frame" x="8" y="11" width="265" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Pz-lp-Oi3">
-                                                    <rect key="frame" x="281" y="5" width="51" height="31"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ES6-D1-e59">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="41"/>
+                                                    <state key="normal" title="Display Intune diagnostics console"/>
                                                     <connections>
-                                                        <action selector="switchToggled:" destination="eMk-q4-lAZ" eventType="valueChanged" id="fg6-6K-vMD"/>
+                                                        <action selector="displayConsoleTapped:" destination="eMk-q4-lAZ" eventType="touchUpInside" id="7Mp-dx-m3r"/>
                                                     </connections>
-                                                </switch>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ES6-D1-e59" firstAttribute="leading" secondItem="dsJ-wU-JNH" secondAttribute="leadingMargin" constant="-8" id="8WL-bd-PJe"/>
+                                                <constraint firstItem="ES6-D1-e59" firstAttribute="top" secondItem="dsJ-wU-JNH" secondAttribute="top" id="T6O-Uj-ObJ"/>
+                                                <constraint firstItem="ES6-D1-e59" firstAttribute="leading" secondItem="dsJ-wU-JNH" secondAttribute="leading" id="aR2-I5-r5Q"/>
+                                                <constraint firstItem="ES6-D1-e59" firstAttribute="top" secondItem="dsJ-wU-JNH" secondAttribute="top" id="dtS-Gy-R3G"/>
+                                                <constraint firstItem="ES6-D1-e59" firstAttribute="leading" secondItem="dsJ-wU-JNH" secondAttribute="leading" id="ffk-Me-aNL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ES6-D1-e59" secondAttribute="trailing" constant="-8" id="gcm-XJ-a00"/>
+                                                <constraint firstItem="ES6-D1-e59" firstAttribute="centerY" secondItem="dsJ-wU-JNH" secondAttribute="centerY" id="hyg-vW-XEt"/>
+                                                <constraint firstAttribute="trailing" secondItem="ES6-D1-e59" secondAttribute="trailing" id="k2l-wx-0Pu"/>
+                                                <constraint firstItem="ES6-D1-e59" firstAttribute="centerX" secondItem="dsJ-wU-JNH" secondAttribute="centerX" id="l0j-Ba-EV5"/>
+                                                <constraint firstItem="ES6-D1-e59" firstAttribute="leading" secondItem="dsJ-wU-JNH" secondAttribute="leading" id="nGf-3c-uPO"/>
+                                                <constraint firstItem="ES6-D1-e59" firstAttribute="top" secondItem="dsJ-wU-JNH" secondAttribute="top" id="u0B-sc-K9T"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KrG-hh-OLG">
-                                <rect key="frame" x="0.0" y="247" width="375" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Diagnostics Console Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rw-Op-aW6">
-                                        <rect key="frame" x="8" y="8" width="359" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -179,8 +171,7 @@
                         <viewLayoutGuide key="safeArea" id="PNU-F7-5m8"/>
                     </view>
                     <connections>
-                        <outlet property="consoleSwitch" destination="2Pz-lp-Oi3" id="7CG-hx-wcq"/>
-                        <outlet property="consoleView" destination="KrG-hh-OLG" id="Pcd-8b-Dvn"/>
+                        <outlet property="displayConsoleButton" destination="ES6-D1-e59" id="SpS-Lq-qNb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esM-qu-WEe" userLabel="First Responder" sceneMemberID="firstResponder"/>

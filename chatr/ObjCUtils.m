@@ -6,7 +6,6 @@
 //  Copyright © 2018 Microsoft Intune. All rights reserved.
 //
 //  Error alert code adapted from: https://stackoverflow.com/questions/1747510/alert-view-in-iphone answer by krakover
-//  Azure AD token call from: https://github.com/AzureAD/azure-activedirectory-library-for-objc
 //
 
 #import <Foundation/Foundation.h>
@@ -30,6 +29,7 @@
 #import <IntuneMAM/IntuneMAMPolicyManager.h>
 #import <IntuneMAM/IntuneMAMAppConfigManager.h>
 #import <IntuneMAM/IntuneMAMAppConfig.h>
+#import <IntuneMAM/IntuneMAMDiagnosticConsole.h>
 #import "ObjCUtils.h"
 
 @implementation ObjCUtils
@@ -86,10 +86,13 @@
                         error: nil];
 }
 
+/*!
+ Displays the Intune Console on top of the app.
+ This console can be used to send diagnostics logs from the end users.
+ */
 + (void)displayConsole
 {
-    IntuneMAMDiagnosticConsole * diagnosticConsole = [[IntuneMAMDiagnosticConsole alloc] init];
-    [diagnosticConsole IntuneMAMDiagnosticConsole]
+    [IntuneMAMDiagnosticConsole displayDiagnosticConsoleInDarkMode:NO];
 }
 
 /*!

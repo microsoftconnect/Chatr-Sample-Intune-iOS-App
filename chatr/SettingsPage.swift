@@ -9,25 +9,16 @@
 import UIKit
 
 class SettingsPage: UIViewController {
-    //connection to the switch on the page
-    @IBOutlet weak var consoleSwitch: UISwitch!
-    //connection to the UIView for the console
-    @IBOutlet weak var consoleView: UIView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    @IBOutlet weak var displayConsoleButton: UIButton!
     
-    //Listener for switch toggle
-    @IBAction func switchToggled(_ sender: Any) {
-        toggleConsole()
+    //Listener for diagnostic console button
+    @IBAction func displayConsoleTapped(_ sender: Any) {
+        //when button is tapped, display console
+        displayConsole()
     }
-    
-    func toggleConsole(){
-        if consoleSwitch.isOn {
-            consoleView.isHidden = false
-            ObjCUtils.displayConsole()
-        } else {
-            consoleView.isHidden = true
-        }
+
+    func displayConsole(){
+        //use objectiveC function to call the necessary Intune method
+        ObjCUtils.displayConsole()
     }
 }
