@@ -58,11 +58,13 @@
  */
 + (void)login: ( UIViewController* )presentingViewController
 {
+    //first give the IntuneMAMEnrollmentManager an instance of the enrollmentDelegateClass as its delegate to check the status of attempted logins. Also initialize this class with the current view controller
     [IntuneMAMEnrollmentManager instance].delegate = [[enrollmentDelegateClass alloc] initWithViewController:presentingViewController];
-    [[IntuneMAMEnrollmentManager instance] loginAndEnrollAccount:NULL]; //TODO test this to make sure it works as well and also add the enrollment delegate
     
-    //TODO Do this only in the case of a successful login. Otherwise raise an alert. Use the enrollmentDelegate to check the status of the login
-    // present the Chatr home page
+    //Login the user through the Intune sign in flow. enrollmentDelegateClass will handle the outcome of this.
+    [[IntuneMAMEnrollmentManager instance] loginAndEnrollAccount:NULL];
+    
+    //TODO Figure out token caching and remove old ADAL stuff from this page
 }
 
 

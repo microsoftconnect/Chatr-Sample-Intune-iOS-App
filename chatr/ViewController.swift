@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     /*!
      Button action triggered when user presses the log in button
      
-     Sends the user through the ADAL Authentication flow for logging in.
+     Sends the user through the Intune Authentication flow for logging in.
      Triggers the "homePage" segue if login is successful; raises an alert if there is an error.
     */
     @IBAction func logInBtn(_ sender: Any) {
