@@ -174,7 +174,6 @@
 		C01A67DE20DAB03F00F80AFB /* chatr */ = {
 			isa = PBXGroup;
 			children = (
-				68AF9BE021E8E19200127E37 /* SettingsPage.swift */,
 				C0E7DA1F20FE8CAC00EA7494 /* chatr.entitlements */,
 				C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */,
 				C01A67E120DAB03F00F80AFB /* ViewController.swift */,
@@ -182,6 +181,7 @@
 				C0E7DA0220EE766600EA7494 /* chatTableViewCell.swift */,
 				C0571FB320EAAB57008716A8 /* AboutUsPage.swift */,
 				C027B3B020E687DF00392A38 /* ChatPage.swift */,
+				68AF9BE021E8E19200127E37 /* SettingsPage.swift */,
 				C01A681220E166CA00F80AFB /* SideBarTableCell.swift */,
 				C01A680D20DAE2BB00F80AFB /* logo.jpg */,
 				C01A67E620DAB03F00F80AFB /* Assets.xcassets */,

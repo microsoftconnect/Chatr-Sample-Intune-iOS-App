@@ -16,6 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let storyboard: UIStoryboard = UIStoryboard(name:"Main", bundle: Bundle.main)
+        
+        //check for enrolled account
+        if ObjCUtils.getSignedInUser() != nil{
+            //if an account is enrolled, skip over login page to main page
+            //Do this by setting the main chat page to the rootViewController
+            let mainPage = storyboard.instantiateViewController(withIdentifier: "ChatPage")
+            self.window?.rootViewController = mainPage
+            
+        } else{
+            //if not logged in, set the login page to the rootViewController
+            let loginPage = storyboard.instantiateViewController(withIdentifier: "LoginPage")
+            self.window?.rootViewController = loginPage
+        }
+        
         return true
     }
 

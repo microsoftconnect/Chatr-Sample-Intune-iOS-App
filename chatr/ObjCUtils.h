@@ -76,12 +76,5 @@
  */
 - (BOOL) wipeDataForAccount:(NSString*)upn;
 
-/*!
- Functions taken from https://docs.microsoft.com/en-us/intune/app-sdk-ios as per IntuneMAMEnrollmentDelegate.h documentation.
- */
-- (void)enrollmentRequestWithStatus:(IntuneMAMEnrollmentStatus*)status;
-- (void)policyRequestWithStatus:(IntuneMAMEnrollmentStatus*)status;
-- (void)unenrollRequestWithStatus:(IntuneMAMEnrollmentStatus*)status;
-
 @end
 #endif /* ObjCUtils_h */

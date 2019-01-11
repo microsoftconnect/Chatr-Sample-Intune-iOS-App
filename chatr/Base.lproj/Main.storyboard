@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LoginPage-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="chatr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginPage" title="LoginPage" id="BYZ-38-t0r" customClass="ViewController" customModule="chatr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="37.5" y="20" width="300" height="300"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfa-Vg-JAr">
-                                <rect key="frame" x="56.5" y="328" width="262.5" height="300.5"/>
+                                <rect key="frame" x="57.5" y="328" width="262.5" height="221"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like you have not been logged into an account yet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zne-GF-nlp">
                                         <rect key="frame" x="19.5" y="23" width="223" height="120"/>
@@ -42,48 +42,33 @@
                                             <action selector="logInBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S2P-ZK-baG"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hda-AX-nLJ">
-                                        <rect key="frame" x="19.5" y="216" width="223" height="48.5"/>
-                                        <color key="backgroundColor" red="0.75686274509803919" green="0.34901960784313724" blue="0.023529411764705882" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="PingFangHK-Semibold" family="PingFang HK" pointSize="25"/>
-                                        <state key="normal" title="LOG OUT ">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logOutBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Un8-pP-wWM"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.20784313725490194" green="0.55686274509803924" blue="0.61568627450980395" alpha="0.1874732448630137" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstItem="hda-AX-nLJ" firstAttribute="width" secondItem="BhY-If-DtU" secondAttribute="width" id="1Bz-is-jde"/>
-                                    <constraint firstItem="BhY-If-DtU" firstAttribute="height" secondItem="cfa-Vg-JAr" secondAttribute="height" multiplier="0.16" id="3gO-D7-swc"/>
+                                    <constraint firstItem="BhY-If-DtU" firstAttribute="height" secondItem="cfa-Vg-JAr" secondAttribute="height" multiplier="0.16" constant="12.640000000000001" id="3gO-D7-swc"/>
                                     <constraint firstItem="BhY-If-DtU" firstAttribute="centerX" secondItem="cfa-Vg-JAr" secondAttribute="centerX" id="BKX-7y-eX6"/>
                                     <constraint firstItem="Zne-GF-nlp" firstAttribute="centerX" secondItem="cfa-Vg-JAr" secondAttribute="centerX" id="GUm-5c-wHw"/>
                                     <constraint firstItem="Zne-GF-nlp" firstAttribute="top" secondItem="cfa-Vg-JAr" secondAttribute="top" constant="23" id="Nzo-yr-AsC" userLabel="Looks like you have not been logged into an account yet..top = top + 10"/>
                                     <constraint firstItem="BhY-If-DtU" firstAttribute="width" secondItem="Zne-GF-nlp" secondAttribute="width" id="c4g-qz-xg6"/>
                                     <constraint firstItem="BhY-If-DtU" firstAttribute="width" secondItem="cfa-Vg-JAr" secondAttribute="width" multiplier="0.85" id="eMI-QP-X7e"/>
                                     <constraint firstItem="BhY-If-DtU" firstAttribute="top" secondItem="Zne-GF-nlp" secondAttribute="bottom" constant="10" id="mLd-D0-PlA" userLabel="LOGIN.top = Looks like you have not been logged into an account yet..bottom"/>
-                                    <constraint firstItem="hda-AX-nLJ" firstAttribute="top" secondItem="BhY-If-DtU" secondAttribute="bottom" constant="15" id="qYE-ME-sy9" userLabel="LOG OUT .top = LOGIN.bottom + 15"/>
-                                    <constraint firstItem="hda-AX-nLJ" firstAttribute="height" secondItem="BhY-If-DtU" secondAttribute="height" id="rlL-co-wKX"/>
-                                    <constraint firstItem="hda-AX-nLJ" firstAttribute="centerX" secondItem="cfa-Vg-JAr" secondAttribute="centerX" id="vvb-p7-jgb"/>
-                                    <constraint firstItem="Zne-GF-nlp" firstAttribute="height" secondItem="cfa-Vg-JAr" secondAttribute="height" multiplier="0.4" id="wH0-f3-3jm" userLabel="Looks like you have not been logged into an account yet..height = 0.5 × height"/>
+                                    <constraint firstItem="Zne-GF-nlp" firstAttribute="height" secondItem="cfa-Vg-JAr" secondAttribute="height" multiplier="0.4" constant="31.599999999999994" id="wH0-f3-3jm" userLabel="Looks like you have not been logged into an account yet..height = 0.5 × height"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cfa-Vg-JAr" firstAttribute="top" secondItem="J5l-xG-qyR" secondAttribute="bottom" constant="8" id="9Ct-Mp-eiy" userLabel="View.top = logo.bottom"/>
-                            <constraint firstItem="cfa-Vg-JAr" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.45" id="9J6-Ys-eSN"/>
+                            <constraint firstItem="cfa-Vg-JAr" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.45" constant="-79.150000000000034" id="9J6-Ys-eSN"/>
                             <constraint firstItem="J5l-xG-qyR" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="KB7-ZO-htM"/>
                             <constraint firstItem="cfa-Vg-JAr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="RfK-Wk-D1y"/>
-                            <constraint firstItem="cfa-Vg-JAr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YgL-fc-mif"/>
+                            <constraint firstItem="cfa-Vg-JAr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="1" id="YgL-fc-mif"/>
                             <constraint firstItem="J5l-xG-qyR" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="cRA-WW-1dd"/>
                             <constraint firstItem="J5l-xG-qyR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="el6-OI-Ija"/>
-                            <constraint firstItem="cfa-Vg-JAr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kZt-9y-NTp"/>
+                            <constraint firstItem="cfa-Vg-JAr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="1" id="kZt-9y-NTp"/>
                             <constraint firstItem="J5l-xG-qyR" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.45" id="mtK-t3-Ulc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -94,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-98.4375" y="117.77343749999999"/>
+            <point key="canvasLocation" x="-561" y="75"/>
         </scene>
         <!--Settings Page-->
         <scene sceneID="vMA-Wa-Wea">
@@ -178,10 +163,10 @@
             </objects>
             <point key="canvasLocation" x="648.79999999999995" y="86.806596701649184"/>
         </scene>
-        <!--Chat Page-->
+        <!--ChatPage-->
         <scene sceneID="aqZ-VX-JDE">
             <objects>
-                <viewController id="FOx-KW-RqY" customClass="ChatPage" customModule="chatr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatPage" title="ChatPage" id="FOx-KW-RqY" customClass="ChatPage" customModule="chatr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fqu-y0-NH1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
