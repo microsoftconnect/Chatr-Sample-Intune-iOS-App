@@ -74,18 +74,15 @@
  */
 + (void)removeAppTokens
 {
-    ADKeychainTokenCache* cache = [ADKeychainTokenCache defaultKeychainCache];
-    
     // Find the user that is signed in
     NSString* userID = [self getSignedInUser];
     
+    [IntuneMAMEnrollmentManager instance].delegate = [[enrollmentDelegateClass alloc] init];
+    
     // deregister the user from the SDK and initate a selective wipe of the app
+    //In the EnrollmentDelegate, the unenrollRequestWithStatus block is executed, and includes logic to wipe tokens on successful unenrollment
     [[IntuneMAMEnrollmentManager instance] deRegisterAndUnenrollAccount:userID withWipe:YES];
     
-    // delete all tokens associated with that userID and clientID
-    [cache removeAllForUserId: userID
-                     clientId: nil //TODO Figure out the appropriate way to do this
-                        error: nil];
 }
 
 /*!

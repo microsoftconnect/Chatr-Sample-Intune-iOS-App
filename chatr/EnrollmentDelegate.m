@@ -10,6 +10,10 @@
 
 #import "EnrollmentDelegate.h"
 #import <UIKit/UIKit.h>
+#import <ADAL/ADKeychainTokenCache.h>
+#import <ADAL/ADAuthenticationError.h>
+#import <ADAL/ADTokenCacheItem.h>
+#import <ADAL/ADUserInformation.h>
 
 /*
  This enrollment delegate class can be initialized and set as the enrollment delegate of the IntuneMAMEnrollmentManager
@@ -33,8 +37,9 @@
 }
 
 /*
-This is a method of the delegate that is triggered when an instance of this class is set as the delegate of the IntuneMAMEnrollmentManager. The status is the IntuneMAMEnrollmentStatus object
- This object can be used to check for the status of an attempted login/enrollment
+This is a method of the delegate that is triggered when an instance of this class is set as the delegate of the IntuneMAMEnrollmentManager and an enrollment is attemted.
+The status is the IntuneMAMEnrollmentStatus object. This object can be used to check for the status of an attempted login/enrollment
+ If successful, logic for login is initiated
  */
 - (void)enrollmentRequestWithStatus:(IntuneMAMEnrollmentStatus *_Nonnull)status{
     if (status.didSucceed) {
@@ -59,4 +64,41 @@ This is a method of the delegate that is triggered when an instance of this clas
         [alert addAction:defaultAction];
     }
 }
+
+/*
+ This is a method of the delegate that is triggered when an instance of this class is set as the delegate of the IntuneMAMEnrollmentManager and an unenrollment is attemted.
+ The status is the IntuneMAMEnrollmentStatus object. This object can be used to check for the status of an attempted unenrollment
+ If successful, logic for logout/token clearing is initiated
+ 
+ */
+- (void)unenrollRequestWithStatus:(IntuneMAMEnrollmentStatus *_Nonnull)status{
+    if (status.didSucceed){
+        //in the case of succesful logout, the tokens with the account should be cleared.
+        
+        ADKeychainTokenCache* cache = [ADKeychainTokenCache defaultKeychainCache];
+        
+        // Find the user that is unenrolling
+        NSString* userID = status.identity;
+        
+        //ADAL only supports clearing the cache for a certain user if the ClientID is also passed in, but since the clientID isn't exposed by the Intune
+        //API, this code goes through all tokens in the cache and clears those with the same userId as the unenrolling user
+        ADAuthenticationError *allItemsError = nil;
+        NSArray <ADTokenCacheItem *> *allItems = [cache allItems:&allItemsError];
+        
+        for (ADTokenCacheItem *item in allItems) {
+            if ([item.userInformation.userId caseInsensitiveCompare:userID] == NSOrderedSame) {
+                //for matching tokens, clear them
+                [cache removeItem:item error:&allItemsError];
+            }
+        }
+
+        ADAuthenticationError *error = nil;
+        
+        //Wipe cache with ADAL method
+        [cache wipeAllItemsForUserId: userID
+                               error: &error];
+        NSLog(@"Error details: %@", error.errorDetails);
+        
+    }
+    }
 @end

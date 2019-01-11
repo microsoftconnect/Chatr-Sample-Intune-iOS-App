@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68AF9BE221E8E19300127E37 /* EnrollmentDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF9BDF21E8E19200127E37 /* EnrollmentDelegate.m */; };
+		68AF9BE321E8E19300127E37 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AF9BE021E8E19200127E37 /* SettingsPage.swift */; };
 		AC6703AF212B1DEB00CBAD56 /* ADAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6703AD212B1CFA00CBAD56 /* ADAL.framework */; };
 		AC6703B0212B1DEB00CBAD56 /* ADAL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC6703AD212B1CFA00CBAD56 /* ADAL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C01A67E020DAB03F00F80AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */; };
@@ -70,6 +72,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		68AF9BDF21E8E19200127E37 /* EnrollmentDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnrollmentDelegate.m; sourceTree = "<group>"; };
+		68AF9BE021E8E19200127E37 /* SettingsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		68AF9BE121E8E19300127E37 /* EnrollmentDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnrollmentDelegate.h; sourceTree = "<group>"; };
 		AC6703AD212B1CFA00CBAD56 /* ADAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADAL.framework; sourceTree = "<group>"; };
 		C01A67DC20DAB03F00F80AFB /* chatr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +174,7 @@
 		C01A67DE20DAB03F00F80AFB /* chatr */ = {
 			isa = PBXGroup;
 			children = (
+				68AF9BE021E8E19200127E37 /* SettingsPage.swift */,
 				C0E7DA1F20FE8CAC00EA7494 /* chatr.entitlements */,
 				C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */,
 				C01A67E120DAB03F00F80AFB /* ViewController.swift */,
@@ -182,6 +188,8 @@
 				C01A67E820DAB03F00F80AFB /* LaunchScreen.storyboard */,
 				C01A67EB20DAB03F00F80AFB /* Info.plist */,
 				C023DA9C2101340200246456 /* chatr-Bridging-Header.h */,
+				68AF9BDF21E8E19200127E37 /* EnrollmentDelegate.m */,
+				68AF9BE121E8E19300127E37 /* EnrollmentDelegate.h */,
 				C023DAA02106519200246456 /* ObjCUtils.m */,
 				C023DAA2210651E700246456 /* ObjCUtils.h */,
 			);
@@ -368,8 +376,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68AF9BE321E8E19300127E37 /* SettingsPage.swift in Sources */,
 				C0571FB420EAAB57008716A8 /* AboutUsPage.swift in Sources */,
 				C0E7DA0320EE766600EA7494 /* chatTableViewCell.swift in Sources */,
+				68AF9BE221E8E19300127E37 /* EnrollmentDelegate.m in Sources */,
 				C01A67E220DAB03F00F80AFB /* ViewController.swift in Sources */,
 				C01A67E020DAB03F00F80AFB /* AppDelegate.swift in Sources */,
 				C023DAA12106519200246456 /* ObjCUtils.m in Sources */,
@@ -549,13 +559,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = chatr/chatr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UBF8T346G9;
+				DEVELOPMENT_TEAM = 88U7P49BVS;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = chatr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatr;
@@ -574,13 +585,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = chatr/chatr.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UBF8T346G9;
+				DEVELOPMENT_TEAM = 88U7P49BVS;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = chatr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatr;
