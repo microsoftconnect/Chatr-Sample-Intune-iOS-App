@@ -159,28 +159,9 @@
     return false;
 }
 
-/*!
-    Functions taken from https://docs.microsoft.com/en-us/intune/app-sdk-ios as per IntuneMAMEnrollmentDelegate.h documentation.
- */
-
-/*!
- The EnrollmentDelegateClass
- */
-- (void)enrollmentRequestWithStatus:(IntuneMAMEnrollmentStatus*)status
-{
-    NSLog(@"enrollment result for identity %@ with status code %ld", status.identity, (unsigned long)status.statusCode);
-    NSLog(@"Debug Message: %@", status.errorString);
-}
-
 - (void)policyRequestWithStatus:(IntuneMAMEnrollmentStatus*)status
 {
     NSLog(@"policy check-in result for identity %@ with status code %ld", status.identity, (unsigned long)status.statusCode);
-    NSLog(@"Debug Message: %@", status.errorString);
-}
-
-- (void)unenrollRequestWithStatus:(IntuneMAMEnrollmentStatus*)status
-{
-    NSLog(@"un-enroll result for identity %@ with status code %ld", status.identity, (unsigned long)status.statusCode);
     NSLog(@"Debug Message: %@", status.errorString);
 }
 
