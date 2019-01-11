@@ -60,21 +60,5 @@
  */
 + (NSString*) getUserGroupName;
 
-/*!
- Function as per IntuneMAMPolicyDelegate.h documentation.
- 
- Lets the SDK know that the restart of application when new MAM policies are recieved for the first time should be handled by the SDK.
- @return false
- */
-+ (BOOL) restartApplication;
-
-/*!
- Function as per IntuneMAMPolicyDelegate.h documentation.
- 
- Lets the SDK handle the removal of data associated with a specified user. This is a design choice, developers can implement this function to handle the removal of the specified user data and return True when finished. Refer to detailed specs in the IntuneMAMPolicyDelegate.h documentation.
- @return false
- */
-- (BOOL) wipeDataForAccount:(NSString*)upn;
-
 @end
 #endif /* ObjCUtils_h */

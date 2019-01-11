@@ -136,33 +136,4 @@
     return @"Chatr";    // default, if none is set
 }
 
-
-/*!
-    Function as per IntuneMAMPolicyDelegate.h documentation.
- 
-    Lets the SDK know that the restart of application when new MAM policies are recieved for the first time should be handled by the SDK.
-    @return false
- */
-+ (BOOL) restartApplication
-{
-    return false;
-}
-
-/*!
-    Function as per IntuneMAMPolicyDelegate.h documentation.
- 
-    Lets the SDK handle the removal of data associated with a specified user.
-    This is a design choice, developers can implement this function to handle the removal of the specified user data and return True when finished. Read IntuneMAMPolicyDelegate.h documentation.
-    @return false
- */
-- (BOOL) wipeDataForAccount:(NSString*)upn {
-    return false;
-}
-
-- (void)policyRequestWithStatus:(IntuneMAMEnrollmentStatus*)status
-{
-    NSLog(@"policy check-in result for identity %@ with status code %ld", status.identity, (unsigned long)status.statusCode);
-    NSLog(@"Debug Message: %@", status.errorString);
-}
-
 @end

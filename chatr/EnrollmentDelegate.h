@@ -18,6 +18,8 @@
  Doing this will trigger the enrollmentRequestWithStatus method whenever an enrollment is attempted.
  It can also be used to trigger unenrollRequestWithStatus whenever unenrollment is attempted. 
  This allows for the app to check if an enrollment/login was successful
+ 
+ NOTE: A number of other methods are avaliable in the IntuneMAMEnrollmentDelegate. See documentation or header file for more info.
  */
 @interface enrollmentDelegateClass : NSObject <IntuneMAMEnrollmentDelegate>
 
