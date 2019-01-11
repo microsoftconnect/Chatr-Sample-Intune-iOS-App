@@ -76,27 +76,15 @@ The status is the IntuneMAMEnrollmentStatus object. This object can be used to c
         //in the case of succesful logout, the tokens with the account should be cleared.
         
         ADKeychainTokenCache* cache = [ADKeychainTokenCache defaultKeychainCache];
-        
         // Find the user that is unenrolling
         NSString* userID = status.identity;
-        
-        //ADAL only supports clearing the cache for a certain user if the ClientID is also passed in, but since the clientID isn't exposed by the Intune
-        //API, this code goes through all tokens in the cache and clears those with the same userId as the unenrolling user
-        ADAuthenticationError *allItemsError = nil;
-        NSArray <ADTokenCacheItem *> *allItems = [cache allItems:&allItemsError];
-        
-        for (ADTokenCacheItem *item in allItems) {
-            if ([item.userInformation.userId caseInsensitiveCompare:userID] == NSOrderedSame) {
-                //for matching tokens, clear them
-                [cache removeItem:item error:&allItemsError];
-            }
-        }
-
         ADAuthenticationError *error = nil;
         
-        //Wipe cache with ADAL method
+        //Wipe cache with ADAL API, this code goes through all tokens in the cache and clears those with the same userId as the unenrolling user
         [cache wipeAllItemsForUserId: userID
                                error: &error];
+        
+        //If there is an error clearing tokens, log it
         NSLog(@"Error details: %@", error.errorDetails);
         
     }
