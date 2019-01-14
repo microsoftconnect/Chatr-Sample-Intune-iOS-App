@@ -56,7 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        //set the delegate of the IntuneMAMPolicyManager to an instance of the policyDelegateClass
+        IntuneMAMPolicyManager.instance().delegate = policyDelegateClass.init()
+        
+        return true
+    }
 
 }
 

@@ -24,8 +24,27 @@
 @interface enrollmentDelegateClass : NSObject <IntuneMAMEnrollmentDelegate>
 
 @property (nonatomic, strong) UIViewController *presentingViewController;
+
+/*
+ To be able to change the view, the class should be initialzed with the curent view controller. Then this view controller can segue to the desired view based on the login success
+ 
+ @param initWithViewController - the view controller this class should use when triggered
+ */
 - (id)initWithViewController:(UIViewController *)presentingViewController;
+
+/*
+ This is a method of the delegate that is triggered when an instance of this class is set as the delegate of the IntuneMAMEnrollmentManager and an enrollment is attemted.
+ The status is the IntuneMAMEnrollmentStatus object. This object can be used to check for the status of an attempted login/enrollment
+ If successful, logic for login is initiated
+ */
 - (void)enrollmentRequestWithStatus:(IntuneMAMEnrollmentStatus *_Nonnull)status;
+
+/*
+ This is a method of the delegate that is triggered when an instance of this class is set as the delegate of the IntuneMAMEnrollmentManager and an unenrollment is attemted.
+ The status is the IntuneMAMEnrollmentStatus object. This object can be used to check for the status of an attempted unenrollment
+ If successful, logic for logout/token clearing is initiated
+ 
+ */
 - (void)unenrollRequestWithStatus:(IntuneMAMEnrollmentStatus *_Nonnull)status;
 
 @end

@@ -12,13 +12,14 @@
 #import <UIKit/UIKit.h>
 #import <ADAL/ADKeychainTokenCache.h>
 #import <ADAL/ADAuthenticationError.h>
-#import <ADAL/ADTokenCacheItem.h>
-#import <ADAL/ADUserInformation.h>
 
 /*
  This enrollment delegate class can be initialized and set as the enrollment delegate of the IntuneMAMEnrollmentManager
  Doing this will trigger the enrollmentRequestWithStatus method whenever an enrollment is attempted.
+ It can also be used to trigger unenrollRequestWithStatus whenever unenrollment is attempted.
  This allows for the app to check if an enrollment/login was successful
+ 
+ NOTE: A number of other methods are avaliable in the IntuneMAMEnrollmentDelegate. See documentation or header file for more info.
  */
 @implementation enrollmentDelegateClass
 
