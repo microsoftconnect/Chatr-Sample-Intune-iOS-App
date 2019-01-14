@@ -49,6 +49,7 @@
             //if tokens for the user are found in the cache, return FALSE as the wipe failed
             NSLog(@"Wipe failed");
             return FALSE;
+            //This will lead to the SDK cleaning the files and killing the app, it is best to have the app attempt to do this
         }
     }
     
