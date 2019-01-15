@@ -21,7 +21,7 @@
  
  NOTE: A number of other methods are avaliable in the IntuneMAMEnrollmentDelegate. See documentation or header file for more info.
  */
-@interface enrollmentDelegateClass : NSObject <IntuneMAMEnrollmentDelegate>
+@interface EnrollmentDelegateClass : NSObject <IntuneMAMEnrollmentDelegate>
 
 @property (nonatomic, strong) UIViewController *presentingViewController;
 

@@ -21,7 +21,7 @@
  
  NOTE: A number of other methods are avaliable in the IntuneMAMEnrollmentDelegate. See documentation or header file for more info.
  */
-@implementation enrollmentDelegateClass
+@implementation EnrollmentDelegateClass
 
 /*
  To be able to change the view, the class should be initialzed with the curent view controller. Then this view controller can segue to the desired view based on the login success

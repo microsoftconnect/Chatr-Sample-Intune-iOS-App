@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
         //set the delegate of the IntuneMAMPolicyManager to an instance of the policyDelegateClass
-        IntuneMAMPolicyManager.instance().delegate = policyDelegateClass.init()
+        IntuneMAMPolicyManager.instance().delegate = PolicyDelegateClass.init()
         
         return true
     }

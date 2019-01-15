@@ -9,23 +9,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <ADAL/ADAL.h>
-#import <ADAL/ADAuthenticationContext.h>
-#import <ADAL/ADAuthenticationError.h>
-#import <ADAL/ADAuthenticationParameters.h>
-#import <ADAL/ADAuthenticationResult.h>
-#import <ADAL/ADAuthenticationSettings.h>
-#import <ADAL/ADErrorCodes.h>
-#import <ADAL/ADKeychainTokenCache.h>
-#import <ADAL/ADLogger.h>
-#import <ADAL/ADTelemetry.h>
-#import <ADAL/ADTokenCacheItem.h>
-#import <ADAL/ADUserIdentifier.h>
-#import <ADAL/ADUserInformation.h>
-#import <ADAL/ADWebAuthController.h>
 
 #import <IntuneMAM/IntuneMAMEnrollmentManager.h>
-#import <IntuneMAM/IntuneMAMPolicyDelegate.h>
 #import <IntuneMAM/IntuneMAMPolicyManager.h>
 #import <IntuneMAM/IntuneMAMAppConfigManager.h>
 #import <IntuneMAM/IntuneMAMAppConfig.h>
@@ -37,7 +22,7 @@
 
 
 /*!
-    Gets the userID of the user that is logged into the app using the Intune API method registeredAccounts
+    Gets the userID of the user that is logged into the app using the Intune API method enrolledAccount
     NOTE: This implementation is specific to a single user scenario
  
     @return userID, nil if no-one is logged in
@@ -58,10 +43,10 @@
  */
 + (void)login: ( UIViewController* )presentingViewController
 {
-    //first give the IntuneMAMEnrollmentManager an instance of the enrollmentDelegateClass as its delegate to check the status of attempted logins. Also initialize this class with the current view controller
-    [IntuneMAMEnrollmentManager instance].delegate = [[enrollmentDelegateClass alloc] initWithViewController:presentingViewController];
+    //first give the IntuneMAMEnrollmentManager an instance of the EnrollmentDelegateClass as its delegate to check the status of attempted logins. Also initialize this class with the current view controller
+    [IntuneMAMEnrollmentManager instance].delegate = [[EnrollmentDelegateClass alloc] initWithViewController:presentingViewController];
     
-    //Login the user through the Intune sign in flow. enrollmentDelegateClass will handle the outcome of this.
+    //Login the user through the Intune sign in flow. EnrollmentDelegateClass will handle the outcome of this.
     [[IntuneMAMEnrollmentManager instance] loginAndEnrollAccount:NULL];
     
     //TODO Figure out token caching and remove old ADAL stuff from this page
@@ -77,7 +62,7 @@
     // Find the user that is signed in
     NSString* userID = [self getSignedInUser];
     
-    [IntuneMAMEnrollmentManager instance].delegate = [[enrollmentDelegateClass alloc] init];
+    [IntuneMAMEnrollmentManager instance].delegate = [[EnrollmentDelegateClass alloc] init];
     
     // deregister the user from the SDK and initate a selective wipe of the app
     //In the EnrollmentDelegate, the unenrollRequestWithStatus block is executed, and includes logic to wipe tokens on successful unenrollment

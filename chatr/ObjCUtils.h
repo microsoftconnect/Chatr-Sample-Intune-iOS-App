@@ -40,7 +40,7 @@
 + (void)removeAppTokens;
 
 /*!
- Displays the Intune Console on top of the app.
+ Displays the Intune Diagnostics Console on top of the app.
  This console can be used to send diagnostics logs from the end users.
  */
 + (void)displayConsole;

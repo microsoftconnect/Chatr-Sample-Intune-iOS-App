@@ -20,7 +20,7 @@
  Methods like identitySwitchRequired and addIdentity are generally used in multi-user apps, unlike this single user app.
  See IntuneMAMPolicyDelegate documentation or header file for more information
  */
-@interface policyDelegateClass : NSObject <IntuneMAMPolicyDelegate>
+@interface PolicyDelegateClass : NSObject <IntuneMAMPolicyDelegate>
 
     /*
      wipeDataForAccount is called by the Intune SDK when the app needs to wipe all the data for a specified user
