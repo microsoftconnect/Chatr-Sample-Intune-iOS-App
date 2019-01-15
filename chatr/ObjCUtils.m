@@ -1,9 +1,5 @@
 //
-//  ObjCUtils.m
-//  chatr
-//
-//  Created by Meseret  Kebede on 23/07/2018.
-//  Copyright © 2018 Microsoft Intune. All rights reserved.
+//  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 //  Error alert code adapted from: https://stackoverflow.com/questions/1747510/alert-view-in-iphone answer by krakover
 //
@@ -34,38 +30,34 @@
 
 
 /*!
- Function logs in user through the Intune sign in flow. It will point them back to the app after authentication is complete.
- This function also handles enrolling the user account to be managed by the MAM service. This is a feature of loginAndEnrollAccount
+ Function authenticates the user and enrolls the app into the Intune MAM Service via the Intune SDK's loginAndEnrollAccount API
  
- Note that this can be done using ADAL if desired, but is done with Intune in this app.
+ Note: Alternatively, apps can directly use ADAL to authenticate, and then call the Intune SDK's registerAndEnrollAccount API to initiate a silent enrollment upon success.
  
  @param presentingViewController - The view controller calling this function
  */
 + (void)login: ( UIViewController* )presentingViewController
 {
-    //first give the IntuneMAMEnrollmentManager an instance of the EnrollmentDelegateClass as its delegate to check the status of attempted logins. Also initialize this class with the current view controller
+    //Give the IntuneMAMEnrollmentManager an instance of the EnrollmentDelegateClass as its delegate to check the status of attempted enrollments. Also initialize this class with the current view controller
+    //This is done on launch, but here it is done again to give the delegate the current view controller
     [IntuneMAMEnrollmentManager instance].delegate = [[EnrollmentDelegateClass alloc] initWithViewController:presentingViewController];
     
     //Login the user through the Intune sign in flow. EnrollmentDelegateClass will handle the outcome of this.
-    [[IntuneMAMEnrollmentManager instance] loginAndEnrollAccount:NULL];
+    [[IntuneMAMEnrollmentManager instance] loginAndEnrollAccount:nil];
     
-    //TODO Figure out token caching and remove old ADAL stuff from this page
 }
 
 
 /*!
-    Removes all of the tokens from the Cache.
-    This will log out the user that are currently signed into the app. Specific to a single user scenario
+    This will log out the user that is currently signed into the app.
  */
-+ (void)removeAppTokens
++ (void)logout
 {
     // Find the user that is signed in
     NSString* userID = [self getSignedInUser];
-    
-    [IntuneMAMEnrollmentManager instance].delegate = [[EnrollmentDelegateClass alloc] init];
-    
+        
     // deregister the user from the SDK and initate a selective wipe of the app
-    //In the EnrollmentDelegate, the unenrollRequestWithStatus block is executed, and includes logic to wipe tokens on successful unenrollment
+    //In the EnrollmentDelegate, the unenrollRequestWithStatus block is executed, and includes logic to wipe tokens on unenrollment
     [[IntuneMAMEnrollmentManager instance] deRegisterAndUnenrollAccount:userID withWipe:YES];
     
 }

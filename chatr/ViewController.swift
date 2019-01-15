@@ -1,9 +1,5 @@
 //
-//  ViewController.swift
-//  chatr
-//
-//  Created by Mesert Kebed on 6/20/18.
-//  Copyright © 2018 Microsoft Intune. All rights reserved.
+//  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
 import UIKit
@@ -26,7 +22,7 @@ class ViewController: UIViewController {
      Removes all of the token access for users of the app.
      */
     @IBAction func logOutBtn(_ sender: Any) {
-        ObjCUtils.removeAppTokens()
+        ObjCUtils.logout()
     }
     
     override func viewDidLoad() {

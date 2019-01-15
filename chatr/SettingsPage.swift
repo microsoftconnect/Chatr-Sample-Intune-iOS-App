@@ -1,11 +1,6 @@
 //
-//  SettingsPage.swift
-//  chatr
+//  Copyright (c) Microsoft Corporation. All rights reserved.
 //
-//  Created by Wilson Spearman on 1/9/19.
-//  Copyright © 2019 Microsoft Intune. All rights reserved.
-//
-
 import UIKit
 
 class SettingsPage: UIViewController {
@@ -18,7 +13,7 @@ class SettingsPage: UIViewController {
     }
 
     func displayConsole(){
-        //use objectiveC function to call the necessary Intune method
+        //use Objective-C function to call the necessary Intune method
         ObjCUtils.displayConsole()
     }
 }

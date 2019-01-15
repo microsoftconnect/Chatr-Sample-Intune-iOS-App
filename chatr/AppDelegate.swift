@@ -1,9 +1,5 @@
 //
-//  AppDelegate.swift
-//  chatr
-//
-//  Created by Mesert Kebed on 6/20/18.
-//  Copyright © 2018 Microsoft Intune. All rights reserved.
+//  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
 import UIKit
@@ -59,8 +55,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
-        //set the delegate of the IntuneMAMPolicyManager to an instance of the policyDelegateClass
+        //Set the delegate of the IntuneMAMPolicyManager to an instance of the PolicyDelegateClass
         IntuneMAMPolicyManager.instance().delegate = PolicyDelegateClass.init()
+        
+        //Set the delegate of the IntuneMAMEnrollmentManager to an instance of the EnrollmentDelegateClass
+        IntuneMAMEnrollmentManager.instance().delegate = EnrollmentDelegateClass.init()
         
         return true
     }

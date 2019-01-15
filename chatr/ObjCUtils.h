@@ -1,9 +1,5 @@
 //
-//  ObjCUtils.h
-//  chatr
-//
-//  Created by Meseret  Kebede on 23/07/2018.
-//  Copyright © 2018 Microsoft Intune. All rights reserved.
+//  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
 #import <IntuneMAM/IntuneMAMPolicyDelegate.h>
@@ -24,20 +20,18 @@
 + (NSString*) getSignedInUser;
 
 /*!
- Function logs in user through the Intune sign in flow. It will point them back to the app after authentication is complete.
- This function also handles enrolling the user account to be managed by the MAM service. This is a feature of loginAndEnrollAccount
+ Function authenticates the user and enrolls the app into the Intune MAM Service via the Intune SDK's loginAndEnrollAccount API
  
- Note that this can be done using ADAL if desired, but is done with Intune in this app.
+Note: Alternatively, apps can directly use ADAL to authenticate, and then call the Intune SDK's registerAndEnrollAccount API to initiate a silent enrollment upon success.
  
  @param presentingViewController - The view controller calling this function
  */
 + (void)login: (UIViewController*) presentingViewController;
 
 /*!
- Removes all of the tokens from the Cache.
- This will log out the user that are currently signed into the app. Specific to a single user scenario
+ This will log out the user that is currently signed into the app.
  */
-+ (void)removeAppTokens;
++ (void)logout;
 
 /*!
  Displays the Intune Diagnostics Console on top of the app.

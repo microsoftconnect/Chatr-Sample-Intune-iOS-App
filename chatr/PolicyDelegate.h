@@ -1,9 +1,5 @@
 //
-//  PolicyDelegate.h
-//  chatr
-//
-//  Created by Wilson Spearman on 1/11/19.
-//  Copyright © 2019 Microsoft Intune. All rights reserved.
+//  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
 #import <IntuneMAM/IntuneMAMPolicyDelegate.h>
@@ -12,7 +8,7 @@
 #define PolicyDelegate_h
 
 /*
- This policy delegate class can be initialized and set as the enrollment delegate of the IntuneMAMPolicyManager
+ This policy delegate class can be initialized and set as the delegate of the IntuneMAMPolicyManager
  (This is done in the AppDelegate.swift file at app initialization)
  Doing this will trigger the wipeDataForAccount and restartApplication methods whenever the Intune SDK needs to do either of these things
  
@@ -24,8 +20,8 @@
 
     /*
      wipeDataForAccount is called by the Intune SDK when the app needs to wipe all the data for a specified user
-     With chatr, the only user data stored is the token for the user. If this is wiped successfully, return TRUE.
-     Otherwise return FALSE
+     With chatr, the only user data stored are the chat messages.
+     If this is wiped successfully, return TRUE, otherwise return FALSE
      
      @param upn is the upn of the user whoes data is to be wiped (for example "user@example.com")
      */

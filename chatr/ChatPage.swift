@@ -1,9 +1,5 @@
 //
-//  Chat Page.swift
-//  chatr
-//
-//  Created by Mesert Kebed on 6/29/18.
-//  Copyright © 2018 Microsoft Intune. All rights reserved.
+//  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 //  Code for sidebar implementation adopted from: https://youtu.be/GOSIz7JbZMA by Yogesh Patel
 //  Code for alert message adopted from: https://www.simplifiedios.net/ios-show-alert-using-uialertcontroller/ by Belal Khan
@@ -24,8 +20,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     @IBOutlet weak var sideBarView: UIView!
     @IBOutlet weak var sideBarTable: UITableView!
     var isMenu:Bool = false                                         // variable that indiates if the menu is being  displayed
-    var sideBarFeatures = ["Save","Print", "About us","Settings", "Log out"]   // the options on the sidebar
-    var sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "profile"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
+    let sideBarFeatures = ["Save","Print", "About us","Settings", "Log out"]   // the options on the sidebar
+    let sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "profile"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
     
     
     // variables used for chat
@@ -267,8 +263,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                 present(settings, animated:true, completion: nil)
             } else if indexPath.row == 4 {
                 // log out
-                ObjCUtils.removeAppTokens()
-                performSegue(withIdentifier: "backToHomePage", sender: self)
+                ObjCUtils.logout()
+//                performSegue(withIdentifier: "backToHomePage", sender: self)
             }
         }
     }

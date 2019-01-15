@@ -1,9 +1,5 @@
 //
-//  PolicyDelegate.m
-//  chatr
-//
-//  Created by Wilson Spearman on 1/11/19.
-//  Copyright © 2019 Microsoft Intune. All rights reserved.
+//  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -27,33 +23,13 @@
 
 /*
  wipeDataForAccount is called by the Intune SDK when the app needs to wipe all the data for a specified user
- With chatr, the only user data stored is the token for the user. If this is wiped successfully, return TRUE.
- Otherwise return FALSE
+ With chatr, the only user data stored are the chat messages.
+ If this is wiped successfully, return TRUE, otherwise return FALSE
  
  @param upn is the upn of the user whoes data is to be wiped (for example "user@example.com")
  */
 - (BOOL)wipeDataForAccount:(NSString*_Nonnull)upn{
-    //only user data stored on this app is tokens, so wipe those for the specified upn
-    ADKeychainTokenCache* cache = [ADKeychainTokenCache defaultKeychainCache];
-    ADAuthenticationError *error = nil;
-    
-    //Wipe cache with ADAL API, this code goes through all tokens in the cache and clears those with the same upn as given by the SDK
-    [cache wipeAllItemsForUserId: upn
-                           error: &error];
-    
-    ADAuthenticationError *allItemsError = nil;
-    NSArray <ADTokenCacheItem *> *allItems = [cache allItems:&allItemsError];
-    
-    for (ADTokenCacheItem *item in allItems) {
-        if ([item.userInformation.userId caseInsensitiveCompare:upn] == NSOrderedSame) {
-            //if tokens for the user are found in the cache, return FALSE as the wipe failed
-            NSLog(@"Wipe failed");
-            return FALSE;
-            //This will lead to the SDK cleaning the files and killing the app, it is best to have the app attempt to do this
-        }
-    }
-    
-    //if the tokens for the user were not found in the cache, the wipe was successful, return TRUE
+    //Wipe all user data on the app here
     NSLog(@"Wipe successful");
     return TRUE;
     
