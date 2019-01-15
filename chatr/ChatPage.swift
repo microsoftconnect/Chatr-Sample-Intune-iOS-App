@@ -21,7 +21,8 @@ let savedConvo = UserDefaults.init()
 class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     // variables used for creating the sidebar
-    @IBOutlet weak var sideBarView: UIView!
+    //COMMENTED THIS OUT
+    //@IBOutlet weak var sideBarView: UIView!
     @IBOutlet weak var sideBarTable: UITableView!
     var isMenu:Bool = false                                         // variable that indiates if the menu is being  displayed
     var sideBarFeatures = ["Save","Print", "About us", "Log out"]   // the options on the sidebar
@@ -95,8 +96,12 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sideBarTable.estimatedRowHeight = 40
+        sideBarTable.rowHeight = UITableViewAutomaticDimension
+        
         // when the view is loaded, hide the sidebar table
-        sideBarView.isHidden = true
+        //COMMENTED THIS OUT
+        //sideBarView.isHidden = true
         sideBarTable.backgroundColor = UIColor.groupTableViewBackground
         isMenu = false
         
@@ -179,20 +184,26 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             - If the menu was hidden when the button is pressed, then it will reveal the menu and vise versa.
      */
     @IBAction func sideBarMenu(_ sender: Any) {
-        sideBarView.isHidden = false
+        //COMMENTED THIS OUT
+        //sideBarView.isHidden = false
         sideBarTable.isHidden = false
-        self.view.bringSubview(toFront: sideBarView)
+        //COMMENTED THIS OUT
+        //self.view.bringSubview(toFront: sideBarView)
         
         if !isMenu {
             // reveal sideBar menu
             isMenu = true
-            sideBarView.frame = CGRect(x: 0, y: 71, width: 0, height: 203)
-            sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 203)
+            //COMMENTED THIS OUT
+            //sideBarView.frame = CGRect(x: 0, y: 71, width: 0, height: 203)
+            //CHANGED DIMENSIONS
+            sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 301)
             UIView.setAnimationDuration(0.15)
             UIView.setAnimationDelegate(self)
             UIView.beginAnimations("sideBarAnimation", context: nil)
-            sideBarView.frame = CGRect(x: 0, y: 71, width: 112.33, height: 203)
-            sideBarTable.frame = CGRect(x: 0, y: 0, width: 112.33, height: 203)
+            //COMMENTED THIS OUT
+            //sideBarView.frame = CGRect(x: 0, y: 71, width: 112.33, height: 203)
+            //CHANGED DIMENSIONS
+            sideBarTable.frame = CGRect(x: 0, y: 0, width: 176, height: 301)
             UIView.commitAnimations()
         }
         else {
@@ -205,16 +216,21 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
      */
     func hideSideBarMenu() {
         // hide sideBar menu
-        sideBarView.isHidden = true
+        //COMMENTED THIS OUT
+        //sideBarView.isHidden = true
         sideBarTable.isHidden = true
         isMenu = false
-        sideBarView.frame = CGRect(x: 0, y: 71, width: 112.33, height: 203)
-        sideBarTable.frame = CGRect(x: 0, y: 0, width: 112.33, height: 203)
+        //COMMENTED THIS OUT
+        //sideBarView.frame = CGRect(x: 0, y: 71, width: 112.33, height: 203)
+        //CHANGED DIMENSIONS
+        sideBarTable.frame = CGRect(x: 0, y: 0, width: 176, height: 301)
         UIView.setAnimationDuration(0.15)
         UIView.setAnimationDelegate(self)
         UIView.beginAnimations("sideBarAnimation", context: nil)
-        sideBarView.frame = CGRect(x: 0, y: 71, width: 0, height: 203)
-        sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 203)
+        //COMMENTED THIS OUT
+        //sideBarView.frame = CGRect(x: 0, y: 71, width: 0, height: 203)
+        //CHANGED DIMENSIONS
+        sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 301)
         UIView.commitAnimations()
     }
     

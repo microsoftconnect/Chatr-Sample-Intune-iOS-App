@@ -2,17 +2,16 @@
 //  SideBarTableCell.swift
 //  chatr
 //
-//  Created by Mesert Kebed on 6/25/18.
-//  Copyright © 2018 Microsoft Intune. All rights reserved.
+//  Created by Diana Voronin on 1/15/19.
+//  Copyright © 2019 Microsoft Intune. All rights reserved.
 //
 
 import UIKit
 
 class SideBarTableCell: UITableViewCell {
-    
-    // variables used throughout this class
-    @IBOutlet weak var cellImg: UIImageView!
+
     @IBOutlet weak var cellLbl: UILabel!
+    @IBOutlet weak var cellImg: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
