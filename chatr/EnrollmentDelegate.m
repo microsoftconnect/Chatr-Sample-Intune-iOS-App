@@ -41,7 +41,7 @@
 
 
 ///*
-// To be able to change the view, the class should be initialzed with the curent view controller. Then this view controller can segue to the desired view based on the enrollment success
+// To be able to change the view, the class should be initialzed with the curent view controller. Then this view controller can move to the desired view based on the enrollment success
 //
 // @param viewController - the view controller this class should use when triggered
 // */
@@ -61,10 +61,15 @@ If successful, logic for enrollment is initiated
  */
 - (void)enrollmentRequestWithStatus:(IntuneMAMEnrollmentStatus *_Nonnull)status{
     if (status.didSucceed) {
-        //If enrollment was successful, change from the current view (which should have been initialized with the class) to the desired page on the app (in this case homePage)
+        //If enrollment was successful, change from the current view (which should have been initialized with the class) to the desired page on the app (in this case chatPage)
         NSLog(@"Login Successful");
-        [presentingViewController performSegueWithIdentifier: @"homePage" sender:presentingViewController];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *chatPage = [storyboard instantiateViewControllerWithIdentifier: @"ChatPage"];
+        
+        [presentingViewController presentViewController:chatPage animated:NO completion:nil];
     } else {
+        
         //In the case of a failure, log failure error status and code
         NSLog(@"enrollment result for identity %@ with status code %ld", status.identity, (unsigned long)status.statusCode);
         NSLog(@"Debug Message: %@", status.errorString);
@@ -105,9 +110,9 @@ If successful, logic for enrollment is initiated
     //Go back to login page from current view controller
     UIViewController*presentingViewController = [EnrollmentDelegateClass getCurrentViewController];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *mainPage = [storyboard instantiateViewControllerWithIdentifier: @"LoginPage"];
+    UIViewController *loginPage = [storyboard instantiateViewControllerWithIdentifier: @"LoginPage"];
     
-    [presentingViewController presentViewController:mainPage animated:YES completion:nil];
+    [presentingViewController presentViewController:loginPage animated:YES completion:nil];
     
     if (status.didSucceed != TRUE){
         //In the case unenrollment failed, log error
