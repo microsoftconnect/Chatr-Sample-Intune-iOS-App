@@ -41,7 +41,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     // variable to move textfield for keyboard actions
     @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
     
-    //ADDED THIS
+    //variable to reference the position and dimensions of the top bar
     @IBOutlet weak var topBarView: UIView!
     
     /*!
@@ -97,11 +97,13 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //ADDED THE NEXT FIVE LINES
+        //prevent the display of empty cells at the bottom of the sidebar menu by adding a zero height table footer view
         sideBarTable.tableFooterView = UIView(frame: CGRect(x:0, y:0, width: 0, height: 0))
         sideBarTable.tableFooterView?.isHidden = true
         sideBarTable.backgroundColor = UIColor.clear
         
+        //ensures self-sizing sidebar table view cells
+        //the sidebar table view will use Auto Layout constraints and the cell's contents to determine each cell's height
         sideBarTable.estimatedRowHeight = 40
         sideBarTable.rowHeight = UITableViewAutomaticDimension
         
@@ -193,12 +195,10 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         if !isMenu {
             // reveal sideBar menu
             isMenu = true
-            //CHANGED DIMENSIONS
-            sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 301)
+            sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 301)
             UIView.setAnimationDuration(0.15)
             UIView.setAnimationDelegate(self)
             UIView.beginAnimations("sideBarAnimation", context: nil)
-            //CHANGED DIMENSIONS
             sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 301)
             UIView.commitAnimations()
         }
@@ -214,12 +214,10 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         // hide sideBar menu
         sideBarTable.isHidden = true
         isMenu = false
-        //CHANGED DIMENSIONS
         sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 301)
         UIView.setAnimationDuration(0.15)
         UIView.setAnimationDelegate(self)
         UIView.beginAnimations("sideBarAnimation", context: nil)
-        //CHANGED DIMENSIONS
         sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 301)
         UIView.commitAnimations()
     }
