@@ -96,13 +96,17 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sideBarTable.tableFooterView = UIView(frame: CGRect(x:0, y:0, width: 0, height: 0))
+        sideBarTable.tableFooterView?.isHidden = true
+        sideBarTable.backgroundColor = UIColor.clear
+        
         sideBarTable.estimatedRowHeight = 40
         sideBarTable.rowHeight = UITableViewAutomaticDimension
         
         // when the view is loaded, hide the sidebar table
+        sideBarTable.isHidden = true
         //COMMENTED THIS OUT
-        //sideBarView.isHidden = true
-        sideBarTable.backgroundColor = UIColor.groupTableViewBackground
+        //sideBarTable.backgroundColor = UIColor.groupTableViewBackground
         isMenu = false
         
         // change user's group name on top of the chat page, one of the app config settings
@@ -203,7 +207,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             //COMMENTED THIS OUT
             //sideBarView.frame = CGRect(x: 0, y: 71, width: 112.33, height: 203)
             //CHANGED DIMENSIONS
-            sideBarTable.frame = CGRect(x: 0, y: 0, width: 176, height: 301)
+            sideBarTable.frame = CGRect(x: 0, y: 71, width: 176, height: 301)
             UIView.commitAnimations()
         }
         else {
@@ -223,14 +227,14 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         //COMMENTED THIS OUT
         //sideBarView.frame = CGRect(x: 0, y: 71, width: 112.33, height: 203)
         //CHANGED DIMENSIONS
-        sideBarTable.frame = CGRect(x: 0, y: 0, width: 176, height: 301)
+        sideBarTable.frame = CGRect(x: 0, y: 71, width: 176, height: 301)
         UIView.setAnimationDuration(0.15)
         UIView.setAnimationDelegate(self)
         UIView.beginAnimations("sideBarAnimation", context: nil)
         //COMMENTED THIS OUT
         //sideBarView.frame = CGRect(x: 0, y: 71, width: 0, height: 203)
         //CHANGED DIMENSIONS
-        sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 301)
+        sideBarTable.frame = CGRect(x: 0, y: 71, width: 0, height: 301)
         UIView.commitAnimations()
     }
     
