@@ -43,6 +43,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     // variable to move textfield for keyboard actions
     @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
     
+    //ADDED THIS
+    @IBOutlet weak var topBarView: UIView!
+    
     /*!
         Button action triggered when send button is pressed on chat page
      
@@ -207,7 +210,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             //COMMENTED THIS OUT
             //sideBarView.frame = CGRect(x: 0, y: 71, width: 112.33, height: 203)
             //CHANGED DIMENSIONS
-            sideBarTable.frame = CGRect(x: 0, y: 71, width: 176, height: 301)
+            sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 301)
             UIView.commitAnimations()
         }
         else {
@@ -227,14 +230,14 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         //COMMENTED THIS OUT
         //sideBarView.frame = CGRect(x: 0, y: 71, width: 112.33, height: 203)
         //CHANGED DIMENSIONS
-        sideBarTable.frame = CGRect(x: 0, y: 71, width: 176, height: 301)
+        sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 301)
         UIView.setAnimationDuration(0.15)
         UIView.setAnimationDelegate(self)
         UIView.beginAnimations("sideBarAnimation", context: nil)
         //COMMENTED THIS OUT
         //sideBarView.frame = CGRect(x: 0, y: 71, width: 0, height: 203)
         //CHANGED DIMENSIONS
-        sideBarTable.frame = CGRect(x: 0, y: 71, width: 0, height: 301)
+        sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 301)
         UIView.commitAnimations()
     }
     

@@ -262,6 +262,7 @@
                         <outlet property="chatTable" destination="R4Q-0b-Xcp" id="Wps-Ta-JnA"/>
                         <outlet property="keyboardHeightLayoutConstraint" destination="Pbi-1O-cfl" id="RBu-mq-IGc"/>
                         <outlet property="sideBarTable" destination="oZ7-3U-InR" id="99H-ni-oVO"/>
+                        <outlet property="topBarView" destination="2mq-4P-qfy" id="dzY-q8-xHt"/>
                         <outlet property="typedChat" destination="evh-Lq-AA5" id="1ga-6x-reh"/>
                         <outlet property="userFirstName" destination="tr2-Q4-IiN" id="bvG-kx-IVD"/>
                         <outlet property="wholePageView" destination="Fqu-y0-NH1" id="WpA-gO-XeI"/>
