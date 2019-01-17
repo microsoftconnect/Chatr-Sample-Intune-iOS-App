@@ -20,6 +20,9 @@ let savedConvo = UserDefaults.init()
 
 class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    // variable used to keep track of whether the send button is already displayed
+    var alreadyDisplayedSendButton = false
+    
     // variables used for creating the sidebar
     @IBOutlet weak var sideBarTable: UITableView!
     var isMenu:Bool = false                                         // variable that indicates if the menu is being  displayed
@@ -28,7 +31,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     
     // variables used for chat
-    @IBOutlet weak var typedChat: UITextField!
+    @IBOutlet weak var typedChatView: UITextView!
     @IBOutlet weak var chatTable: UITableView!
     
     // variables used for printing
@@ -54,8 +57,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         let align = NSMutableParagraphStyle()
         align.alignment = .right
         
-        let fromMessage = NSMutableAttributedString(string: typedChat.text!, attributes: [.paragraphStyle: align])
-        typedChat.text = ""
+        let fromMessage = NSMutableAttributedString(string: typedChatView.text!, attributes: [.paragraphStyle: align])
+        typedChatView.text = ""
         conversation.append((sender: "from", message: fromMessage))
         
         // update the message board to include the update
@@ -93,7 +96,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         self.chatTable.endUpdates()
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -111,6 +113,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         sideBarTable.isHidden = true
         isMenu = false
         
+        // round the corners of the chat view
+        typedChatView.layer.cornerRadius = 10
+        
         // change user's group name on top of the chat page, one of the app config settings
         userFirstName.text = ObjCUtils.getUserGroupName()
         
@@ -119,6 +124,22 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                                                name: NSNotification.Name.UIKeyboardWillChangeFrame,
                                                object: nil)
         
+    }
+    
+    //programmatically create send button after Auto Layout lays out the main view and subviews
+    override func viewDidLayoutSubviews() {
+        //ensures a new send button is not added every time a message is sent in the chat
+        if alreadyDisplayedSendButton == false {
+            
+            let sendButton = UIButton(frame: CGRect(x: typedChatView.frame.origin.x + typedChatView.frame.width + 4, y: typedChatView.frame.origin.y - 4, width: 57, height: 39))
+            sendButton.backgroundColor = .clear
+            sendButton.setTitle("SEND", for: .normal)
+            sendButton.addTarget(self, action: #selector (sendChat), for: .touchUpInside)
+            
+            self.view.addSubview(sendButton)
+            
+            alreadyDisplayedSendButton = true
+        }
     }
     
     deinit {
@@ -146,9 +167,11 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+    //hide the keyboard when the user taps the return key
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+        }
         return true
     }
     
@@ -176,9 +199,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             let sendMessageCell:chatTableViewCell = chatTable.dequeueReusableCell(withIdentifier: "chatCell") as! chatTableViewCell
             
             sendMessageCell.messageView.attributedText = conversation[indexPath.row].message
-            //sendMessageCell.sizeToFit()
-            // TODO: Alter the size of the cell to match dimensions of the text
-            //     
+            
             return sendMessageCell
         }
     }

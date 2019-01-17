@@ -105,8 +105,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R4Q-0b-Xcp">
-                                <rect key="frame" x="0.0" y="53.5" width="374.5" height="557.5"/>
-                                <color key="backgroundColor" red="0.85490196080000003" green="0.91764705879999997" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="53.5" width="374.5" height="564.5"/>
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.91764705879999997" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.85490196080000003" green="0.91764705879999997" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.85490196078431369" green="0.91764705882352937" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -143,57 +143,6 @@
                                     <outlet property="delegate" destination="FOx-KW-RqY" id="87K-vJ-Hul"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mq-4P-qfy" userLabel="Top Bar View">
-                                <rect key="frame" x="0.0" y="20" width="374.5" height="33.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsp-zU-azo">
-                                        <rect key="frame" x="0.0" y="0.0" width="43" height="33.5"/>
-                                        <state key="normal" title="SideMenu Button" image="menubar"/>
-                                        <connections>
-                                            <action selector="sideBarMenu:" destination="FOx-KW-RqY" eventType="touchUpInside" id="vZP-Gz-aFN"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" text="Chatr" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tr2-Q4-IiN" userLabel="User Group Name">
-                                        <rect key="frame" x="131" y="5" width="112.5" height="23.5"/>
-                                        <color key="backgroundColor" red="0.071075645009999994" green="0.33725490200000002" blue="0.12455912750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" red="0.071075645009999994" green="0.33725490200000002" blue="0.12455912750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="hsp-zU-azo" firstAttribute="centerY" secondItem="2mq-4P-qfy" secondAttribute="centerY" id="0v5-HV-DGh"/>
-                                    <constraint firstItem="tr2-Q4-IiN" firstAttribute="centerY" secondItem="2mq-4P-qfy" secondAttribute="centerY" id="DUy-iH-xle"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hsp-zU-azo" secondAttribute="trailing" constant="20" symbolic="YES" id="M3E-Bv-5tz"/>
-                                    <constraint firstItem="hsp-zU-azo" firstAttribute="leading" secondItem="2mq-4P-qfy" secondAttribute="leading" id="OUV-1K-au5"/>
-                                    <constraint firstItem="tr2-Q4-IiN" firstAttribute="width" secondItem="2mq-4P-qfy" secondAttribute="width" multiplier="0.3" id="Rdd-wj-Eqo"/>
-                                    <constraint firstItem="tr2-Q4-IiN" firstAttribute="height" secondItem="2mq-4P-qfy" secondAttribute="height" multiplier="0.7" id="SY3-yr-6EX"/>
-                                    <constraint firstItem="hsp-zU-azo" firstAttribute="width" secondItem="2mq-4P-qfy" secondAttribute="width" multiplier="0.115" id="WSh-iu-mHj"/>
-                                    <constraint firstItem="tr2-Q4-IiN" firstAttribute="centerX" secondItem="2mq-4P-qfy" secondAttribute="centerX" id="bTq-au-HoG"/>
-                                    <constraint firstItem="hsp-zU-azo" firstAttribute="height" secondItem="2mq-4P-qfy" secondAttribute="height" id="sTN-Xr-62N"/>
-                                </constraints>
-                            </view>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type Message Here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="evh-Lq-AA5">
-                                <rect key="frame" x="10" y="627" width="300" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="wKE-Xr-Sbe"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes"/>
-                                <connections>
-                                    <outlet property="delegate" destination="FOx-KW-RqY" id="8cj-2V-5nV"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="gej-jC-sCg">
-                                <rect key="frame" x="317" y="622.5" width="57" height="39"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <state key="normal" title="Send"/>
-                                <connections>
-                                    <action selector="sendChat:" destination="FOx-KW-RqY" eventType="touchUpInside" id="nxt-CE-DP2"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oZ7-3U-InR" userLabel="Side Bar Table">
                                 <rect key="frame" x="0.0" y="53" width="175" height="301"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -235,35 +184,68 @@
                                     <outlet property="delegate" destination="FOx-KW-RqY" id="zxu-gM-TIZ"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mq-4P-qfy" userLabel="Top Bar View">
+                                <rect key="frame" x="0.0" y="20" width="374.5" height="33.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsp-zU-azo">
+                                        <rect key="frame" x="0.0" y="0.0" width="43" height="33.5"/>
+                                        <state key="normal" title="SideMenu Button" image="menubar"/>
+                                        <connections>
+                                            <action selector="sideBarMenu:" destination="FOx-KW-RqY" eventType="touchUpInside" id="vZP-Gz-aFN"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" text="Chatr" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tr2-Q4-IiN" userLabel="User Group Name">
+                                        <rect key="frame" x="131" y="5" width="112.5" height="23.5"/>
+                                        <color key="backgroundColor" red="0.071075645009999994" green="0.33725490200000002" blue="0.12455912750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.071075645009999994" green="0.33725490200000002" blue="0.12455912750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hsp-zU-azo" firstAttribute="centerY" secondItem="2mq-4P-qfy" secondAttribute="centerY" id="0v5-HV-DGh"/>
+                                    <constraint firstItem="tr2-Q4-IiN" firstAttribute="centerY" secondItem="2mq-4P-qfy" secondAttribute="centerY" id="DUy-iH-xle"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hsp-zU-azo" secondAttribute="trailing" constant="20" symbolic="YES" id="M3E-Bv-5tz"/>
+                                    <constraint firstItem="hsp-zU-azo" firstAttribute="leading" secondItem="2mq-4P-qfy" secondAttribute="leading" id="OUV-1K-au5"/>
+                                    <constraint firstItem="tr2-Q4-IiN" firstAttribute="width" secondItem="2mq-4P-qfy" secondAttribute="width" multiplier="0.3" id="Rdd-wj-Eqo"/>
+                                    <constraint firstItem="tr2-Q4-IiN" firstAttribute="height" secondItem="2mq-4P-qfy" secondAttribute="height" multiplier="0.7" id="SY3-yr-6EX"/>
+                                    <constraint firstItem="hsp-zU-azo" firstAttribute="width" secondItem="2mq-4P-qfy" secondAttribute="width" multiplier="0.115" id="WSh-iu-mHj"/>
+                                    <constraint firstItem="tr2-Q4-IiN" firstAttribute="centerX" secondItem="2mq-4P-qfy" secondAttribute="centerX" id="bTq-au-HoG"/>
+                                    <constraint firstItem="hsp-zU-azo" firstAttribute="height" secondItem="2mq-4P-qfy" secondAttribute="height" id="sTN-Xr-62N"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="joJ-Tl-f9O">
+                                <rect key="frame" x="8" y="626" width="302" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.85098039219999999" green="0.91764705879999997" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PGb-9e-7S2" firstAttribute="trailing" secondItem="gej-jC-sCg" secondAttribute="trailing" constant="1" id="C00-ZT-zfg" userLabel="Safe Area.trailing = Send.trailing"/>
-                            <constraint firstItem="gej-jC-sCg" firstAttribute="leading" secondItem="evh-Lq-AA5" secondAttribute="trailing" constant="7" id="J6N-gk-WbH" userLabel="Send.leading = Typed Chat.trailing"/>
+                            <constraint firstItem="joJ-Tl-f9O" firstAttribute="leading" secondItem="PGb-9e-7S2" secondAttribute="leading" constant="8" id="LDF-wd-AIi"/>
                             <constraint firstItem="2mq-4P-qfy" firstAttribute="leading" secondItem="PGb-9e-7S2" secondAttribute="leading" id="LFt-hk-Q8w"/>
                             <constraint firstItem="PGb-9e-7S2" firstAttribute="leading" secondItem="R4Q-0b-Xcp" secondAttribute="leading" id="PBO-zg-ssW"/>
-                            <constraint firstItem="PGb-9e-7S2" firstAttribute="bottom" secondItem="evh-Lq-AA5" secondAttribute="bottom" constant="10" id="Pbi-1O-cfl"/>
                             <constraint firstItem="2mq-4P-qfy" firstAttribute="height" secondItem="Fqu-y0-NH1" secondAttribute="height" multiplier="0.05" id="TzG-bV-b4I"/>
                             <constraint firstAttribute="trailing" secondItem="2mq-4P-qfy" secondAttribute="trailing" id="UOX-ch-a5G"/>
-                            <constraint firstItem="evh-Lq-AA5" firstAttribute="leading" secondItem="PGb-9e-7S2" secondAttribute="leading" constant="10" id="Uus-4Y-ODz"/>
-                            <constraint firstItem="evh-Lq-AA5" firstAttribute="top" secondItem="R4Q-0b-Xcp" secondAttribute="bottom" constant="16" id="afI-X4-2vJ"/>
                             <constraint firstItem="R4Q-0b-Xcp" firstAttribute="trailing" secondItem="2mq-4P-qfy" secondAttribute="trailing" id="cy9-hi-SKW"/>
                             <constraint firstItem="2mq-4P-qfy" firstAttribute="width" secondItem="Fqu-y0-NH1" secondAttribute="width" id="fzg-q6-97m"/>
                             <constraint firstItem="PGb-9e-7S2" firstAttribute="trailing" secondItem="R4Q-0b-Xcp" secondAttribute="trailing" constant="0.5" id="gVT-Vm-1bh" userLabel="Safe Area.trailing = Chat Table.trailing"/>
-                            <constraint firstItem="gej-jC-sCg" firstAttribute="centerY" secondItem="evh-Lq-AA5" secondAttribute="centerY" id="jXd-Ac-ZMq"/>
+                            <constraint firstItem="PGb-9e-7S2" firstAttribute="bottom" secondItem="joJ-Tl-f9O" secondAttribute="bottom" constant="8" id="gtz-8X-ih6"/>
                             <constraint firstItem="2mq-4P-qfy" firstAttribute="top" secondItem="PGb-9e-7S2" secondAttribute="top" id="kAC-J2-WnD"/>
                             <constraint firstItem="R4Q-0b-Xcp" firstAttribute="top" secondItem="2mq-4P-qfy" secondAttribute="bottom" constant="2.8421709430404007e-14" id="n6N-nI-Iv5"/>
-                            <constraint firstItem="evh-Lq-AA5" firstAttribute="width" secondItem="Fqu-y0-NH1" secondAttribute="width" multiplier="0.8" id="n7N-Ym-yiF"/>
+                            <constraint firstItem="PGb-9e-7S2" firstAttribute="trailing" secondItem="joJ-Tl-f9O" secondAttribute="trailing" constant="65" id="p7O-cw-ngA"/>
+                            <constraint firstItem="joJ-Tl-f9O" firstAttribute="top" secondItem="R4Q-0b-Xcp" secondAttribute="bottom" constant="8" id="vJ9-Hq-H3U"/>
                             <constraint firstItem="oZ7-3U-InR" firstAttribute="top" secondItem="2mq-4P-qfy" secondAttribute="top" id="zpy-G0-fhh" userLabel="Side Bar Table.top = Top Bar View.bottom"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PGb-9e-7S2"/>
                     </view>
                     <connections>
                         <outlet property="chatTable" destination="R4Q-0b-Xcp" id="Wps-Ta-JnA"/>
-                        <outlet property="keyboardHeightLayoutConstraint" destination="Pbi-1O-cfl" id="RBu-mq-IGc"/>
                         <outlet property="sideBarTable" destination="oZ7-3U-InR" id="99H-ni-oVO"/>
                         <outlet property="topBarView" destination="2mq-4P-qfy" id="dzY-q8-xHt"/>
-                        <outlet property="typedChat" destination="evh-Lq-AA5" id="1ga-6x-reh"/>
+                        <outlet property="typedChatView" destination="joJ-Tl-f9O" id="w23-Hc-e2Y"/>
                         <outlet property="userFirstName" destination="tr2-Q4-IiN" id="bvG-kx-IVD"/>
                         <outlet property="wholePageView" destination="Fqu-y0-NH1" id="WpA-gO-XeI"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToHomePage" id="Ymr-DL-epM"/>
