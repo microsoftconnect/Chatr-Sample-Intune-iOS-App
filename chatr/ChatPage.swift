@@ -49,16 +49,23 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         align.alignment = .right
         
         let fromMessage = NSMutableAttributedString(string: typedChat.text!, attributes: [.paragraphStyle: align])
-        typedChat.text = ""
-        conversation.append((sender: "from", message: fromMessage))
         
-        // update the message board to include the update
-        self.chatTable.beginUpdates()
-        self.chatTable.insertRows(at: [IndexPath.init(row: conversation.count-1, section: 0)], with: .automatic)
-        self.chatTable.endUpdates()
-        
-        // send the reply
-        replyChat()
+        //only take action if there is text in the message
+        if fromMessage.length != 0 {
+            typedChat.text = ""
+            conversation.append((sender: "from", message: fromMessage))
+            
+            // update the message board to include the update
+            self.chatTable.beginUpdates()
+            self.chatTable.insertRows(at: [IndexPath.init(row: conversation.count-1, section: 0)], with: .automatic)
+            self.chatTable.endUpdates()
+
+            let messageArray = NSMutableArray.init(object: fromMessage)
+            KeychainManager.addMessage(messages: messageArray, user:ObjCUtils.getSignedInUser() as NSString)
+            
+            // send the reply
+            replyChat()
+        }
     }
     
    /*!

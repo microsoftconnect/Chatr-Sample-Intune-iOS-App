@@ -3,6 +3,7 @@
 //
 
 #import <IntuneMAM/IntuneMAMEnrollmentDelegate.h>
+#import "ObjCUtils.h"
 
 #ifndef EnrollmentDelegateHeader_h
 #define EnrollmentDelegateHeader_h
@@ -18,11 +19,6 @@
  NOTE: A number of other methods are avaliable in the IntuneMAMEnrollmentDelegate. See documentation or header file for more info.
  */
 @interface EnrollmentDelegateClass : NSObject <IntuneMAMEnrollmentDelegate>
-
-/*
- This method retrieves the current view controller by going from the rootViewController to the currently presented view
- */
-+ (UIViewController *) getCurrentViewController;
 
 /*
  To be able to change the view, the class should be initialzed with the curent view controller. Then this view controller can segue to the desired view based on the enrollment success

@@ -21,25 +21,6 @@
     UIViewController *presentingViewController;
 }
 
-/*
- This method retrieves the current view controller by going from the rootViewController to the currently presented view
- */
-+ (UIViewController *) getCurrentViewController
-{
-    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    if (topController) {
-        UIViewController *presentedViewController = topController.presentedViewController;
-        //Loop until there are no more view controllers to go to
-        while (presentedViewController){
-            topController = presentedViewController;
-            presentedViewController = topController.presentedViewController;
-        }
-    }
-    //Return the final view controller
-    return topController;
-}
-
-
 ///*
 // To be able to change the view, the class should be initialzed with the curent view controller. Then this view controller can move to the desired view based on the enrollment success
 //
@@ -108,7 +89,7 @@ If successful, logic for enrollment is initiated
     NSLog(@"Error details: %@", error.errorDetails);
     
     //Go back to login page from current view controller
-    UIViewController*presentingViewController = [EnrollmentDelegateClass getCurrentViewController];
+    UIViewController*presentingViewController = [ObjCUtils getCurrentViewController];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *loginPage = [storyboard instantiateViewControllerWithIdentifier: @"LoginPage"];
     

@@ -22,6 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let mainPage = storyboard.instantiateViewController(withIdentifier: "ChatPage")
             self.window?.rootViewController = mainPage
             
+            //Check the keychain for chat messages and drafted messages to load into the app
+//            KeychainManager.deleteItemForUser(user: ObjCUtils.getSignedInUser() as NSString)
+            //If any are found, populate the app with them.
+            
+            
         } else{
             //if not logged in, set the login page to the rootViewController
             let loginPage = storyboard.instantiateViewController(withIdentifier: "LoginPage")

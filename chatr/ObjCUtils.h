@@ -54,5 +54,10 @@ Note: Alternatively, apps can directly use ADAL to authenticate, and then call t
  */
 + (NSString*) getUserGroupName;
 
+/*
+ This method retrieves the current view controller by going from the rootViewController to the currently presented view
+ */
++ (UIViewController *) getCurrentViewController;
+
 @end
 #endif /* ObjCUtils_h */

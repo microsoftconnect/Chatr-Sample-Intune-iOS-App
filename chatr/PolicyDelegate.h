@@ -3,6 +3,8 @@
 //
 
 #import <IntuneMAM/IntuneMAMPolicyDelegate.h>
+#import "ObjCUtils.h"
+#import <UIKit/UIKit.h>
 
 #ifndef PolicyDelegate_h
 #define PolicyDelegate_h

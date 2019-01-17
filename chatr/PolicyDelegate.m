@@ -10,6 +10,8 @@
 #import <ADAL/ADTokenCacheItem.h>
 #import <ADAL/ADUserInformation.h>
 
+#import "chatr-Swift.h"
+
 /*
  This policy delegate class can be initialized and set as the enrollment delegate of the IntuneMAMPolicyManager
  (This is done in the AppDelegate.swift file at app initialization)
@@ -29,7 +31,7 @@
  @param upn is the upn of the user whoes data is to be wiped (for example "user@example.com")
  */
 - (BOOL)wipeDataForAccount:(NSString*_Nonnull)upn{
-    //Wipe all user data on the app here
+    //Look into the keychain to see if there is message data stored
     NSLog(@"Wipe successful");
     return TRUE;
     
@@ -45,7 +47,14 @@
  */
 - (BOOL)restartApplication {
     NSLog(@"Restarting...");
-    //Since there is no user data to save, Chatr will let the Intune SDK handle the restart
+//Is this possible? Won't currentViewController always be the UI from the SDK? How will the app get access to the drafted message?
+//    //If the current view is the chat page and there is message currently being drafted, then save it to the keychain to repopulate it after the restart.
+//    UIViewController *currentViewController = [ObjCUtils getCurrentViewController];
+//    if ([currentViewController.title caseInsensitiveCompare:@"ChatPage"] == NSOrderedSame){
+//        //Next check for a drafted message
+//
+//    }
+//        //case insensitive comparision to chat page to check
     return FALSE;
 }
 
