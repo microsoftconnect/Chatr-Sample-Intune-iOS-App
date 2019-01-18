@@ -129,7 +129,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     //programmatically create send button after Auto Layout lays out the main view and subviews
     override func viewDidLayoutSubviews() {
         //ensures a new send button is not added every time a message is sent in the chat
-        if alreadyDisplayedSendButton == false {
+        if !alreadyDisplayedSendButton {
             
             let sendButton = UIButton(frame: CGRect(x: typedChatView.frame.origin.x + typedChatView.frame.width + 4, y: typedChatView.frame.origin.y - 4, width: 57, height: 39))
             sendButton.backgroundColor = .clear

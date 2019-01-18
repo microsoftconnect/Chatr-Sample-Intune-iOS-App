@@ -2,8 +2,8 @@
 //  SideBarTableCell.swift
 //  chatr
 //
-//  Created by Diana Voronin on 1/15/19.
-//  Copyright © 2019 Microsoft Intune. All rights reserved.
+//  Created by Mesert Kebed on 6/25/18.
+//  Copyright © 2018 Microsoft Intune. All rights reserved.
 //
 
 import UIKit
