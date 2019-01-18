@@ -41,7 +41,7 @@ import Foundation
     If no item is found, or there is an error in searching for the item, it returns nil.
      @param user: the NSString representing the upn of the user to search the keychain for
     */
-    public class func getCurrentItem(user: NSString) -> NSMutableArray?{
+    @objc public class func getCurrentItem(user: NSString) -> NSMutableArray?{
         let service : String = Bundle.main.bundleIdentifier!
         let key : String = "messages"
         
@@ -86,7 +86,7 @@ import Foundation
      @param user: the NSString representing the upn of the user to add a message for
      @param messages: the NSMutableArray containing the message to be added to the keychain
     */
-    public class func addMessage(messages messageArray:NSMutableArray, user:NSString){
+    @objc public class func addMessage(messages messageArray:NSMutableArray, user:NSString){
         if let currentMessages : NSMutableArray = KeychainManager.getCurrentItem(user: user) {
             //If an item is already in the keychain for a given user, then update the keychain with the new message
             currentMessages.addObjects(from: messageArray as! [Any])
@@ -119,7 +119,7 @@ import Foundation
     Returns true if the deletion was successful, and false if the deletion failed.
     @param user: the NSString representing the upn of the user to remove keychain items for
     */
-    public class func deleteItemForUser(user:NSString) -> Bool{
+    @objc public class func deleteItemForUser(user:NSString) -> Bool{
         let service : String = Bundle.main.bundleIdentifier!
         let key : String = "messages"
         
@@ -132,7 +132,7 @@ import Foundation
         //Delete the item the query finds
         let status = SecItemDelete(query as CFDictionary)
         //Even if the item was not found, this is considered successful as the item may never have been there
-        if status != errSecSuccess || status != errSecItemNotFound {
+        if status != errSecSuccess && status != errSecItemNotFound {
             print("Error occurred when removing data from the keychain.")
             print("Error code: \(Int(status))")
             return false

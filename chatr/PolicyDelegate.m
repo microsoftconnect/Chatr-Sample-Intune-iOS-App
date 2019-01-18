@@ -11,6 +11,7 @@
 #import <ADAL/ADUserInformation.h>
 
 #import "chatr-Swift.h"
+@class KeychainManager;
 
 /*
  This policy delegate class can be initialized and set as the enrollment delegate of the IntuneMAMPolicyManager
@@ -31,9 +32,15 @@
  @param upn is the upn of the user whoes data is to be wiped (for example "user@example.com")
  */
 - (BOOL)wipeDataForAccount:(NSString*_Nonnull)upn{
-    //Look into the keychain to see if there is message data stored
-    NSLog(@"Wipe successful");
-    return TRUE;
+    //Use the deleteItemForUser function in the KeychainManager class to look into the keychain to wipe any messages stored for a given upn
+    if ([KeychainManager deleteItemForUserWithUser:upn] == true){
+        //If the function call returns true, this indicates it successfully cleared the user's messages from the Keychain
+        return TRUE;
+    } else{
+        //If the function failed to wipe the chat message, log this and return FALSE
+        NSLog(@"Data wipe from keychain failed");
+        return FALSE;
+    }
     
 }
 

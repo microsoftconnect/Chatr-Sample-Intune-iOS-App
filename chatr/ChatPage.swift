@@ -42,30 +42,41 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         Button action triggered when send button is pressed on chat page
      
         Empties out the text field, creates a new view with the message and triggers a response.
+     
+        This function also stores the message in they keychain using the KeychainManager
      */
     @IBAction func sendChat(_ sender: UIButton) {
-        
+        //First format the string appropriately
         let align = NSMutableParagraphStyle()
         align.alignment = .right
-        
         let fromMessage = NSMutableAttributedString(string: typedChat.text!, attributes: [.paragraphStyle: align])
         
-        //only take action if there is text in the message
+        //Only take action if there is text in the message
         if fromMessage.length != 0 {
+            //Reset the entry field
             typedChat.text = ""
-            conversation.append((sender: "from", message: fromMessage))
+            displayChatMessage(message: fromMessage)
             
-            // update the message board to include the update
-            self.chatTable.beginUpdates()
-            self.chatTable.insertRows(at: [IndexPath.init(row: conversation.count-1, section: 0)], with: .automatic)
-            self.chatTable.endUpdates()
-
-            let messageArray = NSMutableArray.init(object: fromMessage)
+            //Add the message to the stored messages in the keychain
+            let messageArray = NSMutableArray.init(object: fromMessage.string as NSString)
             KeychainManager.addMessage(messages: messageArray, user:ObjCUtils.getSignedInUser() as NSString)
-            
-            // send the reply
-            replyChat()
         }
+    }
+    
+    /*
+    Helper function that takes a formatted message, displays it on the chat page table, and calls replyChat to add a response message.
+    */
+    func displayChatMessage(message:NSAttributedString) {
+        //Add the message to the data source for the chatTable
+        conversation.append((sender: "from", message: message))
+            
+        //Update the message board to include the new message
+        self.chatTable.beginUpdates()
+        self.chatTable.insertRows(at: [IndexPath.init(row: conversation.count-1, section: 0)], with: .automatic)
+        self.chatTable.endUpdates()
+            
+        // send the reply
+        replyChat()
     }
     
    /*!
@@ -94,6 +105,30 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         self.chatTable.endUpdates()
     }
     
+    /*
+     Function used to clear the chat page messages from the screen
+     */
+    func clearChatPage(){
+        //First clears the array that is a data source for the chat table
+        conversation.removeAll()
+        //Then realoads the chat table with the empty data source
+        self.chatTable.reloadData()
+    }
+    
+    /*
+     Function used to display a group of messages on the chat page.
+     @param messageArray: the array of messages to display
+    */
+    public func populateChatScreen(messageArray: NSMutableArray){
+        for message in (messageArray as NSMutableArray as! [NSString]){
+            //For every string from the message array, format it and display it
+            let align = NSMutableParagraphStyle()
+            align.alignment = .right
+            let fromMessage = NSMutableAttributedString.init(string: message as String, attributes: [.paragraphStyle: align])
+            
+            displayChatMessage(message: fromMessage)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,6 +145,12 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                                                selector: #selector(self.keyboardNotification(notification:)),
                                                name: NSNotification.Name.UIKeyboardWillChangeFrame,
                                                object: nil)
+        //Check the keychain for chat messages and drafted messages to load into the view
+        let currentUser = ObjCUtils.getSignedInUser()! as NSString
+        if let messageArray: NSMutableArray = KeychainManager.getCurrentItem(user: currentUser){
+            //If they are present, populate the screen with them
+            self.populateChatScreen(messageArray: messageArray)
+        }
         
     }
     
@@ -271,7 +312,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             } else if indexPath.row == 4 {
                 // log out
                 ObjCUtils.logout()
-//                performSegue(withIdentifier: "backToHomePage", sender: self)
             }
         }
     }
@@ -292,6 +332,12 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         printController.printInfo = printInfo
         printController.printingItem = wholePageView.toImage()
         printController.present(animated: true, completionHandler: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //When the view disappears, clear the chat page as it will be reloaded when the page is displayed again.
+        self.clearChatPage()
     }
 }
 
