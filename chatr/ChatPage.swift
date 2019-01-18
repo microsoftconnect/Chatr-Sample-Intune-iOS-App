@@ -20,16 +20,18 @@ let savedConvo = UserDefaults.init()
 
 class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    // variable used to keep track of whether the send button is already displayed
+    var alreadyDisplayedSendButton = false
+    
     // variables used for creating the sidebar
-    @IBOutlet weak var sideBarView: UIView!
     @IBOutlet weak var sideBarTable: UITableView!
-    var isMenu:Bool = false                                         // variable that indiates if the menu is being  displayed
+    var isMenu:Bool = false                                         // variable that indicates if the menu is being  displayed
     var sideBarFeatures = ["Save","Print", "About us", "Log out"]   // the options on the sidebar
     var sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
     
     
     // variables used for chat
-    @IBOutlet weak var typedChat: UITextField!
+    @IBOutlet weak var typedChatView: UITextView!
     @IBOutlet weak var chatTable: UITableView!
     
     // variables used for printing
@@ -42,6 +44,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     // variable to move textfield for keyboard actions
     @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
     
+    //variable to reference the position and dimensions of the top bar
+    @IBOutlet weak var topBarView: UIView!
+    
     /*!
         Button action triggered when send button is pressed on chat page
      
@@ -52,8 +57,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         let align = NSMutableParagraphStyle()
         align.alignment = .right
         
-        let fromMessage = NSMutableAttributedString(string: typedChat.text!, attributes: [.paragraphStyle: align])
-        typedChat.text = ""
+        let fromMessage = NSMutableAttributedString(string: typedChatView.text!, attributes: [.paragraphStyle: align])
+        typedChatView.text = ""
         conversation.append((sender: "from", message: fromMessage))
         
         // update the message board to include the update
@@ -91,14 +96,25 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         self.chatTable.endUpdates()
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //prevent the display of empty cells at the bottom of the sidebar menu by adding a zero height table footer view
+        sideBarTable.tableFooterView = UIView(frame: CGRect(x:0, y:0, width: 0, height: 0))
+        sideBarTable.tableFooterView?.isHidden = true
+        sideBarTable.backgroundColor = UIColor.clear
+        
+        //ensures self-sizing sidebar table view cells
+        //the sidebar table view will use Auto Layout constraints and the cell's contents to determine each cell's height
+        sideBarTable.estimatedRowHeight = 40
+        sideBarTable.rowHeight = UITableViewAutomaticDimension
+        
         // when the view is loaded, hide the sidebar table
-        sideBarView.isHidden = true
-        sideBarTable.backgroundColor = UIColor.groupTableViewBackground
+        sideBarTable.isHidden = true
         isMenu = false
+        
+        // round the corners of the chat view
+        typedChatView.layer.cornerRadius = 10
         
         // change user's group name on top of the chat page, one of the app config settings
         userFirstName.text = ObjCUtils.getUserGroupName()
@@ -108,6 +124,22 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                                                name: NSNotification.Name.UIKeyboardWillChangeFrame,
                                                object: nil)
         
+    }
+    
+    //programmatically create send button after Auto Layout lays out the main view and subviews
+    override func viewDidLayoutSubviews() {
+        //ensures a new send button is not added every time a message is sent in the chat
+        if !alreadyDisplayedSendButton {
+            
+            let sendButton = UIButton(frame: CGRect(x: typedChatView.frame.origin.x + typedChatView.frame.width + 4, y: typedChatView.frame.origin.y - 4, width: 57, height: 39))
+            sendButton.backgroundColor = .clear
+            sendButton.setTitle("SEND", for: .normal)
+            sendButton.addTarget(self, action: #selector (sendChat), for: .touchUpInside)
+            
+            self.view.addSubview(sendButton)
+            
+            alreadyDisplayedSendButton = true
+        }
     }
     
     deinit {
@@ -135,9 +167,11 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+    //hide the keyboard when the user taps the return key
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+        }
         return true
     }
     
@@ -165,9 +199,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             let sendMessageCell:chatTableViewCell = chatTable.dequeueReusableCell(withIdentifier: "chatCell") as! chatTableViewCell
             
             sendMessageCell.messageView.attributedText = conversation[indexPath.row].message
-            //sendMessageCell.sizeToFit()
-            // TODO: Alter the size of the cell to match dimensions of the text
-            //     
+            
             return sendMessageCell
         }
     }
@@ -179,20 +211,16 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             - If the menu was hidden when the button is pressed, then it will reveal the menu and vise versa.
      */
     @IBAction func sideBarMenu(_ sender: Any) {
-        sideBarView.isHidden = false
         sideBarTable.isHidden = false
-        self.view.bringSubview(toFront: sideBarView)
         
         if !isMenu {
             // reveal sideBar menu
             isMenu = true
-            sideBarView.frame = CGRect(x: 0, y: 71, width: 0, height: 203)
-            sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 203)
+            sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 301)
             UIView.setAnimationDuration(0.15)
             UIView.setAnimationDelegate(self)
             UIView.beginAnimations("sideBarAnimation", context: nil)
-            sideBarView.frame = CGRect(x: 0, y: 71, width: 112.33, height: 203)
-            sideBarTable.frame = CGRect(x: 0, y: 0, width: 112.33, height: 203)
+            sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 301)
             UIView.commitAnimations()
         }
         else {
@@ -205,16 +233,13 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
      */
     func hideSideBarMenu() {
         // hide sideBar menu
-        sideBarView.isHidden = true
         sideBarTable.isHidden = true
         isMenu = false
-        sideBarView.frame = CGRect(x: 0, y: 71, width: 112.33, height: 203)
-        sideBarTable.frame = CGRect(x: 0, y: 0, width: 112.33, height: 203)
+        sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 301)
         UIView.setAnimationDuration(0.15)
         UIView.setAnimationDelegate(self)
         UIView.beginAnimations("sideBarAnimation", context: nil)
-        sideBarView.frame = CGRect(x: 0, y: 71, width: 0, height: 203)
-        sideBarTable.frame = CGRect(x: 0, y: 0, width: 0, height: 203)
+        sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 301)
         UIView.commitAnimations()
     }
     
