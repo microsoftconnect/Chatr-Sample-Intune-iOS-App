@@ -134,15 +134,16 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     }
     
     /*
-     Function used to check for a drafted message in the message entry bar. If a draft message is present, return it within an array.
-     If no draft message is present, return nil.
+     Function used to save a drafted message in the message entry field.
+     If a draft message is present, then it will be saved to the keychain using the KeychainManager class.
     */
-    @objc public func getDraftedMessageArray()->NSMutableArray?{
-        if typedChat.text?.count != 0{
-            let draftMessageArray = NSMutableArray.init(object: typedChat.text! as NSString)
-            return draftMessageArray
-        } else{
-            return nil
+    @objc public func saveDraftedMessage(){
+        if let currentUser = ObjCUtils.getSignedInUser() {
+            if typedChat.text?.count != 0{
+                //If a draft message is present, then save it using the KeychainManager class
+                let draftMessageArray = NSMutableArray.init(object: typedChat.text! as NSString)
+                KeychainManager.addMessage(messages: draftMessageArray, user: currentUser as NSString, key: "draftMessage")
+            }
         }
     }
     
@@ -174,6 +175,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                 typedChat.text = message
             }
         }
+        
+        //Add an observer to save any drafted message when the app terminates
+        NotificationCenter .default .addObserver(self, selector: #selector(ChatPage.saveDraftedMessage), name: NSNotification.Name.UIApplicationWillTerminate, object: nil)
     }
     
     deinit {
@@ -365,13 +369,10 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        //If the view is disappearing, check for a draft message to save
-        if let currentUser = ObjCUtils.getSignedInUser() {
-            if let draftMessageArray = self.getDraftedMessageArray() {
-                //If a draft message is present, then save it using the KeychainManager class
-                KeychainManager.addMessage(messages: draftMessageArray, user: currentUser as NSString, key: "draftMessage")
-            }
-        }
+        NotificationCenter .default .removeObserver(self)
+        
+        //Save the draft message if there is one present
+        saveDraftedMessage()
     }
 }
 

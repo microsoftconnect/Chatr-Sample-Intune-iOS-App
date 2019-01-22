@@ -60,12 +60,8 @@
     UIViewController *currentViewController = [ObjCUtils getCurrentViewController];
     if ([currentViewController isMemberOfClass:[ChatPage class]]){
         ChatPage *ChatPageViewController = (ChatPage*) currentViewController;
-        //Next check for a drafted message
-        NSMutableArray *draftMessageArray = [ChatPageViewController getDraftedMessageArray];
-        if (draftMessageArray != nil){
-            //If a drafted message is present, save it to the keychain
-            [KeychainManager addMessageWithMessages:draftMessageArray user:[ObjCUtils getSignedInUser] key:@"draftMessage"];
-        }
+        //Call saveDraftedMessage on the ChatPage to save the drafted message to the keychain if there is one present.
+        [ChatPageViewController saveDraftedMessage];
     }
     return FALSE;
 }
