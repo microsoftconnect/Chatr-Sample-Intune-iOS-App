@@ -177,7 +177,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
         
         //Add an observer to save any drafted message when the app terminates
-        NotificationCenter .default .addObserver(self, selector: #selector(ChatPage.saveDraftedMessage), name: NSNotification.Name.UIApplicationWillTerminate, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatPage.saveDraftedMessage), name: NSNotification.Name.UIApplicationWillTerminate, object: nil)
     }
     
     deinit {
@@ -368,8 +368,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        NotificationCenter .default .removeObserver(self)
         
         //Save the draft message if there is one present
         saveDraftedMessage()
