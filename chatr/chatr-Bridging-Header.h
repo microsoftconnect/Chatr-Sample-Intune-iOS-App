@@ -10,3 +10,4 @@
 
 
 #import "ObjCUtils.h"
+#import "IntuneMAM/IntuneMAMVersionInfo.h"
