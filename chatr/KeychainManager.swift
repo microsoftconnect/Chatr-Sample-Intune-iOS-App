@@ -11,17 +11,14 @@ import Foundation
      @param user: the NSString representing the upn of the user to update the keychain for
      @param messageArray: an NSMutableArray containing the messages to be added to the keychain
      */
-    private class func updateItem(user: NSString, messageArray: NSMutableArray){
-        let service : String = Bundle.main.bundleIdentifier!
-        let key : String = "messages"
+    private class func updateItem(user: NSString, messageArray: NSMutableArray, key:String){
         //Convert given array of message data to data that can be stored in the keychain
         let messageData = NSKeyedArchiver.archivedData(withRootObject: messageArray)
         
         //First define a query that will locate the user's data
         let query : [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                     kSecAttrAccount as String: user,
-                    kSecAttrService as String: service,
-                    kSecAttrLabel as String: key
+                    kSecAttrService as String: key,
                     ]
         //Next define the attributes to be updated (message data)
         let attributes : [String: Any] = [kSecValueData as String: messageData]
@@ -41,16 +38,12 @@ import Foundation
     If no item is found, or there is an error in searching for the item, it returns nil.
      @param user: the NSString representing the upn of the user to search the keychain for
     */
-    @objc public class func getCurrentItem(user: NSString) -> NSMutableArray?{
-        let service : String = Bundle.main.bundleIdentifier!
-        let key : String = "messages"
-        
+    @objc public class func getCurrentItem(user: NSString, key:String) -> NSMutableArray?{
         //A query specific to the user is defined
         //Within the query, kSecReturnData is set to true so that the search will return the message data
         let query : [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                      kSecAttrAccount as String: user,
-                                     kSecAttrService as String: service,
-                                     kSecAttrLabel as String: key,
+                                     kSecAttrService as String: key,
                                      kSecReturnData as String: true,
                                      kSecReturnAttributes as String: true,
                                      ]
@@ -86,23 +79,25 @@ import Foundation
      @param user: the NSString representing the upn of the user to add a message for
      @param messages: the NSMutableArray containing the message to be added to the keychain
     */
-    @objc public class func addMessage(messages messageArray:NSMutableArray, user:NSString){
-        if let currentMessages : NSMutableArray = KeychainManager.getCurrentItem(user: user) {
+    @objc public class func addMessage(messages messageArray:NSMutableArray, user:NSString, key:String){
+        if let currentMessages : NSMutableArray = KeychainManager.getCurrentItem(user: user, key: key) {
             //If an item is already in the keychain for a given user, then update the keychain with the new message
-            currentMessages.addObjects(from: messageArray as! [Any])
-            KeychainManager.updateItem(user: user, messageArray: currentMessages)
-            
+            if key == "messages" {
+                //If dealing with sent messages, add the new message to the existing messages
+                currentMessages.addObjects(from: messageArray as! [Any])
+                KeychainManager.updateItem(user: user, messageArray: currentMessages, key:key)
+            } else {
+                //If dealing with draft messages, do not add the new draft message to the existing ones, but just store the newest value as only one draft message is stored at a time
+                KeychainManager.updateItem(user: user, messageArray: messageArray, key:key)
+            }
         } else {
             //Otherwise define a query to add an item for the user containing the messages
-            let service : String = Bundle.main.bundleIdentifier!
-            let key : String = "messages"
             let messageData = NSKeyedArchiver.archivedData(withRootObject: messageArray)
             
             let query : [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                          kSecAttrAccount as String: user,
-                                         kSecAttrService as String: service,
+                                         kSecAttrService as String: key,
                                          kSecValueData as String: messageData,
-                                         kSecAttrLabel as String: key,
                                          ]
             //Add the new item to the query
             let status = SecItemAdd(query as CFDictionary, nil)
@@ -119,15 +114,12 @@ import Foundation
     Returns true if the deletion was successful, and false if the deletion failed.
     @param user: the NSString representing the upn of the user to remove keychain items for
     */
-    @objc public class func deleteItemForUser(user:NSString) -> Bool{
-        let service : String = Bundle.main.bundleIdentifier!
-        let key : String = "messages"
+    @objc public class func deleteItemForUser(user:NSString, key:String) -> Bool{
         
         //Define a query that will locate the messages item in the keychain
         let query : [String: Any] = [kSecClass as String: kSecClassGenericPassword,
                                      kSecAttrAccount as String: user,
-                                     kSecAttrService as String: service,
-                                     kSecAttrLabel as String: key,
+                                     kSecAttrService as String: key,
                                      ]
         //Delete the item the query finds
         let status = SecItemDelete(query as CFDictionary)

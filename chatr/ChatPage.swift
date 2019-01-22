@@ -55,11 +55,14 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         if fromMessage.length != 0 {
             //Reset the entry field
             typedChat.text = ""
+            
+            //When any message is sent, delete any current entries in the keychain for draft messages
+            KeychainManager.deleteItemForUser(user: ObjCUtils.getSignedInUser()! as NSString, key: "draftMessage")
             displayChatMessage(message: fromMessage)
             
             //Add the message to the stored messages in the keychain
             let messageArray = NSMutableArray.init(object: fromMessage.string as NSString)
-            KeychainManager.addMessage(messages: messageArray, user:ObjCUtils.getSignedInUser() as NSString)
+            KeychainManager.addMessage(messages: messageArray, user:ObjCUtils.getSignedInUser() as NSString, key:"messages")
         }
     }
     
@@ -130,6 +133,19 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     
+    /*
+     Function used to check for a drafted message in the message entry bar. If a draft message is present, return it within an array.
+     If no draft message is present, return nil.
+    */
+    @objc public func getDraftedMessageArray()->NSMutableArray?{
+        if typedChat.text?.count != 0{
+            let draftMessageArray = NSMutableArray.init(object: typedChat.text! as NSString)
+            return draftMessageArray
+        } else{
+            return nil
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -147,11 +163,17 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                                                object: nil)
         //Check the keychain for chat messages and drafted messages to load into the view
         let currentUser = ObjCUtils.getSignedInUser()! as NSString
-        if let messageArray: NSMutableArray = KeychainManager.getCurrentItem(user: currentUser){
-            //If they are present, populate the screen with them
+        if let messageArray: NSMutableArray = KeychainManager.getCurrentItem(user: currentUser, key:"messages"){
+            //If messages are present, populate the screen with them
             self.populateChatScreen(messageArray: messageArray)
         }
-        
+        let draftMessageArray = KeychainManager.getCurrentItem(user: currentUser, key: "draftMessage")
+        if draftMessageArray != nil{
+            //If a draft message is present, add it to the message entry bar
+            for message in (draftMessageArray! as NSMutableArray as! [String]){
+                typedChat.text = message
+            }
+        }
     }
     
     deinit {
@@ -335,9 +357,21 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+        super.viewDidDisappear(animated)
         //When the view disappears, clear the chat page as it will be reloaded when the page is displayed again.
         self.clearChatPage()
+
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //If the view is disappearing, check for a draft message to save
+        if let currentUser = ObjCUtils.getSignedInUser() {
+            if let draftMessageArray = self.getDraftedMessageArray() {
+                //If a draft message is present, then save it using the KeychainManager class
+                KeychainManager.addMessage(messages: draftMessageArray, user: currentUser as NSString, key: "draftMessage")
+            }
+        }
     }
 }
 
