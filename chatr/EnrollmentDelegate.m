@@ -105,7 +105,10 @@ If successful, logic for enrollment is initiated
                            error: &error];
     
     //If there is an error clearing tokens, log it
-    NSLog(@"Error details: %@", error.errorDetails);
+    if (error.errorDetails != nil){
+        NSLog(@"Error occurred while clearing user's AAD tokens.");
+        NSLog(@"Error details: %@", error.errorDetails);
+    }
     
     //Go back to login page from current view controller
     UIViewController*presentingViewController = [EnrollmentDelegateClass getCurrentViewController];
@@ -116,8 +119,8 @@ If successful, logic for enrollment is initiated
     
     if (status.didSucceed != TRUE){
         //In the case unenrollment failed, log error
-        NSLog(@"Unenrollment failed");
-        NSLog(@"Failure details: %@", status.errorString);
+        NSLog(@"Unenrollment result for identity %@ with status code %ld", status.identity, (unsigned long)status.statusCode);
+        NSLog(@"Debug Message: %@", status.errorString);
     }
 }
 @end
