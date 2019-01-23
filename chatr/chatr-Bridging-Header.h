@@ -8,3 +8,4 @@
 #import "ObjCUtils.h"
 #import "PolicyDelegate.h"
 #import "EnrollmentDelegate.h"
+#import "IntuneMAM/IntuneMAMVersionInfo.h"

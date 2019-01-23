@@ -5,10 +5,9 @@
 import UIKit
 
 class SideBarTableCell: UITableViewCell {
-    
-    // variables used throughout this class
-    @IBOutlet weak var cellImg: UIImageView!
+
     @IBOutlet weak var cellLbl: UILabel!
+    @IBOutlet weak var cellImg: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
