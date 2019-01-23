@@ -1,9 +1,5 @@
 //
-//  ViewController.swift
-//  chatr
-//
-//  Created by Mesert Kebed on 6/20/18.
-//  Copyright © 2018 Microsoft Intune. All rights reserved.
+//  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
 import UIKit
@@ -13,11 +9,11 @@ class ViewController: UIViewController {
     /*!
      Button action triggered when user presses the log in button
      
-     Sends the user through the ADAL Authentication flow for logging in.
+     Sends the user through the Intune Authentication flow for logging in.
      Triggers the "homePage" segue if login is successful; raises an alert if there is an error.
     */
     @IBAction func logInBtn(_ sender: Any) {
-        ObjCUtils.getToken(self)
+        ObjCUtils.login(self)
     }
     
     /*!
@@ -26,7 +22,7 @@ class ViewController: UIViewController {
      Removes all of the token access for users of the app.
      */
     @IBAction func logOutBtn(_ sender: Any) {
-        ObjCUtils.removeAppTokens()
+        ObjCUtils.logout()
     }
     
     override func viewDidLoad() {

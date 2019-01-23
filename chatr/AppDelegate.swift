@@ -1,9 +1,5 @@
 //
-//  AppDelegate.swift
-//  chatr
-//
-//  Created by Mesert Kebed on 6/20/18.
-//  Copyright © 2018 Microsoft Intune. All rights reserved.
+//  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
 import UIKit
@@ -16,6 +12,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let storyboard: UIStoryboard = UIStoryboard(name:"Main", bundle: Bundle.main)
+        
+        //check for enrolled account
+        if ObjCUtils.getSignedInUser() != nil{
+            //if an account is enrolled, skip over login page to main page
+            //Do this by setting the main chat page to the rootViewController
+            let mainPage = storyboard.instantiateViewController(withIdentifier: "ChatPage")
+            self.window?.rootViewController = mainPage
+            
+        } else{
+            //if not logged in, set the login page to the rootViewController
+            let loginPage = storyboard.instantiateViewController(withIdentifier: "LoginPage")
+            self.window?.rootViewController = loginPage
+        }
+        
         return true
     }
 
@@ -40,7 +52,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        //Set the delegate of the IntuneMAMPolicyManager to an instance of the PolicyDelegateClass
+        IntuneMAMPolicyManager.instance().delegate = PolicyDelegateClass.init()
+        
+        //Set the delegate of the IntuneMAMEnrollmentManager to an instance of the EnrollmentDelegateClass
+        IntuneMAMEnrollmentManager.instance().delegate = EnrollmentDelegateClass.init()
+        
+        return true
+    }
 
 }
 

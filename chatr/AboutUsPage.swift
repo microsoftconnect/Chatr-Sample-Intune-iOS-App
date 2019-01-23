@@ -1,12 +1,7 @@
 //
-//  AboutUsPage.swift
-//  chatr
+//  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 //  Code for inserting link adopted from: https://stackoverflow.com/questions/39238366/uitextvie-with-hyperlink-text response by Code Different
-//
-//  Created by Mesert Kebed on 7/2/18.
-//  Copyright © 2018 Microsoft Intune. All rights reserved.
-//
 
 import UIKit
 

@@ -1,11 +1,6 @@
 //
-//  chatTableViewCell.swift
-//  chatr
+//  Copyright (c) Microsoft Corporation. All rights reserved.
 //
-//  Created by Meseret  Kebede on 05/07/2018.
-//  Copyright © 2018 Microsoft Intune. All rights reserved.
-//
-
 import UIKit
 
 class chatTableViewCell: UITableViewCell {

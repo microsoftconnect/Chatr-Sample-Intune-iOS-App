@@ -1,9 +1,5 @@
 //
-//  Chat Page.swift
-//  chatr
-//
-//  Created by Mesert Kebed on 6/29/18.
-//  Copyright © 2018 Microsoft Intune. All rights reserved.
+//  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 //  Code for sidebar implementation adopted from: https://youtu.be/GOSIz7JbZMA by Yogesh Patel
 //  Code for alert message adopted from: https://www.simplifiedios.net/ios-show-alert-using-uialertcontroller/ by Belal Khan
@@ -26,8 +22,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     // variables used for creating the sidebar
     @IBOutlet weak var sideBarTable: UITableView!
     var isMenu:Bool = false                                         // variable that indicates if the menu is being  displayed
-    var sideBarFeatures = ["Save","Print", "About us", "Log out"]   // the options on the sidebar
-    var sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
+    let sideBarFeatures = ["Save","Print", "About us","Settings", "Log out"]   // the options on the sidebar
+    let sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "profile"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
     
     
     // variables used for chat
@@ -243,21 +239,24 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         UIView.commitAnimations()
     }
     
-    /*!
-        Actions within the side bar menu.
-        0 -> Save page  
-        1 -> Print page
-        2 -> Open About us page
-        3 -> Log out
-    */
+    //Enumeration that defines options within the side bar menu
+    enum SideBarOptions: Int{
+        case save = 0
+        case print
+        case aboutUs
+        case settings
+        case logout
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == sideBarTable {
-            // complete an action based on the item pressed on the sidebar
-            // insert similar logic here to assign a view to a new option, the indexPath refers to the items in sideBarFeatures
-            if indexPath.row == 0 {
-                // check if save is allowed by policy
+            let sideBarOption = SideBarOptions(rawValue: indexPath.row)
+            // Complete an action based on the item pressed on the sidebar
+            switch sideBarOption {
+            case .save?:
+                // Check if save is allowed by policy
                 if ObjCUtils.isSaveToLocalDriveAllowed() {
-                    //save the conversation and present success alert to user
+                    //Save the conversation and present success alert to user
                     savedConvo.set(conversation, forKey: "savedConversation ")
                     let alert = UIAlertController(title: "Conversation Saved",
                                                   message: "Your conversation has been successfully saved to your device.",
@@ -269,7 +268,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                     present(alert, animated: true, completion: nil)
                 }
                 else {
-                    // alert the user that Save is disabled by APP
+                    // Alert the user that saving is disabled
                     let alert = UIAlertController(title: "Save Disabled",
                                                   message: "Saving conversations to local storage has been disabled by your IT admin.",
                                                   preferredStyle: .alert)
@@ -279,17 +278,21 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                     alert.addAction(closeAlert)
                     present(alert, animated: true, completion: nil)
                 }
-            } else if indexPath.row == 1 {
-                // print conversation
+            case .print?:
+                //Print the conversation
                 printConvo()
-            } else if indexPath.row == 2 {
-                // about us
+            case .aboutUs?:
+                //Display the about us page
                 let aboutUs:AboutUsPage = self.storyboard?.instantiateViewController(withIdentifier: "aboutPage") as! AboutUsPage
                 present(aboutUs, animated:true, completion: nil)
-            } else if indexPath.row == 3 {
-                // log out
-                ObjCUtils.removeAppTokens()
-                performSegue(withIdentifier: "backToHomePage", sender: self)
+            case .settings?:
+                //Display the settings page
+                let settings:SettingsPage = self.storyboard?.instantiateViewController(withIdentifier: "settingsPage") as! SettingsPage
+                present(settings, animated:true, completion: nil)
+            case .logout?:
+                //Log out user
+                ObjCUtils.logout()
+            default: break
             }
         }
     }
