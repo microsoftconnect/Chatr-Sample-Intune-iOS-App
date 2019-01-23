@@ -4,12 +4,18 @@
 
 import Foundation
 
+/*
+ Class with methods used to manage adding, updating, and removing user data to the keychain.
+ The keychain is used in this app to securely store user messages and drafted messages.
+ The data in the keychain persists across app instances unless deleted from the keychain.
+ */
 @objc public class KeychainManager : NSObject{
     
     /*
-     This function updates a user's current item in the keychain with new message data
+     This function updates a user's current item in the keychain with new  data
      @param user: the NSString representing the upn of the user to update the keychain for
      @param messageArray: an NSMutableArray containing the messages to be added to the keychain
+     @param key: a string representing the key for the data (messages, draftMessage, etc.)
      */
     private class func updateItem(user: NSString, messageArray: NSMutableArray, key:String){
         //Convert given array of message data to data that can be stored in the keychain
@@ -34,9 +40,10 @@ import Foundation
     
     /*
     This function is used to check for the current keychain item for a given user
-    If an item is found, it returns the array of messages.
+    If an item is found, it returns the array of data.
     If no item is found, or there is an error in searching for the item, it returns nil.
-     @param user: the NSString representing the upn of the user to search the keychain for
+    @param user: the NSString representing the upn of the user to search the keychain for
+    @param key: a string representing the key for the data (messages, draftMessage, etc.)
     */
     @objc public class func getCurrentItem(user: NSString, key:String) -> NSMutableArray?{
         //A query specific to the user is defined
@@ -74,10 +81,11 @@ import Foundation
     }
     
     /*
-    This function is used to add messages to the keychain. It first searches to see if any item is present for the given user already.
+    This function is used to add data to the keychain items. It first searches to see if any item is present for the given user already.
     If the user already has an item, update this item. Otherwise, create a new keychain item.
      @param user: the NSString representing the upn of the user to add a message for
      @param messages: the NSMutableArray containing the message to be added to the keychain
+     @param key: a string representing the key for the data (messages, draftMessage, etc.)
     */
     @objc public class func addMessage(messages messageArray:NSMutableArray, user:NSString, key:String){
         if let currentMessages : NSMutableArray = KeychainManager.getCurrentItem(user: user, key: key) {
@@ -110,9 +118,10 @@ import Foundation
     }
     
     /*
-    Function used to delete the item containing messages for a given user from the keychain
+    Function used to delete the item containing data for a given user from the keychain
     Returns true if the deletion was successful, and false if the deletion failed.
     @param user: the NSString representing the upn of the user to remove keychain items for
+     @param key: a string representing the key for the data (messages, draftMessage, etc.)
     */
     @objc public class func deleteItemForUser(user:NSString, key:String) -> Bool{
         
