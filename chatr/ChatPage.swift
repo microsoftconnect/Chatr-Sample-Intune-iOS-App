@@ -23,7 +23,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     @IBOutlet weak var sideBarTable: UITableView!
     var isMenu:Bool = false                                         // variable that indicates if the menu is being  displayed
     let sideBarFeatures = ["Save","Print", "About us","Settings", "Log out"]   // the options on the sidebar
-    let sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "profile"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
+    let sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "settings"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
     
     
     // variables used for chat
