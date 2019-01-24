@@ -1,0 +1,716 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		68AF9BE221E8E19300127E37 /* EnrollmentDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF9BDF21E8E19200127E37 /* EnrollmentDelegate.m */; };
+		68AF9BE321E8E19300127E37 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AF9BE021E8E19200127E37 /* SettingsPage.swift */; };
+		68AF9BE621E944AB00127E37 /* PolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF9BE521E944AB00127E37 /* PolicyDelegate.m */; };
+		AC6703AF212B1DEB00CBAD56 /* ADAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6703AD212B1CFA00CBAD56 /* ADAL.framework */; };
+		AC6703B0212B1DEB00CBAD56 /* ADAL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC6703AD212B1CFA00CBAD56 /* ADAL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C01A67E020DAB03F00F80AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */; };
+		C01A67E220DAB03F00F80AFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67E120DAB03F00F80AFB /* ViewController.swift */; };
+		C01A67E520DAB03F00F80AFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01A67E320DAB03F00F80AFB /* Main.storyboard */; };
+		C01A67E720DAB03F00F80AFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C01A67E620DAB03F00F80AFB /* Assets.xcassets */; };
+		C01A67EA20DAB03F00F80AFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01A67E820DAB03F00F80AFB /* LaunchScreen.storyboard */; };
+		C01A67F520DAB03F00F80AFB /* chatrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67F420DAB03F00F80AFB /* chatrTests.swift */; };
+		C01A680020DAB03F00F80AFB /* chatrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67FF20DAB03F00F80AFB /* chatrUITests.swift */; };
+		C01A680E20DAE2BB00F80AFB /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C01A680D20DAE2BB00F80AFB /* logo.jpg */; };
+		C01A681320E166CA00F80AFB /* SideBarTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A681220E166CA00F80AFB /* SideBarTableCell.swift */; };
+		C023DAA12106519200246456 /* ObjCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C023DAA02106519200246456 /* ObjCUtils.m */; };
+		C027B3B120E687DF00392A38 /* ChatPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027B3B020E687DF00392A38 /* ChatPage.swift */; };
+		C0571FB420EAAB57008716A8 /* AboutUsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0571FB320EAAB57008716A8 /* AboutUsPage.swift */; };
+		C0E7DA0320EE766600EA7494 /* chatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E7DA0220EE766600EA7494 /* chatTableViewCell.swift */; };
+		C0E7DA0520FE888C00EA7494 /* IntuneMAM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */; };
+		C0E7DA0620FE888C00EA7494 /* IntuneMAM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C0E7DA0A20FE897200EA7494 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0920FE897200EA7494 /* MessageUI.framework */; };
+		C0E7DA0C20FE897900EA7494 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0B20FE897900EA7494 /* Security.framework */; };
+		C0E7DA0E20FE898500EA7494 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0D20FE898500EA7494 /* MobileCoreServices.framework */; };
+		C0E7DA1020FE898D00EA7494 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA0F20FE898D00EA7494 /* SystemConfiguration.framework */; };
+		C0E7DA1220FE899900EA7494 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1120FE899900EA7494 /* libsqlite3.tbd */; };
+		C0E7DA1420FE89A300EA7494 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1320FE89A300EA7494 /* libc++.tbd */; };
+		C0E7DA1620FE89AD00EA7494 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1520FE89AD00EA7494 /* ImageIO.framework */; };
+		C0E7DA1820FE89B500EA7494 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1720FE89B500EA7494 /* LocalAuthentication.framework */; };
+		C0E7DA1A20FE89C800EA7494 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1920FE89C800EA7494 /* AudioToolbox.framework */; };
+		C0E7DA1C20FE89D400EA7494 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1B20FE89D400EA7494 /* QuartzCore.framework */; };
+		C0E7DA1E20FE89DB00EA7494 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1D20FE89DB00EA7494 /* WebKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C01A67F120DAB03F00F80AFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C01A67D420DAB03F00F80AFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C01A67DB20DAB03F00F80AFB;
+			remoteInfo = chatr;
+		};
+		C01A67FC20DAB03F00F80AFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C01A67D420DAB03F00F80AFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C01A67DB20DAB03F00F80AFB;
+			remoteInfo = chatr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C0E7DA0720FE888C00EA7494 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AC6703B0212B1DEB00CBAD56 /* ADAL.framework in Embed Frameworks */,
+				C0E7DA0620FE888C00EA7494 /* IntuneMAM.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		68AF9BDF21E8E19200127E37 /* EnrollmentDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnrollmentDelegate.m; sourceTree = "<group>"; };
+		68AF9BE021E8E19200127E37 /* SettingsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
+		68AF9BE121E8E19300127E37 /* EnrollmentDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnrollmentDelegate.h; sourceTree = "<group>"; };
+		68AF9BE421E9449200127E37 /* PolicyDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolicyDelegate.h; sourceTree = "<group>"; };
+		68AF9BE521E944AB00127E37 /* PolicyDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolicyDelegate.m; sourceTree = "<group>"; };
+		AC6703AD212B1CFA00CBAD56 /* ADAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADAL.framework; sourceTree = "<group>"; };
+		C01A67DC20DAB03F00F80AFB /* chatr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C01A67E120DAB03F00F80AFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C01A67E420DAB03F00F80AFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C01A67E620DAB03F00F80AFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C01A67E920DAB03F00F80AFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C01A67EB20DAB03F00F80AFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C01A67F020DAB03F00F80AFB /* chatrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chatrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01A67F420DAB03F00F80AFB /* chatrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatrTests.swift; sourceTree = "<group>"; };
+		C01A67F620DAB03F00F80AFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C01A67FB20DAB03F00F80AFB /* chatrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chatrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01A67FF20DAB03F00F80AFB /* chatrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatrUITests.swift; sourceTree = "<group>"; };
+		C01A680120DAB03F00F80AFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C01A680D20DAE2BB00F80AFB /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpg; path = ../logo.jpg; sourceTree = "<group>"; };
+		C01A681220E166CA00F80AFB /* SideBarTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarTableCell.swift; sourceTree = "<group>"; };
+		C023DA9C2101340200246456 /* chatr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chatr-Bridging-Header.h"; sourceTree = "<group>"; };
+		C023DAA02106519200246456 /* ObjCUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCUtils.m; sourceTree = "<group>"; };
+		C023DAA2210651E700246456 /* ObjCUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCUtils.h; sourceTree = "<group>"; };
+		C027B3B020E687DF00392A38 /* ChatPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPage.swift; sourceTree = "<group>"; };
+		C0571FB320EAAB57008716A8 /* AboutUsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsPage.swift; sourceTree = "<group>"; };
+		C0E7DA0220EE766600EA7494 /* chatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatTableViewCell.swift; sourceTree = "<group>"; };
+		C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IntuneMAM.framework; sourceTree = "<group>"; };
+		C0E7DA0920FE897200EA7494 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C0E7DA0B20FE897900EA7494 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C0E7DA0D20FE898500EA7494 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C0E7DA0F20FE898D00EA7494 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C0E7DA1120FE899900EA7494 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C0E7DA1320FE89A300EA7494 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		C0E7DA1520FE89AD00EA7494 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		C0E7DA1720FE89B500EA7494 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		C0E7DA1920FE89C800EA7494 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C0E7DA1B20FE89D400EA7494 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C0E7DA1D20FE89DB00EA7494 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		C0E7DA1F20FE8CAC00EA7494 /* chatr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = chatr.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C01A67D920DAB03F00F80AFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC6703AF212B1DEB00CBAD56 /* ADAL.framework in Frameworks */,
+				C0E7DA1E20FE89DB00EA7494 /* WebKit.framework in Frameworks */,
+				C0E7DA1C20FE89D400EA7494 /* QuartzCore.framework in Frameworks */,
+				C0E7DA1A20FE89C800EA7494 /* AudioToolbox.framework in Frameworks */,
+				C0E7DA1820FE89B500EA7494 /* LocalAuthentication.framework in Frameworks */,
+				C0E7DA1620FE89AD00EA7494 /* ImageIO.framework in Frameworks */,
+				C0E7DA1420FE89A300EA7494 /* libc++.tbd in Frameworks */,
+				C0E7DA1220FE899900EA7494 /* libsqlite3.tbd in Frameworks */,
+				C0E7DA1020FE898D00EA7494 /* SystemConfiguration.framework in Frameworks */,
+				C0E7DA0E20FE898500EA7494 /* MobileCoreServices.framework in Frameworks */,
+				C0E7DA0C20FE897900EA7494 /* Security.framework in Frameworks */,
+				C0E7DA0A20FE897200EA7494 /* MessageUI.framework in Frameworks */,
+				C0E7DA0520FE888C00EA7494 /* IntuneMAM.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C01A67ED20DAB03F00F80AFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C01A67F820DAB03F00F80AFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C01A67D320DAB03F00F80AFB = {
+			isa = PBXGroup;
+			children = (
+				C01A67DE20DAB03F00F80AFB /* chatr */,
+				C01A67F320DAB03F00F80AFB /* chatrTests */,
+				C01A67FE20DAB03F00F80AFB /* chatrUITests */,
+				C01A67DD20DAB03F00F80AFB /* Products */,
+				C0E7DA0820FE897100EA7494 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C01A67DD20DAB03F00F80AFB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C01A67DC20DAB03F00F80AFB /* chatr.app */,
+				C01A67F020DAB03F00F80AFB /* chatrTests.xctest */,
+				C01A67FB20DAB03F00F80AFB /* chatrUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C01A67DE20DAB03F00F80AFB /* chatr */ = {
+			isa = PBXGroup;
+			children = (
+				C0E7DA1F20FE8CAC00EA7494 /* chatr.entitlements */,
+				C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */,
+				C01A67E120DAB03F00F80AFB /* ViewController.swift */,
+				C01A67E320DAB03F00F80AFB /* Main.storyboard */,
+				C0E7DA0220EE766600EA7494 /* chatTableViewCell.swift */,
+				C0571FB320EAAB57008716A8 /* AboutUsPage.swift */,
+				C027B3B020E687DF00392A38 /* ChatPage.swift */,
+				68AF9BE021E8E19200127E37 /* SettingsPage.swift */,
+				C01A681220E166CA00F80AFB /* SideBarTableCell.swift */,
+				C01A680D20DAE2BB00F80AFB /* logo.jpg */,
+				C01A67E620DAB03F00F80AFB /* Assets.xcassets */,
+				C01A67E820DAB03F00F80AFB /* LaunchScreen.storyboard */,
+				C01A67EB20DAB03F00F80AFB /* Info.plist */,
+				C023DA9C2101340200246456 /* chatr-Bridging-Header.h */,
+				68AF9BE521E944AB00127E37 /* PolicyDelegate.m */,
+				68AF9BE421E9449200127E37 /* PolicyDelegate.h */,
+				68AF9BDF21E8E19200127E37 /* EnrollmentDelegate.m */,
+				68AF9BE121E8E19300127E37 /* EnrollmentDelegate.h */,
+				C023DAA02106519200246456 /* ObjCUtils.m */,
+				C023DAA2210651E700246456 /* ObjCUtils.h */,
+			);
+			path = chatr;
+			sourceTree = "<group>";
+		};
+		C01A67F320DAB03F00F80AFB /* chatrTests */ = {
+			isa = PBXGroup;
+			children = (
+				C01A67F420DAB03F00F80AFB /* chatrTests.swift */,
+				C01A67F620DAB03F00F80AFB /* Info.plist */,
+			);
+			path = chatrTests;
+			sourceTree = "<group>";
+		};
+		C01A67FE20DAB03F00F80AFB /* chatrUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C01A67FF20DAB03F00F80AFB /* chatrUITests.swift */,
+				C01A680120DAB03F00F80AFB /* Info.plist */,
+			);
+			path = chatrUITests;
+			sourceTree = "<group>";
+		};
+		C0E7DA0820FE897100EA7494 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC6703AD212B1CFA00CBAD56 /* ADAL.framework */,
+				C0E7DA0420FE888C00EA7494 /* IntuneMAM.framework */,
+				C0E7DA1D20FE89DB00EA7494 /* WebKit.framework */,
+				C0E7DA1B20FE89D400EA7494 /* QuartzCore.framework */,
+				C0E7DA1920FE89C800EA7494 /* AudioToolbox.framework */,
+				C0E7DA1720FE89B500EA7494 /* LocalAuthentication.framework */,
+				C0E7DA1520FE89AD00EA7494 /* ImageIO.framework */,
+				C0E7DA1320FE89A300EA7494 /* libc++.tbd */,
+				C0E7DA1120FE899900EA7494 /* libsqlite3.tbd */,
+				C0E7DA0F20FE898D00EA7494 /* SystemConfiguration.framework */,
+				C0E7DA0D20FE898500EA7494 /* MobileCoreServices.framework */,
+				C0E7DA0B20FE897900EA7494 /* Security.framework */,
+				C0E7DA0920FE897200EA7494 /* MessageUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C01A67DB20DAB03F00F80AFB /* chatr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01A680420DAB03F00F80AFB /* Build configuration list for PBXNativeTarget "chatr" */;
+			buildPhases = (
+				C01A67D820DAB03F00F80AFB /* Sources */,
+				C01A67D920DAB03F00F80AFB /* Frameworks */,
+				C01A67DA20DAB03F00F80AFB /* Resources */,
+				C0E7DA0720FE888C00EA7494 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = chatr;
+			productName = chatr;
+			productReference = C01A67DC20DAB03F00F80AFB /* chatr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C01A67EF20DAB03F00F80AFB /* chatrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01A680720DAB03F00F80AFB /* Build configuration list for PBXNativeTarget "chatrTests" */;
+			buildPhases = (
+				C01A67EC20DAB03F00F80AFB /* Sources */,
+				C01A67ED20DAB03F00F80AFB /* Frameworks */,
+				C01A67EE20DAB03F00F80AFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C01A67F220DAB03F00F80AFB /* PBXTargetDependency */,
+			);
+			name = chatrTests;
+			productName = chatrTests;
+			productReference = C01A67F020DAB03F00F80AFB /* chatrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C01A67FA20DAB03F00F80AFB /* chatrUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01A680A20DAB03F00F80AFB /* Build configuration list for PBXNativeTarget "chatrUITests" */;
+			buildPhases = (
+				C01A67F720DAB03F00F80AFB /* Sources */,
+				C01A67F820DAB03F00F80AFB /* Frameworks */,
+				C01A67F920DAB03F00F80AFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C01A67FD20DAB03F00F80AFB /* PBXTargetDependency */,
+			);
+			name = chatrUITests;
+			productName = chatrUITests;
+			productReference = C01A67FB20DAB03F00F80AFB /* chatrUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C01A67D420DAB03F00F80AFB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Microsoft Intune";
+				TargetAttributes = {
+					C01A67DB20DAB03F00F80AFB = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0940;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+					C01A67EF20DAB03F00F80AFB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C01A67DB20DAB03F00F80AFB;
+					};
+					C01A67FA20DAB03F00F80AFB = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C01A67DB20DAB03F00F80AFB;
+					};
+				};
+			};
+			buildConfigurationList = C01A67D720DAB03F00F80AFB /* Build configuration list for PBXProject "chatr" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C01A67D320DAB03F00F80AFB;
+			productRefGroup = C01A67DD20DAB03F00F80AFB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C01A67DB20DAB03F00F80AFB /* chatr */,
+				C01A67EF20DAB03F00F80AFB /* chatrTests */,
+				C01A67FA20DAB03F00F80AFB /* chatrUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C01A67DA20DAB03F00F80AFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C01A680E20DAE2BB00F80AFB /* logo.jpg in Resources */,
+				C01A67EA20DAB03F00F80AFB /* LaunchScreen.storyboard in Resources */,
+				C01A67E720DAB03F00F80AFB /* Assets.xcassets in Resources */,
+				C01A67E520DAB03F00F80AFB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C01A67EE20DAB03F00F80AFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C01A67F920DAB03F00F80AFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C01A67D820DAB03F00F80AFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68AF9BE321E8E19300127E37 /* SettingsPage.swift in Sources */,
+				C0571FB420EAAB57008716A8 /* AboutUsPage.swift in Sources */,
+				68AF9BE621E944AB00127E37 /* PolicyDelegate.m in Sources */,
+				C0E7DA0320EE766600EA7494 /* chatTableViewCell.swift in Sources */,
+				68AF9BE221E8E19300127E37 /* EnrollmentDelegate.m in Sources */,
+				C01A67E220DAB03F00F80AFB /* ViewController.swift in Sources */,
+				C01A67E020DAB03F00F80AFB /* AppDelegate.swift in Sources */,
+				C023DAA12106519200246456 /* ObjCUtils.m in Sources */,
+				C01A681320E166CA00F80AFB /* SideBarTableCell.swift in Sources */,
+				C027B3B120E687DF00392A38 /* ChatPage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C01A67EC20DAB03F00F80AFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C01A67F520DAB03F00F80AFB /* chatrTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C01A67F720DAB03F00F80AFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C01A680020DAB03F00F80AFB /* chatrUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C01A67F220DAB03F00F80AFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C01A67DB20DAB03F00F80AFB /* chatr */;
+			targetProxy = C01A67F120DAB03F00F80AFB /* PBXContainerItemProxy */;
+		};
+		C01A67FD20DAB03F00F80AFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C01A67DB20DAB03F00F80AFB /* chatr */;
+			targetProxy = C01A67FC20DAB03F00F80AFB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C01A67E320DAB03F00F80AFB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C01A67E420DAB03F00F80AFB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C01A67E820DAB03F00F80AFB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C01A67E920DAB03F00F80AFB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01A680220DAB03F00F80AFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C01A680320DAB03F00F80AFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01A680520DAB03F00F80AFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = chatr/chatr.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88U7P49BVS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(SRCROOT)",
+				);
+				INFOPLIST_FILE = chatr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "chatr/chatr-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C01A680620DAB03F00F80AFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = chatr/chatr.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88U7P49BVS;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(SRCROOT)",
+				);
+				INFOPLIST_FILE = chatr/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "chatr/chatr-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C01A680820DAB03F00F80AFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = chatrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/chatr.app/chatr";
+			};
+			name = Debug;
+		};
+		C01A680920DAB03F00F80AFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = chatrTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/chatr.app/chatr";
+			};
+			name = Release;
+		};
+		C01A680B20DAB03F00F80AFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = chatrUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = chatr;
+			};
+			name = Debug;
+		};
+		C01A680C20DAB03F00F80AFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = chatrUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = chatr;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01A67D720DAB03F00F80AFB /* Build configuration list for PBXProject "chatr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01A680220DAB03F00F80AFB /* Debug */,
+				C01A680320DAB03F00F80AFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01A680420DAB03F00F80AFB /* Build configuration list for PBXNativeTarget "chatr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01A680520DAB03F00F80AFB /* Debug */,
+				C01A680620DAB03F00F80AFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01A680720DAB03F00F80AFB /* Build configuration list for PBXNativeTarget "chatrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01A680820DAB03F00F80AFB /* Debug */,
+				C01A680920DAB03F00F80AFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01A680A20DAB03F00F80AFB /* Build configuration list for PBXNativeTarget "chatrUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01A680B20DAB03F00F80AFB /* Debug */,
+				C01A680C20DAB03F00F80AFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C01A67D420DAB03F00F80AFB /* Project object */;
+}
