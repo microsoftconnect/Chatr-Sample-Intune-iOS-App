@@ -43,7 +43,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
      
         Empties out the text field, creates a new view with the message and triggers a response.
      
-        This function also stores the message in they keychain using the KeychainManager
+        This function also stores the message in the keychain using the KeychainManager
      */
     @IBAction func sendChat(_ sender: UIButton) {
         //First format the string appropriately
@@ -56,13 +56,12 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             //Reset the entry field
             typedChat.text = ""
             
-            //When any message is sent, delete any current entries in the keychain for draft messages
-            KeychainManager.deleteItemForUser(user: ObjCUtils.getSignedInUser()! as NSString, key: "draftMessage")
+            //When any message is sent, delete any draft message in the keychain
+            KeychainManager.deleteDraftMessageForUser(user: ObjCUtils.getSignedInUser()! as NSString)
             displayChatMessage(message: fromMessage)
             
             //Add the message to the stored messages in the keychain
-            let messageArray = NSMutableArray.init(object: fromMessage.string as NSString)
-            KeychainManager.addMessage(messages: messageArray, user:ObjCUtils.getSignedInUser() as NSString, key:"messages")
+            KeychainManager.storeSentMessage(sentMessage: fromMessage.string as NSString, user: ObjCUtils.getSignedInUser() as NSString)
         }
     }
     
@@ -122,8 +121,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
      Function used to display a group of messages on the chat page.
      @param messageArray: the array of messages to display
     */
-    public func populateChatScreen(messageArray: NSMutableArray){
-        for message in (messageArray as NSMutableArray as! [NSString]){
+    public func populateChatScreen(messageArray: [NSString]){
+        for message in messageArray{
             //For every string from the message array, format it and display it
             let align = NSMutableParagraphStyle()
             align.alignment = .right
@@ -141,8 +140,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         if let currentUser = ObjCUtils.getSignedInUser() {
             if typedChat.text?.count != 0{
                 //If a draft message is present, then save it using the KeychainManager class
-                let draftMessageArray = NSMutableArray.init(object: typedChat.text! as NSString)
-                KeychainManager.addMessage(messages: draftMessageArray, user: currentUser as NSString, key: "draftMessage")
+                KeychainManager.storeDraftMessage(draftMessage: typedChat.text! as NSString, user: currentUser as NSString)
             }
         }
     }
@@ -164,16 +162,14 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                                                object: nil)
         //Check the keychain for chat messages and drafted messages to load into the view
         let currentUser = ObjCUtils.getSignedInUser()! as NSString
-        if let messageArray: NSMutableArray = KeychainManager.getCurrentItem(user: currentUser, key:"messages"){
+        if let messageArray: [NSString] = KeychainManager.getSentMessages(user: currentUser){
             //If messages are present, populate the screen with them
             self.populateChatScreen(messageArray: messageArray)
         }
-        let draftMessageArray = KeychainManager.getCurrentItem(user: currentUser, key: "draftMessage")
-        if draftMessageArray != nil{
+        let draftMessage: NSString? = KeychainManager.getDraftedMessage(user: currentUser)
+        if draftMessage != nil{
             //If a draft message is present, add it to the message entry bar
-            for message in (draftMessageArray! as NSMutableArray as! [String]){
-                typedChat.text = message
-            }
+            typedChat.text = draftMessage! as String
         }
         
         //Add an observer to save any drafted message when the app terminates
@@ -364,8 +360,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         super.viewDidDisappear(animated)
         //When the view disappears, clear the chat page as it will be reloaded when the page is displayed again.
         self.clearChatPage()
-
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         

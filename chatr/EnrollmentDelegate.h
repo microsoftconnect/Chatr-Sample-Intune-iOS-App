@@ -3,7 +3,6 @@
 //
 
 #import <IntuneMAM/IntuneMAMEnrollmentDelegate.h>
-#import "ObjCUtils.h"
 
 #ifndef EnrollmentDelegateHeader_h
 #define EnrollmentDelegateHeader_h

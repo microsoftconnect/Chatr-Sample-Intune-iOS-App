@@ -22,7 +22,7 @@
 
     /*
      wipeDataForAccount is called by the Intune SDK when the app needs to wipe all the data for a specified user
-     With chatr, the only user data stored are the chat messages and drafted chat messages.
+     With chatr, the only user data stored are the sent chat messages and drafted chat messages.
      If this is wiped successfully, return TRUE, otherwise return FALSE
      
      @param upn is the upn of the user whoes data is to be wiped (for example "user@example.com")
@@ -30,7 +30,7 @@
     - (BOOL)wipeDataForAccount:(NSString*_Nonnull)upn;
 
     /*
-     In the case that the app needs to do tasks like save user data before the Intune SDK restarts the app, those tasks can be done here
+     In the case that the app needs to perform tasks like save user data before the Intune SDK restarts the app, those tasks can be done here
      With Chatr, drafted messages need to be saved if a restart is forced.
      
      If the app will handle restarting on its own, return TRUE.

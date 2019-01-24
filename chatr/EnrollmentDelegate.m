@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <ADAL/ADKeychainTokenCache.h>
 #import <ADAL/ADAuthenticationError.h>
+#import "ObjCUtils.h"
 
 /*
  This enrollment delegate class can be initialized and set as the enrollment delegate of the IntuneMAMEnrollmentManager
