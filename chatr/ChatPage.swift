@@ -73,7 +73,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     func replyChat() {
         
         //create reply message
-        let developerGuide: [NSAttributedStringKey : Any] = [.link: NSURL(string: "https://docs.microsoft.comawe/intune/app-sdk-ios")!, .foregroundColor: UIColor.blue]
+        let developerGuide: [NSAttributedStringKey : Any] = [.link: NSURL(string: "https://docs.microsoft.com/intune/app-sdk-ios")!, .foregroundColor: UIColor.blue]
         let faqPage: [NSAttributedStringKey : Any] = [.link : NSURL(string: "https://docs.microsoft.com/intune/app-sdk-ios#faqs")!, .foregroundColor: UIColor.blue]
         
         let align = NSMutableParagraphStyle()
