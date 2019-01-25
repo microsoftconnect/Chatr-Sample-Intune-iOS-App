@@ -26,15 +26,16 @@ import Foundation
         let archivedData = NSKeyedArchiver.archivedData(withRootObject: data)
         
         //First define a query that will locate the user's keychain item
-        let query : [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                    kSecAttrAccount as String: forUser,
-                    kSecAttrService as String: key,
-                    ]
+        let query = [kSecClass: kSecClassGenericPassword,
+                    kSecAttrAccount: forUser,
+                    kSecAttrService: key,
+                    ] as CFDictionary
+        
         //Next define the attributes to be updated (the archived data)
-        let attributes : [String: Any] = [kSecValueData as String: archivedData]
+        let attributes = [kSecValueData: archivedData] as CFDictionary
         
         //Update the item in the keychain
-        let status = SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
+        let status = SecItemUpdate(query, attributes)
         if status != errSecSuccess {
             //In the case of an unexpected error, log the error information
             print("Unexpected error when updating data in the keychain.")
@@ -51,15 +52,16 @@ import Foundation
     @objc public class func getSentMessages(forUser: String) -> [String]?{
         //A query specific to the user is defined
         //Within the query, kSecReturnData is set to true so that the search will return the message data
-        let query : [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                     kSecAttrAccount as String: forUser,
-                                     kSecAttrService as String: self.sentMessageKey,
-                                     kSecReturnData as String: true,
-                                     kSecReturnAttributes as String: true,
-                                     ]
+        let query = [kSecClass: kSecClassGenericPassword,
+                    kSecAttrAccount: forUser,
+                    kSecAttrService: self.sentMessageKey,
+                    kSecReturnData: true,
+                    kSecReturnAttributes: true,
+                    ] as CFDictionary
+        
         var item: CFTypeRef?
         //Call the search to find a matching item in the keychain
-        let status = SecItemCopyMatching(query as CFDictionary, &item)
+        let status = SecItemCopyMatching(query, &item)
         //If no item is found, return nil
         guard status != errSecItemNotFound else { return nil }
         
@@ -71,7 +73,7 @@ import Foundation
                 print("Unexpected data returned from keychain")
                 return nil
             }
-            //Convert the data back to an NSArray and return it
+            //Convert the data back to an array and return it
             let encodedData = queryReturn[kSecValueData as String] as? Data
             let messageArray = NSKeyedUnarchiver.unarchiveObject(with: encodedData!) as? [String]
             return messageArray
@@ -92,15 +94,16 @@ import Foundation
     @objc public class func getDraftedMessage(forUser: String) -> String?{
         //A query specific to the user is defined
         //Within the query, kSecReturnData is set to true so that the search will return the message data
-        let query : [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                     kSecAttrAccount as String: forUser,
-                                     kSecAttrService as String: self.draftMessageKey,
-                                     kSecReturnData as String: true,
-                                     kSecReturnAttributes as String: true,
-                                     ]
+        let query = [kSecClass: kSecClassGenericPassword,
+                    kSecAttrAccount: forUser,
+                    kSecAttrService: self.draftMessageKey,
+                    kSecReturnData: true,
+                    kSecReturnAttributes: true,
+                    ] as CFDictionary
+        
         var item: CFTypeRef?
         //Call the search to find a matching item in the keychain
-        let status = SecItemCopyMatching(query as CFDictionary, &item)
+        let status = SecItemCopyMatching(query, &item)
         //If no item is found, return nil
         guard status != errSecItemNotFound else { return nil }
         
@@ -112,7 +115,7 @@ import Foundation
                     print("Unexpected data returned from keychain")
                     return nil
             }
-            //Convert the message back to an String and return it
+            //Convert the message back to a string and return it
             let encodedData = queryReturn[kSecValueData as String] as? Data
             let draftMessage = NSKeyedUnarchiver.unarchiveObject(with: encodedData!) as? String
             return draftMessage
@@ -131,25 +134,24 @@ import Foundation
      @param message: the String containing the sent message to be added to the keychain
     */
     @objc public class func storeSentMessage(sentMessage newMessage:String, forUser:String){
-        if let currentMessages : [String] = KeychainManager.getSentMessages(forUser: forUser) {
-            //If an item is already in the keychain for a given user, then update the keychain with the new sent message
-            let currentMessagesMutable : NSMutableArray = NSMutableArray.init(array: currentMessages)
-            //When dealing with sent messages, add the new message to the existing messages
-            currentMessagesMutable.add(newMessage)
-            KeychainManager.updateItem(forUser: forUser, data: currentMessagesMutable, key:self.sentMessageKey)
+        if var currentMessages : [String] = KeychainManager.getSentMessages(forUser: forUser) {
+            //When dealing with sent messages, add the new message to the existing messages if any are present
+            currentMessages.append(newMessage)
+            KeychainManager.updateItem(forUser: forUser, data: currentMessages, key: self.sentMessageKey)
             
         } else {
             //Otherwise define a query to add an item for the user containing the sent message within an array (so that future messages can be added)
-            let messageArray : NSArray = NSArray.init(object: newMessage)
+            let messageArray = [newMessage]
             let messageData = NSKeyedArchiver.archivedData(withRootObject: messageArray)
             
-            let query : [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                         kSecAttrAccount as String: forUser,
-                                         kSecAttrService as String: self.sentMessageKey,
-                                         kSecValueData as String: messageData,
-                                         ]
+            let query = [kSecClass: kSecClassGenericPassword,
+                        kSecAttrAccount: forUser,
+                        kSecAttrService: self.sentMessageKey,
+                        kSecValueData: messageData,
+                        ] as CFDictionary
+            
             //Add the new item to the query
-            let status = SecItemAdd(query as CFDictionary, nil)
+            let status = SecItemAdd(query, nil)
             if status != errSecSuccess {
                 //Some other unexpected error occured
                 print("Error occurred when adding data to the keychain.")
@@ -170,16 +172,17 @@ import Foundation
             KeychainManager.updateItem(forUser: forUser, data: newMessage, key:self.draftMessageKey)
             
         } else {
-            //Otherwise define a query to add an item for the user containing the sent message
+            //Otherwise define a query to add an item for the user containing the draft message
             let messageData = NSKeyedArchiver.archivedData(withRootObject: newMessage)
             
-            let query : [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                         kSecAttrAccount as String: forUser,
-                                         kSecAttrService as String: self.draftMessageKey,
-                                         kSecValueData as String: messageData,
-                                         ]
+            let query = [kSecClass: kSecClassGenericPassword,
+                        kSecAttrAccount: forUser,
+                        kSecAttrService: self.draftMessageKey,
+                        kSecValueData: messageData,
+                        ] as CFDictionary
+            
             //Add the new item to the query
-            let status = SecItemAdd(query as CFDictionary, nil)
+            let status = SecItemAdd(query, nil)
             if status != errSecSuccess {
                 //Some other unexpected error occured
                 print("Error occurred when adding data to the keychain.")
@@ -195,13 +198,14 @@ import Foundation
     */
     @objc public class func deleteSentMessages(forUser:String) -> Bool{
         
-        //Define a query that will locate the messages item in the keychain
-        let query : [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                     kSecAttrAccount as String: forUser,
-                                     kSecAttrService as String: self.sentMessageKey,
-                                     ]
+        //Define a query that will locate the sent messages item in the keychain
+        let query = [kSecClass: kSecClassGenericPassword,
+                    kSecAttrAccount: forUser,
+                    kSecAttrService: self.sentMessageKey,
+                    ] as CFDictionary
+        
         //Delete the item the query finds
-        let status = SecItemDelete(query as CFDictionary)
+        let status = SecItemDelete(query)
         //Even if the item was not found, this is considered successful as the item may never have been there
         if status != errSecSuccess && status != errSecItemNotFound {
             print("Error occurred when removing sent messages from the keychain.")
@@ -218,13 +222,14 @@ import Foundation
      */
     @objc public class func deleteDraftMessage(forUser:String) -> Bool{
         
-        //Define a query that will locate the messages item in the keychain
-        let query : [String: Any] = [kSecClass as String: kSecClassGenericPassword,
-                                     kSecAttrAccount as String: forUser,
-                                     kSecAttrService as String: self.draftMessageKey,
-                                     ]
+        //Define a query that will locate the draft message item in the keychain
+        let query = [kSecClass: kSecClassGenericPassword,
+                    kSecAttrAccount: forUser,
+                    kSecAttrService: self.draftMessageKey,
+                    ] as CFDictionary
+        
         //Delete the item the query finds
-        let status = SecItemDelete(query as CFDictionary)
+        let status = SecItemDelete(query)
         //Even if the item was not found, this is considered successful as the item may never have been there
         if status != errSecSuccess && status != errSecItemNotFound {
             print("Error occurred when removing the draft message from the keychain.")

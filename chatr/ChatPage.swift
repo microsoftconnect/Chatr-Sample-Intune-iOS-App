@@ -126,7 +126,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             //For every string from the message array, format it and display it
             let align = NSMutableParagraphStyle()
             align.alignment = .right
-            let fromMessage = NSMutableAttributedString.init(string: message as String, attributes: [.paragraphStyle: align])
+            let fromMessage = NSMutableAttributedString.init(string: message, attributes: [.paragraphStyle: align])
             
             displayChatMessage(message: fromMessage)
         }
@@ -167,7 +167,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         let draftMessage: String? = KeychainManager.getDraftedMessage(forUser: currentUser)
         if draftMessage != nil{
             //If a draft message is present, add it to the message entry bar
-            typedChat.text = draftMessage! as String
+            typedChat.text = draftMessage!
         }
         
         //Add an observer to save any drafted message when the app terminates
