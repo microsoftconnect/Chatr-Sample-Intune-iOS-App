@@ -57,11 +57,11 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             typedChat.text = ""
             
             //When any message is sent, delete any draft message in the keychain
-            KeychainManager.deleteDraftMessageForUser(user: ObjCUtils.getSignedInUser()! as NSString)
+            KeychainManager.deleteDraftMessage(forUser: ObjCUtils.getSignedInUser()!)
             displayChatMessage(message: fromMessage)
             
             //Add the message to the stored messages in the keychain
-            KeychainManager.storeSentMessage(sentMessage: fromMessage.string as NSString, user: ObjCUtils.getSignedInUser() as NSString)
+            KeychainManager.storeSentMessage(sentMessage: fromMessage.string, forUser: ObjCUtils.getSignedInUser())
         }
     }
     
@@ -121,7 +121,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
      Function used to display a group of messages on the chat page.
      @param messageArray: the array of messages to display
     */
-    public func populateChatScreen(messageArray: [NSString]){
+    public func populateChatScreen(messageArray: [String]){
         for message in messageArray{
             //For every string from the message array, format it and display it
             let align = NSMutableParagraphStyle()
@@ -138,10 +138,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     */
     @objc public func saveDraftedMessage(){
         if let currentUser = ObjCUtils.getSignedInUser() {
-            if typedChat.text?.count != 0{
-                //If a draft message is present, then save it using the KeychainManager class
-                KeychainManager.storeDraftMessage(draftMessage: typedChat.text! as NSString, user: currentUser as NSString)
-            }
+            //Save any draft message to the keychain using the KeychainManager class
+            KeychainManager.storeDraftMessage(draftMessage: typedChat.text!, forUser: currentUser)
         }
     }
     
@@ -161,12 +159,12 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                                                name: NSNotification.Name.UIKeyboardWillChangeFrame,
                                                object: nil)
         //Check the keychain for chat messages and drafted messages to load into the view
-        let currentUser = ObjCUtils.getSignedInUser()! as NSString
-        if let messageArray: [NSString] = KeychainManager.getSentMessages(user: currentUser){
+        let currentUser: String = ObjCUtils.getSignedInUser()!
+        if let messageArray: [String] = KeychainManager.getSentMessages(forUser: currentUser){
             //If messages are present, populate the screen with them
             self.populateChatScreen(messageArray: messageArray)
         }
-        let draftMessage: NSString? = KeychainManager.getDraftedMessage(user: currentUser)
+        let draftMessage: String? = KeychainManager.getDraftedMessage(forUser: currentUser)
         if draftMessage != nil{
             //If a draft message is present, add it to the message entry bar
             typedChat.text = draftMessage! as String

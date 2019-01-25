@@ -9,8 +9,8 @@
 #import <ADAL/ADAuthenticationError.h>
 #import <ADAL/ADTokenCacheItem.h>
 #import <ADAL/ADUserInformation.h>
-
 #import "chatr-Swift.h"
+
 @class KeychainManager;
 @class ChatPage;
 
@@ -33,8 +33,8 @@
  @param upn is the upn of the user whoes data is to be wiped (for example "user@example.com")
  */
 - (BOOL)wipeDataForAccount:(NSString*_Nonnull)upn{
-    //Use the deleteSentMessagesForUserWithUser and deleteSentMessagesForUserWithUser functions in the KeychainManager class to look into the keychain to wipe any message data stored for a given upn
-    if ([KeychainManager deleteSentMessagesForUserWithUser:upn] && [KeychainManager deleteDraftMessageForUserWithUser:upn]){
+    //Use the deleteSentMessagesForUser and deleteSentMessagesForUser functions in the KeychainManager class to look into the keychain to wipe any message data stored for a given upn
+    if ([KeychainManager deleteSentMessagesForUser:upn] && [KeychainManager deleteDraftMessageForUser:upn]){
         //If the function call returns true, this indicates it successfully cleared the user's messages from the Keychain
         return TRUE;
     } else{
