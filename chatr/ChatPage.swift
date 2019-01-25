@@ -261,7 +261,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                     let alert = UIAlertController(title: "Conversation Saved",
                                                   message: "Your conversation has been successfully saved to your device.",
                                                   preferredStyle: .alert)
-                    let closeAlert = UIAlertAction(title: "Ok",
+                    let closeAlert = UIAlertAction(title: "OK",
                                                    style: .default,
                                                    handler: nil)
                     alert.addAction(closeAlert)
@@ -272,7 +272,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                     let alert = UIAlertController(title: "Save Disabled",
                                                   message: "Saving conversations to local storage has been disabled by your IT admin.",
                                                   preferredStyle: .alert)
-                    let closeAlert = UIAlertAction(title: "Ok",
+                    let closeAlert = UIAlertAction(title: "OK",
                                                    style: .default,
                                                    handler: nil)
                     alert.addAction(closeAlert)
@@ -289,7 +289,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                     let alert = UIAlertController(title: "Printing Unavailable",
                                                   message: "Printing conversations is currently unavailable on this device.",
                                                   preferredStyle: .alert)
-                    let closeAlert = UIAlertAction(title: "Ok",
+                    let closeAlert = UIAlertAction(title: "OK",
                                                    style: .default,
                                                    handler: nil)
                     alert.addAction(closeAlert)
