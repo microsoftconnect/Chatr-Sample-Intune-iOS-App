@@ -279,8 +279,23 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                     present(alert, animated: true, completion: nil)
                 }
             case .print?:
-                //Print the conversation
-                printConvo()
+                //Check if printing is currently available
+                //NOTE: While the Intune SDK can prevent printing, this is not the only reason that printing could be unavailable
+                if UIPrintInteractionController.isPrintingAvailable{
+                    //If printing is available, print the conversation
+                    printConvo()
+                } else {
+                    // Alert the user that saving is unavailable
+                    let alert = UIAlertController(title: "Printing Unavailable",
+                                                  message: "Printing conversations is currently unavailable on this device.",
+                                                  preferredStyle: .alert)
+                    let closeAlert = UIAlertAction(title: "Ok",
+                                                   style: .default,
+                                                   handler: nil)
+                    alert.addAction(closeAlert)
+                    present(alert, animated: true, completion: nil)
+                }
+                
             case .aboutUs?:
                 //Display the about us page
                 let aboutUs:AboutUsPage = self.storyboard?.instantiateViewController(withIdentifier: "aboutPage") as! AboutUsPage
@@ -305,13 +320,17 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     func printConvo() {
         hideSideBarMenu() // hide the side bar before you move on
         
+        //Provide basic information about print job
         let printInfo = UIPrintInfo(dictionary:nil)
         printInfo.outputType = UIPrintInfoOutputType.general
         printInfo.jobName = "Print Chat Page"
 
+        //Initialize a controller to handle the print
         let printController = UIPrintInteractionController.shared
         printController.printInfo = printInfo
+        //Convert the current view to the image that will be printed
         printController.printingItem = wholePageView.toImage()
+        //Present the print UI to the user
         printController.present(animated: true, completionHandler: nil)
     }
 }
