@@ -14,6 +14,8 @@ import UIKit
 var conversation:[(sender:String, message:NSAttributedString)] = []
 let savedConvo = UserDefaults.init()
 
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
 class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     // variable used to keep track of whether the send button is already displayed
@@ -24,7 +26,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     var isMenu:Bool = false                                         // variable that indicates if the menu is being  displayed
     let sideBarFeatures = ["Save","Print", "About us","Settings", "Log out"]   // the options on the sidebar
     let sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "settings"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
-    
     
     // variables used for chat
     @IBOutlet weak var typedChatView: UITextView!
@@ -42,6 +43,50 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     //variable to reference the position and dimensions of the top bar
     @IBOutlet weak var topBarView: UIView!
+    
+    //variable to store the initial group name value
+    var userGroupName = String()
+    
+    //variable to store initial save by policy permissions
+    var isSaveAllowed = Bool()
+    
+    //override the ChatPage View Controller initializer
+    required init? (coder aDecoder: NSCoder) {
+        
+        super.init(coder: aDecoder)
+        
+        //query the app config and update the initial group name value
+        userGroupName = ObjCUtils.getUserGroupName()
+        
+        //query the app policy and update the initial save by policy permissions
+        isSaveAllowed = ObjCUtils.isSaveToLocalDriveAllowed()
+        
+        //register for the IntuneMAMAppConfigDidChange notification
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(onIntuneMAMAppConfigDidChange),
+                                               name: NSNotification.Name.IntuneMAMAppConfigDidChange,
+                                               object: nil)
+        
+        //register for the IntuneMAMPolicyDidChange notification
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(onIntuneMAMPolicyDidChange),
+                                               name: NSNotification.Name.IntuneMAMPolicyDidChange,
+                                               object: nil)
+    }
+    
+    @objc func onIntuneMAMAppConfigDidChange() {
+        //query the app config and update the user name on the top of the chat page
+        userFirstName.text = ObjCUtils.getUserGroupName()
+    }
+    
+    @objc func onIntuneMAMPolicyDidChange() {
+        if ObjCUtils.isSaveToLocalDriveAllowed() {
+            saveAllowedByPolicy()
+        }
+        else {
+            saveNotAllowedByPolicy()
+        }
+    }
     
     /*!
         Button action triggered when send button is pressed on chat page
@@ -112,14 +157,32 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         // round the corners of the chat view
         typedChatView.layer.cornerRadius = 10
         
-        // change user's group name on top of the chat page, one of the app config settings
-        userFirstName.text = ObjCUtils.getUserGroupName()
+        // change user's group name on top of the chat page to the initial group name
+        userFirstName.text = userGroupName
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardNotification(notification:)),
                                                name: NSNotification.Name.UIKeyboardWillChangeFrame,
                                                object: nil)
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        appDelegate.viewLoadCount += 1
+        
+        //during the first time the view appears, alert the user about initial save by policy permissions
+        if appDelegate.viewLoadCount == 1 {
+            if isSaveAllowed {
+                saveAllowedByPolicy()
+            }
+            else {
+                saveNotAllowedByPolicy()
+            }
+        }
+        
+        isSaveAllowed = false
     }
     
     //programmatically create send button after Auto Layout lays out the main view and subviews
@@ -256,27 +319,10 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             case .save?:
                 // Check if save is allowed by policy
                 if ObjCUtils.isSaveToLocalDriveAllowed() {
-                    //Save the conversation and present success alert to user
-                    savedConvo.set(conversation, forKey: "savedConversation ")
-                    let alert = UIAlertController(title: "Conversation Saved",
-                                                  message: "Your conversation has been successfully saved to your device.",
-                                                  preferredStyle: .alert)
-                    let closeAlert = UIAlertAction(title: "Ok",
-                                                   style: .default,
-                                                   handler: nil)
-                    alert.addAction(closeAlert)
-                    present(alert, animated: true, completion: nil)
+                   saveAllowedByPolicy()
                 }
                 else {
-                    // Alert the user that saving is disabled
-                    let alert = UIAlertController(title: "Save Disabled",
-                                                  message: "Saving conversations to local storage has been disabled by your IT admin.",
-                                                  preferredStyle: .alert)
-                    let closeAlert = UIAlertAction(title: "Ok",
-                                                   style: .default,
-                                                   handler: nil)
-                    alert.addAction(closeAlert)
-                    present(alert, animated: true, completion: nil)
+                    saveNotAllowedByPolicy()
                 }
             case .print?:
                 //Print the conversation
@@ -297,6 +343,30 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     
+    func saveAllowedByPolicy() {
+        savedConvo.set(conversation, forKey: "savedConversation ")
+        //Alert the user that saving is enabled
+        let alert = UIAlertController(title: "Conversation Saved",
+                                      message: "Your conversation has been successfully saved to your device.",
+                                      preferredStyle: .alert)
+        let closeAlert = UIAlertAction(title: "Ok",
+                                       style: .default,
+                                       handler: nil)
+        alert.addAction(closeAlert)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func saveNotAllowedByPolicy() {
+        // Alert the user that saving is disabled
+        let alert = UIAlertController(title: "Save Disabled",
+                                      message: "Saving conversations to local storage has been disabled by your IT admin.",
+                                      preferredStyle: .alert)
+        let closeAlert = UIAlertAction(title: "Ok",
+                                       style: .default,
+                                       handler: nil)
+        alert.addAction(closeAlert)
+        present(alert, animated: true, completion: nil)
+    }
     
     /*!
         Presents the user with a print preview of the chat page.
