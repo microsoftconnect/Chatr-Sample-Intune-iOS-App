@@ -9,6 +9,7 @@ class AboutUsPage: UIViewController, UITextViewDelegate, IntuneMAMPolicyDelegate
     
     // variables used throughout this class
     @IBOutlet weak var aboutUsText: UITextView!
+    @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,8 @@ class AboutUsPage: UIViewController, UITextViewDelegate, IntuneMAMPolicyDelegate
         self.aboutUsText.isUserInteractionEnabled = true
         self.aboutUsText.isEditable = false
         self.aboutUsText.layer.cornerRadius = 10
+        self.backButton.setImage(#imageLiteral(resourceName: "backarrow.png"), for: UIControlState.normal)
+        self.backButton.imageView!.contentMode = .scaleAspectFit
     }
 
     override func didReceiveMemoryWarning() {
