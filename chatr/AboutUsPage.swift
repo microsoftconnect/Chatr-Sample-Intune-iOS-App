@@ -25,7 +25,7 @@ class AboutUsPage: UIViewController, UITextViewDelegate, IntuneMAMPolicyDelegate
         self.aboutUsText.isUserInteractionEnabled = true
         self.aboutUsText.isEditable = false
         self.aboutUsText.layer.cornerRadius = 10
-        self.backButton.setImage(#imageLiteral(resourceName: "backarrow.png"), for: UIControlState.normal)
+        self.backButton.setImage(#imageLiteral(resourceName: "backarrow.png"), for: UIControl.State.normal)
         self.backButton.imageView!.contentMode = .scaleAspectFit
     }
 

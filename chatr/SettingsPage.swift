@@ -19,7 +19,7 @@ class SettingsPage: UIViewController {
     }
     
     override func viewDidLoad() {
-        self.backButton.setImage(#imageLiteral(resourceName: "backarrow.png"), for: UIControlState.normal)
+        self.backButton.setImage(#imageLiteral(resourceName: "backarrow.png"), for: UIControl.State.normal)
         self.backButton.imageView!.contentMode = .scaleAspectFit
     }
 }
