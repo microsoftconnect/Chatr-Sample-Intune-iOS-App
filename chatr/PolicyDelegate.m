@@ -4,12 +4,13 @@
 
 #import <Foundation/Foundation.h>
 #import "PolicyDelegate.h"
-
 #import <ADAL/ADKeychainTokenCache.h>
 #import <ADAL/ADAuthenticationError.h>
 #import <ADAL/ADTokenCacheItem.h>
 #import <ADAL/ADUserInformation.h>
 #import "chatr-Swift.h"
+#import "ObjCUtils.h"
+#import <UIKit/UIKit.h>
 
 @class KeychainManager;
 @class ChatPage;
