@@ -10,6 +10,7 @@
 		68AF9BE221E8E19300127E37 /* EnrollmentDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF9BDF21E8E19200127E37 /* EnrollmentDelegate.m */; };
 		68AF9BE321E8E19300127E37 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AF9BE021E8E19200127E37 /* SettingsPage.swift */; };
 		68AF9BE621E944AB00127E37 /* PolicyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF9BE521E944AB00127E37 /* PolicyDelegate.m */; };
+		68EE322C21F141C600C47FA1 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EE322B21F141C600C47FA1 /* KeychainManager.swift */; };
 		AC6703AF212B1DEB00CBAD56 /* ADAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6703AD212B1CFA00CBAD56 /* ADAL.framework */; };
 		AC6703B0212B1DEB00CBAD56 /* ADAL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC6703AD212B1CFA00CBAD56 /* ADAL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C01A67E020DAB03F00F80AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */; };
@@ -78,6 +79,7 @@
 		68AF9BE121E8E19300127E37 /* EnrollmentDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnrollmentDelegate.h; sourceTree = "<group>"; };
 		68AF9BE421E9449200127E37 /* PolicyDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolicyDelegate.h; sourceTree = "<group>"; };
 		68AF9BE521E944AB00127E37 /* PolicyDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolicyDelegate.m; sourceTree = "<group>"; };
+		68EE322B21F141C600C47FA1 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		AC6703AD212B1CFA00CBAD56 /* ADAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADAL.framework; sourceTree = "<group>"; };
 		C01A67DC20DAB03F00F80AFB /* chatr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				C01A67E820DAB03F00F80AFB /* LaunchScreen.storyboard */,
 				C01A67EB20DAB03F00F80AFB /* Info.plist */,
 				C023DA9C2101340200246456 /* chatr-Bridging-Header.h */,
+				68EE322B21F141C600C47FA1 /* KeychainManager.swift */,
 				68AF9BE521E944AB00127E37 /* PolicyDelegate.m */,
 				68AF9BE421E9449200127E37 /* PolicyDelegate.h */,
 				68AF9BDF21E8E19200127E37 /* EnrollmentDelegate.m */,
@@ -385,6 +388,7 @@
 				C0571FB420EAAB57008716A8 /* AboutUsPage.swift in Sources */,
 				68AF9BE621E944AB00127E37 /* PolicyDelegate.m in Sources */,
 				C0E7DA0320EE766600EA7494 /* chatTableViewCell.swift in Sources */,
+				68EE322C21F141C600C47FA1 /* KeychainManager.swift in Sources */,
 				68AF9BE221E8E19300127E37 /* EnrollmentDelegate.m in Sources */,
 				C01A67E220DAB03F00F80AFB /* ViewController.swift in Sources */,
 				C01A67E020DAB03F00F80AFB /* AppDelegate.swift in Sources */,

@@ -20,11 +20,6 @@
 @interface EnrollmentDelegateClass : NSObject <IntuneMAMEnrollmentDelegate>
 
 /*
- This method retrieves the current view controller by going from the rootViewController to the currently presented view
- */
-+ (UIViewController *) getCurrentViewController;
-
-/*
  To be able to change the view, the class should be initialzed with the curent view controller. Then this view controller can segue to the desired view based on the enrollment success
  
  @param viewController - the view controller this class should use when triggered

@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //Do this by setting the main chat page to the rootViewController
             let mainPage = storyboard.instantiateViewController(withIdentifier: "ChatPage")
             self.window?.rootViewController = mainPage
-            
         } else{
             //if not logged in, set the login page to the rootViewController
             let loginPage = storyboard.instantiateViewController(withIdentifier: "LoginPage")

@@ -47,21 +47,41 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         Button action triggered when send button is pressed on chat page
      
         Empties out the text field, creates a new view with the message and triggers a response.
+     
+        This function also stores the message in the keychain using the KeychainManager
      */
     @IBAction func sendChat(_ sender: UIButton) {
-        
+        //First format the string appropriately
         let align = NSMutableParagraphStyle()
         align.alignment = .right
-        
         let fromMessage = NSMutableAttributedString(string: typedChatView.text!, attributes: [.paragraphStyle: align])
-        typedChatView.text = ""
-        conversation.append((sender: "from", message: fromMessage))
         
-        // update the message board to include the update
+        //Only take action if there is text in the message
+        if fromMessage.length != 0 {
+            //Reset the entry field
+            typedChatView.text = ""
+            
+            //When any message is sent, delete any draft message in the keychain
+            KeychainManager.deleteDraftMessage(forUser: ObjCUtils.getSignedInUser()!)
+            displayChatMessage(message: fromMessage)
+            
+            //Add the message to the stored messages in the keychain
+            KeychainManager.storeSentMessage(sentMessage: fromMessage.string, forUser: ObjCUtils.getSignedInUser())
+        }
+    }
+    
+    /*
+    Helper function that takes a formatted message, displays it on the chat page table, and calls replyChat to add a response message.
+    */
+    func displayChatMessage(message:NSAttributedString) {
+        //Add the message to the data source for the chatTable
+        conversation.append((sender: "from", message: message))
+            
+        //Update the message board to include the new message
         self.chatTable.beginUpdates()
         self.chatTable.insertRows(at: [IndexPath.init(row: conversation.count-1, section: 0)], with: .automatic)
         self.chatTable.endUpdates()
-        
+            
         // send the reply
         replyChat()
     }
@@ -92,6 +112,42 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         self.chatTable.endUpdates()
     }
     
+    /*
+     Function used to clear the chat page messages from the screen
+     */
+    func clearChatPage(){
+        //First clears the array that is a data source for the chat table
+        conversation.removeAll()
+        //Then realoads the chat table with the empty data source
+        self.chatTable.reloadData()
+    }
+    
+    /*
+     Function used to display a group of messages on the chat page.
+     @param messageArray: the array of messages to display
+    */
+    public func populateChatScreen(messageArray: [String]){
+        for message in messageArray{
+            //For every string from the message array, format it and display it
+            let align = NSMutableParagraphStyle()
+            align.alignment = .right
+            let fromMessage = NSMutableAttributedString.init(string: message, attributes: [.paragraphStyle: align])
+            
+            displayChatMessage(message: fromMessage)
+        }
+    }
+    
+    /*
+     Function used to save a drafted message in the message entry field.
+     If a draft message is present, then it will be saved to the keychain using the KeychainManager class.
+    */
+    @objc public func saveDraftedMessage(){
+        if let currentUser = ObjCUtils.getSignedInUser() {
+            //Save any draft message to the keychain using the KeychainManager class
+            KeychainManager.storeDraftMessage(draftMessage: typedChat.text!, forUser: currentUser)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -119,7 +175,20 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                                                selector: #selector(self.keyboardNotification(notification:)),
                                                name: NSNotification.Name.UIKeyboardWillChangeFrame,
                                                object: nil)
+        //Check the keychain for chat messages and drafted messages to load into the view
+        let currentUser: String = ObjCUtils.getSignedInUser()!
+        if let messageArray: [String] = KeychainManager.getSentMessages(forUser: currentUser){
+            //If messages are present, populate the screen with them
+            self.populateChatScreen(messageArray: messageArray)
+        }
+        let draftMessage: String? = KeychainManager.getDraftedMessage(forUser: currentUser)
+        if draftMessage != nil{
+            //If a draft message is present, add it to the message entry bar
+            typedChat.text = draftMessage!
+        }
         
+        //Add an observer to save any drafted message when the app terminates
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatPage.saveDraftedMessage), name: NSNotification.Name.UIApplicationWillTerminate, object: nil)
     }
     
     //programmatically create send button after Auto Layout lays out the main view and subviews
@@ -307,7 +376,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             case .logout?:
                 //Log out user
                 ObjCUtils.logout()
-            default: break
             }
         }
     }
@@ -332,6 +400,19 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         printController.printingItem = wholePageView.toImage()
         //Present the print UI to the user
         printController.present(animated: true, completionHandler: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        //When the view disappears, clear the chat page as it will be reloaded when the page is displayed again.
+        self.clearChatPage()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //Save the draft message if there is one present
+        saveDraftedMessage()
     }
 }
 

@@ -113,4 +113,22 @@
     return @"Chatr";    // default, if none is set
 }
 
+/*
+ This method retrieves the current view controller by going from the rootViewController to the currently presented view
+ */
++ (UIViewController *) getCurrentViewController
+{
+    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    if (topController) {
+        UIViewController *presentedViewController = topController.presentedViewController;
+        //Loop until there are no more view controllers to go to
+        while (presentedViewController){
+            topController = presentedViewController;
+            presentedViewController = topController.presentedViewController;
+        }
+    }
+    //Return the final view controller
+    return topController;
+}
+
 @end
