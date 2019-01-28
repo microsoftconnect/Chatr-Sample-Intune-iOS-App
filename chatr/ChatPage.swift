@@ -93,8 +93,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     func replyChat() {
         
         //create reply message
-        let developerGuide: [NSAttributedStringKey : Any] = [.link: NSURL(string: "https://docs.microsoft.com/intune/app-sdk-ios")!, .foregroundColor: UIColor.blue]
-        let faqPage: [NSAttributedStringKey : Any] = [.link : NSURL(string: "https://docs.microsoft.com/intune/app-sdk-ios#faqs")!, .foregroundColor: UIColor.blue]
+        let developerGuide: [NSAttributedString.Key : Any] = [.link: NSURL(string: "https://docs.microsoft.com/intune/app-sdk-ios")!, .foregroundColor: UIColor.blue]
+        let faqPage: [NSAttributedString.Key : Any] = [.link : NSURL(string: "https://docs.microsoft.com/intune/app-sdk-ios#faqs")!, .foregroundColor: UIColor.blue]
         
         let align = NSMutableParagraphStyle()
         align.alignment = .left
@@ -159,7 +159,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         //ensures self-sizing sidebar table view cells
         //the sidebar table view will use Auto Layout constraints and the cell's contents to determine each cell's height
         sideBarTable.estimatedRowHeight = 40
-        sideBarTable.rowHeight = UITableViewAutomaticDimension
+        sideBarTable.rowHeight = UITableView.automaticDimension
         
         // when the view is loaded, hide the sidebar table
         sideBarTable.isHidden = true
@@ -173,7 +173,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardNotification(notification:)),
-                                               name: NSNotification.Name.UIKeyboardWillChangeFrame,
+                                               name: UIResponder.keyboardWillChangeFrameNotification,
                                                object: nil)
         //Check the keychain for chat messages and drafted messages to load into the view
         let currentUser: String = ObjCUtils.getSignedInUser()!
@@ -188,7 +188,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
         
         //Add an observer to save any drafted message when the app terminates
-        NotificationCenter.default.addObserver(self, selector: #selector(ChatPage.saveDraftedMessage), name: NSNotification.Name.UIApplicationWillTerminate, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatPage.saveDraftedMessage), name: UIApplication.willTerminateNotification, object: nil)
     }
     
     //programmatically create send button after Auto Layout lays out the main view and subviews
@@ -213,12 +213,12 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     @objc func keyboardNotification(notification: NSNotification) {
         if let userInfo = notification.userInfo {
-            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+            let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             let endFrameY = endFrame?.origin.y ?? 0
-            let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
-            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIViewAnimationOptions.curveEaseInOut.rawValue
-            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
+            let duration:TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+            let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+            let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+            let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
             if endFrameY >= UIScreen.main.bounds.size.height {
                 self.keyboardHeightLayoutConstraint?.constant = 10.0
             } else {
@@ -392,7 +392,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         
         //Provide basic information about print job
         let printInfo = UIPrintInfo(dictionary:nil)
-        printInfo.outputType = UIPrintInfoOutputType.general
+        printInfo.outputType = UIPrintInfo.OutputType.general
         printInfo.jobName = "Print Chat Page"
 
         //Initialize a controller to handle the print
