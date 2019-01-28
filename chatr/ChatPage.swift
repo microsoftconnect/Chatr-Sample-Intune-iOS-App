@@ -202,6 +202,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             sendButton.addTarget(self, action: #selector (sendChat), for: .touchUpInside)
             
             self.view.addSubview(sendButton)
+            sendButton.translatesAutoresizingMaskIntoConstraints = false
+            sendButton.bottomAnchor.constraint(equalTo: self.typedChatView.bottomAnchor).isActive = true
+            sendButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true
             
             alreadyDisplayedSendButton = true
         }

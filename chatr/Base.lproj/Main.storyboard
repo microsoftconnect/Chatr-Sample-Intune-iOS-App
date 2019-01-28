@@ -318,7 +318,7 @@
                             <constraint firstItem="R4Q-0b-Xcp" firstAttribute="trailing" secondItem="2mq-4P-qfy" secondAttribute="trailing" id="cy9-hi-SKW"/>
                             <constraint firstItem="2mq-4P-qfy" firstAttribute="width" secondItem="Fqu-y0-NH1" secondAttribute="width" id="fzg-q6-97m"/>
                             <constraint firstItem="PGb-9e-7S2" firstAttribute="trailing" secondItem="R4Q-0b-Xcp" secondAttribute="trailing" constant="0.5" id="gVT-Vm-1bh" userLabel="Safe Area.trailing = Chat Table.trailing"/>
-                            <constraint firstItem="PGb-9e-7S2" firstAttribute="bottom" secondItem="joJ-Tl-f9O" secondAttribute="bottom" constant="8" id="gtz-8X-ih6"/>
+                            <constraint firstItem="PGb-9e-7S2" firstAttribute="bottom" secondItem="joJ-Tl-f9O" secondAttribute="bottom" constant="8" id="gtz-8X-ih6" userLabel="keyboardHeightLayoutConstraint"/>
                             <constraint firstItem="2mq-4P-qfy" firstAttribute="top" secondItem="PGb-9e-7S2" secondAttribute="top" id="kAC-J2-WnD"/>
                             <constraint firstItem="R4Q-0b-Xcp" firstAttribute="top" secondItem="2mq-4P-qfy" secondAttribute="bottom" constant="2.8421709430404007e-14" id="n6N-nI-Iv5"/>
                             <constraint firstItem="PGb-9e-7S2" firstAttribute="trailing" secondItem="joJ-Tl-f9O" secondAttribute="trailing" constant="65" id="p7O-cw-ngA"/>
@@ -329,6 +329,7 @@
                     </view>
                     <connections>
                         <outlet property="chatTable" destination="R4Q-0b-Xcp" id="Wps-Ta-JnA"/>
+                        <outlet property="keyboardHeightLayoutConstraint" destination="gtz-8X-ih6" id="2Bo-6a-xWy"/>
                         <outlet property="sideBarTable" destination="oZ7-3U-InR" id="99H-ni-oVO"/>
                         <outlet property="topBarView" destination="2mq-4P-qfy" id="dzY-q8-xHt"/>
                         <outlet property="typedChatView" destination="joJ-Tl-f9O" id="w23-Hc-e2Y"/>
