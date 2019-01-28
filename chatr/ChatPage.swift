@@ -144,7 +144,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     @objc public func saveDraftedMessage(){
         if let currentUser = ObjCUtils.getSignedInUser() {
             //Save any draft message to the keychain using the KeychainManager class
-            KeychainManager.storeDraftMessage(draftMessage: typedChat.text!, forUser: currentUser)
+            KeychainManager.storeDraftMessage(draftMessage: typedChatView.text!, forUser: currentUser)
         }
     }
 
@@ -184,7 +184,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         let draftMessage: String? = KeychainManager.getDraftedMessage(forUser: currentUser)
         if draftMessage != nil{
             //If a draft message is present, add it to the message entry bar
-            typedChat.text = draftMessage!
+            typedChatView.text = draftMessage!
         }
         
         //Add an observer to save any drafted message when the app terminates
@@ -376,7 +376,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             case .logout?:
                 //Log out user
                 ObjCUtils.logout()
-            }
+			case .none:
+				return;
+			}
         }
     }
     
