@@ -54,19 +54,16 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //First format the string appropriately
         let align = NSMutableParagraphStyle()
         align.alignment = .right
-        let fromMessage = NSMutableAttributedString(string: typedChatView.text!, attributes: [.paragraphStyle: align])
+        let fromMessage = NSMutableAttributedString(string: self.typedChatView.text!, attributes: [.paragraphStyle: align])
         
         //Only take action if there is text in the message
         if fromMessage.length != 0 {
-            //Hide keyboard after a message is sent
-            self.view.endEditing(true)
-            
             //Reset the entry field
-            typedChatView.text = ""
+            self.typedChatView.text = ""
             
             //When any message is sent, delete any draft message in the keychain
             KeychainManager.deleteDraftMessage(forUser: ObjCUtils.getSignedInUser()!)
-            displayChatMessage(message: fromMessage)
+            self.displayChatMessage(message: fromMessage)
             
             //Add the message to the stored messages in the keychain
             KeychainManager.storeSentMessage(sentMessage: fromMessage.string, forUser: ObjCUtils.getSignedInUser())
@@ -86,7 +83,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.chatTable.endUpdates()
             
         // send the reply
-        replyChat()
+        self.replyChat()
     }
     
    /*!
@@ -136,7 +133,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             align.alignment = .right
             let fromMessage = NSMutableAttributedString.init(string: message, attributes: [.paragraphStyle: align])
             
-            displayChatMessage(message: fromMessage)
+            self.displayChatMessage(message: fromMessage)
         }
     }
     
@@ -155,24 +152,24 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         
         //prevent the display of empty cells at the bottom of the sidebar menu by adding a zero height table footer view
-        sideBarTable.tableFooterView = UIView(frame: CGRect(x:0, y:0, width: 0, height: 0))
-        sideBarTable.tableFooterView?.isHidden = true
-        sideBarTable.backgroundColor = UIColor.clear
+        self.sideBarTable.tableFooterView = UIView(frame: CGRect(x:0, y:0, width: 0, height: 0))
+        self.sideBarTable.tableFooterView?.isHidden = true
+        self.sideBarTable.backgroundColor = UIColor.clear
         
         //ensures self-sizing sidebar table view cells
         //the sidebar table view will use Auto Layout constraints and the cell's contents to determine each cell's height
-        sideBarTable.estimatedRowHeight = 40
-        sideBarTable.rowHeight = UITableView.automaticDimension
+        self.sideBarTable.estimatedRowHeight = 40
+        self.sideBarTable.rowHeight = UITableView.automaticDimension
         
         // when the view is loaded, hide the sidebar table
-        sideBarTable.isHidden = true
-        isMenu = false
+        self.sideBarTable.isHidden = true
+        self.isMenu = false
         
         // round the corners of the chat view
-        typedChatView.layer.cornerRadius = 10
+        self.typedChatView.layer.cornerRadius = 10
         
         // change user's group name on top of the chat page, one of the app config settings
-        userFirstName.text = ObjCUtils.getUserGroupName()
+        self.userFirstName.text = ObjCUtils.getUserGroupName()
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardNotification(notification:)),
@@ -187,29 +184,29 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let draftMessage: String? = KeychainManager.getDraftedMessage(forUser: currentUser)
         if draftMessage != nil{
             //If a draft message is present, add it to the message entry bar
-            typedChatView.text = draftMessage!
+            self.typedChatView.text = draftMessage!
         }
         
         //Add an observer to save any drafted message when the app terminates
-        NotificationCenter.default.addObserver(self, selector: #selector(ChatPage.saveDraftedMessage), name: UIApplication.willTerminateNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.saveDraftedMessage), name: UIApplication.willTerminateNotification, object: nil)
     }
     
     //programmatically create send button after Auto Layout lays out the main view and subviews
     override func viewDidLayoutSubviews() {
         //ensures a new send button is not added every time a message is sent in the chat
-        if !alreadyDisplayedSendButton {
+        if !self.alreadyDisplayedSendButton {
             
-            let sendButton = UIButton(frame: CGRect(x: typedChatView.frame.origin.x + typedChatView.frame.width + 4, y: typedChatView.frame.origin.y - 4, width: 57, height: 39))
+            let sendButton = UIButton(frame: CGRect(x: self.typedChatView.frame.origin.x + self.typedChatView.frame.width + 4, y: self.typedChatView.frame.origin.y - 4, width: 57, height: 39))
             sendButton.backgroundColor = .clear
             sendButton.setTitle("SEND", for: .normal)
-            sendButton.addTarget(self, action: #selector (sendChat), for: .touchUpInside)
+            sendButton.addTarget(self, action: #selector (self.sendChat), for: .touchUpInside)
             
             self.view.addSubview(sendButton)
             sendButton.translatesAutoresizingMaskIntoConstraints = false
             sendButton.bottomAnchor.constraint(equalTo: self.typedChatView.bottomAnchor).isActive = true
             sendButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true
             
-            alreadyDisplayedSendButton = true
+            self.alreadyDisplayedSendButton = true
         }
     }
     
@@ -246,21 +243,21 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == sideBarTable {          // this is the sideBar table
-            return sideBarFeatures.count
+        if tableView == self.sideBarTable {          // this is the sideBar table
+            return self.sideBarFeatures.count
         } else {                                // this is the conversations table
             return conversation.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == sideBarTable {
+        if tableView == self.sideBarTable {
             let cell:SideBarTableCell = tableView.dequeueReusableCell(withIdentifier: "sideCell") as! SideBarTableCell
             cell.cellImg.image = sideBarImg[indexPath.row]
             cell.cellLbl.text = sideBarFeatures[indexPath.row]
             return cell
         } else {
-            let sendMessageCell:chatTableViewCell = chatTable.dequeueReusableCell(withIdentifier: "chatCell") as! chatTableViewCell
+            let sendMessageCell:chatTableViewCell = self.chatTable.dequeueReusableCell(withIdentifier: "chatCell") as! chatTableViewCell
             
             sendMessageCell.messageView.attributedText = conversation[indexPath.row].message
             
@@ -275,20 +272,20 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             - If the menu was hidden when the button is pressed, then it will reveal the menu and vise versa.
      */
     @IBAction func sideBarMenu(_ sender: Any) {
-        sideBarTable.isHidden = false
+        self.sideBarTable.isHidden = false
         
         if !isMenu {
             // reveal sideBar menu
             isMenu = true
-            sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 301)
+            self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 301)
             UIView.setAnimationDuration(0.15)
             UIView.setAnimationDelegate(self)
             UIView.beginAnimations("sideBarAnimation", context: nil)
-            sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 301)
+            self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 301)
             UIView.commitAnimations()
         }
         else {
-            hideSideBarMenu()
+            self.hideSideBarMenu()
         }
     }
     
@@ -297,13 +294,13 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
      */
     func hideSideBarMenu() {
         // hide sideBar menu
-        sideBarTable.isHidden = true
-        isMenu = false
-        sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 301)
+        self.sideBarTable.isHidden = true
+        self.isMenu = false
+        self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 301)
         UIView.setAnimationDuration(0.15)
         UIView.setAnimationDelegate(self)
         UIView.beginAnimations("sideBarAnimation", context: nil)
-        sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 301)
+        self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 301)
         UIView.commitAnimations()
     }
     
@@ -317,7 +314,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == sideBarTable {
+        if tableView == self.sideBarTable {
             let sideBarOption = SideBarOptions(rawValue: indexPath.row)
             // Complete an action based on the item pressed on the sidebar
             switch sideBarOption {
@@ -351,7 +348,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 //NOTE: While the Intune SDK can prevent printing, this is not the only reason that printing could be unavailable
                 if UIPrintInteractionController.isPrintingAvailable{
                     //If printing is available, print the conversation
-                    printConvo()
+                    self.printConvo()
                 } else {
                     // Alert the user that saving is unavailable
                     let alert = UIAlertController(title: "Printing Unavailable",
@@ -387,7 +384,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         Called by the side bar table
     */
     func printConvo() {
-        hideSideBarMenu() // hide the side bar before you move on
+        self.hideSideBarMenu() // hide the side bar before you move on
         
         //Provide basic information about print job
         let printInfo = UIPrintInfo(dictionary:nil)
@@ -398,7 +395,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let printController = UIPrintInteractionController.shared
         printController.printInfo = printInfo
         //Convert the current view to the image that will be printed
-        printController.printingItem = wholePageView.toImage()
+        printController.printingItem = self.wholePageView.toImage()
         //Present the print UI to the user
         printController.present(animated: true, completionHandler: nil)
     }
@@ -413,7 +410,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewWillDisappear(animated)
         
         //Save the draft message if there is one present
-        saveDraftedMessage()
+        self.saveDraftedMessage()
     }
 }
 
