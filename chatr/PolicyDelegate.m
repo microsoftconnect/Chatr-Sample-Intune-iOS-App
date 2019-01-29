@@ -36,12 +36,12 @@
 - (BOOL)wipeDataForAccount:(NSString*_Nonnull)upn{
     
     //find the document directory
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSArray<NSString *> *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [paths objectAtIndex:0];
     
     //remove every file in the document directory without deleting the directory itself
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSArray *fileArray = [fileManager contentsOfDirectoryAtPath:documentDirectory error:nil];
+    NSArray<NSString *> *fileArray = [fileManager contentsOfDirectoryAtPath:documentDirectory error:nil];
     for (NSString *fileName in fileArray) {
         [fileManager removeItemAtPath:[documentDirectory stringByAppendingPathComponent: fileName] error:nil];
     }

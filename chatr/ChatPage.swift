@@ -325,7 +325,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                 // Check if save is allowed by policy
                 if ObjCUtils.isSaveToLocalDriveAllowed() {
                     //Save the conversation and present success alert to user
-                    saveConversation(fileName: "savedConversation", conversation: conversation)
+                    self.saveConversation(fileName: "savedConversation", conversation: conversation)
                     
                     let alert = UIAlertController(title: "Conversation Saved",
                                                   message: "Your conversation has been successfully saved to your device.",
@@ -419,8 +419,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     //Saves the conversation as a text file in the document directory of the application.
     func saveConversation(fileName: String, conversation: [(sender: String, message: NSAttributedString)]) {
-        let newFormat = reformatConversation(conversation: conversation)
-        writeFile(fileString: newFormat, fileName: fileName)
+        let newFormat = self.reformatConversation(conversation: conversation)
+        self.writeFile(fileContent: newFormat, fileName: fileName)
     }
     
     //convert the array of (sender, message) tuples to a single string that represents the entire conversation
@@ -435,40 +435,24 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         return newFormat
     }
     
-    //return the URL of the document directory for the app
-    var documentDirectoryURL: URL {
-        let url = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        return url
-    }
-    
     //return the URL of the file in the document directory
     func fileURL(fileName: String) -> URL {
+        var documentDirectoryURL: URL {
+            let url = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            return url
+        }
         return documentDirectoryURL.appendingPathComponent(fileName).appendingPathExtension("txt")
     }
     
     //write the conversation text to the file in the document directory
-    func writeFile(fileString: String, fileName: String) {
-        let url = fileURL(fileName: fileName)
+    func writeFile(fileContent: String, fileName: String) {
+        let url = self.fileURL(fileName: fileName)
         do {
-            try fileString.write(to: url, atomically: true, encoding: .utf8)
+            try fileContent.write(to: url, atomically: true, encoding: .utf8)
         }catch let error as NSError {
             print("Error: " + error.localizedDescription)
         }
     }
-    
-    //read the conversation text of the file in the document directory
-    //print the return value of this function to verify the file saved
-    func readFile(fileName: String) -> String {
-        var fileString = ""
-        let url = fileURL(fileName: fileName)
-        do{
-            fileString = try String(contentsOf: url)
-        }catch let error as NSError {
-            print("Error: " + error.localizedDescription)
-        }
-        return fileString
-    }
-
 }
 
 extension UIView {
