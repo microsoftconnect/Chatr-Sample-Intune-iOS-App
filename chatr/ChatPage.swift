@@ -34,19 +34,16 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     // variables used for printing
     @IBOutlet var wholePageView: UIView!
     
-    // variable to display user name on top of the chat page, default set to 'Chatr'
-    // Onpage load: updated to be user's first name based on targetted app config
-    @IBOutlet weak var userFirstName: UITextField!
+    // variable to display group name on top of the chat page, default set to 'Chatr'
+    // Onpage load: updated to be user's group name based on targeted app config
+    @IBOutlet weak var groupName: UITextField!
     
     // variable to move textfield for keyboard actions
     @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
     
     //variable to reference the position and dimensions of the top bar
     @IBOutlet weak var topBarView: UIView!
-    
-    //variable to store the initial group name value
-    var userGroupName = String()
-    
+
     //variable to store initial save by policy permissions
     var isSaveAllowed = Bool()
     
@@ -56,10 +53,10 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         super.init(coder: aDecoder)
         
         //query the app config and update the initial group name value
-        userGroupName = ObjCUtils.getUserGroupName()
+        self.groupName.text = ObjCUtils.getUserGroupName()
         
         //query the app policy and update the initial save by policy permissions
-        isSaveAllowed = ObjCUtils.isSaveToLocalDriveAllowed()
+        self.isSaveAllowed = ObjCUtils.isSaveToLocalDriveAllowed()
         
         //register for the IntuneMAMAppConfigDidChange notification
         NotificationCenter.default.addObserver(self,
@@ -76,7 +73,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     @objc func onIntuneMAMAppConfigDidChange() {
         //query the app config and update the user name on the top of the chat page
-        userFirstName.text = ObjCUtils.getUserGroupName()
+        self.groupName.text = ObjCUtils.getUserGroupName()
     }
     
     @objc func onIntuneMAMPolicyDidChange() {
@@ -158,7 +155,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         typedChatView.layer.cornerRadius = 10
         
         // change user's group name on top of the chat page to the initial group name
-        userFirstName.text = userGroupName
+        self.groupName.text = ObjCUtils.getUserGroupName()
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardNotification(notification:)),
