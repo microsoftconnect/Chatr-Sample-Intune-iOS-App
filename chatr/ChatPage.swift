@@ -152,8 +152,10 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //Scrolls to the bottom of the table view
     func scrollToBottom(animated: Bool) {
+        if self.chatTable.numberOfRows(inSection: 0) > 0 {
             let index = IndexPath(row: self.chatTable.numberOfRows(inSection: 0)-1, section: 0)
             self.chatTable.scrollToRow(at: index, at: .bottom, animated: animated)
+        }
     }
 
     override func viewDidLoad() {
