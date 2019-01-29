@@ -421,7 +421,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     func saveConversation(fileName: String, conversation: [(sender: String, message: NSAttributedString)]) {
         let newFormat = reformatConversation(conversation: conversation)
         writeFile(fileString: newFormat, fileName: fileName)
-        print(readFile(fileName: fileName))
     }
     
     //convert the array of (sender, message) tuples to a single string that represents the entire conversation

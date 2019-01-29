@@ -13,6 +13,7 @@
 #import <IntuneMAM/IntuneMAMDiagnosticConsole.h>
 #import "ObjCUtils.h"
 #import "EnrollmentDelegate.h"
+#import "PolicyDelegate.h"
 
 @implementation ObjCUtils
 
