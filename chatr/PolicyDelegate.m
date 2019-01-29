@@ -34,6 +34,18 @@
  @param upn is the upn of the user whoes data is to be wiped (for example "user@example.com")
  */
 - (BOOL)wipeDataForAccount:(NSString*_Nonnull)upn{
+    
+    //find the document directory
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDirectory = [paths objectAtIndex:0];
+    
+    //remove every file in the document directory without deleting the directory itself
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSArray *fileArray = [fileManager contentsOfDirectoryAtPath:documentDirectory error:nil];
+    for (NSString *fileName in fileArray) {
+        [fileManager removeItemAtPath:[documentDirectory stringByAppendingPathComponent: fileName] error:nil];
+    }
+    
     //Use the deleteSentMessagesForUser and deleteSentMessagesForUser functions in the KeychainManager class to look into the keychain to wipe any message data stored for a given upn
     if ([KeychainManager deleteSentMessagesForUser:upn] && [KeychainManager deleteDraftMessageForUser:upn]){
         //If the function call returns true, this indicates it successfully cleared the user's messages from the Keychain
