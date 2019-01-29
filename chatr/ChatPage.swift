@@ -242,7 +242,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
                            completion: nil)
             
             if (endFrame?.size.height)! > 0.0 {
-                //Scroll to the bottom of the message table if they keyboard is appearing
+                //Scroll to the bottom of the message table if the keyboard is appearing
                 self.scrollToBottom(animated: true)
             }
         }
