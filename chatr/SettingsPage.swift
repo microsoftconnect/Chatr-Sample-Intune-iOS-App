@@ -10,12 +10,7 @@ class SettingsPage: UIViewController {
     //Listener for diagnostic console button
     @IBAction func displayConsoleTapped(_ sender: Any) {
         //when button is tapped, display console
-        displayConsole()
-    }
-
-    func displayConsole(){
-        //use Objective-C function to call the necessary Intune method
-        ObjCUtils.displayConsole()
+        IntuneMAMDiagnosticConsole.display(inDarkMode: false)
     }
     
     override func viewDidLoad() {

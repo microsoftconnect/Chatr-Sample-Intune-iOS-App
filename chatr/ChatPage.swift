@@ -60,13 +60,14 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if fromMessage.length != 0 {
             //Reset the entry field
             self.typedChatView.text = ""
+            let user = IntuneMAMEnrollmentManager.instance().enrolledAccount()!
             
             //When any message is sent, delete any draft message in the keychain
-            KeychainManager.deleteDraftMessage(forUser: ObjCUtils.getSignedInUser()!)
+            KeychainManager.deleteDraftMessage(forUser: user)
             self.displayChatMessage(message: fromMessage)
             
             //Add the message to the stored messages in the keychain
-            KeychainManager.storeSentMessage(sentMessage: fromMessage.string, forUser: ObjCUtils.getSignedInUser())
+            KeychainManager.storeSentMessage(sentMessage: fromMessage.string, forUser: user)
             //Scroll to the bottom of this message
             self.scrollToBottom(animated: true)
         }
@@ -144,16 +145,18 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
      If a draft message is present, then it will be saved to the keychain using the KeychainManager class.
     */
     @objc public func saveDraftedMessage(){
-        if let currentUser = ObjCUtils.getSignedInUser() {
-            //Save any draft message to the keychain using the KeychainManager class
-            KeychainManager.storeDraftMessage(draftMessage: typedChatView.text!, forUser: currentUser)
-        }
+       let currentUser = IntuneMAMEnrollmentManager.instance().enrolledAccount()!
+        //Save any draft message to the keychain using the KeychainManager class
+        KeychainManager.storeDraftMessage(draftMessage: typedChatView.text!, forUser: currentUser)
     }
     
     //Scrolls to the bottom of the table view
     func scrollToBottom(animated: Bool) {
+        if self.chatTable.numberOfRows(inSection: 0) > 0 {
             let index = IndexPath(row: self.chatTable.numberOfRows(inSection: 0)-1, section: 0)
             self.chatTable.scrollToRow(at: index, at: .bottom, animated: animated)
+        }
+        
     }
 
     override func viewDidLoad() {
@@ -184,7 +187,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                                name: UIResponder.keyboardWillChangeFrameNotification,
                                                object: nil)
         //Check the keychain for chat messages and drafted messages to load into the view
-        let currentUser: String = ObjCUtils.getSignedInUser()!
+        let currentUser: String = IntuneMAMEnrollmentManager.instance().enrolledAccount()!
         if let messageArray: [String] = KeychainManager.getSentMessages(forUser: currentUser){
             //If messages are present, populate the screen with them
             self.populateChatScreen(messageArray: messageArray)
@@ -196,7 +199,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         //Add an observer to save any drafted message when the app terminates
-        NotificationCenter.default.addObserver(self, selector: #selector(self.saveDraftedMessage), name: UIApplication.willTerminateNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.saveDraftedMessage), name: UIApplication.willResignActiveNotification, object: nil)
     }
     
     //programmatically create send button after Auto Layout lays out the main view and subviews
@@ -384,7 +387,11 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 present(settings, animated:true, completion: nil)
             case .logout?:
                 //Log out user
-                ObjCUtils.logout()
+                // Find the user that is signed in
+                let user = IntuneMAMEnrollmentManager.instance().enrolledAccount()!
+                //Deregister the user from the SDK and initate a selective wipe of the app
+                //In the EnrollmentDelegate, the unenrollRequestWithStatus block is executed, and includes logic to wipe tokens on unenrollment
+                IntuneMAMEnrollmentManager.instance().deRegisterAndUnenrollAccount(user, withWipe: true)
 			case .none:
 				return;
 			}

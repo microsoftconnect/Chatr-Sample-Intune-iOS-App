@@ -9,7 +9,7 @@
 #import <ADAL/ADTokenCacheItem.h>
 #import <ADAL/ADUserInformation.h>
 #import "chatr-Swift.h"
-#import "ObjCUtils.h"
+#import "EnrollmentDelegate.h"
 #import <UIKit/UIKit.h>
 
 @class KeychainManager;
@@ -58,7 +58,7 @@
     NSLog(@"Restarting...");
     
     //If the current view is the chat page and there is a message currently being drafted, then save it to the keychain to repopulate it after the restart.
-    UIViewController *currentViewController = [ObjCUtils getCurrentViewController];
+    UIViewController *currentViewController = [EnrollmentDelegateClass getCurrentViewController];
     if ([currentViewController isKindOfClass:[ChatPage class]]){
         ChatPage *ChatPageViewController = (ChatPage*) currentViewController;
         //Call saveDraftedMessage on the ChatPage to save the drafted message to the keychain if there is one present.
