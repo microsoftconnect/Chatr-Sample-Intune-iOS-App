@@ -67,6 +67,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             //Add the message to the stored messages in the keychain
             KeychainManager.storeSentMessage(sentMessage: fromMessage.string, forUser: ObjCUtils.getSignedInUser())
+            //Scroll to the bottom of this message
+            self.scrollToBottom(animated: true)
         }
     }
     
@@ -146,6 +148,12 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             //Save any draft message to the keychain using the KeychainManager class
             KeychainManager.storeDraftMessage(draftMessage: typedChatView.text!, forUser: currentUser)
         }
+    }
+    
+    //Scrolls to the bottom of the table view
+    func scrollToBottom(animated: Bool) {
+            let index = IndexPath(row: self.chatTable.numberOfRows(inSection: 0)-1, section: 0)
+            self.chatTable.scrollToRow(at: index, at: .bottom, animated: animated)
     }
 
     override func viewDidLoad() {
@@ -232,6 +240,11 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
                            options: animationCurve,
                            animations: { self.view.layoutIfNeeded() },
                            completion: nil)
+            
+            if (endFrame?.size.height)! > 0.0 {
+                //Scroll to the bottom of the message table if they keyboard is appearing
+                self.scrollToBottom(animated: true)
+            }
         }
     }
     
