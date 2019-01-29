@@ -16,15 +16,6 @@ class ViewController: UIViewController {
         ObjCUtils.login(self)
     }
     
-    /*!
-     Button action triggered when user presses the log out button
-     
-     Removes all of the token access for users of the app.
-     */
-    @IBAction func logOutBtn(_ sender: Any) {
-        ObjCUtils.logout()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
