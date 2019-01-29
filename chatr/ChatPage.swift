@@ -14,7 +14,7 @@ import UIKit
 var conversation:[(sender:String, message:NSAttributedString)] = []
 let savedConvo = UserDefaults.init()
 
-class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // variable used to keep track of whether the send button is already displayed
     var alreadyDisplayedSendButton = false
@@ -58,6 +58,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         
         //Only take action if there is text in the message
         if fromMessage.length != 0 {
+            //Hide keyboard after a message is sent
+            self.view.endEditing(true)
+            
             //Reset the entry field
             typedChatView.text = ""
             
@@ -235,13 +238,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     
-    //hide the keyboard when the user taps the return key
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        if (text == "\n") {
-            textView.resignFirstResponder()
-        }
-        return true
-    }
     
 
     override func didReceiveMemoryWarning() {
