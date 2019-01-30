@@ -6,6 +6,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
     /*!
      Button action triggered when user presses the log in button
      
@@ -20,17 +25,5 @@ class ViewController: UIViewController {
         //Login the user through the Intune sign in flow. EnrollmentDelegateClass will handle the outcome of this.
         IntuneMAMEnrollmentManager.instance().loginAndEnrollAccount(nil)
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
 }
 

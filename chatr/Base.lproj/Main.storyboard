@@ -191,7 +191,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R4Q-0b-Xcp">
-                                <rect key="frame" x="0.0" y="89" width="413.5" height="724"/>
+                                <rect key="frame" x="0.0" y="89" width="413.5" height="722"/>
                                 <color key="backgroundColor" red="0.85098039219999999" green="0.91764705879999997" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.85490196080000003" green="0.91764705879999997" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.85490196078431369" green="0.91764705882352937" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -302,7 +302,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="joJ-Tl-f9O">
-                                <rect key="frame" x="8" y="821" width="341" height="33"/>
+                                <rect key="frame" x="8" y="819" width="341" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -317,7 +317,7 @@
                             <constraint firstAttribute="trailing" secondItem="2mq-4P-qfy" secondAttribute="trailing" id="UOX-ch-a5G"/>
                             <constraint firstItem="2mq-4P-qfy" firstAttribute="width" secondItem="Fqu-y0-NH1" secondAttribute="width" id="fzg-q6-97m"/>
                             <constraint firstItem="PGb-9e-7S2" firstAttribute="trailing" secondItem="R4Q-0b-Xcp" secondAttribute="trailing" constant="0.5" id="gVT-Vm-1bh" userLabel="Safe Area.trailing = Chat Table.trailing"/>
-                            <constraint firstItem="PGb-9e-7S2" firstAttribute="bottom" secondItem="joJ-Tl-f9O" secondAttribute="bottom" constant="8" id="gtz-8X-ih6" userLabel="keyboardHeightLayoutConstraint"/>
+                            <constraint firstItem="PGb-9e-7S2" firstAttribute="bottom" secondItem="joJ-Tl-f9O" secondAttribute="bottom" constant="10" id="gtz-8X-ih6" userLabel="keyboardHeightLayoutConstraint"/>
                             <constraint firstItem="2mq-4P-qfy" firstAttribute="top" secondItem="PGb-9e-7S2" secondAttribute="top" id="kAC-J2-WnD"/>
                             <constraint firstItem="R4Q-0b-Xcp" firstAttribute="top" secondItem="2mq-4P-qfy" secondAttribute="bottom" constant="2.8421709430404007e-14" id="n6N-nI-Iv5"/>
                             <constraint firstItem="PGb-9e-7S2" firstAttribute="trailing" secondItem="joJ-Tl-f9O" secondAttribute="trailing" constant="65" id="p7O-cw-ngA"/>

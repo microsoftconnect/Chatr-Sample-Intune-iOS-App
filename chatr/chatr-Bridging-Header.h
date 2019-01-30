@@ -4,11 +4,11 @@
 //  Use this file to import headers and expose to Swift
 //
 
-#import "PolicyDelegate.h"
 #import "EnrollmentDelegate.h"
-#import "IntuneMAM/IntuneMAMVersionInfo.h"
+#import <IntuneMAM/IntuneMAMAppConfig.h>
+#import <IntuneMAM/IntuneMAMAppConfigManager.h>
+#import <IntuneMAM/IntuneMAMDiagnosticConsole.h>
 #import <IntuneMAM/IntuneMAMEnrollmentManager.h>
 #import <IntuneMAM/IntuneMAMPolicyManager.h>
-#import <IntuneMAM/IntuneMAMAppConfigManager.h>
-#import <IntuneMAM/IntuneMAMAppConfig.h>
-#import <IntuneMAM/IntuneMAMDiagnosticConsole.h>
+#import "IntuneMAM/IntuneMAMVersionInfo.h"
+#import "PolicyDelegate.h"
