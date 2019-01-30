@@ -14,8 +14,6 @@ import UIKit
 var conversation:[(sender:String, message:NSAttributedString)] = []
 let savedConvo = UserDefaults.init()
 
-let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
 class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     // variable used to keep track of whether the send button is already displayed
@@ -44,10 +42,16 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     //variable to reference the position and dimensions of the top bar
     @IBOutlet weak var topBarView: UIView!
     
+    //variable to store initial save by policy permissions
+    var isSaveAllowed = Bool()
+    
     //override the ChatPage View Controller initializer
     required init? (coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
+        
+        //query the app policy and update the initial save by policy permissions
+        self.isSaveAllowed = ObjCUtils.isSaveToLocalDriveAllowed()
         
         //register for the IntuneMAMAppConfigDidChange notification
         NotificationCenter.default.addObserver(self,
@@ -68,12 +72,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     }
     
     @objc func onIntuneMAMPolicyDidChange() {
-        if ObjCUtils.isSaveToLocalDriveAllowed() {
-            saveAllowedByPolicy()
-        }
-        else {
-            saveNotAllowedByPolicy()
-        }
+        saveConversation()
     }
     
     /*!
@@ -288,12 +287,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             switch sideBarOption {
             case .save?:
                 // Check if save is allowed by policy
-                if ObjCUtils.isSaveToLocalDriveAllowed() {
-                   saveAllowedByPolicy()
-                }
-                else {
-                    saveNotAllowedByPolicy()
-                }
+                saveConversation()
             case .print?:
                 //Print the conversation
                 printConvo()
@@ -313,29 +307,31 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     
-    func saveAllowedByPolicy() {
-        savedConvo.set(conversation, forKey: "savedConversation ")
-        //Alert the user that saving is enabled
-        let alert = UIAlertController(title: "Conversation Saved",
-                                      message: "Your conversation has been successfully saved to your device.",
-                                      preferredStyle: .alert)
-        let closeAlert = UIAlertAction(title: "Ok",
-                                       style: .default,
-                                       handler: nil)
-        alert.addAction(closeAlert)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func saveNotAllowedByPolicy() {
-        // Alert the user that saving is disabled
-        let alert = UIAlertController(title: "Save Disabled",
-                                      message: "Saving conversations to local storage has been disabled by your IT admin.",
-                                      preferredStyle: .alert)
-        let closeAlert = UIAlertAction(title: "Ok",
-                                       style: .default,
-                                       handler: nil)
-        alert.addAction(closeAlert)
-        present(alert, animated: true, completion: nil)
+    func saveConversation() {
+        if isSaveAllowed {
+            savedConvo.set(conversation, forKey: "savedConversation ")
+            //Alert the user that saving is enabled
+            let alert = UIAlertController(title: "Conversation Saved",
+                                          message: "Your conversation has been successfully saved to your device.",
+                                          preferredStyle: .alert)
+            let closeAlert = UIAlertAction(title: "Ok",
+                                           style: .default,
+                                           handler: nil)
+            alert.addAction(closeAlert)
+            present(alert, animated: true, completion: nil)
+        }
+        else {
+            // Alert the user that saving is disabled
+            let alert = UIAlertController(title: "Save Disabled",
+                                          message: "Saving conversations to local storage has been disabled by your IT admin.",
+                                          preferredStyle: .alert)
+            let closeAlert = UIAlertAction(title: "Ok",
+                                           style: .default,
+                                           handler: nil)
+            alert.addAction(closeAlert)
+            present(alert, animated: true, completion: nil)
+
+        }
     }
     
     /*!
