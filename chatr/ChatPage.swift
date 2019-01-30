@@ -50,9 +50,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         
         super.init(coder: aDecoder)
         
-        //query the app policy and update the initial save by policy permissions
-        self.isSaveAllowed = ObjCUtils.isSaveToLocalDriveAllowed()
-        
         //register for the IntuneMAMAppConfigDidChange notification
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(onIntuneMAMAppConfigDidChange),
@@ -64,6 +61,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                                                selector: #selector(onIntuneMAMPolicyDidChange),
                                                name: NSNotification.Name.IntuneMAMPolicyDidChange,
                                                object: IntuneMAMPolicyManager.instance())
+        
+        //query the app policy and update the initial save by policy permissions
+        self.isSaveAllowed = ObjCUtils.isSaveToLocalDriveAllowed()
     }
     
     @objc func onIntuneMAMAppConfigDidChange() {
@@ -72,6 +72,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     }
     
     @objc func onIntuneMAMPolicyDidChange() {
+        self.isSaveAllowed = ObjCUtils.isSaveToLocalDriveAllowed()
         saveConversation()
     }
     
@@ -307,6 +308,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     
+    // Check if save is allowed by policy
     func saveConversation() {
         if isSaveAllowed {
             savedConvo.set(conversation, forKey: "savedConversation ")
