@@ -449,7 +449,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         let url = self.fileURL(fileName: fileName)
         do {
             try fileContent.write(to: url, atomically: true, encoding: .utf8)
-        }catch let error as NSError {
+        }catch let error {
             print("Error: " + error.localizedDescription)
         }
     }
