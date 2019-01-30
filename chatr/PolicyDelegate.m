@@ -41,9 +41,18 @@
     
     //remove every file in the document directory without deleting the directory itself
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSArray<NSString *> *fileArray = [fileManager contentsOfDirectoryAtPath:documentDirectory error:nil];
+    NSError *contentError;
+    NSArray<NSString *> *fileArray = [fileManager contentsOfDirectoryAtPath:documentDirectory error:&contentError];
+    if (!fileArray) {
+        NSLog(@"Could not return path of documents directory. Error: %@", [contentError localizedDescription]);
+    }
+    
+    NSError *removeError;
     for (NSString *fileName in fileArray) {
-        [fileManager removeItemAtPath:[documentDirectory stringByAppendingPathComponent: fileName] error:nil];
+        BOOL removeSuccess = [fileManager removeItemAtPath:[documentDirectory stringByAppendingPathComponent: fileName] error:&removeError];
+        if (!removeSuccess) {
+            NSLog(@"Could not remove file. Error: %@", [removeError localizedDescription]);
+        }
     }
     
     //Use the deleteSentMessagesForUser and deleteSentMessagesForUser functions in the KeychainManager class to look into the keychain to wipe any message data stored for a given upn
