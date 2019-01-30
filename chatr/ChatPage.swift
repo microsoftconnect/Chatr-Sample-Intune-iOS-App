@@ -43,32 +43,23 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     //variable to reference the position and dimensions of the top bar
     @IBOutlet weak var topBarView: UIView!
-
-    //variable to store initial save by policy permissions
-    var isSaveAllowed = Bool()
     
     //override the ChatPage View Controller initializer
     required init? (coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
         
-        //query the app config and update the initial group name value
-        self.groupName.text = ObjCUtils.getUserGroupName()
-        
-        //query the app policy and update the initial save by policy permissions
-        self.isSaveAllowed = ObjCUtils.isSaveToLocalDriveAllowed()
-        
         //register for the IntuneMAMAppConfigDidChange notification
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(onIntuneMAMAppConfigDidChange),
                                                name: NSNotification.Name.IntuneMAMAppConfigDidChange,
-                                               object: nil)
+                                               object: IntuneMAMAppConfigManager.instance())
         
         //register for the IntuneMAMPolicyDidChange notification
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(onIntuneMAMPolicyDidChange),
                                                name: NSNotification.Name.IntuneMAMPolicyDidChange,
-                                               object: nil)
+                                               object: IntuneMAMPolicyManager.instance())
     }
     
     @objc func onIntuneMAMAppConfigDidChange() {
@@ -162,24 +153,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                                                name: NSNotification.Name.UIKeyboardWillChangeFrame,
                                                object: nil)
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        appDelegate.viewLoadCount += 1
-        
-        //during the first time the view appears, alert the user about initial save by policy permissions
-        if appDelegate.viewLoadCount == 1 {
-            if isSaveAllowed {
-                saveAllowedByPolicy()
-            }
-            else {
-                saveNotAllowedByPolicy()
-            }
-        }
-        
-        isSaveAllowed = false
     }
     
     //programmatically create send button after Auto Layout lays out the main view and subviews
