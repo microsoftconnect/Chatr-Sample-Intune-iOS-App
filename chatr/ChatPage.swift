@@ -347,7 +347,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             case .save?:
                 // Check if save is allowed by policy
                 let policy = IntuneMAMPolicyManager.instance().policy(forIdentity: self.currentUser)
-                if (policy == nil || (policy?.isSaveToAllowed(for: IntuneMAMSaveLocation.localDrive, withAccountName: self.currentUser))!){
+                if (nil == policy || (policy?.isSaveToAllowed(for: IntuneMAMSaveLocation.localDrive, withAccountName: self.currentUser))!){
                     //Save the conversation and present success alert to user
                     savedConvo.set(conversation, forKey: "savedConversation ")
                     let alert = UIAlertController(title: "Conversation Saved",
