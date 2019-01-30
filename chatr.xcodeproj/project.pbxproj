@@ -18,8 +18,6 @@
 		C01A67E520DAB03F00F80AFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01A67E320DAB03F00F80AFB /* Main.storyboard */; };
 		C01A67E720DAB03F00F80AFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C01A67E620DAB03F00F80AFB /* Assets.xcassets */; };
 		C01A67EA20DAB03F00F80AFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01A67E820DAB03F00F80AFB /* LaunchScreen.storyboard */; };
-		C01A67F520DAB03F00F80AFB /* chatrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67F420DAB03F00F80AFB /* chatrTests.swift */; };
-		C01A680020DAB03F00F80AFB /* chatrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67FF20DAB03F00F80AFB /* chatrUITests.swift */; };
 		C01A680E20DAE2BB00F80AFB /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C01A680D20DAE2BB00F80AFB /* logo.jpg */; };
 		C01A681320E166CA00F80AFB /* SideBarTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A681220E166CA00F80AFB /* SideBarTableCell.swift */; };
 		C023DAA12106519200246456 /* ObjCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C023DAA02106519200246456 /* ObjCUtils.m */; };
@@ -89,11 +87,7 @@
 		C01A67E920DAB03F00F80AFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C01A67EB20DAB03F00F80AFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C01A67F020DAB03F00F80AFB /* chatrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chatrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C01A67F420DAB03F00F80AFB /* chatrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatrTests.swift; sourceTree = "<group>"; };
-		C01A67F620DAB03F00F80AFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C01A67FB20DAB03F00F80AFB /* chatrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chatrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C01A67FF20DAB03F00F80AFB /* chatrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatrUITests.swift; sourceTree = "<group>"; };
-		C01A680120DAB03F00F80AFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C01A680D20DAE2BB00F80AFB /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpg; path = ../logo.jpg; sourceTree = "<group>"; };
 		C01A681220E166CA00F80AFB /* SideBarTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarTableCell.swift; sourceTree = "<group>"; };
 		C023DA9C2101340200246456 /* chatr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chatr-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -159,8 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				C01A67DE20DAB03F00F80AFB /* chatr */,
-				C01A67F320DAB03F00F80AFB /* chatrTests */,
-				C01A67FE20DAB03F00F80AFB /* chatrUITests */,
 				C01A67DD20DAB03F00F80AFB /* Products */,
 				C0E7DA0820FE897100EA7494 /* Frameworks */,
 			);
@@ -202,24 +194,6 @@
 				C023DAA2210651E700246456 /* ObjCUtils.h */,
 			);
 			path = chatr;
-			sourceTree = "<group>";
-		};
-		C01A67F320DAB03F00F80AFB /* chatrTests */ = {
-			isa = PBXGroup;
-			children = (
-				C01A67F420DAB03F00F80AFB /* chatrTests.swift */,
-				C01A67F620DAB03F00F80AFB /* Info.plist */,
-			);
-			path = chatrTests;
-			sourceTree = "<group>";
-		};
-		C01A67FE20DAB03F00F80AFB /* chatrUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C01A67FF20DAB03F00F80AFB /* chatrUITests.swift */,
-				C01A680120DAB03F00F80AFB /* Info.plist */,
-			);
-			path = chatrUITests;
 			sourceTree = "<group>";
 		};
 		C0E7DA0820FE897100EA7494 /* Frameworks */ = {
@@ -404,7 +378,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C01A67F520DAB03F00F80AFB /* chatrTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +385,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C01A680020DAB03F00F80AFB /* chatrUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
