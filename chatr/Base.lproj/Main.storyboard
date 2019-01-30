@@ -125,7 +125,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="41" translatesAutoresizingMaskIntoConstraints="NO" id="Jlf-3P-Tdr">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="38.5"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jlf-3P-Tdr" id="dsJ-wU-JNH">
-                                            <rect key="frame" x="0.0" y="0.0" width="336" height="38"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ES6-D1-e59">
@@ -327,10 +327,10 @@
                     </view>
                     <connections>
                         <outlet property="chatTable" destination="R4Q-0b-Xcp" id="Wps-Ta-JnA"/>
+                        <outlet property="groupName" destination="tr2-Q4-IiN" id="bvG-kx-IVD"/>
                         <outlet property="sideBarTable" destination="oZ7-3U-InR" id="99H-ni-oVO"/>
                         <outlet property="topBarView" destination="2mq-4P-qfy" id="dzY-q8-xHt"/>
                         <outlet property="typedChatView" destination="joJ-Tl-f9O" id="w23-Hc-e2Y"/>
-                        <outlet property="userFirstName" destination="tr2-Q4-IiN" id="bvG-kx-IVD"/>
                         <outlet property="wholePageView" destination="Fqu-y0-NH1" id="WpA-gO-XeI"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToHomePage" id="Ymr-DL-epM"/>
                     </connections>
@@ -500,7 +500,7 @@
     <resources>
         <image name="logo" width="512" height="512"/>
         <image name="logo.jpg" width="1024" height="1024"/>
-        <image name="menubar" width="222" height="178"/>
+        <image name="menubar" width="166.5" height="133.5"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Ilo-6o-cxY"/>
