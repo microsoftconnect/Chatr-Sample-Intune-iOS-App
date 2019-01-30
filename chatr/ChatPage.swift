@@ -19,6 +19,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // variable used to keep track of whether the send button is already displayed
     var alreadyDisplayedSendButton = false
     
+    //variable for the currently enrolled user
+    var currentUser: String!
+    
     // variables used for creating the sidebar
     @IBOutlet weak var sideBarTable: UITableView!
     var isMenu:Bool = false                                         // variable that indicates if the menu is being  displayed
@@ -60,14 +63,12 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if fromMessage.length != 0 {
             //Reset the entry field
             self.typedChatView.text = ""
-            let user = IntuneMAMEnrollmentManager.instance().enrolledAccount()!
-            
             //When any message is sent, delete any draft message in the keychain
-            KeychainManager.deleteDraftMessage(forUser: user)
+            KeychainManager.deleteDraftMessage(forUser: self.currentUser)
             self.displayChatMessage(message: fromMessage)
             
             //Add the message to the stored messages in the keychain
-            KeychainManager.storeSentMessage(sentMessage: fromMessage.string, forUser: user)
+            KeychainManager.storeSentMessage(sentMessage: fromMessage.string, forUser: self.currentUser)
             //Scroll to the bottom of this message
             self.scrollToBottom(animated: true)
         }
@@ -145,9 +146,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
      If a draft message is present, then it will be saved to the keychain using the KeychainManager class.
     */
     @objc public func saveDraftedMessage(){
-       let currentUser = IntuneMAMEnrollmentManager.instance().enrolledAccount()!
         //Save any draft message to the keychain using the KeychainManager class
-        KeychainManager.storeDraftMessage(draftMessage: typedChatView.text!, forUser: currentUser)
+        KeychainManager.storeDraftMessage(draftMessage: typedChatView.text!, forUser: self.currentUser)
     }
     
     //Scrolls to the bottom of the table view
@@ -156,11 +156,29 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let index = IndexPath(row: self.chatTable.numberOfRows(inSection: 0)-1, section: 0)
             self.chatTable.scrollToRow(at: index, at: .bottom, animated: animated)
         }
+    }
+    
+    func getUserGroupName() -> String{
+        // Get the GroupName value for the user - key value pairing set in the portal
+        let data = IntuneMAMAppConfigManager.instance().appConfig(forIdentity: self.currentUser)
         
+        // If there are no conflicts for that key, find the value associated with the key
+        if !data.hasConflict("GroupName"){
+            if let groupName = data.stringValue(forKey: "GroupName", queryType: IntuneMAMStringQueryType.any){
+                return groupName
+            }
+        } else {
+            // Resolve the conflict by taking the max value
+            return data.stringValue(forKey: "GroupName", queryType: IntuneMAMStringQueryType.max)!
+        }
+        return "Chatr" // Default, if no GroupName value is set
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Get the current user
+        self.currentUser = IntuneMAMEnrollmentManager.instance().enrolledAccount()!
         
         //prevent the display of empty cells at the bottom of the sidebar menu by adding a zero height table footer view
         self.sideBarTable.tableFooterView = UIView(frame: CGRect(x:0, y:0, width: 0, height: 0))
@@ -180,19 +198,18 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.typedChatView.layer.cornerRadius = 10
         
         // change user's group name on top of the chat page, one of the app config settings
-        self.userFirstName.text = ObjCUtils.getUserGroupName()
+        self.userFirstName.text = self.getUserGroupName()
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardNotification(notification:)),
                                                name: UIResponder.keyboardWillChangeFrameNotification,
                                                object: nil)
         //Check the keychain for chat messages and drafted messages to load into the view
-        let currentUser: String = IntuneMAMEnrollmentManager.instance().enrolledAccount()!
-        if let messageArray: [String] = KeychainManager.getSentMessages(forUser: currentUser){
+        if let messageArray: [String] = KeychainManager.getSentMessages(forUser: self.currentUser){
             //If messages are present, populate the screen with them
             self.populateChatScreen(messageArray: messageArray)
         }
-        let draftMessage: String? = KeychainManager.getDraftedMessage(forUser: currentUser)
+        let draftMessage: String? = KeychainManager.getDraftedMessage(forUser: self.currentUser)
         if draftMessage != nil{
             //If a draft message is present, add it to the message entry bar
             self.typedChatView.text = draftMessage!
@@ -336,7 +353,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             switch sideBarOption {
             case .save?:
                 // Check if save is allowed by policy
-                if ObjCUtils.isSaveToLocalDriveAllowed() {
+                if (IntuneMAMPolicyManager.instance().policy()?.isSaveToAllowed(for: IntuneMAMSaveLocation.localDrive, withAccountName: self.currentUser))! {
                     //Save the conversation and present success alert to user
                     savedConvo.set(conversation, forKey: "savedConversation ")
                     let alert = UIAlertController(title: "Conversation Saved",
@@ -386,12 +403,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let settings:SettingsPage = self.storyboard?.instantiateViewController(withIdentifier: "settingsPage") as! SettingsPage
                 present(settings, animated:true, completion: nil)
             case .logout?:
-                //Log out user
-                // Find the user that is signed in
-                let user = IntuneMAMEnrollmentManager.instance().enrolledAccount()!
-                //Deregister the user from the SDK and initate a selective wipe of the app
+                //To log out user, deregister the user from the SDK and initate a selective wipe of the app
                 //In the EnrollmentDelegate, the unenrollRequestWithStatus block is executed, and includes logic to wipe tokens on unenrollment
-                IntuneMAMEnrollmentManager.instance().deRegisterAndUnenrollAccount(user, withWipe: true)
+                IntuneMAMEnrollmentManager.instance().deRegisterAndUnenrollAccount(self.currentUser, withWipe: true)
 			case .none:
 				return;
 			}
