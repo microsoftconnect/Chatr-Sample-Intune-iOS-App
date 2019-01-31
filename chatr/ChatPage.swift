@@ -438,7 +438,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     //write the conversation text to the file in the document directory
     func writeFile(fileContent: String, fileName: String) {
         do {
-            let url: URL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            let url: URL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
             try fileContent.write(to: url.appendingPathComponent(fileName).appendingPathExtension("txt"), atomically: true, encoding: .utf8)
         }catch let error {
             print("Error saving file: " + error.localizedDescription)
