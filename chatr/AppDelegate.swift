@@ -7,6 +7,8 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let enrollmentDelegate = EnrollmentDelegateClass.init()
+    let policyDelegate = PolicyDelegateClass.init()
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -55,10 +57,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         //Set the delegate of the IntuneMAMPolicyManager to an instance of the PolicyDelegateClass
-        IntuneMAMPolicyManager.instance().delegate = PolicyDelegateClass.init()
+        IntuneMAMPolicyManager.instance().delegate = self.policyDelegate
         
         //Set the delegate of the IntuneMAMEnrollmentManager to an instance of the EnrollmentDelegateClass
-        IntuneMAMEnrollmentManager.instance().delegate = EnrollmentDelegateClass.init()
+        IntuneMAMEnrollmentManager.instance().delegate = self.enrollmentDelegate
         
         return true
     }
