@@ -28,7 +28,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let sideBarFeatures = ["Save","Print", "About us","Settings", "Log out"]   // the options on the sidebar
     let sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "settings"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
     
-    
     // variables used for chat
     @IBOutlet weak var typedChatView: UITextView!
     @IBOutlet weak var chatTable: UITableView!
@@ -36,15 +35,48 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // variables used for printing
     @IBOutlet var wholePageView: UIView!
     
-    // variable to display user name on top of the chat page, default set to 'Chatr'
-    // Onpage load: updated to be user's first name based on targetted app config
-    @IBOutlet weak var userFirstName: UITextField!
+    // variable to display group name on top of the chat page, default set to 'Chatr'
+    // Onpage load: updated to be user's group name based on targeted app config
+    @IBOutlet weak var groupName: UITextField!
     
     // variable to move textfield for keyboard actions
     @IBOutlet weak var keyboardHeightLayoutConstraint: NSLayoutConstraint!
     
     //variable to reference the position and dimensions of the top bar
     @IBOutlet weak var topBarView: UIView!
+    
+    //variable to store initial save by policy permissions
+    var isSaveAllowed = Bool()
+    
+    //override the ChatPage View Controller initializer
+    required init? (coder aDecoder: NSCoder) {
+        
+        super.init(coder: aDecoder)
+        
+        //register for the IntuneMAMAppConfigDidChange notification
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(onIntuneMAMAppConfigDidChange),
+                                               name: NSNotification.Name.IntuneMAMAppConfigDidChange,
+                                               object: IntuneMAMAppConfigManager.instance())
+        
+        //register for the IntuneMAMPolicyDidChange notification
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(onIntuneMAMPolicyDidChange),
+                                               name: NSNotification.Name.IntuneMAMPolicyDidChange,
+                                               object: IntuneMAMPolicyManager.instance())
+        
+        //query the app policy and update the initial save-as policy permissions
+        self.isSaveAllowed = self.getSaveStatus()
+    }
+    
+    @objc func onIntuneMAMAppConfigDidChange() {
+        //query the app config and update the user name on the top of the chat page
+        self.groupName.text = self.getUserGroupName()
+    }
+    
+    @objc func onIntuneMAMPolicyDidChange() {
+        self.isSaveAllowed = self.getSaveStatus()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +102,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.typedChatView.layer.cornerRadius = 10
         
         // change user's group name on top of the chat page, one of the app config settings
-        self.userFirstName.text = self.getUserGroupName()
+        self.groupName.text = self.getUserGroupName()
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.keyboardNotification(notification:)),
@@ -179,7 +211,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.chatTable.insertRows(at: [IndexPath.init(row: conversation.count-1, section: 0)], with: .automatic)
         self.chatTable.endUpdates()
     }
-    
+        
     /*
      Function used to clear the chat page messages from the screen
      */
@@ -302,12 +334,12 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         if !isMenu {
             // reveal sideBar menu
-            isMenu = true
-            self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 301)
+            self.isMenu = true
+            self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 341)
             UIView.setAnimationDuration(0.15)
             UIView.setAnimationDelegate(self)
             UIView.beginAnimations("sideBarAnimation", context: nil)
-            self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 301)
+            self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 341)
             UIView.commitAnimations()
         }
         else {
@@ -320,13 +352,14 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
      */
     func hideSideBarMenu() {
         // hide sideBar menu
+
         self.sideBarTable.isHidden = true
         self.isMenu = false
-        self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 301)
+        self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 341)
         UIView.setAnimationDuration(0.15)
         UIView.setAnimationDelegate(self)
         UIView.beginAnimations("sideBarAnimation", context: nil)
-        self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 301)
+        self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 341)
         UIView.commitAnimations()
     }
     
@@ -345,31 +378,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             // Complete an action based on the item pressed on the sidebar
             switch sideBarOption {
             case .save?:
-                // Check if save is allowed by policy
-                let policy = IntuneMAMPolicyManager.instance().policy(forIdentity: self.currentUser)
-                if (nil == policy || (policy?.isSaveToAllowed(for: IntuneMAMSaveLocation.localDrive, withAccountName: self.currentUser))!){
-                    //Save the conversation and present success alert to user
-                    savedConvo.set(conversation, forKey: "savedConversation ")
-                    let alert = UIAlertController(title: "Conversation Saved",
-                                                  message: "Your conversation has been successfully saved to your device.",
-                                                  preferredStyle: .alert)
-                    let closeAlert = UIAlertAction(title: "OK",
-                                                   style: .default,
-                                                   handler: nil)
-                    alert.addAction(closeAlert)
-                    present(alert, animated: true, completion: nil)
-                }
-                else {
-                    // Alert the user that saving is disabled
-                    let alert = UIAlertController(title: "Save Disabled",
-                                                  message: "Saving conversations to local storage has been disabled by your IT admin.",
-                                                  preferredStyle: .alert)
-                    let closeAlert = UIAlertAction(title: "OK",
-                                                   style: .default,
-                                                   handler: nil)
-                    alert.addAction(closeAlert)
-                    present(alert, animated: true, completion: nil)
-                }
+                self.saveConversation()
             case .print?:
                 //Check if printing is currently available
                 //NOTE: While the Intune SDK can prevent printing, this is not the only reason that printing could be unavailable
@@ -406,6 +415,34 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func saveConversation() {
+        //Apps are responsible for enforcing save-as policy
+        // Check if save is allowed by policy
+        if isSaveAllowed {
+            savedConvo.set(conversation, forKey: "savedConversation ")
+            //Alert the user that saving is enabled
+            let alert = UIAlertController(title: "Conversation Saved",
+                                          message: "Your conversation has been successfully saved to your device.",
+                                          preferredStyle: .alert)
+            let closeAlert = UIAlertAction(title: "OK",
+                                           style: .default,
+                                           handler: nil)
+            alert.addAction(closeAlert)
+            present(alert, animated: true, completion: nil)
+        }
+        else {
+            // Alert the user that saving is disabled
+            let alert = UIAlertController(title: "Save Disabled",
+                                          message: "Saving conversations to local storage has been disabled by your IT admin.",
+                                          preferredStyle: .alert)
+            let closeAlert = UIAlertAction(title: "OK",
+                                           style: .default,
+                                           handler: nil)
+            alert.addAction(closeAlert)
+            present(alert, animated: true, completion: nil)
+
+        }
+    }
     
     /*!
         Presents the user with a print preview of the chat page.
@@ -426,6 +463,15 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         printController.printingItem = self.wholePageView.toImage()
         //Present the print UI to the user
         printController.present(animated: true, completionHandler: nil)
+    }
+        
+    func getSaveStatus() -> Bool {
+        let policy = IntuneMAMPolicyManager.instance().policy(forIdentity: self.currentUser)
+        if (nil == policy || (policy?.isSaveToAllowed(for: IntuneMAMSaveLocation.localDrive, withAccountName: self.currentUser))!){
+            return true
+        } else {
+            return false
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
