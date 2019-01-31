@@ -86,7 +86,7 @@ If successful, logic for enrollment is initiated
                            error: &error];
     
     //If there is an error clearing tokens, log it
-    if (nil != error.errorDetails){
+    if (nil != error){
         NSLog(@"Error occurred while clearing user's AAD tokens.");
         NSLog(@"Error details: %@", error.errorDetails);
     }
