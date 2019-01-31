@@ -36,6 +36,7 @@
      See IntuneMAMPolicyDelegate documentation or header file for more information
      */
     - (BOOL)restartApplication;
+
 @end
 
 

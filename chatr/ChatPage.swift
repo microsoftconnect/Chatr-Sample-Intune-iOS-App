@@ -12,7 +12,6 @@ import UIKit
 
 // global variable used for saving conversations
 var conversation:[(sender:String, message:NSAttributedString)] = []
-let savedConvo = UserDefaults.init()
 
 class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -378,7 +377,31 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             // Complete an action based on the item pressed on the sidebar
             switch sideBarOption {
             case .save?:
-                self.saveConversation()
+                // Check if save is allowed by policy
+                if self.isSaveAllowed {
+                    //Save the conversation and present success alert to user
+                    self.saveConversation(fileName: "savedConversation", conversation: conversation)
+                    
+                    let alert = UIAlertController(title: "Conversation Saved",
+                                                  message: "Your conversation has been successfully saved to your device.",
+                                                  preferredStyle: .alert)
+                    let closeAlert = UIAlertAction(title: "OK",
+                                                   style: .default,
+                                                   handler: nil)
+                    alert.addAction(closeAlert)
+                    present(alert, animated: true, completion: nil)
+                }
+                else {
+                    // Alert the user that saving is disabled
+                    let alert = UIAlertController(title: "Save Disabled",
+                                                  message: "Saving conversations to local storage has been disabled by your IT admin.",
+                                                  preferredStyle: .alert)
+                    let closeAlert = UIAlertAction(title: "OK",
+                                                   style: .default,
+                                                   handler: nil)
+                    alert.addAction(closeAlert)
+                    present(alert, animated: true, completion: nil)
+                }
             case .print?:
                 //Check if printing is currently available
                 //NOTE: While the Intune SDK can prevent printing, this is not the only reason that printing could be unavailable
@@ -412,35 +435,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
 			case .none:
 				return;
 			}
-        }
-    }
-    
-    func saveConversation() {
-        //Apps are responsible for enforcing save-as policy
-        // Check if save is allowed by policy
-        if isSaveAllowed {
-            savedConvo.set(conversation, forKey: "savedConversation ")
-            //Alert the user that saving is enabled
-            let alert = UIAlertController(title: "Conversation Saved",
-                                          message: "Your conversation has been successfully saved to your device.",
-                                          preferredStyle: .alert)
-            let closeAlert = UIAlertAction(title: "OK",
-                                           style: .default,
-                                           handler: nil)
-            alert.addAction(closeAlert)
-            present(alert, animated: true, completion: nil)
-        }
-        else {
-            // Alert the user that saving is disabled
-            let alert = UIAlertController(title: "Save Disabled",
-                                          message: "Saving conversations to local storage has been disabled by your IT admin.",
-                                          preferredStyle: .alert)
-            let closeAlert = UIAlertAction(title: "OK",
-                                           style: .default,
-                                           handler: nil)
-            alert.addAction(closeAlert)
-            present(alert, animated: true, completion: nil)
-
         }
     }
     
@@ -485,6 +479,34 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         //Save the draft message if there is one present
         self.saveDraftedMessage()
+    }
+    
+    //Saves the conversation as a text file in the document directory of the application.
+    func saveConversation(fileName: String, conversation: [(sender: String, message: NSAttributedString)]) {
+        let newFormat = self.reformatConversation(conversation: conversation)
+        self.writeFile(fileContent: newFormat, fileName: fileName)
+    }
+    
+    //convert the array of (sender, message) tuples to a single string that represents the entire conversation
+    func reformatConversation(conversation: [(sender: String, message: NSAttributedString)]) -> String {
+        var newFormat = ""
+        for element in conversation {
+            newFormat.append(element.0)
+            newFormat.append(": ")
+            newFormat.append((element.1).string)
+            newFormat.append("\n")
+        }
+        return newFormat
+    }
+    
+    //write the conversation text to the file in the document directory
+    func writeFile(fileContent: String, fileName: String) {
+        do {
+            let url: URL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            try fileContent.write(to: url.appendingPathComponent(fileName).appendingPathExtension("txt"), atomically: true, encoding: .utf8)
+        }catch let error {
+            print("Error saving file: " + error.localizedDescription)
+        }
     }
 }
 
