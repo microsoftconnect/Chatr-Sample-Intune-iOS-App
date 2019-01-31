@@ -286,7 +286,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
             // Complete an action based on the item pressed on the sidebar
             switch sideBarOption {
             case .save?:
-                // Check if save is allowed by policy
                 saveConversation()
             case .print?:
                 //Print the conversation
@@ -308,8 +307,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     }
     
     func saveConversation() {
+        //Apps are responsible for enforcing save-as policy
+        // Check if save is allowed by policy
         if isSaveAllowed {
-            // Check if save is allowed by policy
             savedConvo.set(conversation, forKey: "savedConversation ")
             //Alert the user that saving is enabled
             let alert = UIAlertController(title: "Conversation Saved",
