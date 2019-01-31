@@ -44,7 +44,7 @@
 /*
  This method retrieves the current view controller by going from the rootViewController to the currently presented view
  */
-+ (UIViewController *) getCurrentViewController;
++ (UIViewController *_Nonnull) getCurrentViewController;
 
 @end
 

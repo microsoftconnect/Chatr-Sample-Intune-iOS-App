@@ -11,4 +11,3 @@
 #import <IntuneMAM/IntuneMAMEnrollmentManager.h>
 #import <IntuneMAM/IntuneMAMPolicyManager.h>
 #import <IntuneMAM/IntuneMAMVersionInfo.h>
-#import "PolicyDelegate.h"
