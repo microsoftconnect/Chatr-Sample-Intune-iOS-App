@@ -19,6 +19,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // variable used to keep track of whether the send button is already displayed
     var alreadyDisplayedSendButton = false
     
+    //variable for the currently enrolled user
+    var currentUser: String!
+    
     // variables used for creating the sidebar
     @IBOutlet weak var sideBarTable: UITableView!
     var isMenu:Bool = false                                         // variable that indicates if the menu is being  displayed
@@ -43,6 +46,70 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //variable to reference the position and dimensions of the top bar
     @IBOutlet weak var topBarView: UIView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //Get the current user
+        self.currentUser = IntuneMAMEnrollmentManager.instance().enrolledAccount()!
+        
+        //prevent the display of empty cells at the bottom of the sidebar menu by adding a zero height table footer view
+        self.sideBarTable.tableFooterView = UIView(frame: CGRect(x:0, y:0, width: 0, height: 0))
+        self.sideBarTable.tableFooterView?.isHidden = true
+        self.sideBarTable.backgroundColor = UIColor.clear
+        
+        //ensures self-sizing sidebar table view cells
+        //the sidebar table view will use Auto Layout constraints and the cell's contents to determine each cell's height
+        self.sideBarTable.estimatedRowHeight = 40
+        self.sideBarTable.rowHeight = UITableView.automaticDimension
+        
+        // when the view is loaded, hide the sidebar table
+        self.sideBarTable.isHidden = true
+        self.isMenu = false
+        
+        // round the corners of the chat view
+        self.typedChatView.layer.cornerRadius = 10
+        
+        // change user's group name on top of the chat page, one of the app config settings
+        self.userFirstName.text = self.getUserGroupName()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(self.keyboardNotification(notification:)),
+                                               name: UIResponder.keyboardWillChangeFrameNotification,
+                                               object: nil)
+        //Check the keychain for chat messages and drafted messages to load into the view
+        if let messageArray: [String] = KeychainManager.getSentMessages(forUser: self.currentUser){
+            //If messages are present, populate the screen with them
+            self.populateChatScreen(messageArray: messageArray)
+        }
+        let draftMessage: String? = KeychainManager.getDraftedMessage(forUser: self.currentUser)
+        if nil != draftMessage{
+            //If a draft message is present, add it to the message entry bar
+            self.typedChatView.text = draftMessage!
+        }
+        
+        //Add an observer to save any drafted message when the app terminates
+        NotificationCenter.default.addObserver(self, selector: #selector(self.saveDraftedMessage), name: UIApplication.willResignActiveNotification, object: nil)
+    }
+    
+    //programmatically create send button after Auto Layout lays out the main view and subviews
+    override func viewDidLayoutSubviews() {
+        //ensures a new send button is not added every time a message is sent in the chat
+        if !self.alreadyDisplayedSendButton {
+            
+            let sendButton = UIButton(frame: CGRect(x: self.typedChatView.frame.origin.x + self.typedChatView.frame.width + 4, y: self.typedChatView.frame.origin.y - 4, width: 57, height: 39))
+            sendButton.backgroundColor = .clear
+            sendButton.setTitle("SEND", for: .normal)
+            sendButton.addTarget(self, action: #selector (self.sendChat), for: .touchUpInside)
+            
+            self.view.addSubview(sendButton)
+            sendButton.translatesAutoresizingMaskIntoConstraints = false
+            sendButton.bottomAnchor.constraint(equalTo: self.typedChatView.bottomAnchor).isActive = true
+            sendButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true
+            
+            self.alreadyDisplayedSendButton = true
+        }
+    }
+    
     /*!
         Button action triggered when send button is pressed on chat page
      
@@ -57,16 +124,15 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let fromMessage = NSMutableAttributedString(string: self.typedChatView.text!, attributes: [.paragraphStyle: align])
         
         //Only take action if there is text in the message
-        if fromMessage.length != 0 {
+        if 0 != fromMessage.length {
             //Reset the entry field
             self.typedChatView.text = ""
-            
             //When any message is sent, delete any draft message in the keychain
-            KeychainManager.deleteDraftMessage(forUser: ObjCUtils.getSignedInUser()!)
+            KeychainManager.deleteDraftMessage(forUser: self.currentUser)
             self.displayChatMessage(message: fromMessage)
             
             //Add the message to the stored messages in the keychain
-            KeychainManager.storeSentMessage(sentMessage: fromMessage.string, forUser: ObjCUtils.getSignedInUser())
+            KeychainManager.storeSentMessage(sentMessage: fromMessage.string, forUser: self.currentUser)
             //Scroll to the bottom of this message
             self.scrollToBottom(animated: true)
         }
@@ -144,10 +210,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
      If a draft message is present, then it will be saved to the keychain using the KeychainManager class.
     */
     @objc public func saveDraftedMessage(){
-        if let currentUser = ObjCUtils.getSignedInUser() {
-            //Save any draft message to the keychain using the KeychainManager class
-            KeychainManager.storeDraftMessage(draftMessage: typedChatView.text!, forUser: currentUser)
-        }
+        //Save any draft message to the keychain using the KeychainManager class
+        KeychainManager.storeDraftMessage(draftMessage: typedChatView.text!, forUser: self.currentUser)
     }
     
     //Scrolls to the bottom of the table view
@@ -157,67 +221,21 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.chatTable.scrollToRow(at: index, at: .bottom, animated: animated)
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //prevent the display of empty cells at the bottom of the sidebar menu by adding a zero height table footer view
-        self.sideBarTable.tableFooterView = UIView(frame: CGRect(x:0, y:0, width: 0, height: 0))
-        self.sideBarTable.tableFooterView?.isHidden = true
-        self.sideBarTable.backgroundColor = UIColor.clear
-        
-        //ensures self-sizing sidebar table view cells
-        //the sidebar table view will use Auto Layout constraints and the cell's contents to determine each cell's height
-        self.sideBarTable.estimatedRowHeight = 40
-        self.sideBarTable.rowHeight = UITableView.automaticDimension
-        
-        // when the view is loaded, hide the sidebar table
-        self.sideBarTable.isHidden = true
-        self.isMenu = false
-        
-        // round the corners of the chat view
-        self.typedChatView.layer.cornerRadius = 10
-        
-        // change user's group name on top of the chat page, one of the app config settings
-        self.userFirstName.text = ObjCUtils.getUserGroupName()
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(self.keyboardNotification(notification:)),
-                                               name: UIResponder.keyboardWillChangeFrameNotification,
-                                               object: nil)
-        //Check the keychain for chat messages and drafted messages to load into the view
-        let currentUser: String = ObjCUtils.getSignedInUser()!
-        if let messageArray: [String] = KeychainManager.getSentMessages(forUser: currentUser){
-            //If messages are present, populate the screen with them
-            self.populateChatScreen(messageArray: messageArray)
-        }
-        let draftMessage: String? = KeychainManager.getDraftedMessage(forUser: currentUser)
-        if draftMessage != nil{
-            //If a draft message is present, add it to the message entry bar
-            self.typedChatView.text = draftMessage!
-        }
-        
-        //Add an observer to save any drafted message when the app terminates
-        NotificationCenter.default.addObserver(self, selector: #selector(self.saveDraftedMessage), name: UIApplication.willTerminateNotification, object: nil)
-    }
     
-    //programmatically create send button after Auto Layout lays out the main view and subviews
-    override func viewDidLayoutSubviews() {
-        //ensures a new send button is not added every time a message is sent in the chat
-        if !self.alreadyDisplayedSendButton {
-            
-            let sendButton = UIButton(frame: CGRect(x: self.typedChatView.frame.origin.x + self.typedChatView.frame.width + 4, y: self.typedChatView.frame.origin.y - 4, width: 57, height: 39))
-            sendButton.backgroundColor = .clear
-            sendButton.setTitle("SEND", for: .normal)
-            sendButton.addTarget(self, action: #selector (self.sendChat), for: .touchUpInside)
-            
-            self.view.addSubview(sendButton)
-            sendButton.translatesAutoresizingMaskIntoConstraints = false
-            sendButton.bottomAnchor.constraint(equalTo: self.typedChatView.bottomAnchor).isActive = true
-            sendButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8).isActive = true
-            
-            self.alreadyDisplayedSendButton = true
+    func getUserGroupName() -> String{
+        // Get the GroupName value for the user - key value pairing set in the portal
+        let data = IntuneMAMAppConfigManager.instance().appConfig(forIdentity: self.currentUser)
+        
+        // If there are no conflicts for that key, find the value associated with the key
+        if !data.hasConflict("GroupName"){
+            if let groupName = data.stringValue(forKey: "GroupName", queryType: IntuneMAMStringQueryType.any){
+                return groupName
+            }
+        } else {
+            // Resolve the conflict by taking the max value
+            return data.stringValue(forKey: "GroupName", queryType: IntuneMAMStringQueryType.max)!
         }
+        return "Chatr" // Default, if no GroupName value is set
     }
     
     deinit {
@@ -248,13 +266,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 self.scrollToBottom(animated: true)
             }
         }
-    }
-    
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -335,7 +346,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             switch sideBarOption {
             case .save?:
                 // Check if save is allowed by policy
-                if ObjCUtils.isSaveToLocalDriveAllowed() {
+                let policy = IntuneMAMPolicyManager.instance().policy(forIdentity: self.currentUser)
+                if (nil == policy || (policy?.isSaveToAllowed(for: IntuneMAMSaveLocation.localDrive, withAccountName: self.currentUser))!){
                     //Save the conversation and present success alert to user
                     savedConvo.set(conversation, forKey: "savedConversation ")
                     let alert = UIAlertController(title: "Conversation Saved",
@@ -385,8 +397,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let settings:SettingsPage = self.storyboard?.instantiateViewController(withIdentifier: "settingsPage") as! SettingsPage
                 present(settings, animated:true, completion: nil)
             case .logout?:
-                //Log out user
-                ObjCUtils.logout()
+                //To log out user, deregister the user from the SDK and initate a selective wipe of the app
+                //In the EnrollmentDelegate, the unenrollRequestWithStatus block is executed, and includes logic to wipe tokens on unenrollment
+                IntuneMAMEnrollmentManager.instance().deRegisterAndUnenrollAccount(self.currentUser, withWipe: true)
 			case .none:
 				return;
 			}
