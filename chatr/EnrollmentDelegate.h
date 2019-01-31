@@ -24,7 +24,7 @@
  
  @param viewController - the view controller this class should use when triggered
  */
-- (id)initWithViewController:(UIViewController *_Nonnull)viewController;
+- (id _Nonnull )initWithViewController:(UIViewController *_Nonnull)viewController;
 
 /*
  This is a method of the delegate that is triggered when an instance of this class is set as the delegate of the IntuneMAMEnrollmentManager and an enrollment is attempted.
@@ -44,7 +44,7 @@
 /*
  This method retrieves the current view controller by going from the rootViewController to the currently presented view
  */
-+ (UIViewController *) getCurrentViewController;
++ (UIViewController *_Nonnull) getCurrentViewController;
 
 @end
 
