@@ -62,7 +62,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
                                                name: NSNotification.Name.IntuneMAMPolicyDidChange,
                                                object: IntuneMAMPolicyManager.instance())
         
-        //query the app policy and update the initial save by policy permissions
+        //query the app policy and update the initial save-as policy permissions
         self.isSaveAllowed = ObjCUtils.isSaveToLocalDriveAllowed()
     }
     
@@ -73,7 +73,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     @objc func onIntuneMAMPolicyDidChange() {
         self.isSaveAllowed = ObjCUtils.isSaveToLocalDriveAllowed()
-        saveConversation()
     }
     
     /*!
@@ -308,9 +307,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         }
     }
     
-    // Check if save is allowed by policy
     func saveConversation() {
         if isSaveAllowed {
+            // Check if save is allowed by policy
             savedConvo.set(conversation, forKey: "savedConversation ")
             //Alert the user that saving is enabled
             let alert = UIAlertController(title: "Conversation Saved",
