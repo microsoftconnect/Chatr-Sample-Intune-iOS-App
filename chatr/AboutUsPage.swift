@@ -28,12 +28,4 @@ class AboutUsPage: UIViewController, UITextViewDelegate, IntuneMAMPolicyDelegate
         self.backButton.setImage(#imageLiteral(resourceName: "backarrow.png"), for: UIControl.State.normal)
         self.backButton.imageView!.contentMode = .scaleAspectFit
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    /*
-    // MARK: - Navigation
-    */
 }
