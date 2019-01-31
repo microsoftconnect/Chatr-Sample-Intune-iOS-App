@@ -7,8 +7,9 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let enrollmentDelegate = EnrollmentDelegateClass.init()
+    let policyDelegate = PolicyDelegateClass.init()
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -16,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard: UIStoryboard = UIStoryboard(name:"Main", bundle: Bundle.main)
         
         //check for enrolled account
-        if ObjCUtils.getSignedInUser() != nil{
+        let currentUser = IntuneMAMEnrollmentManager.instance().enrolledAccount()
+        if nil != currentUser && !currentUser!.isEmpty {
             //if an account is enrolled, skip over login page to main page
             //Do this by setting the main chat page to the rootViewController
             let mainPage = storyboard.instantiateViewController(withIdentifier: "ChatPage")
@@ -55,10 +57,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         //Set the delegate of the IntuneMAMPolicyManager to an instance of the PolicyDelegateClass
-        IntuneMAMPolicyManager.instance().delegate = PolicyDelegateClass.init()
+        IntuneMAMPolicyManager.instance().delegate = self.policyDelegate
         
         //Set the delegate of the IntuneMAMEnrollmentManager to an instance of the EnrollmentDelegateClass
-        IntuneMAMEnrollmentManager.instance().delegate = EnrollmentDelegateClass.init()
+        IntuneMAMEnrollmentManager.instance().delegate = self.enrollmentDelegate
         
         return true
     }

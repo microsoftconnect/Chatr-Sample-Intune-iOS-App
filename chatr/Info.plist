@@ -28,6 +28,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>chatr</string>
+				<string>chatr-intunemam</string>
 			</array>
 		</dict>
 	</array>
@@ -64,67 +65,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UTImportedTypeDeclarations</key>
-	<array>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>com.microsoft.intune.mam.public.text</string>
-			</array>
-			<key>UTTypeIdentifier</key>
-			<string>com.microsoft.intune.mam.public.plain-text</string>
-		</dict>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>com.microsoft.intune.mam.public.data</string>
-				<string>com.microsoft.intune.mam.public.content</string>
-			</array>
-			<key>UTTypeIdentifier</key>
-			<string>com.microsoft.intune.mam.public.image</string>
-		</dict>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>com.microsoft.intune.mam.public.url</string>
-			</array>
-			<key>UTTypeIdentifier</key>
-			<string>com.microsoft.intune.mam.public.file-url</string>
-		</dict>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>com.microsoft.intune.mam.public.data</string>
-				<string>com.microsoft.intune.mam.public.content</string>
-			</array>
-			<key>UTTypeIdentifier</key>
-			<string>com.microsoft.intune.mam.public.text</string>
-		</dict>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>com.microsoft.intune.mam.public.item</string>
-			</array>
-			<key>UTTypeIdentifier</key>
-			<string>com.microsoft.intune.mam.public.data</string>
-		</dict>
-		<dict>
-			<key>UTTypeIdentifier</key>
-			<string>com.microsoft.intune.mam.public.content</string>
-		</dict>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>com.microsoft.intune.mam.public.data</string>
-			</array>
-			<key>UTTypeIdentifier</key>
-			<string>com.microsoft.intune.mam.public.url</string>
-		</dict>
-		<dict>
-			<key>UTTypeIdentifier</key>
-			<string>com.microsoft.intune.mam.public.item</string>
-		</dict>
 	</array>
 </dict>
 </plist>

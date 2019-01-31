@@ -41,6 +41,11 @@
  */
 - (void)unenrollRequestWithStatus:(IntuneMAMEnrollmentStatus *_Nonnull)status;
 
+/*
+ This method retrieves the current view controller by going from the rootViewController to the currently presented view
+ */
++ (UIViewController *) getCurrentViewController;
+
 @end
 
 #endif /* EnrollmentDelegateHeader_h */

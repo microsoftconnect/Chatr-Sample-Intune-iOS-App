@@ -18,11 +18,8 @@
 		C01A67E520DAB03F00F80AFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01A67E320DAB03F00F80AFB /* Main.storyboard */; };
 		C01A67E720DAB03F00F80AFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C01A67E620DAB03F00F80AFB /* Assets.xcassets */; };
 		C01A67EA20DAB03F00F80AFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01A67E820DAB03F00F80AFB /* LaunchScreen.storyboard */; };
-		C01A67F520DAB03F00F80AFB /* chatrTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67F420DAB03F00F80AFB /* chatrTests.swift */; };
-		C01A680020DAB03F00F80AFB /* chatrUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67FF20DAB03F00F80AFB /* chatrUITests.swift */; };
 		C01A680E20DAE2BB00F80AFB /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C01A680D20DAE2BB00F80AFB /* logo.jpg */; };
 		C01A681320E166CA00F80AFB /* SideBarTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A681220E166CA00F80AFB /* SideBarTableCell.swift */; };
-		C023DAA12106519200246456 /* ObjCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C023DAA02106519200246456 /* ObjCUtils.m */; };
 		C027B3B120E687DF00392A38 /* ChatPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C027B3B020E687DF00392A38 /* ChatPage.swift */; };
 		C0571FB420EAAB57008716A8 /* AboutUsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0571FB320EAAB57008716A8 /* AboutUsPage.swift */; };
 		C0E7DA0320EE766600EA7494 /* chatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E7DA0220EE766600EA7494 /* chatTableViewCell.swift */; };
@@ -40,23 +37,6 @@
 		C0E7DA1C20FE89D400EA7494 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1B20FE89D400EA7494 /* QuartzCore.framework */; };
 		C0E7DA1E20FE89DB00EA7494 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0E7DA1D20FE89DB00EA7494 /* WebKit.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C01A67F120DAB03F00F80AFB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C01A67D420DAB03F00F80AFB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C01A67DB20DAB03F00F80AFB;
-			remoteInfo = chatr;
-		};
-		C01A67FC20DAB03F00F80AFB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C01A67D420DAB03F00F80AFB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C01A67DB20DAB03F00F80AFB;
-			remoteInfo = chatr;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C0E7DA0720FE888C00EA7494 /* Embed Frameworks */ = {
@@ -88,17 +68,9 @@
 		C01A67E620DAB03F00F80AFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C01A67E920DAB03F00F80AFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C01A67EB20DAB03F00F80AFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C01A67F020DAB03F00F80AFB /* chatrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chatrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C01A67F420DAB03F00F80AFB /* chatrTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatrTests.swift; sourceTree = "<group>"; };
-		C01A67F620DAB03F00F80AFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C01A67FB20DAB03F00F80AFB /* chatrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = chatrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C01A67FF20DAB03F00F80AFB /* chatrUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatrUITests.swift; sourceTree = "<group>"; };
-		C01A680120DAB03F00F80AFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C01A680D20DAE2BB00F80AFB /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logo.jpg; path = ../logo.jpg; sourceTree = "<group>"; };
 		C01A681220E166CA00F80AFB /* SideBarTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarTableCell.swift; sourceTree = "<group>"; };
 		C023DA9C2101340200246456 /* chatr-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "chatr-Bridging-Header.h"; sourceTree = "<group>"; };
-		C023DAA02106519200246456 /* ObjCUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjCUtils.m; sourceTree = "<group>"; };
-		C023DAA2210651E700246456 /* ObjCUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCUtils.h; sourceTree = "<group>"; };
 		C027B3B020E687DF00392A38 /* ChatPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPage.swift; sourceTree = "<group>"; };
 		C0571FB320EAAB57008716A8 /* AboutUsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsPage.swift; sourceTree = "<group>"; };
 		C0E7DA0220EE766600EA7494 /* chatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatTableViewCell.swift; sourceTree = "<group>"; };
@@ -138,20 +110,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C01A67ED20DAB03F00F80AFB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C01A67F820DAB03F00F80AFB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -159,8 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				C01A67DE20DAB03F00F80AFB /* chatr */,
-				C01A67F320DAB03F00F80AFB /* chatrTests */,
-				C01A67FE20DAB03F00F80AFB /* chatrUITests */,
 				C01A67DD20DAB03F00F80AFB /* Products */,
 				C0E7DA0820FE897100EA7494 /* Frameworks */,
 			);
@@ -170,8 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				C01A67DC20DAB03F00F80AFB /* chatr.app */,
-				C01A67F020DAB03F00F80AFB /* chatrTests.xctest */,
-				C01A67FB20DAB03F00F80AFB /* chatrUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,28 +152,8 @@
 				68AF9BE421E9449200127E37 /* PolicyDelegate.h */,
 				68AF9BDF21E8E19200127E37 /* EnrollmentDelegate.m */,
 				68AF9BE121E8E19300127E37 /* EnrollmentDelegate.h */,
-				C023DAA02106519200246456 /* ObjCUtils.m */,
-				C023DAA2210651E700246456 /* ObjCUtils.h */,
 			);
 			path = chatr;
-			sourceTree = "<group>";
-		};
-		C01A67F320DAB03F00F80AFB /* chatrTests */ = {
-			isa = PBXGroup;
-			children = (
-				C01A67F420DAB03F00F80AFB /* chatrTests.swift */,
-				C01A67F620DAB03F00F80AFB /* Info.plist */,
-			);
-			path = chatrTests;
-			sourceTree = "<group>";
-		};
-		C01A67FE20DAB03F00F80AFB /* chatrUITests */ = {
-			isa = PBXGroup;
-			children = (
-				C01A67FF20DAB03F00F80AFB /* chatrUITests.swift */,
-				C01A680120DAB03F00F80AFB /* Info.plist */,
-			);
-			path = chatrUITests;
 			sourceTree = "<group>";
 		};
 		C0E7DA0820FE897100EA7494 /* Frameworks */ = {
@@ -263,42 +197,6 @@
 			productReference = C01A67DC20DAB03F00F80AFB /* chatr.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C01A67EF20DAB03F00F80AFB /* chatrTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C01A680720DAB03F00F80AFB /* Build configuration list for PBXNativeTarget "chatrTests" */;
-			buildPhases = (
-				C01A67EC20DAB03F00F80AFB /* Sources */,
-				C01A67ED20DAB03F00F80AFB /* Frameworks */,
-				C01A67EE20DAB03F00F80AFB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C01A67F220DAB03F00F80AFB /* PBXTargetDependency */,
-			);
-			name = chatrTests;
-			productName = chatrTests;
-			productReference = C01A67F020DAB03F00F80AFB /* chatrTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		C01A67FA20DAB03F00F80AFB /* chatrUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C01A680A20DAB03F00F80AFB /* Build configuration list for PBXNativeTarget "chatrUITests" */;
-			buildPhases = (
-				C01A67F720DAB03F00F80AFB /* Sources */,
-				C01A67F820DAB03F00F80AFB /* Frameworks */,
-				C01A67F920DAB03F00F80AFB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C01A67FD20DAB03F00F80AFB /* PBXTargetDependency */,
-			);
-			name = chatrUITests;
-			productName = chatrUITests;
-			productReference = C01A67FB20DAB03F00F80AFB /* chatrUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -319,18 +217,6 @@
 							};
 						};
 					};
-					C01A67EF20DAB03F00F80AFB = {
-						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1010;
-						ProvisioningStyle = Automatic;
-						TestTargetID = C01A67DB20DAB03F00F80AFB;
-					};
-					C01A67FA20DAB03F00F80AFB = {
-						CreatedOnToolsVersion = 9.2;
-						LastSwiftMigration = 1010;
-						ProvisioningStyle = Automatic;
-						TestTargetID = C01A67DB20DAB03F00F80AFB;
-					};
 				};
 			};
 			buildConfigurationList = C01A67D720DAB03F00F80AFB /* Build configuration list for PBXProject "chatr" */;
@@ -347,8 +233,6 @@
 			projectRoot = "";
 			targets = (
 				C01A67DB20DAB03F00F80AFB /* chatr */,
-				C01A67EF20DAB03F00F80AFB /* chatrTests */,
-				C01A67FA20DAB03F00F80AFB /* chatrUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -362,20 +246,6 @@
 				C01A67EA20DAB03F00F80AFB /* LaunchScreen.storyboard in Resources */,
 				C01A67E720DAB03F00F80AFB /* Assets.xcassets in Resources */,
 				C01A67E520DAB03F00F80AFB /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C01A67EE20DAB03F00F80AFB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C01A67F920DAB03F00F80AFB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,42 +264,12 @@
 				68AF9BE221E8E19300127E37 /* EnrollmentDelegate.m in Sources */,
 				C01A67E220DAB03F00F80AFB /* ViewController.swift in Sources */,
 				C01A67E020DAB03F00F80AFB /* AppDelegate.swift in Sources */,
-				C023DAA12106519200246456 /* ObjCUtils.m in Sources */,
 				C01A681320E166CA00F80AFB /* SideBarTableCell.swift in Sources */,
 				C027B3B120E687DF00392A38 /* ChatPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C01A67EC20DAB03F00F80AFB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C01A67F520DAB03F00F80AFB /* chatrTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C01A67F720DAB03F00F80AFB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C01A680020DAB03F00F80AFB /* chatrUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C01A67F220DAB03F00F80AFB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C01A67DB20DAB03F00F80AFB /* chatr */;
-			targetProxy = C01A67F120DAB03F00F80AFB /* PBXContainerItemProxy */;
-		};
-		C01A67FD20DAB03F00F80AFB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C01A67DB20DAB03F00F80AFB /* chatr */;
-			targetProxy = C01A67FC20DAB03F00F80AFB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C01A67E320DAB03F00F80AFB /* Main.storyboard */ = {
@@ -615,68 +455,6 @@
 			};
 			name = Release;
 		};
-		C01A680820DAB03F00F80AFB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = chatrTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatrTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/chatr.app/chatr";
-			};
-			name = Debug;
-		};
-		C01A680920DAB03F00F80AFB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = chatrTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatrTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/chatr.app/chatr";
-			};
-			name = Release;
-		};
-		C01A680B20DAB03F00F80AFB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = chatrUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatrUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = chatr;
-			};
-			name = Debug;
-		};
-		C01A680C20DAB03F00F80AFB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = chatrUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Intune.chatrUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = chatr;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -694,24 +472,6 @@
 			buildConfigurations = (
 				C01A680520DAB03F00F80AFB /* Debug */,
 				C01A680620DAB03F00F80AFB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C01A680720DAB03F00F80AFB /* Build configuration list for PBXNativeTarget "chatrTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C01A680820DAB03F00F80AFB /* Debug */,
-				C01A680920DAB03F00F80AFB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C01A680A20DAB03F00F80AFB /* Build configuration list for PBXNativeTarget "chatrUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C01A680B20DAB03F00F80AFB /* Debug */,
-				C01A680C20DAB03F00F80AFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

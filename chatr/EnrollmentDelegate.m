@@ -8,7 +8,6 @@
 #import <UIKit/UIKit.h>
 #import <ADAL/ADKeychainTokenCache.h>
 #import <ADAL/ADAuthenticationError.h>
-#import "ObjCUtils.h"
 
 /*
  This enrollment delegate class can be initialized and set as the enrollment delegate of the IntuneMAMEnrollmentManager
@@ -87,13 +86,13 @@ If successful, logic for enrollment is initiated
                            error: &error];
     
     //If there is an error clearing tokens, log it
-    if (error.errorDetails != nil){
+    if (nil != error){
         NSLog(@"Error occurred while clearing user's AAD tokens.");
         NSLog(@"Error details: %@", error.errorDetails);
     }
     
     //Go back to login page from current view controller
-    UIViewController*presentingViewController = [ObjCUtils getCurrentViewController];
+    UIViewController*presentingViewController = [EnrollmentDelegateClass getCurrentViewController];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *loginPage = [storyboard instantiateViewControllerWithIdentifier: @"LoginPage"];
     
@@ -105,4 +104,23 @@ If successful, logic for enrollment is initiated
         NSLog(@"Debug Message: %@", status.errorString);
     }
 }
+
+/*
+ This method retrieves the current view controller by going from the rootViewController to the currently presented view
+ */
++ (UIViewController *) getCurrentViewController
+{
+    UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    if (topController) {
+        UIViewController *presentedViewController = topController.presentedViewController;
+        //Loop until there are no more view controllers to go to
+        while (presentedViewController){
+            topController = presentedViewController;
+            presentedViewController = topController.presentedViewController;
+        }
+    }
+    //Return the final view controller
+    return topController;
+}
+
 @end
