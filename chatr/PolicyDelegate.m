@@ -35,23 +35,22 @@
  */
 - (BOOL)wipeDataForAccount:(NSString*_Nonnull)upn{
     
-    //find the document directory
-    NSArray<NSString *> *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentDirectory = [paths objectAtIndex:0];
-    
-    //remove every file in the document directory without deleting the directory itself
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *contentError;
-    NSArray<NSString *> *fileArray = [fileManager contentsOfDirectoryAtPath:documentDirectory error:&contentError];
-    if (!fileArray) {
-        NSLog(@"Could not return path of documents directory. Error: %@", [contentError localizedDescription]);
-    }
-    
     NSError *removeError;
-    for (NSString *fileName in fileArray) {
-        BOOL removeSuccess = [fileManager removeItemAtPath:[documentDirectory stringByAppendingPathComponent: fileName] error:&removeError];
-        if (!removeSuccess) {
-            NSLog(@"Could not remove file. Error: %@", [removeError localizedDescription]);
+    
+    //remove all files in each directory
+    NSArray<NSString *> *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    for (NSString *fileDirectory in paths) {
+        NSArray<NSString *> *fileArray = [fileManager contentsOfDirectoryAtPath:fileDirectory error:&contentError];
+        if (!fileArray) {
+            NSLog(@"Could not return path of documents directory. Error: %@", [contentError localizedDescription]);
+        }
+        for (NSString *fileName in fileArray) {
+            BOOL removeSuccess = [fileManager removeItemAtPath:[fileDirectory stringByAppendingPathComponent: fileName] error:&removeError];
+            if (!removeSuccess) {
+                NSLog(@"Could not remove file. Error: %@", [removeError localizedDescription]);
+            }
         }
     }
     

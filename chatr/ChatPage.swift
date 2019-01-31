@@ -437,11 +437,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
     
     //return the URL of the file in the document directory
     func fileURL(fileName: String) -> URL {
-        var documentDirectoryURL: URL {
-            let url = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            return url
-        }
-        return documentDirectoryURL.appendingPathComponent(fileName).appendingPathExtension("txt")
+        let url: URL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        return url.appendingPathComponent(fileName).appendingPathExtension("txt")
     }
     
     //write the conversation text to the file in the document directory
