@@ -167,7 +167,7 @@ import Foundation
      @param message: the String containing the draft message to be added to the keychain
      */
     @objc public class func storeDraftMessage(draftMessage newMessage:String, forUser:String){
-        if KeychainManager.getDraftedMessage(forUser: forUser) != nil {
+        if nil != KeychainManager.getDraftedMessage(forUser: forUser) {
             //When dealing with draft messages, do not add the new draft message to the existing one, but store only the newest value as only one draft message is stored at a time
             KeychainManager.updateItem(forUser: forUser, data: newMessage, key:self.draftMessageKey)
             

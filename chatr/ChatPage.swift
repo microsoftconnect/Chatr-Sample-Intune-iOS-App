@@ -82,7 +82,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.populateChatScreen(messageArray: messageArray)
         }
         let draftMessage: String? = KeychainManager.getDraftedMessage(forUser: self.currentUser)
-        if draftMessage != nil{
+        if nil != draftMessage{
             //If a draft message is present, add it to the message entry bar
             self.typedChatView.text = draftMessage!
         }
@@ -124,7 +124,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let fromMessage = NSMutableAttributedString(string: self.typedChatView.text!, attributes: [.paragraphStyle: align])
         
         //Only take action if there is text in the message
-        if fromMessage.length != 0 {
+        if 0 != fromMessage.length {
             //Reset the entry field
             self.typedChatView.text = ""
             //When any message is sent, delete any draft message in the keychain
