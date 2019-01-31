@@ -9,18 +9,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         let storyboard: UIStoryboard = UIStoryboard(name:"Main", bundle: Bundle.main)
         
         //check for enrolled account
-        if ObjCUtils.getSignedInUser() != nil{
+        let currentUser = IntuneMAMEnrollmentManager.instance().enrolledAccount()
+        if nil != currentUser && !currentUser!.isEmpty {
             //if an account is enrolled, skip over login page to main page
             //Do this by setting the main chat page to the rootViewController
             let mainPage = storyboard.instantiateViewController(withIdentifier: "ChatPage")
             self.window?.rootViewController = mainPage
-            
         } else{
             //if not logged in, set the login page to the rootViewController
             let loginPage = storyboard.instantiateViewController(withIdentifier: "LoginPage")
@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         //Set the delegate of the IntuneMAMPolicyManager to an instance of the PolicyDelegateClass
         IntuneMAMPolicyManager.instance().delegate = PolicyDelegateClass.init()

@@ -4,11 +4,16 @@
 
 #import <Foundation/Foundation.h>
 #import "PolicyDelegate.h"
-
 #import <ADAL/ADKeychainTokenCache.h>
 #import <ADAL/ADAuthenticationError.h>
 #import <ADAL/ADTokenCacheItem.h>
 #import <ADAL/ADUserInformation.h>
+#import "chatr-Swift.h"
+#import "EnrollmentDelegate.h"
+#import <UIKit/UIKit.h>
+
+@class KeychainManager;
+@class ChatPage;
 
 /*
  This policy delegate class can be initialized and set as the delegate of the IntuneMAMPolicyManager
@@ -23,21 +28,27 @@
 
 /*
  wipeDataForAccount is called by the Intune SDK when the app needs to wipe all the data for a specified user
- With chatr, the only user data stored are the chat messages.
+ With chatr, the only user data stored are the sent chat messages and drafted chat messages.
  If this is wiped successfully, return TRUE, otherwise return FALSE
  
  @param upn is the upn of the user whoes data is to be wiped (for example "user@example.com")
  */
 - (BOOL)wipeDataForAccount:(NSString*_Nonnull)upn{
-    //Wipe all user data on the app here
-    NSLog(@"Wipe successful");
-    return TRUE;
+    //Use the deleteSentMessagesForUser and deleteSentMessagesForUser functions in the KeychainManager class to look into the keychain to wipe any message data stored for a given upn
+    if ([KeychainManager deleteSentMessagesForUser:upn] && [KeychainManager deleteDraftMessageForUser:upn]){
+        //If the function call returns true, this indicates it successfully cleared the user's messages from the Keychain
+        return TRUE;
+    } else{
+        //If the function failed to wipe the chat messages and draft messages, log this and return FALSE
+        NSLog(@"Data wipe from keychain failed");
+        return FALSE;
+    }
     
 }
 
 /*
- In the case that the app needs to do tasks like save user data before the Intune SDK restarts the app, those tasks can be done here
- With Chatr, this is not necessary as no user data is saved by the app.
+ In the case that the app needs to perform tasks like save user data before the Intune SDK restarts the app, those tasks can be done here
+ With Chatr, drafted messages need to be saved if a restart is forced.
  
  If the app will handle restarting on its own, return TRUE.
  If the app wants the Intune SDK to handle the restart, @return FALSE.
@@ -45,7 +56,14 @@
  */
 - (BOOL)restartApplication {
     NSLog(@"Restarting...");
-    //Since there is no user data to save, Chatr will let the Intune SDK handle the restart
+    
+    //If the current view is the chat page and there is a message currently being drafted, then save it to the keychain to repopulate it after the restart.
+    UIViewController *currentViewController = [EnrollmentDelegateClass getCurrentViewController];
+    if ([currentViewController isKindOfClass:[ChatPage class]]){
+        ChatPage *ChatPageViewController = (ChatPage*) currentViewController;
+        //Call saveDraftedMessage on the ChatPage to save the drafted message to the keychain if there is one present.
+        [ChatPageViewController saveDraftedMessage];
+    }
     return FALSE;
 }
 
