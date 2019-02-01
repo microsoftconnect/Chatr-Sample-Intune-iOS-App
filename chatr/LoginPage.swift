@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginPage: UIViewController {
     /*!
      Button action triggered when user presses the log in button
      

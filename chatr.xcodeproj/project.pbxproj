@@ -14,7 +14,7 @@
 		AC6703AF212B1DEB00CBAD56 /* ADAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC6703AD212B1CFA00CBAD56 /* ADAL.framework */; };
 		AC6703B0212B1DEB00CBAD56 /* ADAL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC6703AD212B1CFA00CBAD56 /* ADAL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C01A67E020DAB03F00F80AFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */; };
-		C01A67E220DAB03F00F80AFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67E120DAB03F00F80AFB /* ViewController.swift */; };
+		C01A67E220DAB03F00F80AFB /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01A67E120DAB03F00F80AFB /* LoginPage.swift */; };
 		C01A67E520DAB03F00F80AFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01A67E320DAB03F00F80AFB /* Main.storyboard */; };
 		C01A67E720DAB03F00F80AFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C01A67E620DAB03F00F80AFB /* Assets.xcassets */; };
 		C01A67EA20DAB03F00F80AFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C01A67E820DAB03F00F80AFB /* LaunchScreen.storyboard */; };
@@ -63,7 +63,7 @@
 		AC6703AD212B1CFA00CBAD56 /* ADAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ADAL.framework; sourceTree = "<group>"; };
 		C01A67DC20DAB03F00F80AFB /* chatr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chatr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C01A67E120DAB03F00F80AFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C01A67E120DAB03F00F80AFB /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		C01A67E420DAB03F00F80AFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C01A67E620DAB03F00F80AFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C01A67E920DAB03F00F80AFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 			children = (
 				C0E7DA1F20FE8CAC00EA7494 /* chatr.entitlements */,
 				C01A67DF20DAB03F00F80AFB /* AppDelegate.swift */,
-				C01A67E120DAB03F00F80AFB /* ViewController.swift */,
+				C01A67E120DAB03F00F80AFB /* LoginPage.swift */,
 				C01A67E320DAB03F00F80AFB /* Main.storyboard */,
 				C0E7DA0220EE766600EA7494 /* chatTableViewCell.swift */,
 				C0571FB320EAAB57008716A8 /* AboutUsPage.swift */,
@@ -262,7 +262,7 @@
 				C0E7DA0320EE766600EA7494 /* chatTableViewCell.swift in Sources */,
 				68EE322C21F141C600C47FA1 /* KeychainManager.swift in Sources */,
 				68AF9BE221E8E19300127E37 /* EnrollmentDelegate.m in Sources */,
-				C01A67E220DAB03F00F80AFB /* ViewController.swift in Sources */,
+				C01A67E220DAB03F00F80AFB /* LoginPage.swift in Sources */,
 				C01A67E020DAB03F00F80AFB /* AppDelegate.swift in Sources */,
 				C01A681320E166CA00F80AFB /* SideBarTableCell.swift in Sources */,
 				C027B3B120E687DF00392A38 /* ChatPage.swift in Sources */,
