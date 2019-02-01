@@ -4,8 +4,8 @@
 //  Use this file to import headers and expose to Swift
 //
 
-#import <ADAL/ADKeychainTokenCache.h>
 #import <ADAL/ADAuthenticationError.h>
+#import <ADAL/ADKeychainTokenCache.h>
 #import <IntuneMAM/IntuneMAMAppConfig.h>
 #import <IntuneMAM/IntuneMAMAppConfigManager.h>
 #import <IntuneMAM/IntuneMAMDiagnosticConsole.h>

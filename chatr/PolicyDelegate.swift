@@ -64,7 +64,7 @@ class PolicyDelegateClass: NSObject, IntuneMAMPolicyDelegate {
      */
     func restartApplication() -> Bool {
         //If the current view is the chat page and there is a message currently being drafted, then save it to the keychain to repopulate it after the restart.
-        let currentViewController = EnrollmentDelegateClass.getCurrentViewController()
+        let currentViewController = UIUtils.getCurrentViewController()
         if currentViewController is ChatPage{
             //Call saveDraftedMessage on the ChatPage to save the drafted message to the keychain if there is one present.
             let page = currentViewController as! ChatPage

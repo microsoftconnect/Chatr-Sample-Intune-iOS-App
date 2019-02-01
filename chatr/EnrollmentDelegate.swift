@@ -28,6 +28,7 @@ class EnrollmentDelegateClass: NSObject, IntuneMAMEnrollmentDelegate {
      @param viewController - the view controller this class should use when triggered
      */
     init(viewController : UIViewController){
+        super.init()
         self.presentingViewController = viewController
     }
     
@@ -79,7 +80,7 @@ class EnrollmentDelegateClass: NSObject, IntuneMAMEnrollmentDelegate {
         }
         
         //Go back to login page from current view controller
-        let presentingViewController = EnrollmentDelegateClass.getCurrentViewController()
+        let presentingViewController = UIUtils.getCurrentViewController()
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let loginPage = storyboard.instantiateViewController(withIdentifier: "LoginPage")
         
@@ -90,19 +91,5 @@ class EnrollmentDelegateClass: NSObject, IntuneMAMEnrollmentDelegate {
             print("Unenrollment result for identity \(status.identity) with status code \(status.statusCode)")
             print("Debug message: \(String(describing: status.errorString))")
         }
-    }
-    
-    class func getCurrentViewController() -> UIViewController{
-        var topController = UIApplication.shared.keyWindow?.rootViewController
-        if (nil != topController) {
-            var presentedViewController = topController!.presentedViewController
-            //Loop until there are no more view controllers to go to
-            while (nil != presentedViewController){
-                topController = presentedViewController
-                presentedViewController = topController!.presentedViewController
-            }
-        }
-        //Return the final view controller
-        return topController!
     }
 }
