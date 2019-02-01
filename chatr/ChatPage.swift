@@ -159,7 +159,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             //Reset the entry field
             self.typedChatView.text = ""
             //When any message is sent, delete any draft message in the keychain
-            KeychainManager.deleteDraftMessage(forUser: self.currentUser)
+            _ = KeychainManager.deleteDraftMessage(forUser: self.currentUser)
             self.displayChatMessage(message: fromMessage)
             
             //Add the message to the stored messages in the keychain

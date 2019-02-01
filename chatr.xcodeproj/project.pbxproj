@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		68AF9BE221E8E19300127E37 /* EnrollmentDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68AF9BDF21E8E19200127E37 /* EnrollmentDelegate.m */; };
 		68AF9BE321E8E19300127E37 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AF9BE021E8E19200127E37 /* SettingsPage.swift */; };
 		68BD62D222039F2F00FC3F16 /* PolicyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BD62D122039F2F00FC3F16 /* PolicyDelegate.swift */; };
 		68BD62D422039F4700FC3F16 /* EnrollmentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68BD62D322039F4700FC3F16 /* EnrollmentDelegate.swift */; };
@@ -55,9 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		68AF9BDF21E8E19200127E37 /* EnrollmentDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnrollmentDelegate.m; sourceTree = "<group>"; };
 		68AF9BE021E8E19200127E37 /* SettingsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPage.swift; sourceTree = "<group>"; };
-		68AF9BE121E8E19300127E37 /* EnrollmentDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnrollmentDelegate.h; sourceTree = "<group>"; };
 		68BD62D122039F2F00FC3F16 /* PolicyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolicyDelegate.swift; sourceTree = "<group>"; };
 		68BD62D322039F4700FC3F16 /* EnrollmentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnrollmentDelegate.swift; sourceTree = "<group>"; };
 		68EE322B21F141C600C47FA1 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
@@ -151,8 +148,6 @@
 				68EE322B21F141C600C47FA1 /* KeychainManager.swift */,
 				68BD62D122039F2F00FC3F16 /* PolicyDelegate.swift */,
 				68BD62D322039F4700FC3F16 /* EnrollmentDelegate.swift */,
-				68AF9BDF21E8E19200127E37 /* EnrollmentDelegate.m */,
-				68AF9BE121E8E19300127E37 /* EnrollmentDelegate.h */,
 			);
 			path = chatr;
 			sourceTree = "<group>";
@@ -263,7 +258,6 @@
 				C0E7DA0320EE766600EA7494 /* chatTableViewCell.swift in Sources */,
 				68EE322C21F141C600C47FA1 /* KeychainManager.swift in Sources */,
 				68BD62D422039F4700FC3F16 /* EnrollmentDelegate.swift in Sources */,
-				68AF9BE221E8E19300127E37 /* EnrollmentDelegate.m in Sources */,
 				C01A67E220DAB03F00F80AFB /* ViewController.swift in Sources */,
 				C01A67E020DAB03F00F80AFB /* AppDelegate.swift in Sources */,
 				C01A681320E166CA00F80AFB /* SideBarTableCell.swift in Sources */,
