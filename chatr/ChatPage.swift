@@ -491,9 +491,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func reformatConversation(conversation: [(sender: String, message: NSAttributedString)]) -> String {
         var newFormat = ""
         for element in conversation {
-            newFormat.append(element.0)
+            newFormat.append(element.sender)
             newFormat.append(": ")
-            newFormat.append((element.1).string)
+            newFormat.append((element.message).string)
             newFormat.append("\n")
         }
         return newFormat
