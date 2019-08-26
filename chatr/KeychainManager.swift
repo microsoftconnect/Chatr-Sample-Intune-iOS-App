@@ -2,6 +2,8 @@
 //  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
+import Foundation
+
 /*
  Class with methods used to manage adding, updating, and removing user data to the keychain.
  The keychain is used in this app to securely store user messages and drafted messages.

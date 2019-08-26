@@ -2,6 +2,9 @@
 //  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
+import ADAL
+import IntuneMAMSwift
+
 /*
  This enrollment delegate class can be initialized and set as the enrollment delegate of the IntuneMAMEnrollmentManager
  Doing this will trigger the enrollmentRequestWithStatus method whenever an enrollment is attempted.

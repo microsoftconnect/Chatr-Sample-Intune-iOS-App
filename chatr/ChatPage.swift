@@ -2,6 +2,8 @@
 //  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
+import IntuneMAMSwift
+
 // global variable used for saving conversations
 var conversation:[(sender:String, message:NSAttributedString)] = []
 

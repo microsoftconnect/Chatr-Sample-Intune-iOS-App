@@ -2,6 +2,8 @@
 //  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
+import IntuneMAMSwift
+
 class SettingsPage: UIViewController {
     @IBOutlet weak var displayConsoleButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
@@ -14,6 +16,6 @@ class SettingsPage: UIViewController {
     //Listener for diagnostic console button
     @IBAction func displayConsoleTapped(_ sender: Any) {
         //when button is tapped, display console
-        IntuneMAMDiagnosticConsole.display(inDarkMode: false)
+        IntuneMAMDiagnosticConsole.display()
     }
 }

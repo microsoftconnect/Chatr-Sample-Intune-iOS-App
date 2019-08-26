@@ -2,6 +2,8 @@
 //  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
+import UIKit
+
 class UIUtils{
     
     class func getCurrentViewController() -> UIViewController{

@@ -2,6 +2,8 @@
 //  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
+import IntuneMAMSwift
+
 /*
  This policy delegate class can be initialized and set as the delegate of the IntuneMAMPolicyManager
  (This is done in the AppDelegate.swift file at app initialization)
