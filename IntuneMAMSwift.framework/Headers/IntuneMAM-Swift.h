@@ -168,7 +168,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
-@import ObjectiveC;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -185,51 +184,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="IntuneMAMSwift",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
 # pragma pop_macro("any")
 #endif
-
-
-SWIFT_CLASS("_TtC14IntuneMAMSwift25CMARApplicationSwiftHooks")
-@interface CMARApplicationSwiftHooks : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CMARApplicationSwiftHooks * _Nonnull instance;)
-+ (CMARApplicationSwiftHooks * _Nonnull)instance SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC14IntuneMAMSwift18CMARDataSwiftHooks")
-@interface CMARDataSwiftHooks : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CMARDataSwiftHooks * _Nonnull instance;)
-+ (CMARDataSwiftHooks * _Nonnull)instance SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC14IntuneMAMSwift22CMARDispatchSwiftHooks")
-@interface CMARDispatchSwiftHooks : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CMARDispatchSwiftHooks * _Nonnull instance;)
-+ (CMARDispatchSwiftHooks * _Nonnull)instance SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC14IntuneMAMSwift20CMARStringSwiftHooks")
-@interface CMARStringSwiftHooks : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CMARStringSwiftHooks * _Nonnull instance;)
-+ (CMARStringSwiftHooks * _Nonnull)instance SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC14IntuneMAMSwift17CMARURLSwiftHooks")
-@interface CMARURLSwiftHooks : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CMARURLSwiftHooks * _Nonnull instance;)
-+ (CMARURLSwiftHooks * _Nonnull)instance SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
@@ -405,7 +359,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
-@import ObjectiveC;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -422,51 +375,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="IntuneMAMSwift",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
 # pragma pop_macro("any")
 #endif
-
-
-SWIFT_CLASS("_TtC14IntuneMAMSwift25CMARApplicationSwiftHooks")
-@interface CMARApplicationSwiftHooks : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CMARApplicationSwiftHooks * _Nonnull instance;)
-+ (CMARApplicationSwiftHooks * _Nonnull)instance SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC14IntuneMAMSwift18CMARDataSwiftHooks")
-@interface CMARDataSwiftHooks : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CMARDataSwiftHooks * _Nonnull instance;)
-+ (CMARDataSwiftHooks * _Nonnull)instance SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC14IntuneMAMSwift22CMARDispatchSwiftHooks")
-@interface CMARDispatchSwiftHooks : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CMARDispatchSwiftHooks * _Nonnull instance;)
-+ (CMARDispatchSwiftHooks * _Nonnull)instance SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC14IntuneMAMSwift20CMARStringSwiftHooks")
-@interface CMARStringSwiftHooks : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CMARStringSwiftHooks * _Nonnull instance;)
-+ (CMARStringSwiftHooks * _Nonnull)instance SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC14IntuneMAMSwift17CMARURLSwiftHooks")
-@interface CMARURLSwiftHooks : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) CMARURLSwiftHooks * _Nonnull instance;)
-+ (CMARURLSwiftHooks * _Nonnull)instance SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
