@@ -20,6 +20,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var isMenu:Bool = false                                         // variable that indicates if the menu is being  displayed
     let sideBarFeatures = ["Save","Print", "About us","Settings", "Log out"]   // the options on the sidebar
     let sideBarImg = [#imageLiteral(resourceName: "save"),#imageLiteral(resourceName: "print"),#imageLiteral(resourceName: "information"),#imageLiteral(resourceName: "settings"),#imageLiteral(resourceName: "profile")]                                  // images for the sidebar options
+    var menuWidthConstraint: NSLayoutConstraint!                   // Contraint to animate the menu
     
     // variables used for chat
     @IBOutlet weak var typedChatView: UITextView!
@@ -330,11 +331,12 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             // reveal sideBar menu
             self.isMenu = true
             self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 341)
-            UIView.setAnimationDuration(0.15)
-            UIView.setAnimationDelegate(self)
-            UIView.beginAnimations("sideBarAnimation", context: nil)
-            self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 341)
-            UIView.commitAnimations()
+            self.menuWidthConstraint = self.sideBarTable.widthAnchor.constraint(equalToConstant: 176)
+            self.sideBarTable.addConstraint(self.menuWidthConstraint)
+
+            UIView.animate(withDuration: 0.15) {
+                self.sideBarTable.frame = CGRect(x: 0, y: self.topBarView.frame.height + self.topBarView.frame.origin.y, width: 176, height: 341);
+            }
         }
         else {
             self.hideSideBarMenu()
@@ -345,16 +347,15 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         Hides the sidebar menu
      */
     func hideSideBarMenu() {
-        // hide sideBar menu
-
-        self.sideBarTable.isHidden = true
         self.isMenu = false
         self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 176, height: 341)
-        UIView.setAnimationDuration(0.15)
-        UIView.setAnimationDelegate(self)
-        UIView.beginAnimations("sideBarAnimation", context: nil)
-        self.sideBarTable.frame = CGRect(x: 0, y: topBarView.frame.height + topBarView.frame.origin.y, width: 0, height: 341)
-        UIView.commitAnimations()
+        self.sideBarTable.removeConstraint(self.menuWidthConstraint)
+
+        UIView.animate(withDuration: 0.15, animations: {
+            self.sideBarTable.frame = CGRect(x: 0, y: self.topBarView.frame.height + self.topBarView.frame.origin.y, width: 0, height: 341);
+        }) { (_ : Bool) in
+            self.sideBarTable.isHidden = true
+        }
     }
     
     //Enumeration that defines options within the side bar menu
