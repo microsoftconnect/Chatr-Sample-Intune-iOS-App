@@ -175,26 +175,26 @@
         <!--ChatPage-->
         <scene sceneID="aqZ-VX-JDE">
             <objects>
-                <viewController storyboardIdentifier="ChatPage" title="ChatPage" id="FOx-KW-RqY" customClass="ChatPage" customModule="chatr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatPage" title="ChatPage" modalPresentationStyle="fullScreen" id="FOx-KW-RqY" customClass="ChatPage" customModule="chatr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fqu-y0-NH1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R4Q-0b-Xcp">
-                                <rect key="frame" x="0.0" y="42" width="413.5" height="715"/>
+                                <rect key="frame" x="0.0" y="89" width="413.5" height="722"/>
                                 <color key="backgroundColor" red="0.85098039219999999" green="0.91764705879999997" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.85490196080000003" green="0.91764705879999997" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.85490196078431369" green="0.91764705882352937" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" id="gW7-Q8-pxS" customClass="ChatTableViewCell" customModule="chatr" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="413.5" height="48"/>
+                                        <rect key="frame" x="0.0" y="28" width="413.5" height="48.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gW7-Q8-pxS" id="q1J-tq-AkZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="413.5" height="48"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="413.5" height="48.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="Tsi-gf-kex">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393.5" height="48"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393.5" height="48.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -220,7 +220,7 @@
                                 </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oZ7-3U-InR" userLabel="Side Bar Table">
-                                <rect key="frame" x="0.0" y="42" width="175" height="341"/>
+                                <rect key="frame" x="0.0" y="89" width="175" height="341"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="176" placeholder="YES" id="0Bn-c2-5r0"/>
@@ -265,17 +265,17 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2mq-4P-qfy" userLabel="Top Bar View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsp-zU-azo">
-                                        <rect key="frame" x="0.0" y="0.0" width="47.5" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="47.5" height="45"/>
                                         <state key="normal" title="SideMenu Button" image="menubar"/>
                                         <connections>
                                             <action selector="sideBarMenu:" destination="FOx-KW-RqY" eventType="touchUpInside" id="vZP-Gz-aFN"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Chatr" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tr2-Q4-IiN" userLabel="User Group Name">
-                                        <rect key="frame" x="145" y="6.5" width="124" height="29.5"/>
+                                        <rect key="frame" x="145" y="6.5" width="124" height="31.5"/>
                                         <color key="backgroundColor" red="0.11364316195249557" green="0.30748492479324341" blue="0.33309972286224365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
@@ -296,7 +296,7 @@
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="joJ-Tl-f9O">
-                                <rect key="frame" x="8" y="765" width="341" height="33"/>
+                                <rect key="frame" x="8" y="819" width="341" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
