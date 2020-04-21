@@ -14,7 +14,18 @@ typedef NS_ENUM(NSInteger, IntuneMAMSaveLocation)
     IntuneMAMSaveLocationDropbox = 1<<3,
     IntuneMAMSaveLocationGoogleDrive = 1<<4,
     IntuneMAMSaveLocationLocalDrive = 1<<5,
+    IntuneMAMSaveLocationAccountDocument = 1<<6, // When the location is not listed in this enum but is accessed with a managed account, use this value
 
+};
+
+typedef NS_ENUM(NSInteger, IntuneMAMOpenLocation)
+{
+    IntuneMAMOpenLocationOther = 0,
+    IntuneMAMOpenLocationOneDriveForBusiness = 1<<0,
+    IntuneMAMOpenLocationSharePoint = 1<<1,
+    IntuneMAMOpenLocationCamera = 1<<2,
+    IntuneMAMOpenLocationLocalStorage = 1<<3,
+    IntuneMAMOpenLocationAccountDocument = 1<<4, // When opening a document that has a managed account identity or the location is not listed in this enum but is accessed with a managed account, use this value
 };
 
 // IntuneMAMNotificationPolicyAllow - All notifications for the managed user should be allowed
@@ -44,6 +55,12 @@ typedef NS_ENUM(NSInteger, IntuneMAMNotificationPolicy)
 // which allows users to save managed documents to this account in this location.
 // If the accountName for the location is unknown, set this argument to nil. 
 - (BOOL) isSaveToAllowedForLocation: (IntuneMAMSaveLocation) location withAccountName: (NSString*_Nullable) accountName;
+
+// TRUE if the management policy allows applications to open files from the account accountName into
+// the managed app. Applications should check this policy and if FALSE should disabled any UI which
+// allows users to open documents from this account and location into the managed app.
+// If the accountName for the location is unknown, set this argument to nil.
+- (BOOL) isOpenFromAllowedForLocation: (IntuneMAMOpenLocation) location withAccountName: (NSString* _Nullable) accountName;
 
 // FALSE if the management policy blocks application opening/querying the specified URL.
 // Returns TRUE otherwise, regardless of whether the scheme is listed in the application's
@@ -105,5 +122,9 @@ typedef NS_ENUM(NSInteger, IntuneMAMNotificationPolicy)
 // should be shown for the managed user e.g. "You've got mail" or "You have a meeting".
 // IntuneMAMNotificationPolicyBlock - All notifications for the managed user should be suppressed.
 @property (readonly) IntuneMAMNotificationPolicy notificationPolicy;
+
+// TRUE if management policy requires software encryption of files on disk. FALSE otherwise.
+// If TRUE the app should encrypt all managed files on disk.
+@property (readonly) BOOL isFileEncryptionRequired;
 
 @end
