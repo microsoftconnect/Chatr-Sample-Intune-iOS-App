@@ -42,6 +42,14 @@
 		<string>microsoft-edge-https-intunemam</string>
 		<string>microsoft-edge-http-intunemam</string>
 		<string>ms-outlook-intunemam</string>
+		<string>smart-ns</string>
+		<string>zips</string>
+		<string>lacoonsecurity</string>
+		<string>wandera</string>
+		<string>lookoutwork-ase</string>
+		<string>skycure</string>
+		<string>betteractiveshield</string>
+		<string>smsec</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -49,8 +57,6 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -66,5 +72,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>
