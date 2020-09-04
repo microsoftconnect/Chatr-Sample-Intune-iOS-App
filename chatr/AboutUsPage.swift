@@ -29,7 +29,7 @@ class AboutUsPage: UIViewController, UITextViewDelegate, IntuneMAMPolicyDelegate
         self.backButton.addTarget(self, action: #selector (self.dismiss), for: .touchUpInside)
     }
 
-    //Button action triggered when back button is pressed on the settings page.
+    //Button action triggered when back button is pressed on the "About Us" page.
     //Dismisses the view.
     @IBAction func dismiss(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
