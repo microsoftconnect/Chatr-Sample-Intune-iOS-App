@@ -369,6 +369,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == self.sideBarTable {
+            self.hideSideBarMenu()
             let sideBarOption = SideBarOptions(rawValue: indexPath.row)
             // Complete an action based on the item pressed on the sidebar
             switch sideBarOption {
@@ -439,8 +440,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         Called by the side bar table
     */
     func printConvo() {
-        self.hideSideBarMenu() // hide the side bar before you move on
-        
         //Provide basic information about print job
         let printInfo = UIPrintInfo(dictionary:nil)
         printInfo.outputType = UIPrintInfo.OutputType.general
@@ -462,12 +461,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } else {
             return false
         }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        //When the view disappears, clear the chat page as it will be reloaded when the page is displayed again.
-        self.clearChatPage()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

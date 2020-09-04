@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -106,9 +106,6 @@
                                         <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="FOx-KW-RqY" kind="show" id="rVh-xx-UXT"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.11364316195249557" green="0.30748492479324341" blue="0.33309972286224365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -187,14 +184,14 @@
                                 <color key="sectionIndexBackgroundColor" red="0.85490196078431369" green="0.91764705882352937" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" id="gW7-Q8-pxS" customClass="ChatTableViewCell" customModule="chatr" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="413.5" height="48.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="413.5" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gW7-Q8-pxS" id="q1J-tq-AkZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="413.5" height="48.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="413.5" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" editable="NO" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="Tsi-gf-kex">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393.5" height="48.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393.5" height="48"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -353,9 +350,6 @@
                                         <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="FOx-KW-RqY" kind="show" id="RJw-3n-qhc"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.11364316195249557" green="0.30748492479324341" blue="0.33309972286224365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -411,7 +405,4 @@
         <image name="logo" width="512" height="512"/>
         <image name="menubar" width="222" height="178"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ilo-6o-cxY"/>
-    </inferredMetricsTieBreakers>
 </document>

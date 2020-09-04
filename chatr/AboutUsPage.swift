@@ -26,5 +26,12 @@ class AboutUsPage: UIViewController, UITextViewDelegate, IntuneMAMPolicyDelegate
         self.aboutUsText.layer.cornerRadius = 10
         self.backButton.setImage(#imageLiteral(resourceName: "backarrow.png"), for: UIControl.State.normal)
         self.backButton.imageView!.contentMode = .scaleAspectFit
+        self.backButton.addTarget(self, action: #selector (self.dismiss), for: .touchUpInside)
+    }
+
+    //Button action triggered when back button is pressed on the settings page.
+    //Dismisses the view.
+    @IBAction func dismiss(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
