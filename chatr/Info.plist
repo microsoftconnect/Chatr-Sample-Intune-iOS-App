@@ -36,20 +36,22 @@
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>lookoutwork-ase</string>
+		<string>lacoonsecurity</string>
+		<string>zips</string>
+		<string>skycure</string>
+		<string>smart-ns</string>
+		<string>smsec</string>
+		<string>betteractiveshield</string>
 		<string>companyportal</string>
+		<string>wandera</string>
 		<string>https-intunemam</string>
 		<string>http-intunemam</string>
 		<string>microsoft-edge-https-intunemam</string>
 		<string>microsoft-edge-http-intunemam</string>
 		<string>ms-outlook-intunemam</string>
-		<string>smart-ns</string>
-		<string>zips</string>
-		<string>lacoonsecurity</string>
-		<string>wandera</string>
-		<string>lookoutwork-ase</string>
-		<string>skycure</string>
-		<string>betteractiveshield</string>
-		<string>smsec</string>
+		<string>mvisionmobile</string>
+		<string>scmx</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
