@@ -23,7 +23,14 @@ import Foundation
      */
     private class func updateItem(forUser: String, data: Any, key:String){
         //Convert given data to archived data that can be stored in the keychain
-        let archivedData = NSKeyedArchiver.archivedData(withRootObject: data)
+		var archivedData:Data
+		do {
+			archivedData = try NSKeyedArchiver.archivedData(withRootObject: data, requiringSecureCoding:true)
+		}
+		catch {
+			print("Unexpected error when updating data in the keychain: Failed to create archived data.")
+			return
+		}
         
         //First define a query that will locate the user's keychain item
         let query = [kSecClass: kSecClassGenericPassword,
@@ -75,8 +82,14 @@ import Foundation
             }
             //Convert the data back to an array and return it
             let encodedData = queryReturn[kSecValueData as String] as? Data
-            let messageArray = NSKeyedUnarchiver.unarchiveObject(with: encodedData!) as? [String]
-            return messageArray
+			do {
+				let messageArray = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSArray.self, from: encodedData!) as? [String]
+				return messageArray
+			}
+			catch {
+				print("Unexpected error when searching for data in the keychain: Failed to unarchive sent messages.")
+				return nil
+			}
         } else {
             //Some other unexpected error occurred
             print("Unexpected error when searching for data in the keychain.")
@@ -117,8 +130,14 @@ import Foundation
             }
             //Convert the message back to a string and return it
             let encodedData = queryReturn[kSecValueData as String] as? Data
-            let draftMessage = NSKeyedUnarchiver.unarchiveObject(with: encodedData!) as? String
-            return draftMessage
+			do {
+				let draftMessage = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSString.self, from: encodedData!) as String?
+				return draftMessage
+			}
+			catch {
+				print("Unexpected error when searching for data in the keychain: Failed to unarchive draft message.")
+				return nil
+			}
         } else {
             //Some other unexpected error occurred
             print("Unexpected error when searching for data in the keychain.")
@@ -142,7 +161,14 @@ import Foundation
         } else {
             //Otherwise define a query to add an item for the user containing the sent message within an array (so that future messages can be added)
             let messageArray = [newMessage]
-            let messageData = NSKeyedArchiver.archivedData(withRootObject: messageArray)
+			var messageData:Data
+			do {
+				messageData = try NSKeyedArchiver.archivedData(withRootObject: messageArray, requiringSecureCoding:true)
+			}
+			catch {
+				print("Unexpected error when adding data to the keychain: Failed to archive sent messages.")
+				return
+			}
             
             let query = [kSecClass: kSecClassGenericPassword,
                         kSecAttrAccount: forUser,
@@ -173,7 +199,15 @@ import Foundation
             
         } else {
             //Otherwise define a query to add an item for the user containing the draft message
-            let messageData = NSKeyedArchiver.archivedData(withRootObject: newMessage)
+			var messageData:Data
+
+			do {
+				messageData = try NSKeyedArchiver.archivedData(withRootObject: newMessage, requiringSecureCoding:true)
+			}
+			catch {
+				print("Unexpected error when adding data to the keychain: Failed to create archive draft message.")
+				return
+			}
             
             let query = [kSecClass: kSecClassGenericPassword,
                         kSecAttrAccount: forUser,
