@@ -31,7 +31,6 @@ Instructions for creating and deploying a new App Configuration Policy can be fo
 ### Step 4: Launch the App & Sign-In
 Chatr should now be properly configured with Intune. When prompted to sign in, use one of the users in the group used in Step 2 or Step 3. 
 ## Relevant Files
-- `Chatr/chatr-Bridging-Header.h` allows the Swift app to call the ADAL and Intune SDK APIs, which are defined in Objective-C.
 - `Chatr/LoginPage.swift` contains logic for authenticating and enrolling the user with Intune.
 - `Chatr/EnrollmentDelegate.swift` contains logic which responds to an Intune enrollment or unenrollment attempt.
 - `Chatr/PolicyDelegate.swift` contains logic for removing data for a specific user when a selective wipe command is received from the Intune MAM service and responding to when the Intune SDK needs to restart the application.
