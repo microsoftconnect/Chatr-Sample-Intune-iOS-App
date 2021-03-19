@@ -29,6 +29,7 @@
 			<array>
 				<string>chatr</string>
 				<string>chatr-intunemam</string>
+				<string>msauth.com.microsoft.intunemam</string>
 			</array>
 		</dict>
 	</array>
@@ -36,12 +37,14 @@
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>mvisionmobile</string>
+		<string>scmx</string>
 		<string>lookoutwork-ase</string>
 		<string>lacoonsecurity</string>
 		<string>zips</string>
 		<string>skycure</string>
-		<string>smart-ns</string>
 		<string>smsec</string>
+		<string>smart-ns</string>
 		<string>betteractiveshield</string>
 		<string>companyportal</string>
 		<string>wandera</string>
@@ -50,8 +53,6 @@
 		<string>microsoft-edge-https-intunemam</string>
 		<string>microsoft-edge-http-intunemam</string>
 		<string>ms-outlook-intunemam</string>
-		<string>mvisionmobile</string>
-		<string>scmx</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
