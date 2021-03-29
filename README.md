@@ -1,7 +1,7 @@
 # Chatr - An Intune MAM iOS SDK Example (Swift)
 This application is a demonstration of the [Microsoft Intune SDK for iOS](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios). A developer guide to the SDK is available [here](https://docs.microsoft.com/intune/app-sdk-ios). This project implements some commonly used features so developers integrating their apps with the SDK have an example to follow. 
 
-Chatr offers a simple messaging interface allowing users to send messages, print, and save conversations to their local device. It uses the [Azure Active Directory Authentication Library](https://github.com/AzureAD/azure-activedirectory-library-for-objc) to authenticate users.
+Chatr offers a simple messaging interface allowing users to send messages, print, and save conversations to their local device. It uses the [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-objc) to authenticate users.
 
 ## Steps to run the app
 In order to deploy this sample you will need an Intune subscription. Free trials are sufficient for this demo.
