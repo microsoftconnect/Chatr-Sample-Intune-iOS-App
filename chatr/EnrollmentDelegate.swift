@@ -2,7 +2,6 @@
 //  Copyright (c) Microsoft Corporation. All rights reserved.
 //
 
-import ADAL
 import IntuneMAMSwift
 
 /*
@@ -75,20 +74,6 @@ class EnrollmentDelegateClass: NSObject, IntuneMAMEnrollmentDelegate {
      Logic for logout/token clearing is initiated here.
      */
     func unenrollRequest(with status: IntuneMAMEnrollmentStatus) {
-        //NOTE: The tokens could be shared by multiple apps, and in this case developers may choose to not clear them. In the case of this app, they are cleared as they are not being shared.
-        
-        let cache = ADKeychainTokenCache.defaultKeychain()
-        var error : ADAuthenticationError?
-        
-        //Wipe cache with ADAL API, this code goes through all tokens in the cache and clears those with the same userID as the unenrolling user
-        cache.wipeAllItems(forUserId: status.identity, error: &error)
-        
-        //If there is an error clearing tokens, log it
-        if (nil != error){
-            print("Error occurred while clearing user's AAD tokens.")
-            print("Error details: \(String(describing: error!.errorDetails))")
-        }
-        
         //Go back to login page from current view controller
         let presentingViewController = UIUtils.getCurrentViewController()
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
