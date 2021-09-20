@@ -186,11 +186,11 @@
 		</data>
 		<key>ios-arm64/MSAL.framework/Info.plist</key>
 		<data>
-		ri4ZG2ZNP0KGS/cnMVexNLBygt8=
+		y+BKsKeiPvG9dGDgswnW2VGJuQ8=
 		</data>
 		<key>ios-arm64/MSAL.framework/MSAL</key>
 		<data>
-		qTu8jKPds74rekNaO+hF8bUPWhI=
+		h7F2WM8mUA9y1asokDatS0rKl0I=
 		</data>
 		<key>ios-arm64/MSAL.framework/Modules/module.modulemap</key>
 		<data>
@@ -378,11 +378,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Info.plist</key>
 		<data>
-		YKk+XZk3es2cdlUCr5na9RH0omI=
+		fQ4GPiKvEpuaK8UHw9i0bQIRFDY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/MSAL</key>
 		<data>
-		Cl7udZCRol6tpoDf251gh5QvAdw=
+		M2mOKGEamxI6WQ+8ZIGBqUEVdNg=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/module.modulemap</key>
 		<data>
@@ -566,7 +566,7 @@
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/MSAL</key>
 		<data>
-		sFwmYBM7KQsbZhhx1blMv8Vijy8=
+		iC1nNtVwItbKE4MMbZ+dfpvWwfU=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Modules/module.modulemap</key>
 		<data>
@@ -574,7 +574,7 @@
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Resources/Info.plist</key>
 		<data>
-		+k/b8CCJnvZ63JU+nfu5LQawRPE=
+		hUPk7YVBc8rvAlyYuMRnt49pHOA=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSAL.h</key>
 		<data>
@@ -754,7 +754,7 @@
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/MSAL</key>
 		<data>
-		sFwmYBM7KQsbZhhx1blMv8Vijy8=
+		iC1nNtVwItbKE4MMbZ+dfpvWwfU=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Modules/module.modulemap</key>
 		<data>
@@ -762,7 +762,7 @@
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Resources/Info.plist</key>
 		<data>
-		+k/b8CCJnvZ63JU+nfu5LQawRPE=
+		hUPk7YVBc8rvAlyYuMRnt49pHOA=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/Current/Headers/MSAL.h</key>
 		<data>
@@ -942,7 +942,7 @@
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/Current/MSAL</key>
 		<data>
-		sFwmYBM7KQsbZhhx1blMv8Vijy8=
+		iC1nNtVwItbKE4MMbZ+dfpvWwfU=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/Current/Modules/module.modulemap</key>
 		<data>
@@ -950,7 +950,7 @@
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/Current/Resources/Info.plist</key>
 		<data>
-		+k/b8CCJnvZ63JU+nfu5LQawRPE=
+		hUPk7YVBc8rvAlyYuMRnt49pHOA=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -1454,22 +1454,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ri4ZG2ZNP0KGS/cnMVexNLBygt8=
+			y+BKsKeiPvG9dGDgswnW2VGJuQ8=
 			</data>
 			<key>hash2</key>
 			<data>
-			fwkgMG2Vu5/9a2dEPB3IJxSFM+1CvLDo+E8652hQq5g=
+			5+PbtMxNUnjgD4e6ljOHZJ2e5eh8C6s4OGwG4QLQeec=
 			</data>
 		</dict>
 		<key>ios-arm64/MSAL.framework/MSAL</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qTu8jKPds74rekNaO+hF8bUPWhI=
+			h7F2WM8mUA9y1asokDatS0rKl0I=
 			</data>
 			<key>hash2</key>
 			<data>
-			CC6WQHIpTIo3akYZe/xoLNvXUOQABTbHmEv0Qt1kX+o=
+			Vy+8k9z2DfbTVhBo01oxWpMzz+R0bC9RHCAUpN62tbQ=
 			</data>
 		</dict>
 		<key>ios-arm64/MSAL.framework/Modules/module.modulemap</key>
@@ -1982,22 +1982,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YKk+XZk3es2cdlUCr5na9RH0omI=
+			fQ4GPiKvEpuaK8UHw9i0bQIRFDY=
 			</data>
 			<key>hash2</key>
 			<data>
-			DZ/nPRvHGLqjMZSq7hTXsBeLH2/1imOIYINhYbUEOLM=
+			27H05gVkEeT2N7a5i/jkR1Z/S6dbG5BeZPlumBr37Zg=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/MSAL</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Cl7udZCRol6tpoDf251gh5QvAdw=
+			M2mOKGEamxI6WQ+8ZIGBqUEVdNg=
 			</data>
 			<key>hash2</key>
 			<data>
-			rHL5tv8NmWlXIxQXLSckw7ZYJ8RH2NT6qIWn3lE8gYE=
+			49T3yLUl+nivymZ+OYhI0EtePRsYdikvEUxFVpr3bMM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/module.modulemap</key>
@@ -2499,11 +2499,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sFwmYBM7KQsbZhhx1blMv8Vijy8=
+			iC1nNtVwItbKE4MMbZ+dfpvWwfU=
 			</data>
 			<key>hash2</key>
 			<data>
-			pGgF+RAPvMPRNt1er9FJkB6XE2UUtMWOvdgy3A2ht4o=
+			tX+VLDzk93LpHP6LAKiDKjTdV8ajpfQgh+XbPqZm7p0=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Modules/module.modulemap</key>
@@ -2521,11 +2521,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+k/b8CCJnvZ63JU+nfu5LQawRPE=
+			hUPk7YVBc8rvAlyYuMRnt49pHOA=
 			</data>
 			<key>hash2</key>
 			<data>
-			0oMVnqQV2Y3TryuH3TBKHnOJOVMISVSr1VOjn4ihLF8=
+			4uZ+1jox3J4Ti4mvuhQne170+Ywzdl7RsNXd+X3Hplo=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSAL.h</key>
@@ -3016,11 +3016,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sFwmYBM7KQsbZhhx1blMv8Vijy8=
+			iC1nNtVwItbKE4MMbZ+dfpvWwfU=
 			</data>
 			<key>hash2</key>
 			<data>
-			pGgF+RAPvMPRNt1er9FJkB6XE2UUtMWOvdgy3A2ht4o=
+			tX+VLDzk93LpHP6LAKiDKjTdV8ajpfQgh+XbPqZm7p0=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Modules/module.modulemap</key>
@@ -3038,11 +3038,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+k/b8CCJnvZ63JU+nfu5LQawRPE=
+			hUPk7YVBc8rvAlyYuMRnt49pHOA=
 			</data>
 			<key>hash2</key>
 			<data>
-			0oMVnqQV2Y3TryuH3TBKHnOJOVMISVSr1VOjn4ihLF8=
+			4uZ+1jox3J4Ti4mvuhQne170+Ywzdl7RsNXd+X3Hplo=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/Current/Headers/MSAL.h</key>
@@ -3533,11 +3533,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sFwmYBM7KQsbZhhx1blMv8Vijy8=
+			iC1nNtVwItbKE4MMbZ+dfpvWwfU=
 			</data>
 			<key>hash2</key>
 			<data>
-			pGgF+RAPvMPRNt1er9FJkB6XE2UUtMWOvdgy3A2ht4o=
+			tX+VLDzk93LpHP6LAKiDKjTdV8ajpfQgh+XbPqZm7p0=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/Current/Modules/module.modulemap</key>
@@ -3555,11 +3555,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+k/b8CCJnvZ63JU+nfu5LQawRPE=
+			hUPk7YVBc8rvAlyYuMRnt49pHOA=
 			</data>
 			<key>hash2</key>
 			<data>
-			0oMVnqQV2Y3TryuH3TBKHnOJOVMISVSr1VOjn4ihLF8=
+			4uZ+1jox3J4Ti4mvuhQne170+Ywzdl7RsNXd+X3Hplo=
 			</data>
 		</dict>
 	</dict>
