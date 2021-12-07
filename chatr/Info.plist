@@ -50,9 +50,9 @@
 		<string>wandera</string>
 		<string>https-intunemam</string>
 		<string>http-intunemam</string>
-		<string>microsoft-edge-https-intunemam</string>
-		<string>microsoft-edge-http-intunemam</string>
-		<string>ms-outlook-intunemam</string>
+		<string>microsoft-edge-https</string>
+		<string>microsoft-edge-http</string>
+		<string>ms-outlook</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
