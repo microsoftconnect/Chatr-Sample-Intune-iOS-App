@@ -56,7 +56,7 @@ class EnrollmentDelegateClass: NSObject, IntuneMAMEnrollmentDelegate {
             print("Debug message: \(String(describing: status.errorString))")
             
             //Present the user with an alert asking them to sign in again.
-            let alert = UIAlertController(title: "Error Authenticating", message: "There was an error while logging you into you account. Please check your log in credentials and try again.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Error Authenticating", message: "There was an error while logging you into your account. Please check your log in credentials and try again.", preferredStyle: .alert)
             let closeAlert = UIAlertAction.init(title: "OK", style: .default, handler: nil)
             alert.addAction(closeAlert)
             if nil != self.presentingViewController {
