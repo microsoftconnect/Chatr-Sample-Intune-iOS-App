@@ -38,8 +38,12 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>mvisionmobile</string>
+		<string>microsoft-edge-http</string>
+		<string>microsoft-edge-http-intunemam</string>
 		<string>scmx</string>
 		<string>lookoutwork-ase</string>
+		<string>microsoft-edge-https</string>
+		<string>microsoft-edge-https-intunemam</string>
 		<string>lacoonsecurity</string>
 		<string>zips</string>
 		<string>skycure</string>
@@ -47,12 +51,11 @@
 		<string>smart-ns</string>
 		<string>betteractiveshield</string>
 		<string>companyportal</string>
+		<string>ms-outlook</string>
+		<string>ms-outlook-intunemam</string>
 		<string>wandera</string>
 		<string>https-intunemam</string>
 		<string>http-intunemam</string>
-		<string>microsoft-edge-https</string>
-		<string>microsoft-edge-http</string>
-		<string>ms-outlook</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
