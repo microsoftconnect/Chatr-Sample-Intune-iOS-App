@@ -59,6 +59,9 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                                name: NSNotification.Name.IntuneMAMPolicyDidChange,
                                                object: IntuneMAMPolicyManager.instance())
         
+        //Get the current user
+        self.currentUser = IntuneMAMEnrollmentManager.instance().enrolledAccount()!
+        
         //query the app policy and update the initial save-as policy permissions
         self.isSaveAllowed = self.getSaveStatus()
     }
@@ -74,9 +77,6 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Get the current user
-        self.currentUser = IntuneMAMEnrollmentManager.instance().enrolledAccount()!
         
         //prevent the display of empty cells at the bottom of the sidebar menu by adding a zero height table footer view
         self.sideBarTable.tableFooterView = UIView(frame: CGRect(x:0, y:0, width: 0, height: 0))
