@@ -31,6 +31,7 @@
 @class MSALResult;
 @class MSALAccount;
 @class MSALDeviceInformation;
+@class MSALWPJMetaData;
 
 /**
  Levels of logging. Defines the priority of the logged message
@@ -157,6 +158,27 @@ typedef NS_ENUM(NSUInteger, MSALDeviceMode)
 };
 
 /**
+ Platform SSO status on macOS device
+ */
+typedef NS_ENUM(NSUInteger, MSALPlatformSSOStatus)
+{
+    /*
+        Administrator hasn't configured Platform SSO in sso config.
+    */
+    MSALPlatformSSONotEnabled,
+    
+    /*
+     Administrator has configured Platform SSO in sso config. But device has not been registred with AAD via platform SSO
+     */
+    MSALPlatformSSOEnabledNotRegistered,
+    
+    /*
+     Administrator has configured Platform SSO in sso config and the device is registred with AAD via platform SSO
+     */
+    MSALPlatformSSOEnabledAndRegistered
+};
+
+/**
     The block that gets invoked after MSAL has finished getting a token silently or interactively.
     @param result       Represents information returned to the application after a successful interactive or silent token acquisition. See `MSALResult` for more information.
     @param error         Provides information about error that prevented MSAL from getting a token. See `MSALError` for possible errors.
@@ -171,7 +193,7 @@ typedef void (^MSALAccountsCompletionBlock)(NSArray<MSALAccount *> * _Nullable a
 /**
     The completion block that will be called when current account is loaded, or MSAL encountered an error.
  */
-typedef void (^MSALCurrentAccountCompletionBlock)(MSALAccount * _Nullable account, MSALAccount * _Nullable previousAccount, NSError * _Nullable error);
+typedef void (^MSALCurrentAccountCompletionBlock)(MSALAccount * _Nullable_result account, MSALAccount * _Nullable_result previousAccount, NSError * _Nullable error);
 
 /**
     The completion block that will be called when sign out is completed, or MSAL encountered an error.
@@ -182,6 +204,11 @@ typedef void (^MSALSignoutCompletionBlock)(BOOL success, NSError * _Nullable err
    The completion block that will be called when MSAL has finished reading device state, or MSAL encountered an error.
 */
 typedef void (^MSALDeviceInformationCompletionBlock)(MSALDeviceInformation * _Nullable deviceInformation, NSError * _Nullable error);
+
+/**
+   The completion block that will be called when MSAL has finished reading device state, or MSAL encountered an error.
+*/
+typedef void (^MSALWPJMetaDataCompletionBlock)(MSALWPJMetaData * _Nullable msalPJMetaDataInformation, NSError * _Nullable error);
 
 /**
  The block that returns a MSAL log message.

@@ -172,6 +172,11 @@ typedef NS_ENUM(NSInteger, MSALError)
      Handling of this error is optional.
      */
     MSALErrorUserCanceled                        = -50005,
+    
+    /**
+    The server error happens when server returns server_error
+     */
+    MSALErrorServerError                         = -50006,
 };
 
 /**
@@ -381,11 +386,6 @@ typedef NS_ENUM(NSInteger, MSALInternalError)
     MSALInternalBrokerNotAvailable                      = -42714,
     
     /**
-     JIT - Link - Timeout while waiting for server confirmation.
-    */
-    MSALInternalErrorJITLinkServerConfirmationTimeout   = -42714,
-    
-    /**
      JIT - Link - Error while waiting for server confirmation
      */
     MSALInternalErrorJITLinkServerConfirmationError     =   -42715,
@@ -416,8 +416,87 @@ typedef NS_ENUM(NSInteger, MSALInternalError)
     MSALInternalErrorJITComplianceCheckResultTimeout    =   -42720,
     
     /**
-     JIT - Compliance Check - Device unknown
+     JIT - Compliance Check - Result unknown
      */
     MSALInternalErrorJITComplianceCheckResultUnknown    =   -42721,
+
+    /**
+     JIT - JIT - Compliance Check - Invalid linkPayload from SSO configuration
+     */
+    MSALErrorJITComplianceCheckInvalidLinkPayload       =   -42722,
+
+    /**
+     JIT - Compliance Check - Could not create compliance check web view controller
+     */
+    MSALErrorJITComplianceCheckCreateController         =   -42723,
+
+    /**
+     JIT - Link - LinkConfig not found
+     */
+    MSALErrorJITLinkConfigNotFound                      =   -42724,
+
+    /**
+     JIT - Link - Invalid LinkTokenConfig
+     */
+    MSALErrorJITInvalidLinkTokenConfig                  =   -42725,
+
+    /**
+     JIT - WPJ - Device Registration Failed
+     */
+    MSALErrorJITWPJDeviceRegistrationFailed             =   -42726,
+
+    /**
+     JIT - WPJ - AccountIdentifier is nil
+     */
+    MSALErrorJITWPJAccountIdentifierNil                 =   -42727,
+
+    /**
+     JIT - WPJ - Failed to acquire broker token
+     */
+    MSALErrorJITWPJAcquireTokenError                    =   -42728,
     
+    /**
+     JIT - Retry JIT process (WPJ or Link)
+     */
+    MSALErrorJITRetryRequired                           = -42729,
+    
+    /**
+     JIT - Unexpected status received from webCP troubleshooting flow
+     */
+    MSALErrorJITUnknownStatusWebCP                      = -42730,
+
+    /**
+     JIT - Troubleshooting - Could not create web view controller
+     */
+    MSALErrorJITTroubleshootingCreateController         = -42731,
+    
+    /**
+     JIT - Troubleshooting - Acquire token error
+     */
+    MSALErrorJITTroubleshootingAcquireToken          = -42732,
+    
+    /**
+     JIT - Link - Timeout while waiting for server confirmation.
+    */
+    MSALInternalErrorJITLinkServerConfirmationTimeout   = -42733,
+    
+    /**
+     JIT - Troubleshooting flow needed
+     */
+    MSALErrorJITTroubleshootingRequired                 = -42734,
+    
+    /**
+     JIT - Troubleshooting - Result unknown
+     */
+    MSALErrorJITTroubleshootingResultUnknown         = -42735,
+    
+    /**
+     Device is not PSSO registered
+     */
+    MSALErrorDeviceNotPSSORegistered                    = -42736,
+    
+    /**
+     // In PSSO, KeyId stored in passkey provider storage does not match NGC key, needs to configure and retry
+     */
+    MSALErrorPSSOKeyIdMismatch                         = -42737,
 };
