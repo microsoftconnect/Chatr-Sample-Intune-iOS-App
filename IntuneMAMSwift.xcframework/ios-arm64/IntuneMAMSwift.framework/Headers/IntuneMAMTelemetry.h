@@ -39,23 +39,27 @@ __attribute__((visibility("default")))
 @protocol IntuneMAMTelemetryDelegate <NSObject>
 
 @optional
+
 /*!
  * Logs the specified event to Aria.
+ * @param accountId The AAD object ID (OID) of the identity associated with the telemnetry event
  * @param name The name of the event.
  * @param privacyLevel Privacy level of the data that is being sent.
  * @param privacyDataTypes Privacy data types of the data that is being sent.
  * @param priorityLevel Priority level of the data that is being sent.
  * @param properties Additional properties related to the event.
+ * @param dataRegion Destination Aria data storage region.
  * @param tenantID Destination Aria tenant ID.
  */
-- (void)logAriaEventWithName:(NSString * _Nonnull)name
+- (void)logAriaEventForAccountId:(NSString * _Nullable)accountId
+    withName: (NSString * _Nonnull)name
     properties:(NSDictionary<NSString *, NSObject *> * _Nonnull)properties
     privacyLevel:(IntuneMAMTelemetryPrivacyLevel)privacyLevel
     privacyDataTypes: (IntuneMAMTelemetryPrivacyDataTypes)privacyDataTypes
     priorityLevel:(IntuneMAMTelemetryPriorityLevel)priorityLevel
-    tenantID:(NSString * _Nonnull)tenantID __deprecated_msg("Use the logAriaEventWithName:properties:privacylevel:privacyDataTypes:priorityLevel:dataRegion:tenantID: API instead.");
+    dataRegion:(IntuneMAMTelemetryDataRegion)dataRegion
+    tenantID:(NSString * _Nonnull)tenantID;
 
-@optional
 /*!
  * Logs the specified event to Aria.
  * @param name The name of the event.
@@ -72,7 +76,8 @@ __attribute__((visibility("default")))
     privacyDataTypes: (IntuneMAMTelemetryPrivacyDataTypes)privacyDataTypes
     priorityLevel:(IntuneMAMTelemetryPriorityLevel)priorityLevel
     dataRegion:(IntuneMAMTelemetryDataRegion)dataRegion
-    tenantID:(NSString * _Nonnull)tenantID;
+    tenantID:(NSString * _Nonnull)tenantID
+    __attribute__((deprecated("This method is deprecated and will be removed in a future release. Implement [IntuneMAMTelemetryDelegate logAriaEventForAccountId: withName: properties: privacyLevel: privacyDataTypes: priorityLevel: dataRegion: tenantID:] instead.")));
 
 @end
 
