@@ -1,6 +1,11 @@
 framework module MSAL {
   umbrella header "MSAL.h"
-
   export *
+
   module * { export * }
+}
+
+module MSAL.Swift {
+  header "MSAL-Swift.h"
+  requires objc
 }

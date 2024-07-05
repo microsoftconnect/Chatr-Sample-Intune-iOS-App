@@ -4,9 +4,13 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>ios-arm64/MSAL.framework/Headers/MSAL-Swift.h</key>
+		<data>
+		bgA+GPEUsKVs64mnBJESRoGG6cQ=
+		</data>
 		<key>ios-arm64/MSAL.framework/Headers/MSAL.h</key>
 		<data>
-		1NS77ZmZe9TH071if5YgVrdl19A=
+		aFj6aBAEHED+8auOJPGoJTsLye4=
 		</data>
 		<key>ios-arm64/MSAL.framework/Headers/MSALAADAuthority.h</key>
 		<data>
@@ -66,15 +70,15 @@
 		</data>
 		<key>ios-arm64/MSAL.framework/Headers/MSALDefinitions.h</key>
 		<data>
-		BbYb5ijIJRFXslMwl5iI9+inXUM=
+		VUm7R24qgv1wg72JQHJpKCUCJIk=
 		</data>
 		<key>ios-arm64/MSAL.framework/Headers/MSALDeviceInformation.h</key>
 		<data>
-		FXiOOQK+WmOC+TkmdrxImvTbcoU=
+		HZiaCi+Ngb9JokViRi+W1atsiog=
 		</data>
 		<key>ios-arm64/MSAL.framework/Headers/MSALError.h</key>
 		<data>
-		7LUEDe0eoAPblOQABF8DTZVko08=
+		WBIxwQliPqKNbYlCxFHSbX+E3Ic=
 		</data>
 		<key>ios-arm64/MSAL.framework/Headers/MSALExternalAccountProviding.h</key>
 		<data>
@@ -102,7 +106,7 @@
 		</data>
 		<key>ios-arm64/MSAL.framework/Headers/MSALInteractiveTokenParameters.h</key>
 		<data>
-		pJhfiy+2KY3BUKZ+thA1zKsKGZY=
+		3mp8jJXgh0pb3cfDoeS2HNWuGzU=
 		</data>
 		<key>ios-arm64/MSAL.framework/Headers/MSALJsonDeserializable.h</key>
 		<data>
@@ -124,6 +128,10 @@
 		<data>
 		k4yoxlZjns1b0hQbv670iYc/4E8=
 		</data>
+		<key>ios-arm64/MSAL.framework/Headers/MSALNativeAuthChallengeTypes.h</key>
+		<data>
+		URusJldaihR+/70uKsUJcBJxlJ0=
+		</data>
 		<key>ios-arm64/MSAL.framework/Headers/MSALParameters.h</key>
 		<data>
 		/AOAD+MTo9NFYeZVoqvMT0oN5PY=
@@ -134,7 +142,7 @@
 		</data>
 		<key>ios-arm64/MSAL.framework/Headers/MSALPublicClientApplication.h</key>
 		<data>
-		9lOFYN+RMmjjgAyZd3Ux8WeVlNo=
+		3aHJCM30Vomo8VACAhnqg51lCs0=
 		</data>
 		<key>ios-arm64/MSAL.framework/Headers/MSALPublicClientApplicationConfig.h</key>
 		<data>
@@ -198,19 +206,43 @@
 		</data>
 		<key>ios-arm64/MSAL.framework/Info.plist</key>
 		<data>
-		Qmcmz/kholhP7K6/y9VQuOG8EPI=
+		Hfg07emTWaekoYvGRuV/smyGNMQ=
 		</data>
 		<key>ios-arm64/MSAL.framework/MSAL</key>
 		<data>
-		XRYIEdNCxmOUG+whZiFtKs3h+48=
+		5xjALQSjOs2Vq5/ixYVKG0u9WT8=
+		</data>
+		<key>ios-arm64/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios.abi.json</key>
+		<data>
+		PkEBrdQduSGotwGufdX72FFcAx0=
+		</data>
+		<key>ios-arm64/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
+		<data>
+		dKdMy9eqUosnO3VKhTDyjfgPWis=
+		</data>
+		<key>ios-arm64/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<data>
+		Q6kcyok769aoPX0HYd8namTPDa4=
+		</data>
+		<key>ios-arm64/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<data>
+		dKdMy9eqUosnO3VKhTDyjfgPWis=
 		</data>
 		<key>ios-arm64/MSAL.framework/Modules/module.modulemap</key>
 		<data>
-		Xnf1cweQamjUE8u6n5+F3B7ks5k=
+		khSB1QSvkPWZYvkRvD82iKdrjbA=
+		</data>
+		<key>ios-arm64/MSAL.framework/PrivacyInfo.xcprivacy</key>
+		<data>
+		u92velI0cAss3mhXj82HO5cXWr0=
+		</data>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSAL-Swift.h</key>
+		<data>
+		0JXK96cbtPaF7/jSpvzhcrHExW4=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSAL.h</key>
 		<data>
-		1NS77ZmZe9TH071if5YgVrdl19A=
+		aFj6aBAEHED+8auOJPGoJTsLye4=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALAADAuthority.h</key>
 		<data>
@@ -270,15 +302,15 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALDefinitions.h</key>
 		<data>
-		BbYb5ijIJRFXslMwl5iI9+inXUM=
+		VUm7R24qgv1wg72JQHJpKCUCJIk=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALDeviceInformation.h</key>
 		<data>
-		FXiOOQK+WmOC+TkmdrxImvTbcoU=
+		HZiaCi+Ngb9JokViRi+W1atsiog=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALError.h</key>
 		<data>
-		7LUEDe0eoAPblOQABF8DTZVko08=
+		WBIxwQliPqKNbYlCxFHSbX+E3Ic=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALExternalAccountProviding.h</key>
 		<data>
@@ -306,7 +338,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALInteractiveTokenParameters.h</key>
 		<data>
-		pJhfiy+2KY3BUKZ+thA1zKsKGZY=
+		3mp8jJXgh0pb3cfDoeS2HNWuGzU=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALJsonDeserializable.h</key>
 		<data>
@@ -328,6 +360,10 @@
 		<data>
 		k4yoxlZjns1b0hQbv670iYc/4E8=
 		</data>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALNativeAuthChallengeTypes.h</key>
+		<data>
+		URusJldaihR+/70uKsUJcBJxlJ0=
+		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALParameters.h</key>
 		<data>
 		/AOAD+MTo9NFYeZVoqvMT0oN5PY=
@@ -338,7 +374,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALPublicClientApplication.h</key>
 		<data>
-		9lOFYN+RMmjjgAyZd3Ux8WeVlNo=
+		3aHJCM30Vomo8VACAhnqg51lCs0=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALPublicClientApplicationConfig.h</key>
 		<data>
@@ -402,19 +438,55 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Info.plist</key>
 		<data>
-		qBRjw0vhpuFsz6BlTqb348ssvR8=
+		25QH0u6314IMBcbOp7+lT9LzR8o=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/MSAL</key>
 		<data>
-		F2SREdsBpp1RHyLZgUdVnHv9+wE=
+		cmwoz4e5+zZmFIj5U9ZFRLFeRiM=
+		</data>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<data>
+		PkEBrdQduSGotwGufdX72FFcAx0=
+		</data>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<data>
+		NphVTk41h6JxOkJC3+AfqFQzPA8=
+		</data>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<data>
+		hHRiMlWjKR/Aj3G0xjkCiExblGI=
+		</data>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<data>
+		NphVTk41h6JxOkJC3+AfqFQzPA8=
+		</data>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
+		<data>
+		PkEBrdQduSGotwGufdX72FFcAx0=
+		</data>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<data>
+		0DYv2XyE2gtsslUuQaVs31BzxDA=
+		</data>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
+		<data>
+		btFjWhaPOeB0FRtGB/tyP7Pfx0o=
+		</data>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<data>
+		0DYv2XyE2gtsslUuQaVs31BzxDA=
 		</data>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/module.modulemap</key>
 		<data>
-		Xnf1cweQamjUE8u6n5+F3B7ks5k=
+		khSB1QSvkPWZYvkRvD82iKdrjbA=
+		</data>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/PrivacyInfo.xcprivacy</key>
+		<data>
+		u92velI0cAss3mhXj82HO5cXWr0=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSAL.h</key>
 		<data>
-		1NS77ZmZe9TH071if5YgVrdl19A=
+		aFj6aBAEHED+8auOJPGoJTsLye4=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALAADAuthority.h</key>
 		<data>
@@ -474,15 +546,15 @@
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALDefinitions.h</key>
 		<data>
-		BbYb5ijIJRFXslMwl5iI9+inXUM=
+		VUm7R24qgv1wg72JQHJpKCUCJIk=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALDeviceInformation.h</key>
 		<data>
-		FXiOOQK+WmOC+TkmdrxImvTbcoU=
+		HZiaCi+Ngb9JokViRi+W1atsiog=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALError.h</key>
 		<data>
-		7LUEDe0eoAPblOQABF8DTZVko08=
+		WBIxwQliPqKNbYlCxFHSbX+E3Ic=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALExternalAccountProviding.h</key>
 		<data>
@@ -510,7 +582,7 @@
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALInteractiveTokenParameters.h</key>
 		<data>
-		pJhfiy+2KY3BUKZ+thA1zKsKGZY=
+		3mp8jJXgh0pb3cfDoeS2HNWuGzU=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALJsonDeserializable.h</key>
 		<data>
@@ -538,7 +610,7 @@
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALPublicClientApplication.h</key>
 		<data>
-		9lOFYN+RMmjjgAyZd3Ux8WeVlNo=
+		3aHJCM30Vomo8VACAhnqg51lCs0=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALPublicClientApplicationConfig.h</key>
 		<data>
@@ -602,28 +674,39 @@
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/MSAL</key>
 		<data>
-		bU+kjZ21sn9A6WwC71WnO/bZUT8=
+		FCbNUfLUxci+IxD/rMDkRg9fVYQ=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Modules/module.modulemap</key>
 		<data>
-		Xnf1cweQamjUE8u6n5+F3B7ks5k=
+		SDDHUTPjn8gu+hdLKOjR3pB78nA=
 		</data>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Resources/Info.plist</key>
 		<data>
-		RnWHgdtm+EUaZus33LosXyW6KL8=
+		CTvZOmIAyitluTEk6EwhMfCgVTs=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>ios-arm64/MSAL.framework/Headers/MSAL-Swift.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			bgA+GPEUsKVs64mnBJESRoGG6cQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			9z+4mLYuB/lWzNqeP0ZO101UCW8VuLtRwW6lVqRFjrw=
+			</data>
+		</dict>
 		<key>ios-arm64/MSAL.framework/Headers/MSAL.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1NS77ZmZe9TH071if5YgVrdl19A=
+			aFj6aBAEHED+8auOJPGoJTsLye4=
 			</data>
 			<key>hash2</key>
 			<data>
-			sbPZENf+LDDTS7JKSXwLBnuQiSoVuoSLK8Me1jGeQm4=
+			UgtZcaEPheqRM44LyJglAf8oNc2oW249WyRCdggJeoo=
 			</data>
 		</dict>
 		<key>ios-arm64/MSAL.framework/Headers/MSALAADAuthority.h</key>
@@ -784,33 +867,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BbYb5ijIJRFXslMwl5iI9+inXUM=
+			VUm7R24qgv1wg72JQHJpKCUCJIk=
 			</data>
 			<key>hash2</key>
 			<data>
-			2+YG170PIqRjBvhE3ZXLGAEd96/neyZhzKXw2rCR2tw=
+			gY1eMfhTBVH0xqtwvOkIuTAjSf6cIJ1mG/cJ813T2Mo=
 			</data>
 		</dict>
 		<key>ios-arm64/MSAL.framework/Headers/MSALDeviceInformation.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FXiOOQK+WmOC+TkmdrxImvTbcoU=
+			HZiaCi+Ngb9JokViRi+W1atsiog=
 			</data>
 			<key>hash2</key>
 			<data>
-			IBzuLSkcRV4mqa9+sDgGw9Q2ofovdfV7xG2mrOAYljg=
+			v1BrEuPnCnL5hTtZ5YVk0gpzBoWPX29bcpEN/gDUcbc=
 			</data>
 		</dict>
 		<key>ios-arm64/MSAL.framework/Headers/MSALError.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7LUEDe0eoAPblOQABF8DTZVko08=
+			WBIxwQliPqKNbYlCxFHSbX+E3Ic=
 			</data>
 			<key>hash2</key>
 			<data>
-			U/IjdeR8QXp+dabo4qO9TPxqgRqOwhv1m/7BEheouBg=
+			djRVDnliVzNgHDRp/h+PquEp5at2Fdhj++OkdmvySmQ=
 			</data>
 		</dict>
 		<key>ios-arm64/MSAL.framework/Headers/MSALExternalAccountProviding.h</key>
@@ -883,11 +966,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pJhfiy+2KY3BUKZ+thA1zKsKGZY=
+			3mp8jJXgh0pb3cfDoeS2HNWuGzU=
 			</data>
 			<key>hash2</key>
 			<data>
-			uSB//1xPKvBkxBC8DKD2NBUWBmMRahJQf25O5OymViM=
+			KnlIBgIm4mIwKCB62r9eqMpzLXcDYAk9R1bk+L+No14=
 			</data>
 		</dict>
 		<key>ios-arm64/MSAL.framework/Headers/MSALJsonDeserializable.h</key>
@@ -945,6 +1028,17 @@
 			xSHtRDylToNR3V6WIYQdooCHgH57XFiIvG2ONvGSRPw=
 			</data>
 		</dict>
+		<key>ios-arm64/MSAL.framework/Headers/MSALNativeAuthChallengeTypes.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			URusJldaihR+/70uKsUJcBJxlJ0=
+			</data>
+			<key>hash2</key>
+			<data>
+			oVTj//uc+HrtZ02E55MsvyuVExZhKPOA5ab7K10QzgA=
+			</data>
+		</dict>
 		<key>ios-arm64/MSAL.framework/Headers/MSALParameters.h</key>
 		<dict>
 			<key>hash</key>
@@ -971,11 +1065,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9lOFYN+RMmjjgAyZd3Ux8WeVlNo=
+			3aHJCM30Vomo8VACAhnqg51lCs0=
 			</data>
 			<key>hash2</key>
 			<data>
-			M154IfZdIOgtqA02zuhvGtSbGp0dkmt39QpKRqgAAqA=
+			qVid964Do9gEdXmDwjchKOO9TBdGImnrmUhpSIA+vx0=
 			</data>
 		</dict>
 		<key>ios-arm64/MSAL.framework/Headers/MSALPublicClientApplicationConfig.h</key>
@@ -1147,44 +1241,110 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Qmcmz/kholhP7K6/y9VQuOG8EPI=
+			Hfg07emTWaekoYvGRuV/smyGNMQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			wm1QiXevNNN7nron82z/jbNwVx2QhMjj1upU8N8sObo=
+			XlsFwVVKybuZ9e43Yj/B3osLF78Jf4NOmQViSqAZcV4=
 			</data>
 		</dict>
 		<key>ios-arm64/MSAL.framework/MSAL</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XRYIEdNCxmOUG+whZiFtKs3h+48=
+			5xjALQSjOs2Vq5/ixYVKG0u9WT8=
 			</data>
 			<key>hash2</key>
 			<data>
-			6RUBMHCCtx8gCGD8XvBL1HNQaIv9afVZTfsY9hytR5s=
+			kUQQI+DxUnPLPwFqpjh10RnNppA09YhIunqaenfgfWw=
+			</data>
+		</dict>
+		<key>ios-arm64/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios.abi.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PkEBrdQduSGotwGufdX72FFcAx0=
+			</data>
+			<key>hash2</key>
+			<data>
+			duVPMXaxmQYEKqeopoJDq91eKqGdppfCGhwWkFWSKos=
+			</data>
+		</dict>
+		<key>ios-arm64/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dKdMy9eqUosnO3VKhTDyjfgPWis=
+			</data>
+			<key>hash2</key>
+			<data>
+			LUJvULX/Pp6AQVUe2fBgDcFoMc0g02iyoqHGOG1MO6g=
+			</data>
+		</dict>
+		<key>ios-arm64/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Q6kcyok769aoPX0HYd8namTPDa4=
+			</data>
+			<key>hash2</key>
+			<data>
+			I7bOBcKNIYGqnwOJRdQE3iy26fcbwzJUTmkZxFlwINY=
+			</data>
+		</dict>
+		<key>ios-arm64/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dKdMy9eqUosnO3VKhTDyjfgPWis=
+			</data>
+			<key>hash2</key>
+			<data>
+			LUJvULX/Pp6AQVUe2fBgDcFoMc0g02iyoqHGOG1MO6g=
 			</data>
 		</dict>
 		<key>ios-arm64/MSAL.framework/Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Xnf1cweQamjUE8u6n5+F3B7ks5k=
+			khSB1QSvkPWZYvkRvD82iKdrjbA=
 			</data>
 			<key>hash2</key>
 			<data>
-			nbSICICT+nXAjJsjzTqLBDS8rbhWjlKp3WyG4lHplKo=
+			uESb6qgomizja6/Bd002g4wCT/GAE7FJ4r7IZQIVCEE=
+			</data>
+		</dict>
+		<key>ios-arm64/MSAL.framework/PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			u92velI0cAss3mhXj82HO5cXWr0=
+			</data>
+			<key>hash2</key>
+			<data>
+			vv6mmEbWgU+7bU5BDlYx7qFA6HMno1++V2jeXmAvm+k=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSAL-Swift.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0JXK96cbtPaF7/jSpvzhcrHExW4=
+			</data>
+			<key>hash2</key>
+			<data>
+			MHUbmQnWp5zhn4TfoBIO9tQLVLE8kRIzPI6fm5gDEmk=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSAL.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1NS77ZmZe9TH071if5YgVrdl19A=
+			aFj6aBAEHED+8auOJPGoJTsLye4=
 			</data>
 			<key>hash2</key>
 			<data>
-			sbPZENf+LDDTS7JKSXwLBnuQiSoVuoSLK8Me1jGeQm4=
+			UgtZcaEPheqRM44LyJglAf8oNc2oW249WyRCdggJeoo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALAADAuthority.h</key>
@@ -1345,33 +1505,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BbYb5ijIJRFXslMwl5iI9+inXUM=
+			VUm7R24qgv1wg72JQHJpKCUCJIk=
 			</data>
 			<key>hash2</key>
 			<data>
-			2+YG170PIqRjBvhE3ZXLGAEd96/neyZhzKXw2rCR2tw=
+			gY1eMfhTBVH0xqtwvOkIuTAjSf6cIJ1mG/cJ813T2Mo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALDeviceInformation.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FXiOOQK+WmOC+TkmdrxImvTbcoU=
+			HZiaCi+Ngb9JokViRi+W1atsiog=
 			</data>
 			<key>hash2</key>
 			<data>
-			IBzuLSkcRV4mqa9+sDgGw9Q2ofovdfV7xG2mrOAYljg=
+			v1BrEuPnCnL5hTtZ5YVk0gpzBoWPX29bcpEN/gDUcbc=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALError.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7LUEDe0eoAPblOQABF8DTZVko08=
+			WBIxwQliPqKNbYlCxFHSbX+E3Ic=
 			</data>
 			<key>hash2</key>
 			<data>
-			U/IjdeR8QXp+dabo4qO9TPxqgRqOwhv1m/7BEheouBg=
+			djRVDnliVzNgHDRp/h+PquEp5at2Fdhj++OkdmvySmQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALExternalAccountProviding.h</key>
@@ -1444,11 +1604,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pJhfiy+2KY3BUKZ+thA1zKsKGZY=
+			3mp8jJXgh0pb3cfDoeS2HNWuGzU=
 			</data>
 			<key>hash2</key>
 			<data>
-			uSB//1xPKvBkxBC8DKD2NBUWBmMRahJQf25O5OymViM=
+			KnlIBgIm4mIwKCB62r9eqMpzLXcDYAk9R1bk+L+No14=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALJsonDeserializable.h</key>
@@ -1506,6 +1666,17 @@
 			xSHtRDylToNR3V6WIYQdooCHgH57XFiIvG2ONvGSRPw=
 			</data>
 		</dict>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALNativeAuthChallengeTypes.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			URusJldaihR+/70uKsUJcBJxlJ0=
+			</data>
+			<key>hash2</key>
+			<data>
+			oVTj//uc+HrtZ02E55MsvyuVExZhKPOA5ab7K10QzgA=
+			</data>
+		</dict>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALParameters.h</key>
 		<dict>
 			<key>hash</key>
@@ -1532,11 +1703,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9lOFYN+RMmjjgAyZd3Ux8WeVlNo=
+			3aHJCM30Vomo8VACAhnqg51lCs0=
 			</data>
 			<key>hash2</key>
 			<data>
-			M154IfZdIOgtqA02zuhvGtSbGp0dkmt39QpKRqgAAqA=
+			qVid964Do9gEdXmDwjchKOO9TBdGImnrmUhpSIA+vx0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Headers/MSALPublicClientApplicationConfig.h</key>
@@ -1708,33 +1879,132 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qBRjw0vhpuFsz6BlTqb348ssvR8=
+			25QH0u6314IMBcbOp7+lT9LzR8o=
 			</data>
 			<key>hash2</key>
 			<data>
-			UYURXaHw4G+kFyxDeiUPH/6xJWF8FODKsw0CVB1ItC8=
+			VpBmSQS6CDCUye+HT/lOOUSLVoeyj98T/jIZJtZzIAw=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/MSAL</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			F2SREdsBpp1RHyLZgUdVnHv9+wE=
+			cmwoz4e5+zZmFIj5U9ZFRLFeRiM=
 			</data>
 			<key>hash2</key>
 			<data>
-			GxP3Jd0hoqzVcflcMDpfJl+POG8BzAKCHTbXHwWndDs=
+			tS8y6XMRsTuaNeuG2a0KYj8+RmkhNzq+JJDb16Wr+K8=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PkEBrdQduSGotwGufdX72FFcAx0=
+			</data>
+			<key>hash2</key>
+			<data>
+			duVPMXaxmQYEKqeopoJDq91eKqGdppfCGhwWkFWSKos=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NphVTk41h6JxOkJC3+AfqFQzPA8=
+			</data>
+			<key>hash2</key>
+			<data>
+			1aVHd7evHDkwgqSLV2qhD8Uhqx60A916Yj9K6jpVhQA=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hHRiMlWjKR/Aj3G0xjkCiExblGI=
+			</data>
+			<key>hash2</key>
+			<data>
+			4ZVrfPkfeuypMAbDGgZRhw6Q+gEpmgteUCgkusv6YmM=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			NphVTk41h6JxOkJC3+AfqFQzPA8=
+			</data>
+			<key>hash2</key>
+			<data>
+			1aVHd7evHDkwgqSLV2qhD8Uhqx60A916Yj9K6jpVhQA=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PkEBrdQduSGotwGufdX72FFcAx0=
+			</data>
+			<key>hash2</key>
+			<data>
+			duVPMXaxmQYEKqeopoJDq91eKqGdppfCGhwWkFWSKos=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0DYv2XyE2gtsslUuQaVs31BzxDA=
+			</data>
+			<key>hash2</key>
+			<data>
+			qZnUlpS5xlALX/e0zM1SIJBwnk3UmeoMCK9PXI7fsAs=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			btFjWhaPOeB0FRtGB/tyP7Pfx0o=
+			</data>
+			<key>hash2</key>
+			<data>
+			VqfyN82zBXlW3lBaKARBU9BmSGBinp34u49yQ1Nmd/g=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/MSAL.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0DYv2XyE2gtsslUuQaVs31BzxDA=
+			</data>
+			<key>hash2</key>
+			<data>
+			qZnUlpS5xlALX/e0zM1SIJBwnk3UmeoMCK9PXI7fsAs=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/MSAL.framework/Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Xnf1cweQamjUE8u6n5+F3B7ks5k=
+			khSB1QSvkPWZYvkRvD82iKdrjbA=
 			</data>
 			<key>hash2</key>
 			<data>
-			nbSICICT+nXAjJsjzTqLBDS8rbhWjlKp3WyG4lHplKo=
+			uESb6qgomizja6/Bd002g4wCT/GAE7FJ4r7IZQIVCEE=
+			</data>
+		</dict>
+		<key>ios-arm64_x86_64-simulator/MSAL.framework/PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			u92velI0cAss3mhXj82HO5cXWr0=
+			</data>
+			<key>hash2</key>
+			<data>
+			vv6mmEbWgU+7bU5BDlYx7qFA6HMno1++V2jeXmAvm+k=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Headers</key>
@@ -1761,11 +2031,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1NS77ZmZe9TH071if5YgVrdl19A=
+			aFj6aBAEHED+8auOJPGoJTsLye4=
 			</data>
 			<key>hash2</key>
 			<data>
-			sbPZENf+LDDTS7JKSXwLBnuQiSoVuoSLK8Me1jGeQm4=
+			UgtZcaEPheqRM44LyJglAf8oNc2oW249WyRCdggJeoo=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALAADAuthority.h</key>
@@ -1926,33 +2196,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BbYb5ijIJRFXslMwl5iI9+inXUM=
+			VUm7R24qgv1wg72JQHJpKCUCJIk=
 			</data>
 			<key>hash2</key>
 			<data>
-			2+YG170PIqRjBvhE3ZXLGAEd96/neyZhzKXw2rCR2tw=
+			gY1eMfhTBVH0xqtwvOkIuTAjSf6cIJ1mG/cJ813T2Mo=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALDeviceInformation.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FXiOOQK+WmOC+TkmdrxImvTbcoU=
+			HZiaCi+Ngb9JokViRi+W1atsiog=
 			</data>
 			<key>hash2</key>
 			<data>
-			IBzuLSkcRV4mqa9+sDgGw9Q2ofovdfV7xG2mrOAYljg=
+			v1BrEuPnCnL5hTtZ5YVk0gpzBoWPX29bcpEN/gDUcbc=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALError.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7LUEDe0eoAPblOQABF8DTZVko08=
+			WBIxwQliPqKNbYlCxFHSbX+E3Ic=
 			</data>
 			<key>hash2</key>
 			<data>
-			U/IjdeR8QXp+dabo4qO9TPxqgRqOwhv1m/7BEheouBg=
+			djRVDnliVzNgHDRp/h+PquEp5at2Fdhj++OkdmvySmQ=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALExternalAccountProviding.h</key>
@@ -2025,11 +2295,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pJhfiy+2KY3BUKZ+thA1zKsKGZY=
+			3mp8jJXgh0pb3cfDoeS2HNWuGzU=
 			</data>
 			<key>hash2</key>
 			<data>
-			uSB//1xPKvBkxBC8DKD2NBUWBmMRahJQf25O5OymViM=
+			KnlIBgIm4mIwKCB62r9eqMpzLXcDYAk9R1bk+L+No14=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALJsonDeserializable.h</key>
@@ -2102,11 +2372,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9lOFYN+RMmjjgAyZd3Ux8WeVlNo=
+			3aHJCM30Vomo8VACAhnqg51lCs0=
 			</data>
 			<key>hash2</key>
 			<data>
-			M154IfZdIOgtqA02zuhvGtSbGp0dkmt39QpKRqgAAqA=
+			qVid964Do9gEdXmDwjchKOO9TBdGImnrmUhpSIA+vx0=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Headers/MSALPublicClientApplicationConfig.h</key>
@@ -2278,33 +2548,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bU+kjZ21sn9A6WwC71WnO/bZUT8=
+			FCbNUfLUxci+IxD/rMDkRg9fVYQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			asz2aqppFU9cG42tFO5ry9Cacs7BMmhjJcIMfw5HOHw=
+			9WDwfItpyNJO9lxlWl3Gm8y6Yfl3z5dmfrnW1SiuvhQ=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Xnf1cweQamjUE8u6n5+F3B7ks5k=
+			SDDHUTPjn8gu+hdLKOjR3pB78nA=
 			</data>
 			<key>hash2</key>
 			<data>
-			nbSICICT+nXAjJsjzTqLBDS8rbhWjlKp3WyG4lHplKo=
+			zgpI0Brf5ykiNY2eYon9FvXdUfjPJvNwwlo/uer4MpY=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/A/Resources/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			RnWHgdtm+EUaZus33LosXyW6KL8=
+			CTvZOmIAyitluTEk6EwhMfCgVTs=
 			</data>
 			<key>hash2</key>
 			<data>
-			RToeMDOTtFalDjcUEmyPgUoVm5HaCh5aNaNofVGtkC4=
+			Ae5HqFBOYcFyHno61lHFLX/0GGg4YO06c5XXHyPe2rY=
 			</data>
 		</dict>
 		<key>macos-arm64_x86_64/MSAL.framework/Versions/Current</key>
