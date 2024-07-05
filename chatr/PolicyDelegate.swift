@@ -23,7 +23,7 @@ class PolicyDelegateClass: NSObject, IntuneMAMPolicyDelegate {
      
      @param upn is the upn of the user whoes data is to be wiped (for example "user@example.com")
      */
-    func wipeData(forAccount: String) -> Bool {
+    func wipeData(forAccountId: String) -> Bool {
         //variable to track if the data wipe was successful
         var wipeSuccess = true
         
@@ -45,7 +45,7 @@ class PolicyDelegateClass: NSObject, IntuneMAMPolicyDelegate {
         }
         
         //Use the deleteSentMessagesForUser and deleteSentMessagesForUser functions in the KeychainManager class to look into the keychain to wipe any message data stored for a given upn
-        if !(KeychainManager.deleteDraftMessage(forUser: forAccount) && KeychainManager.deleteSentMessages(forUser: forAccount)){
+        if !(KeychainManager.deleteDraftMessage(forUser: forAccountId) && KeychainManager.deleteSentMessages(forUser: forAccountId)){
             //If either function call returns false, this indicates the app failed clear the user's messages from the keychain
             print("Data wipe from keychain failed")
             wipeSuccess = false

@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard: UIStoryboard = UIStoryboard(name:"Main", bundle: Bundle.main)
         
         //check for enrolled account
-        let currentUser = IntuneMAMEnrollmentManager.instance().enrolledAccount()
+        let currentUser = IntuneMAMEnrollmentManager.instance().enrolledAccountId()
         if nil != currentUser && !currentUser!.isEmpty {
             //if an account is enrolled, skip over login page to main page
             //Do this by setting the main chat page to the rootViewController

@@ -60,8 +60,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                                object: IntuneMAMPolicyManager.instance())
         
         //Get the current user
-        self.currentUser = IntuneMAMEnrollmentManager.instance().enrolledAccount()!
-        
+        self.currentUser = IntuneMAMEnrollmentManager.instance().enrolledAccountId()!
+
         //query the app policy and update the initial save-as policy permissions
         self.isSaveAllowed = self.getSaveStatus()
     }
@@ -251,8 +251,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func getUserGroupName() -> String{
         // Get the GroupName value for the user - key value pairing set in the portal
 		let groupNameKey = "GroupName"
-        let data = IntuneMAMAppConfigManager.instance().appConfig(forIdentity: self.currentUser)
-        
+        let data = IntuneMAMAppConfigManager.instance().appConfig(forAccountId:self.currentUser)
+
         // If there are no conflicts for that key, find the value associated with the key
         if !data.hasConflict(groupNameKey){
             if let groupName = data.stringValue(forKey: groupNameKey, queryType: IntuneMAMStringQueryType.any){
@@ -428,7 +428,7 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
             case .logout?:
                 //To log out user, deregister the user from the SDK and initate a selective wipe of the app
                 //In the EnrollmentDelegate, the unenrollRequestWithStatus block is executed, and includes logic to wipe tokens on unenrollment
-                IntuneMAMEnrollmentManager.instance().deRegisterAndUnenrollAccount(self.currentUser, withWipe: true)
+                IntuneMAMEnrollmentManager.instance().deRegisterAndUnenrollAccountId(self.currentUser, withWipe: true)
 			case .none:
 				return;
 			}
@@ -455,8 +455,8 @@ class ChatPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
         
     func getSaveStatus() -> Bool {
-        let policy = IntuneMAMPolicyManager.instance().policy(forIdentity: self.currentUser)
-        if (nil == policy || (policy?.isSaveToAllowed(for: IntuneMAMSaveLocation.localDrive, withAccountName: self.currentUser))!){
+        let policy = IntuneMAMPolicyManager.instance().policy(forAccountId: self.currentUser)
+        if (nil == policy || (policy?.isSaveToAllowed(for: IntuneMAMSaveLocation.localDrive, withAccountId: self.currentUser))!){
             return true
         } else {
             return false
