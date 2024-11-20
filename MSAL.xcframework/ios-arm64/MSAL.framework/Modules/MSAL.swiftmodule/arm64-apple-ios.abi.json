@@ -512,6 +512,390 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MFARequestChallengeDelegate",
+        "printedName": "MFARequestChallengeDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "onMFARequestChallengeError",
+            "printedName": "onMFARequestChallengeError(error:newState:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MFARequestChallengeError",
+                "printedName": "MSAL.MFARequestChallengeError",
+                "usr": "c:@M@MSAL@objc(cs)MFARequestChallengeError"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "MSAL.MFARequiredState?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MFARequiredState",
+                    "printedName": "MSAL.MFARequiredState",
+                    "usr": "c:@M@MSAL@objc(cs)MFARequiredState"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(pl)MFARequestChallengeDelegate(im)onMFARequestChallengeErrorWithError:newState:",
+            "mangledName": "$s4MSAL27MFARequestChallengeDelegateP02onbC5Error5error8newStateyAA0bcF0C_AA011MFARequiredI0CSgtF",
+            "moduleName": "MSAL",
+            "genericSig": "<τ_0_0 where τ_0_0 : MSAL.MFARequestChallengeDelegate>",
+            "sugared_genericSig": "<Self where Self : MSAL.MFARequestChallengeDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onMFARequestChallengeVerificationRequired",
+            "printedName": "onMFARequestChallengeVerificationRequired(newState:sentTo:channelTargetType:codeLength:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MFARequiredState",
+                "printedName": "MSAL.MFARequiredState",
+                "usr": "c:@M@MSAL@objc(cs)MFARequiredState"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthChannelType",
+                "printedName": "MSAL.MSALNativeAuthChannelType",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(pl)MFARequestChallengeDelegate(im)onMFARequestChallengeVerificationRequiredWithNewState:sentTo:channelTargetType:codeLength:",
+            "mangledName": "$s4MSAL27MFARequestChallengeDelegateP02onbC20VerificationRequired8newState6sentTo17channelTargetType10codeLengthyAA011MFARequiredI0C_SSAA021MSALNativeAuthChannelN0CSitF",
+            "moduleName": "MSAL",
+            "genericSig": "<τ_0_0 where τ_0_0 : MSAL.MFARequestChallengeDelegate>",
+            "sugared_genericSig": "<Self where Self : MSAL.MFARequestChallengeDelegate>",
+            "protocolReq": true,
+            "objc_name": "onMFARequestChallengeVerificationRequiredWithNewState:sentTo:channelTargetType:codeLength:",
+            "declAttributes": [
+              "Optional",
+              "ObjC",
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onMFARequestChallengeSelectionRequired",
+            "printedName": "onMFARequestChallengeSelectionRequired(authMethods:newState:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[MSAL.MSALAuthMethod]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MSALAuthMethod",
+                    "printedName": "MSAL.MSALAuthMethod",
+                    "usr": "c:@M@MSAL@objc(cs)MSALAuthMethod"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MFARequiredState",
+                "printedName": "MSAL.MFARequiredState",
+                "usr": "c:@M@MSAL@objc(cs)MFARequiredState"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(pl)MFARequestChallengeDelegate(im)onMFARequestChallengeSelectionRequiredWithAuthMethods:newState:",
+            "mangledName": "$s4MSAL27MFARequestChallengeDelegateP02onbC17SelectionRequired11authMethods8newStateySayAA14MSALAuthMethodCG_AA011MFARequiredK0CtF",
+            "moduleName": "MSAL",
+            "genericSig": "<τ_0_0 where τ_0_0 : MSAL.MFARequestChallengeDelegate>",
+            "sugared_genericSig": "<Self where Self : MSAL.MFARequestChallengeDelegate>",
+            "protocolReq": true,
+            "objc_name": "onMFARequestChallengeSelectionRequiredWithAuthMethods:newState:",
+            "declAttributes": [
+              "Optional",
+              "ObjC",
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@MSAL@objc(pl)MFARequestChallengeDelegate",
+        "mangledName": "$s4MSAL27MFARequestChallengeDelegateP",
+        "moduleName": "MSAL",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MFAGetAuthMethodsDelegate",
+        "printedName": "MFAGetAuthMethodsDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "onMFAGetAuthMethodsError",
+            "printedName": "onMFAGetAuthMethodsError(error:newState:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MFAGetAuthMethodsError",
+                "printedName": "MSAL.MFAGetAuthMethodsError",
+                "usr": "c:@M@MSAL@objc(cs)MFAGetAuthMethodsError"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "MSAL.MFARequiredState?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MFARequiredState",
+                    "printedName": "MSAL.MFARequiredState",
+                    "usr": "c:@M@MSAL@objc(cs)MFARequiredState"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(pl)MFAGetAuthMethodsDelegate(im)onMFAGetAuthMethodsErrorWithError:newState:",
+            "mangledName": "$s4MSAL25MFAGetAuthMethodsDelegateP02onbcD5Error5error8newStateyAA0bcdG0C_AA011MFARequiredJ0CSgtF",
+            "moduleName": "MSAL",
+            "genericSig": "<τ_0_0 where τ_0_0 : MSAL.MFAGetAuthMethodsDelegate>",
+            "sugared_genericSig": "<Self where Self : MSAL.MFAGetAuthMethodsDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onMFAGetAuthMethodsSelectionRequired",
+            "printedName": "onMFAGetAuthMethodsSelectionRequired(authMethods:newState:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[MSAL.MSALAuthMethod]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MSALAuthMethod",
+                    "printedName": "MSAL.MSALAuthMethod",
+                    "usr": "c:@M@MSAL@objc(cs)MSALAuthMethod"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MFARequiredState",
+                "printedName": "MSAL.MFARequiredState",
+                "usr": "c:@M@MSAL@objc(cs)MFARequiredState"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(pl)MFAGetAuthMethodsDelegate(im)onMFAGetAuthMethodsSelectionRequiredWithAuthMethods:newState:",
+            "mangledName": "$s4MSAL25MFAGetAuthMethodsDelegateP02onbcD17SelectionRequired04authD08newStateySayAA14MSALAuthMethodCG_AA011MFARequiredK0CtF",
+            "moduleName": "MSAL",
+            "genericSig": "<τ_0_0 where τ_0_0 : MSAL.MFAGetAuthMethodsDelegate>",
+            "sugared_genericSig": "<Self where Self : MSAL.MFAGetAuthMethodsDelegate>",
+            "protocolReq": true,
+            "objc_name": "onMFAGetAuthMethodsSelectionRequiredWithAuthMethods:newState:",
+            "declAttributes": [
+              "Optional",
+              "ObjC",
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@MSAL@objc(pl)MFAGetAuthMethodsDelegate",
+        "mangledName": "$s4MSAL25MFAGetAuthMethodsDelegateP",
+        "moduleName": "MSAL",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MFASubmitChallengeDelegate",
+        "printedName": "MFASubmitChallengeDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "onMFASubmitChallengeError",
+            "printedName": "onMFASubmitChallengeError(error:newState:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MFASubmitChallengeError",
+                "printedName": "MSAL.MFASubmitChallengeError",
+                "usr": "c:@M@MSAL@objc(cs)MFASubmitChallengeError"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "MSAL.MFARequiredState?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MFARequiredState",
+                    "printedName": "MSAL.MFARequiredState",
+                    "usr": "c:@M@MSAL@objc(cs)MFARequiredState"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(pl)MFASubmitChallengeDelegate(im)onMFASubmitChallengeErrorWithError:newState:",
+            "mangledName": "$s4MSAL26MFASubmitChallengeDelegateP02onbC5Error5error8newStateyAA0bcF0C_AA011MFARequiredI0CSgtF",
+            "moduleName": "MSAL",
+            "genericSig": "<τ_0_0 where τ_0_0 : MSAL.MFASubmitChallengeDelegate>",
+            "sugared_genericSig": "<Self where Self : MSAL.MFASubmitChallengeDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Custom",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onSignInCompleted",
+            "printedName": "onSignInCompleted(result:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthUserAccountResult",
+                "printedName": "MSAL.MSALNativeAuthUserAccountResult",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthUserAccountResult"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(pl)MFASubmitChallengeDelegate(im)onSignInCompletedWithResult:",
+            "mangledName": "$s4MSAL26MFASubmitChallengeDelegateP17onSignInCompleted6resultyAA31MSALNativeAuthUserAccountResultC_tF",
+            "moduleName": "MSAL",
+            "genericSig": "<τ_0_0 where τ_0_0 : MSAL.MFASubmitChallengeDelegate>",
+            "sugared_genericSig": "<Self where Self : MSAL.MFASubmitChallengeDelegate>",
+            "protocolReq": true,
+            "objc_name": "onSignInCompletedWithResult:",
+            "declAttributes": [
+              "Optional",
+              "ObjC",
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@MSAL@objc(pl)MFASubmitChallengeDelegate",
+        "mangledName": "$s4MSAL26MFASubmitChallengeDelegateP",
+        "moduleName": "MSAL",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "MSAL_Private",
         "printedName": "MSAL_Private",
         "declKind": "Import",
@@ -699,7 +1083,7 @@
                 "kind": "TypeNominal",
                 "name": "MSALNativeAuthChannelType",
                 "printedName": "MSAL.MSALNativeAuthChannelType",
-                "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType"
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType"
               },
               {
                 "kind": "TypeNominal",
@@ -710,7 +1094,7 @@
             ],
             "declKind": "Func",
             "usr": "c:@M@MSAL@objc(pl)ResetPasswordStartDelegate(im)onResetPasswordCodeRequiredWithNewState:sentTo:channelTargetType:codeLength:",
-            "mangledName": "$s4MSAL26ResetPasswordStartDelegateP02onbC12CodeRequired8newState6sentTo17channelTargetType10codeLengthyAA0bcghJ0C_SSAA021MSALNativeAuthChannelO0OSitF",
+            "mangledName": "$s4MSAL26ResetPasswordStartDelegateP02onbC12CodeRequired8newState6sentTo17channelTargetType10codeLengthyAA0bcghJ0C_SSAA021MSALNativeAuthChannelO0CSitF",
             "moduleName": "MSAL",
             "genericSig": "<τ_0_0 where τ_0_0 : MSAL.ResetPasswordStartDelegate>",
             "sugared_genericSig": "<Self where Self : MSAL.ResetPasswordStartDelegate>",
@@ -913,7 +1297,7 @@
                 "kind": "TypeNominal",
                 "name": "MSALNativeAuthChannelType",
                 "printedName": "MSAL.MSALNativeAuthChannelType",
-                "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType"
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType"
               },
               {
                 "kind": "TypeNominal",
@@ -924,7 +1308,7 @@
             ],
             "declKind": "Func",
             "usr": "c:@M@MSAL@objc(pl)ResetPasswordResendCodeDelegate(im)onResetPasswordResendCodeRequiredWithNewState:sentTo:channelTargetType:codeLength:",
-            "mangledName": "$s4MSAL31ResetPasswordResendCodeDelegateP02onbcdE8Required8newState6sentTo17channelTargetType10codeLengthyAA0bcehJ0C_SSAA021MSALNativeAuthChannelO0OSitF",
+            "mangledName": "$s4MSAL31ResetPasswordResendCodeDelegateP02onbcdE8Required8newState6sentTo17channelTargetType10codeLengthyAA0bcehJ0C_SSAA021MSALNativeAuthChannelO0CSitF",
             "moduleName": "MSAL",
             "genericSig": "<τ_0_0 where τ_0_0 : MSAL.ResetPasswordResendCodeDelegate>",
             "sugared_genericSig": "<Self where Self : MSAL.ResetPasswordResendCodeDelegate>",
@@ -1427,6 +1811,310 @@
         "declAttributes": [
           "ImplementationOnly",
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MSALAuthMethod",
+        "printedName": "MSALAuthMethod",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "id",
+            "printedName": "id",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4MSAL14MSALAuthMethodC2idSSvp",
+            "mangledName": "$s4MSAL14MSALAuthMethodC2idSSvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL14MSALAuthMethodC2idSSvg",
+                "mangledName": "$s4MSAL14MSALAuthMethodC2idSSvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "challengeType",
+            "printedName": "challengeType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4MSAL14MSALAuthMethodC13challengeTypeSSvp",
+            "mangledName": "$s4MSAL14MSALAuthMethodC13challengeTypeSSvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL14MSALAuthMethodC13challengeTypeSSvg",
+                "mangledName": "$s4MSAL14MSALAuthMethodC13challengeTypeSSvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "loginHint",
+            "printedName": "loginHint",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4MSAL14MSALAuthMethodC9loginHintSSvp",
+            "mangledName": "$s4MSAL14MSALAuthMethodC9loginHintSSvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL14MSALAuthMethodC9loginHintSSvg",
+                "mangledName": "$s4MSAL14MSALAuthMethodC9loginHintSSvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "channelTargetType",
+            "printedName": "channelTargetType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthChannelType",
+                "printedName": "MSAL.MSALNativeAuthChannelType",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:4MSAL14MSALAuthMethodC17channelTargetTypeAA021MSALNativeAuthChannelF0Cvp",
+            "mangledName": "$s4MSAL14MSALAuthMethodC17channelTargetTypeAA021MSALNativeAuthChannelF0Cvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MSALNativeAuthChannelType",
+                    "printedName": "MSAL.MSALNativeAuthChannelType",
+                    "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL14MSALAuthMethodC17channelTargetTypeAA021MSALNativeAuthChannelF0Cvg",
+                "mangledName": "$s4MSAL14MSALAuthMethodC17channelTargetTypeAA021MSALNativeAuthChannelF0Cvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSALAuthMethod",
+                "printedName": "MSAL.MSALAuthMethod",
+                "usr": "c:@M@MSAL@objc(cs)MSALAuthMethod"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MSAL@objc(cs)MSALAuthMethod(im)init",
+            "mangledName": "$s4MSAL14MSALAuthMethodCACycfc",
+            "moduleName": "MSAL",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)MSALAuthMethod",
+        "mangledName": "$s4MSAL14MSALAuthMethodC",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
         ]
       },
       {
@@ -2300,6 +2988,222 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "MFARequestChallengeError",
+        "printedName": "MFARequestChallengeError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "errorDescription",
+            "printedName": "errorDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MFARequestChallengeError(py)errorDescription",
+            "mangledName": "$s4MSAL24MFARequestChallengeErrorC16errorDescriptionSSSgvp",
+            "moduleName": "MSAL",
+            "overriding": true,
+            "objc_name": "errorDescription",
+            "declAttributes": [
+              "ObjC",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MFARequestChallengeError(im)errorDescription",
+                "mangledName": "$s4MSAL24MFARequestChallengeErrorC16errorDescriptionSSSgvg",
+                "moduleName": "MSAL",
+                "overriding": true,
+                "objc_name": "errorDescription",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isBrowserRequired",
+            "printedName": "isBrowserRequired",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MFARequestChallengeError(py)isBrowserRequired",
+            "mangledName": "$s4MSAL24MFARequestChallengeErrorC17isBrowserRequiredSbvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MFARequestChallengeError(im)isBrowserRequired",
+                "mangledName": "$s4MSAL24MFARequestChallengeErrorC17isBrowserRequiredSbvg",
+                "moduleName": "MSAL",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)MFARequestChallengeError",
+        "mangledName": "$s4MSAL24MFARequestChallengeErrorC",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@MSAL@objc(cs)MSALNativeAuthError",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "MSAL.MSALNativeAuthError",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "LocalizedError",
+            "printedName": "LocalizedError",
+            "usr": "s:10Foundation14LocalizedErrorP",
+            "mangledName": "$s10Foundation14LocalizedErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "Import",
         "name": "MSAL_Private",
         "printedName": "MSAL_Private",
@@ -2328,6 +3232,26 @@
         "moduleName": "MSAL",
         "declAttributes": [
           "ImplementationOnly",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
           "RawDocComment"
         ]
       },
@@ -2456,7 +3380,7 @@
                 "kind": "TypeNominal",
                 "name": "MSALNativeAuthChannelType",
                 "printedName": "MSAL.MSALNativeAuthChannelType",
-                "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType"
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType"
               },
               {
                 "kind": "TypeNominal",
@@ -2467,7 +3391,7 @@
             ],
             "declKind": "Func",
             "usr": "c:@M@MSAL@objc(pl)SignInStartDelegate(im)onSignInCodeRequiredWithNewState:sentTo:channelTargetType:codeLength:",
-            "mangledName": "$s4MSAL19SignInStartDelegateP02onbC12CodeRequired8newState6sentTo17channelTargetType10codeLengthyAA0bcghJ0C_SSAA021MSALNativeAuthChannelO0OSitF",
+            "mangledName": "$s4MSAL19SignInStartDelegateP02onbC12CodeRequired8newState6sentTo17channelTargetType10codeLengthyAA0bcghJ0C_SSAA021MSALNativeAuthChannelO0CSitF",
             "moduleName": "MSAL",
             "genericSig": "<τ_0_0 where τ_0_0 : MSAL.SignInStartDelegate>",
             "sugared_genericSig": "<Self where Self : MSAL.SignInStartDelegate>",
@@ -2507,6 +3431,40 @@
             "sugared_genericSig": "<Self where Self : MSAL.SignInStartDelegate>",
             "protocolReq": true,
             "objc_name": "onSignInPasswordRequiredWithNewState:",
+            "declAttributes": [
+              "Optional",
+              "ObjC",
+              "Custom",
+              "RawDocComment"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onSignInAwaitingMFA",
+            "printedName": "onSignInAwaitingMFA(newState:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AwaitingMFAState",
+                "printedName": "MSAL.AwaitingMFAState",
+                "usr": "c:@M@MSAL@objc(cs)AwaitingMFAState"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(pl)SignInStartDelegate(im)onSignInAwaitingMFAWithNewState:",
+            "mangledName": "$s4MSAL19SignInStartDelegateP02onbC11AwaitingMFA8newStateyAA0G8MFAStateC_tF",
+            "moduleName": "MSAL",
+            "genericSig": "<τ_0_0 where τ_0_0 : MSAL.SignInStartDelegate>",
+            "sugared_genericSig": "<Self where Self : MSAL.SignInStartDelegate>",
+            "protocolReq": true,
+            "objc_name": "onSignInAwaitingMFAWithNewState:",
             "declAttributes": [
               "Optional",
               "ObjC",
@@ -2610,6 +3568,40 @@
               "Custom",
               "RawDocComment",
               "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onSignInAwaitingMFA",
+            "printedName": "onSignInAwaitingMFA(newState:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AwaitingMFAState",
+                "printedName": "MSAL.AwaitingMFAState",
+                "usr": "c:@M@MSAL@objc(cs)AwaitingMFAState"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(pl)SignInPasswordRequiredDelegate(im)onSignInAwaitingMFAWithNewState:",
+            "mangledName": "$s4MSAL30SignInPasswordRequiredDelegateP02onbC11AwaitingMFA8newStateyAA0H8MFAStateC_tF",
+            "moduleName": "MSAL",
+            "genericSig": "<τ_0_0 where τ_0_0 : MSAL.SignInPasswordRequiredDelegate>",
+            "sugared_genericSig": "<Self where Self : MSAL.SignInPasswordRequiredDelegate>",
+            "protocolReq": true,
+            "objc_name": "onSignInAwaitingMFAWithNewState:",
+            "declAttributes": [
+              "Optional",
+              "ObjC",
+              "Custom",
+              "RawDocComment"
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
@@ -2738,7 +3730,7 @@
                 "kind": "TypeNominal",
                 "name": "MSALNativeAuthChannelType",
                 "printedName": "MSAL.MSALNativeAuthChannelType",
-                "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType"
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType"
               },
               {
                 "kind": "TypeNominal",
@@ -2749,7 +3741,7 @@
             ],
             "declKind": "Func",
             "usr": "c:@M@MSAL@objc(pl)SignInResendCodeDelegate(im)onSignInResendCodeCodeRequiredWithNewState:sentTo:channelTargetType:codeLength:",
-            "mangledName": "$s4MSAL24SignInResendCodeDelegateP02onbcdeE8Required8newState6sentTo17channelTargetType10codeLengthyAA0bcehJ0C_SSAA021MSALNativeAuthChannelO0OSitF",
+            "mangledName": "$s4MSAL24SignInResendCodeDelegateP02onbcdeE8Required8newState6sentTo17channelTargetType10codeLengthyAA0bcehJ0C_SSAA021MSALNativeAuthChannelO0CSitF",
             "moduleName": "MSAL",
             "genericSig": "<τ_0_0 where τ_0_0 : MSAL.SignInResendCodeDelegate>",
             "sugared_genericSig": "<Self where Self : MSAL.SignInResendCodeDelegate>",
@@ -3978,6 +4970,222 @@
         "moduleName": "MSAL",
         "declAttributes": [
           "ImplementationOnly"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MFASubmitChallengeError",
+        "printedName": "MFASubmitChallengeError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "errorDescription",
+            "printedName": "errorDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MFASubmitChallengeError(py)errorDescription",
+            "mangledName": "$s4MSAL23MFASubmitChallengeErrorC16errorDescriptionSSSgvp",
+            "moduleName": "MSAL",
+            "overriding": true,
+            "objc_name": "errorDescription",
+            "declAttributes": [
+              "ObjC",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MFASubmitChallengeError(im)errorDescription",
+                "mangledName": "$s4MSAL23MFASubmitChallengeErrorC16errorDescriptionSSSgvg",
+                "moduleName": "MSAL",
+                "overriding": true,
+                "objc_name": "errorDescription",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isInvalidChallenge",
+            "printedName": "isInvalidChallenge",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MFASubmitChallengeError(py)isInvalidChallenge",
+            "mangledName": "$s4MSAL23MFASubmitChallengeErrorC09isInvalidC0Sbvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MFASubmitChallengeError(im)isInvalidChallenge",
+                "mangledName": "$s4MSAL23MFASubmitChallengeErrorC09isInvalidC0Sbvg",
+                "moduleName": "MSAL",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)MFASubmitChallengeError",
+        "mangledName": "$s4MSAL23MFASubmitChallengeErrorC",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@MSAL@objc(cs)MSALNativeAuthError",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "MSAL.MSALNativeAuthError",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "LocalizedError",
+            "printedName": "LocalizedError",
+            "usr": "s:10Foundation14LocalizedErrorP",
+            "mangledName": "$s10Foundation14LocalizedErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
         ]
       },
       {
@@ -5503,6 +6711,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "MSAL_Private",
         "printedName": "MSAL_Private",
         "declKind": "Import",
@@ -5609,6 +6827,16 @@
         "moduleName": "MSAL",
         "declAttributes": [
           "ImplementationOnly"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -5912,6 +7140,222 @@
         "moduleName": "MSAL",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MFAGetAuthMethodsError",
+        "printedName": "MFAGetAuthMethodsError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "errorDescription",
+            "printedName": "errorDescription",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MFAGetAuthMethodsError(py)errorDescription",
+            "mangledName": "$s4MSAL22MFAGetAuthMethodsErrorC16errorDescriptionSSSgvp",
+            "moduleName": "MSAL",
+            "overriding": true,
+            "objc_name": "errorDescription",
+            "declAttributes": [
+              "ObjC",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MFAGetAuthMethodsError(im)errorDescription",
+                "mangledName": "$s4MSAL22MFAGetAuthMethodsErrorC16errorDescriptionSSSgvg",
+                "moduleName": "MSAL",
+                "overriding": true,
+                "objc_name": "errorDescription",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isBrowserRequired",
+            "printedName": "isBrowserRequired",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MFAGetAuthMethodsError(py)isBrowserRequired",
+            "mangledName": "$s4MSAL22MFAGetAuthMethodsErrorC17isBrowserRequiredSbvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MFAGetAuthMethodsError(im)isBrowserRequired",
+                "mangledName": "$s4MSAL22MFAGetAuthMethodsErrorC17isBrowserRequiredSbvg",
+                "moduleName": "MSAL",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)MFAGetAuthMethodsError",
+        "mangledName": "$s4MSAL22MFAGetAuthMethodsErrorC",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@MSAL@objc(cs)MSALNativeAuthError",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "MSAL.MSALNativeAuthError",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "LocalizedError",
+            "printedName": "LocalizedError",
+            "usr": "s:10Foundation14LocalizedErrorP",
+            "mangledName": "$s10Foundation14LocalizedErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Error",
+            "printedName": "Error",
+            "usr": "s:s5ErrorP",
+            "mangledName": "$ss5ErrorP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
         ]
       },
       {
@@ -6552,6 +7996,16 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "TypeDecl",
         "name": "SignInAfterResetPasswordDelegate",
         "printedName": "SignInAfterResetPasswordDelegate",
@@ -6632,6 +8086,16 @@
         "declAttributes": [
           "AccessControl",
           "ObjC",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
           "RawDocComment"
         ]
       },
@@ -6759,7 +8223,7 @@
                 "kind": "TypeNominal",
                 "name": "MSALNativeAuthChannelType",
                 "printedName": "MSAL.MSALNativeAuthChannelType",
-                "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType"
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType"
               },
               {
                 "kind": "TypeNominal",
@@ -6770,7 +8234,7 @@
             ],
             "declKind": "Func",
             "usr": "c:@M@MSAL@objc(pl)SignUpStartDelegate(im)onSignUpCodeRequiredWithNewState:sentTo:channelTargetType:codeLength:",
-            "mangledName": "$s4MSAL19SignUpStartDelegateP02onbC12CodeRequired8newState6sentTo17channelTargetType10codeLengthyAA0bcghJ0C_SSAA021MSALNativeAuthChannelO0OSitF",
+            "mangledName": "$s4MSAL19SignUpStartDelegateP02onbC12CodeRequired8newState6sentTo17channelTargetType10codeLengthyAA0bcghJ0C_SSAA021MSALNativeAuthChannelO0CSitF",
             "moduleName": "MSAL",
             "genericSig": "<τ_0_0 where τ_0_0 : MSAL.SignUpStartDelegate>",
             "sugared_genericSig": "<Self where Self : MSAL.SignUpStartDelegate>",
@@ -7097,7 +8561,7 @@
                 "kind": "TypeNominal",
                 "name": "MSALNativeAuthChannelType",
                 "printedName": "MSAL.MSALNativeAuthChannelType",
-                "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType"
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType"
               },
               {
                 "kind": "TypeNominal",
@@ -7108,7 +8572,7 @@
             ],
             "declKind": "Func",
             "usr": "c:@M@MSAL@objc(pl)SignUpResendCodeDelegate(im)onSignUpResendCodeCodeRequiredWithNewState:sentTo:channelTargetType:codeLength:",
-            "mangledName": "$s4MSAL24SignUpResendCodeDelegateP02onbcdeE8Required8newState6sentTo17channelTargetType10codeLengthyAA0bcehJ0C_SSAA021MSALNativeAuthChannelO0OSitF",
+            "mangledName": "$s4MSAL24SignUpResendCodeDelegateP02onbcdeE8Required8newState6sentTo17channelTargetType10codeLengthyAA0bcehJ0C_SSAA021MSALNativeAuthChannelO0CSitF",
             "moduleName": "MSAL",
             "genericSig": "<τ_0_0 where τ_0_0 : MSAL.SignUpResendCodeDelegate>",
             "sugared_genericSig": "<Self where Self : MSAL.SignUpResendCodeDelegate>",
@@ -7495,6 +8959,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "MSAL_Private",
         "printedName": "MSAL_Private",
         "declKind": "Import",
@@ -7853,6 +9327,16 @@
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -8277,6 +9761,16 @@
         "moduleName": "MSAL",
         "declAttributes": [
           "ImplementationOnly",
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
           "RawDocComment"
         ]
       },
@@ -8775,6 +10269,381 @@
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
           }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MFABaseState",
+        "printedName": "MFABaseState",
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)MFABaseState",
+        "mangledName": "$s4MSAL12MFABaseStateC",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@MSAL@objc(cs)MSALNativeAuthBaseState",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "MSAL.MSALNativeAuthBaseState",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AwaitingMFAState",
+        "printedName": "AwaitingMFAState",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "requestChallenge",
+            "printedName": "requestChallenge(delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MFARequestChallengeDelegate",
+                "printedName": "MSAL.MFARequestChallengeDelegate",
+                "usr": "c:@M@MSAL@objc(pl)MFARequestChallengeDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(cs)AwaitingMFAState(im)requestChallengeWithDelegate:",
+            "mangledName": "$s4MSAL16AwaitingMFAStateC16requestChallenge8delegateyAA010MFARequestE8Delegate_p_tF",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)AwaitingMFAState",
+        "mangledName": "$s4MSAL16AwaitingMFAStateC",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@MSAL@objc(cs)MFABaseState",
+        "hasMissingDesignatedInitializers": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "MSAL.MFABaseState",
+          "MSAL.MSALNativeAuthBaseState",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MFARequiredState",
+        "printedName": "MFARequiredState",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "requestChallenge",
+            "printedName": "requestChallenge(authMethod:delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "MSAL.MSALAuthMethod?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MSALAuthMethod",
+                    "printedName": "MSAL.MSALAuthMethod",
+                    "usr": "c:@M@MSAL@objc(cs)MSALAuthMethod"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MFARequestChallengeDelegate",
+                "printedName": "MSAL.MFARequestChallengeDelegate",
+                "usr": "c:@M@MSAL@objc(pl)MFARequestChallengeDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(cs)MFARequiredState(im)requestChallengeWithAuthMethod:delegate:",
+            "mangledName": "$s4MSAL16MFARequiredStateC16requestChallenge10authMethod8delegateyAA08MSALAuthG0CSg_AA010MFARequestE8Delegate_ptF",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getAuthMethods",
+            "printedName": "getAuthMethods(delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MFAGetAuthMethodsDelegate",
+                "printedName": "MSAL.MFAGetAuthMethodsDelegate",
+                "usr": "c:@M@MSAL@objc(pl)MFAGetAuthMethodsDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(cs)MFARequiredState(im)getAuthMethodsWithDelegate:",
+            "mangledName": "$s4MSAL16MFARequiredStateC14getAuthMethods8delegateyAA06MFAGeteF8Delegate_p_tF",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "submitChallenge",
+            "printedName": "submitChallenge(challenge:delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MFASubmitChallengeDelegate",
+                "printedName": "MSAL.MFASubmitChallengeDelegate",
+                "usr": "c:@M@MSAL@objc(pl)MFASubmitChallengeDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(cs)MFARequiredState(im)submitChallengeWithChallenge:delegate:",
+            "mangledName": "$s4MSAL16MFARequiredStateC15submitChallenge9challenge8delegateySS_AA09MFASubmitE8Delegate_ptF",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)MFARequiredState",
+        "mangledName": "$s4MSAL16MFARequiredStateC",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@MSAL@objc(cs)MFABaseState",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "MSAL.MFABaseState",
+          "MSAL.MSALNativeAuthBaseState",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "RawDocComment"
         ]
       },
       {
@@ -9571,138 +11440,29 @@
         "children": [
           {
             "kind": "Var",
-            "name": "email",
-            "printedName": "email",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(MSAL.MSALNativeAuthChannelType.Type) -> MSAL.MSALNativeAuthChannelType",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MSALNativeAuthChannelType",
-                    "printedName": "MSAL.MSALNativeAuthChannelType",
-                    "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "MSAL.MSALNativeAuthChannelType.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "MSALNativeAuthChannelType",
-                        "printedName": "MSAL.MSALNativeAuthChannelType",
-                        "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType@MSALNativeAuthChannelTypeEmail",
-            "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeO5emailyA2CmF",
-            "moduleName": "MSAL",
-            "declAttributes": [
-              "RawDocComment",
-              "ObjC"
-            ],
-            "fixedbinaryorder": 0
-          },
-          {
-            "kind": "Var",
-            "name": "phone",
-            "printedName": "phone",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(MSAL.MSALNativeAuthChannelType.Type) -> MSAL.MSALNativeAuthChannelType",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MSALNativeAuthChannelType",
-                    "printedName": "MSAL.MSALNativeAuthChannelType",
-                    "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "MSAL.MSALNativeAuthChannelType.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "MSALNativeAuthChannelType",
-                        "printedName": "MSAL.MSALNativeAuthChannelType",
-                        "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType@MSALNativeAuthChannelTypePhone",
-            "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeO5phoneyA2CmF",
-            "moduleName": "MSAL",
-            "declAttributes": [
-              "RawDocComment",
-              "ObjC"
-            ],
-            "fixedbinaryorder": 1
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(rawValue:)",
+            "name": "value",
+            "printedName": "value",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "MSAL.MSALNativeAuthChannelType?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MSALNativeAuthChannelType",
-                    "printedName": "MSAL.MSALNativeAuthChannelType",
-                    "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:4MSAL25MSALNativeAuthChannelTypeO8rawValueACSgSi_tcfc",
-            "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeO8rawValueACSgSi_tcfc",
-            "moduleName": "MSAL",
-            "implicit": true,
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Var",
-            "name": "rawValue",
-            "printedName": "rawValue",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Var",
-            "usr": "s:4MSAL25MSALNativeAuthChannelTypeO8rawValueSivp",
-            "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeO8rawValueSivp",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType(py)value",
+            "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeC5valueSSvp",
             "moduleName": "MSAL",
-            "implicit": true,
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
             "accessors": [
               {
                 "kind": "Accessor",
@@ -9711,31 +11471,156 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:4MSAL25MSALNativeAuthChannelTypeO8rawValueSivg",
-                "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeO8rawValueSivg",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType(im)value",
+                "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeC5valueSSvg",
                 "moduleName": "MSAL",
                 "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Var",
+            "name": "isEmailType",
+            "printedName": "isEmailType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType(py)isEmailType",
+            "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeC07isEmailE0Sbvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType(im)isEmailType",
+                "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeC07isEmailE0Sbvg",
+                "moduleName": "MSAL",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isPhoneType",
+            "printedName": "isPhoneType",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType(py)isPhoneType",
+            "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeC07isPhoneE0Sbvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType(im)isPhoneType",
+                "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeC07isPhoneE0Sbvg",
+                "moduleName": "MSAL",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthChannelType",
+                "printedName": "MSAL.MSALNativeAuthChannelType",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType(im)init",
+            "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeCACycfc",
+            "moduleName": "MSAL",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
           }
         ],
-        "declKind": "Enum",
-        "usr": "c:@M@MSAL@E@MSALNativeAuthChannelType",
-        "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeO",
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthChannelType",
+        "mangledName": "$s4MSAL25MSALNativeAuthChannelTypeC",
         "moduleName": "MSAL",
         "declAttributes": [
           "AccessControl",
-          "ObjC",
-          "RawDocComment"
+          "ObjCMembers",
+          "RawDocComment",
+          "ObjC"
         ],
-        "enumRawTypeName": "Int",
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
         "conformances": [
           {
             "kind": "Conformance",
@@ -9753,25 +11638,38 @@
           },
           {
             "kind": "Conformance",
-            "name": "RawRepresentable",
-            "printedName": "RawRepresentable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "RawValue",
-                "printedName": "RawValue",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:SY",
-            "mangledName": "$sSY"
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
         ]
       },
@@ -9782,6 +11680,17 @@
         "declKind": "Import",
         "moduleName": "MSAL",
         "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MSAL_Private",
+        "printedName": "MSAL_Private",
+        "declKind": "Import",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "ImplementationOnly",
           "RawDocComment"
         ]
       },
@@ -9979,100 +11888,128 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 1987,
+      "offset": 1995,
+      "length": 6,
+      "value": "740015"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2044,
       "length": 5,
       "value": "74003"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2035,
+      "offset": 2092,
       "length": 5,
       "value": "74004"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2087,
+      "offset": 2144,
       "length": 5,
       "value": "74005"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2137,
+      "offset": 2194,
       "length": 5,
       "value": "74011"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2192,
+      "offset": 2249,
       "length": 5,
       "value": "74012"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2247,
+      "offset": 2304,
       "length": 5,
       "value": "74013"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2298,
+      "offset": 2355,
       "length": 5,
       "value": "75028"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2349,
+      "offset": 2406,
       "length": 5,
       "value": "75019"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2404,
+      "offset": 2461,
       "length": 5,
       "value": "75015"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2451,
+      "offset": 2508,
       "length": 5,
       "value": "75010"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2499,
+      "offset": 2556,
       "length": 5,
       "value": "75011"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2547,
+      "offset": 2604,
       "length": 5,
       "value": "75012"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2599,
+      "offset": 2656,
       "length": 5,
       "value": "75013"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2653,
+      "offset": 2710,
       "length": 5,
       "value": "75014"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2761,
+      "length": 5,
+      "value": "75016"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2810,
+      "length": 5,
+      "value": "75017"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2860,
+      "length": 5,
+      "value": "75018"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
@@ -10147,100 +12084,128 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 1987,
+      "offset": 1995,
+      "length": 6,
+      "value": "740015"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2044,
       "length": 5,
       "value": "74003"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2035,
+      "offset": 2092,
       "length": 5,
       "value": "74004"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2087,
+      "offset": 2144,
       "length": 5,
       "value": "74005"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2137,
+      "offset": 2194,
       "length": 5,
       "value": "74011"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2192,
+      "offset": 2249,
       "length": 5,
       "value": "74012"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2247,
+      "offset": 2304,
       "length": 5,
       "value": "74013"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2298,
+      "offset": 2355,
       "length": 5,
       "value": "75028"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2349,
+      "offset": 2406,
       "length": 5,
       "value": "75019"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2404,
+      "offset": 2461,
       "length": 5,
       "value": "75015"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2451,
+      "offset": 2508,
       "length": 5,
       "value": "75010"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2499,
+      "offset": 2556,
       "length": 5,
       "value": "75011"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2547,
+      "offset": 2604,
       "length": 5,
       "value": "75012"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2599,
+      "offset": 2656,
       "length": 5,
       "value": "75013"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2653,
+      "offset": 2710,
       "length": 5,
       "value": "75014"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2761,
+      "length": 5,
+      "value": "75016"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2810,
+      "length": 5,
+      "value": "75017"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2860,
+      "length": 5,
+      "value": "75018"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
@@ -10315,105 +12280,133 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 1987,
+      "offset": 1995,
+      "length": 6,
+      "value": "740015"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2044,
       "length": 5,
       "value": "74003"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2035,
+      "offset": 2092,
       "length": 5,
       "value": "74004"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2087,
+      "offset": 2144,
       "length": 5,
       "value": "74005"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2137,
+      "offset": 2194,
       "length": 5,
       "value": "74011"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2192,
+      "offset": 2249,
       "length": 5,
       "value": "74012"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2247,
+      "offset": 2304,
       "length": 5,
       "value": "74013"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2298,
+      "offset": 2355,
       "length": 5,
       "value": "75028"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2349,
+      "offset": 2406,
       "length": 5,
       "value": "75019"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2404,
+      "offset": 2461,
       "length": 5,
       "value": "75015"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2451,
+      "offset": 2508,
       "length": 5,
       "value": "75010"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2499,
+      "offset": 2556,
       "length": 5,
       "value": "75011"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2547,
+      "offset": 2604,
       "length": 5,
       "value": "75012"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2599,
+      "offset": 2656,
       "length": 5,
       "value": "75013"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
       "kind": "IntegerLiteral",
-      "offset": 2653,
+      "offset": 2710,
       "length": 5,
       "value": "75014"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2761,
+      "length": 5,
+      "value": "75016"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2810,
+      "length": 5,
+      "value": "75017"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthTelemetryApiId.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2860,
+      "length": 5,
+      "value": "75018"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthRequestConfigurator.swift",
       "kind": "StringLiteral",
-      "offset": 2390,
+      "offset": 2463,
       "length": 33,
       "value": "\"MSAL.MSALNativeAuthRequestConfigurator\""
     },
@@ -10917,6 +12910,13 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
+      "offset": 1733,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
       "offset": 1619,
       "length": 1,
       "value": "0"
@@ -10945,6 +12945,13 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
+      "offset": 1733,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
       "offset": 1619,
       "length": 1,
       "value": "0"
@@ -10973,273 +12980,280 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 1798,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1824,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1798,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1824,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1798,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1824,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1927,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1963,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1998,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2031,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2072,
+      "offset": 1733,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 1927,
+      "offset": 1828,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 1963,
+      "offset": 1854,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 1998,
+      "offset": 1828,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1854,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1828,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1854,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1957,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1993,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2028,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 2031,
+      "offset": 2061,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 2072,
+      "offset": 2102,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 1927,
+      "offset": 1957,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 1963,
+      "offset": 1993,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 1998,
+      "offset": 2028,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 2031,
+      "offset": 2061,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 2072,
+      "offset": 2102,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 2180,
+      "offset": 1957,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 2180,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2180,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2294,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2294,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2294,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2386,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2386,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2386,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2478,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2478,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2478,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2570,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 2597,
+      "offset": 1993,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 2570,
+      "offset": 2028,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2061,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2102,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2210,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 2597,
+      "offset": 2210,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2210,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2324,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2324,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2324,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2416,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2416,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2416,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2508,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2508,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2508,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2600,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2627,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 2570,
+      "offset": 2600,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
       "kind": "IntegerLiteral",
-      "offset": 2597,
+      "offset": 2627,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2600,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/telemetry\/MSALNativeAuthOperationTypes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2627,
       "length": 1,
       "value": "1"
     },
@@ -11265,6 +13279,13 @@
       "value": "\"MSAL.SignInPasswordRequiredState\""
     },
     {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/MSALAuthMethod.swift",
+      "kind": "StringLiteral",
+      "offset": 1304,
+      "length": 14,
+      "value": "\"MSAL.MSALAuthMethod\""
+    },
+    {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/state_machine\/error\/RetrieveAccessTokenError.swift",
       "kind": "Array",
       "offset": 1638,
@@ -11281,14 +13302,14 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/MSALNativeAuthUserAccountResult.swift",
       "kind": "BooleanLiteral",
-      "offset": 3404,
+      "offset": 3728,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/MSALNativeAuthUserAccountResult.swift",
       "kind": "BooleanLiteral",
-      "offset": 4925,
+      "offset": 5249,
       "length": 5,
       "value": "false"
     },
@@ -11300,6 +13321,20 @@
       "value": "\"MSAL.MSALNativeAuthUserAccountResult\""
     },
     {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/state_machine\/error\/MFARequestChallengeError.swift",
+      "kind": "Array",
+      "offset": 1580,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/state_machine\/error\/MFARequestChallengeError.swift",
+      "kind": "StringLiteral",
+      "offset": 1319,
+      "length": 24,
+      "value": "\"MSAL.MFARequestChallengeError\""
+    },
+    {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/responses\/reset_password\/MSALNativeAuthResetPasswordPollCompletionStatus.swift",
       "kind": "StringLiteral",
       "offset": 1330,
@@ -11351,35 +13386,42 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthRequestParametersKey.swift",
       "kind": "StringLiteral",
-      "offset": 1468,
+      "offset": 1387,
+      "length": 4,
+      "value": "\"id\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthRequestParametersKey.swift",
+      "kind": "StringLiteral",
+      "offset": 1487,
       "length": 20,
       "value": "\"continuation_token\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthRequestParametersKey.swift",
       "kind": "StringLiteral",
-      "offset": 1508,
+      "offset": 1527,
       "length": 5,
       "value": "\"oob\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthRequestParametersKey.swift",
       "kind": "StringLiteral",
-      "offset": 1596,
+      "offset": 1615,
       "length": 14,
       "value": "\"new_password\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthRequestParametersKey.swift",
       "kind": "StringLiteral",
-      "offset": 1633,
+      "offset": 1652,
       "length": 13,
       "value": "\"client_info\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthRequestParametersKey.swift",
       "kind": "StringLiteral",
-      "offset": 1671,
+      "offset": 1690,
       "length": 15,
       "value": "\"refresh_token\""
     },
@@ -11407,35 +13449,42 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthRequestParametersKey.swift",
       "kind": "StringLiteral",
-      "offset": 1468,
+      "offset": 1387,
+      "length": 4,
+      "value": "\"id\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthRequestParametersKey.swift",
+      "kind": "StringLiteral",
+      "offset": 1487,
       "length": 20,
       "value": "\"continuation_token\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthRequestParametersKey.swift",
       "kind": "StringLiteral",
-      "offset": 1508,
+      "offset": 1527,
       "length": 5,
       "value": "\"oob\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthRequestParametersKey.swift",
       "kind": "StringLiteral",
-      "offset": 1596,
+      "offset": 1615,
       "length": 14,
       "value": "\"new_password\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthRequestParametersKey.swift",
       "kind": "StringLiteral",
-      "offset": 1633,
+      "offset": 1652,
       "length": 13,
       "value": "\"client_info\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthRequestParametersKey.swift",
       "kind": "StringLiteral",
-      "offset": 1671,
+      "offset": 1690,
       "length": 15,
       "value": "\"refresh_token\""
     },
@@ -11498,6 +13547,20 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthSubErrorCode.swift",
       "kind": "StringLiteral",
+      "offset": 1751,
+      "length": 21,
+      "value": "\"introspect_required\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthSubErrorCode.swift",
+      "kind": "StringLiteral",
+      "offset": 1796,
+      "length": 14,
+      "value": "\"mfa_required\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthSubErrorCode.swift",
+      "kind": "StringLiteral",
       "offset": 1341,
       "length": 19,
       "value": "\"password_too_weak\""
@@ -11550,6 +13613,20 @@
       "offset": 1701,
       "length": 19,
       "value": "\"invalid_oob_value\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthSubErrorCode.swift",
+      "kind": "StringLiteral",
+      "offset": 1751,
+      "length": 21,
+      "value": "\"introspect_required\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthSubErrorCode.swift",
+      "kind": "StringLiteral",
+      "offset": 1796,
+      "length": 14,
+      "value": "\"mfa_required\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/reset_password\/MSALNativeAuthResetPasswordContinueOauth2ErrorCode.swift",
@@ -11778,128 +13855,142 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 1462,
-      "length": 54,
-      "value": "\"MFA currently not supported. Use the browser instead\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
-      "kind": "StringLiteral",
-      "offset": 1550,
+      "offset": 1463,
       "length": 57,
       "value": "\"Browser required. Use acquireTokenInteractively instead\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 1649,
+      "offset": 1562,
       "length": 53,
       "value": "\"User does not have password associated with account\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 1733,
+      "offset": 1646,
       "length": 21,
       "value": "\"User does not exist\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 1809,
+      "offset": 1722,
       "length": 90,
       "value": "\"Check the invalid attributes and start the sign-up process again. Invalid attributes: %@\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 1943,
+      "offset": 1856,
       "length": 24,
       "value": "\"Invalid attributes: %@\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 2004,
+      "offset": 1917,
       "length": 83,
       "value": "\"Sign In is not available at this point, please use the standalone sign in methods\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 2136,
+      "offset": 2049,
       "length": 156,
       "value": "\"This user does not have a password associated with their account. SDK will call `delegate.onSignInCodeRequired()` and the entered password will be ignored\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 2328,
+      "offset": 2241,
       "length": 21,
       "value": "\"User already exists\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 2383,
+      "offset": 2296,
       "length": 18,
       "value": "\"Invalid password\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 2438,
+      "offset": 2351,
       "length": 21,
       "value": "\"Invalid credentials\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 2493,
+      "offset": 2406,
       "length": 18,
       "value": "\"Invalid username\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 2542,
+      "offset": 2455,
       "length": 15,
       "value": "\"General error\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 2587,
+      "offset": 2500,
       "length": 14,
       "value": "\"Invalid code\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 2639,
+      "offset": 2549,
+      "length": 19,
+      "value": "\"Invalid challenge\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
+      "kind": "StringLiteral",
+      "offset": 2606,
       "length": 26,
       "value": "\"Refresh token is expired\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 2708,
+      "offset": 2675,
       "length": 272,
       "value": "\"WARNING ⚠️: redirectUri not set during MSAL Native Auth initialization. Production apps must correctly configure a redirect URI and call acquireToken in response to all browserRequired errors. See https:\/\/learn.microsoft.com\/entra\/identity-platform\/redirect-uris-ios\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 3021,
+      "offset": 2988,
       "length": 35,
       "value": "\"Unexpected response body received\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
       "kind": "StringLiteral",
-      "offset": 3098,
+      "offset": 3065,
       "length": 27,
       "value": "\"Unexpected challenge type\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
+      "kind": "StringLiteral",
+      "offset": 3139,
+      "length": 161,
+      "value": "\"Multi-factor authentication is required, which can't be fulfilled as part of this flow. Please sign out and perform a new sign in operation. More information: \""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthErrorMessage.swift",
+      "kind": "StringLiteral",
+      "offset": 3340,
+      "length": 164,
+      "value": "\"User password change is required, which can't be fulfilled as part of this flow. Please reset the password and perform a new sign in operation. More information: \""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/token\/MSALNativeAuthTokenOauth2ErrorCode.swift",
@@ -12063,6 +14154,20 @@
       "value": "\"MSAL.MSALNativeAuthSignInController\""
     },
     {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/state_machine\/error\/MFASubmitChallengeError.swift",
+      "kind": "Array",
+      "offset": 1579,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/state_machine\/error\/MFASubmitChallengeError.swift",
+      "kind": "StringLiteral",
+      "offset": 1318,
+      "length": 23,
+      "value": "\"MSAL.MFASubmitChallengeError\""
+    },
+    {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/token\/MSALNativeAuthTokenResponseError.swift",
       "kind": "StringLiteral",
       "offset": 1668,
@@ -12163,7 +14268,7 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/responses\/validator\/token\/MSALNativeAuthTokenResponseValidator.swift",
       "kind": "BooleanLiteral",
-      "offset": 6113,
+      "offset": 7592,
       "length": 5,
       "value": "false"
     },
@@ -12429,58 +14534,72 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInChallengeResponseError.swift",
       "kind": "StringLiteral",
-      "offset": 1615,
+      "offset": 1661,
       "length": 19,
       "value": "\"error_description\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInChallengeResponseError.swift",
       "kind": "StringLiteral",
-      "offset": 1661,
+      "offset": 1707,
       "length": 13,
       "value": "\"error_codes\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInChallengeResponseError.swift",
       "kind": "StringLiteral",
-      "offset": 1699,
+      "offset": 1745,
       "length": 11,
       "value": "\"error_uri\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInChallengeResponseError.swift",
       "kind": "StringLiteral",
-      "offset": 1738,
+      "offset": 1784,
       "length": 14,
       "value": "\"inner_errors\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInChallengeResponseError.swift",
       "kind": "StringLiteral",
-      "offset": 1615,
+      "offset": 1823,
+      "length": 10,
+      "value": "\"suberror\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInChallengeResponseError.swift",
+      "kind": "StringLiteral",
+      "offset": 1661,
       "length": 19,
       "value": "\"error_description\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInChallengeResponseError.swift",
       "kind": "StringLiteral",
-      "offset": 1661,
+      "offset": 1707,
       "length": 13,
       "value": "\"error_codes\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInChallengeResponseError.swift",
       "kind": "StringLiteral",
-      "offset": 1699,
+      "offset": 1745,
       "length": 11,
       "value": "\"error_uri\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInChallengeResponseError.swift",
       "kind": "StringLiteral",
-      "offset": 1738,
+      "offset": 1784,
       "length": 14,
       "value": "\"inner_errors\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInChallengeResponseError.swift",
+      "kind": "StringLiteral",
+      "offset": 1823,
+      "length": 10,
+      "value": "\"suberror\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthGrantType.swift",
@@ -12742,6 +14861,34 @@
       "value": "\"inner_errors\""
     },
     {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInIntrospectOauth2ErrorCode.swift",
+      "kind": "StringLiteral",
+      "offset": 1350,
+      "length": 17,
+      "value": "\"invalid_request\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInIntrospectOauth2ErrorCode.swift",
+      "kind": "StringLiteral",
+      "offset": 1392,
+      "length": 15,
+      "value": "\"expired_token\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInIntrospectOauth2ErrorCode.swift",
+      "kind": "StringLiteral",
+      "offset": 1350,
+      "length": 17,
+      "value": "\"invalid_request\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInIntrospectOauth2ErrorCode.swift",
+      "kind": "StringLiteral",
+      "offset": 1392,
+      "length": 15,
+      "value": "\"expired_token\""
+    },
+    {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/reset_password\/MSALNativeAuthResetPasswordContinueResponseError.swift",
       "kind": "StringLiteral",
       "offset": 1724,
@@ -13020,6 +15167,20 @@
       "offset": 1533,
       "length": 28,
       "value": "\"unsupported_challenge_type\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/state_machine\/error\/MFAGetAuthMethodsError.swift",
+      "kind": "Array",
+      "offset": 1576,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/state_machine\/error\/MFAGetAuthMethodsError.swift",
+      "kind": "StringLiteral",
+      "offset": 1317,
+      "length": 22,
+      "value": "\"MSAL.MFAGetAuthMethodsError\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/state_machine\/error\/PasswordRequiredError.swift",
@@ -13162,11 +15323,74 @@
       "value": "\"MSAL.VerifyCodeError\""
     },
     {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInIntrospectResponseError.swift",
+      "kind": "StringLiteral",
+      "offset": 1619,
+      "length": 19,
+      "value": "\"error_description\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInIntrospectResponseError.swift",
+      "kind": "StringLiteral",
+      "offset": 1665,
+      "length": 13,
+      "value": "\"error_codes\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInIntrospectResponseError.swift",
+      "kind": "StringLiteral",
+      "offset": 1703,
+      "length": 11,
+      "value": "\"error_uri\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInIntrospectResponseError.swift",
+      "kind": "StringLiteral",
+      "offset": 1742,
+      "length": 14,
+      "value": "\"inner_errors\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInIntrospectResponseError.swift",
+      "kind": "StringLiteral",
+      "offset": 1619,
+      "length": 19,
+      "value": "\"error_description\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInIntrospectResponseError.swift",
+      "kind": "StringLiteral",
+      "offset": 1665,
+      "length": 13,
+      "value": "\"error_codes\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInIntrospectResponseError.swift",
+      "kind": "StringLiteral",
+      "offset": 1703,
+      "length": 11,
+      "value": "\"error_uri\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_in\/MSALNativeAuthSignInIntrospectResponseError.swift",
+      "kind": "StringLiteral",
+      "offset": 1742,
+      "length": 14,
+      "value": "\"inner_errors\""
+    },
+    {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_up\/MSALNativeAuthErrorBasicAttribute.swift",
       "kind": "StringLiteral",
       "offset": 1221,
       "length": 33,
       "value": "\"MSAL.MSALNativeAuthErrorBasicAttribute\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/MSALNativeAuthLogMessage.swift",
+      "kind": "StringLiteral",
+      "offset": 1288,
+      "length": 130,
+      "value": "\"Warning ⚠️: this API is experimental. It may be changed in the future without notice. Do not use in production applications.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/parameters\/token\/MSALNativeAuthTokenRequestParameters.swift",
@@ -13281,39 +15505,18 @@
       "value": "\"MSAL.ResetPasswordStartError\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1339,
-      "length": 5,
-      "value": "50034"
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/state_machine\/state\/MFAStates.swift",
+      "kind": "StringLiteral",
+      "offset": 1272,
+      "length": 12,
+      "value": "\"MSAL.MFABaseState\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1375,
-      "length": 5,
-      "value": "50126"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1411,
-      "length": 5,
-      "value": "50076"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1449,
-      "length": 6,
-      "value": "500222"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1491,
-      "length": 5,
-      "value": "90100"
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/state_machine\/state\/MFAStates.swift",
+      "kind": "StringLiteral",
+      "offset": 3684,
+      "length": 16,
+      "value": "\"MSAL.MFARequiredState\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
@@ -13332,23 +15535,23 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
       "kind": "IntegerLiteral",
-      "offset": 1411,
-      "length": 5,
-      "value": "50076"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1449,
+      "offset": 1413,
       "length": 6,
       "value": "500222"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
       "kind": "IntegerLiteral",
-      "offset": 1491,
+      "offset": 1455,
       "length": 5,
       "value": "90100"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1494,
+      "length": 5,
+      "value": "50142"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
@@ -13367,23 +15570,58 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
       "kind": "IntegerLiteral",
-      "offset": 1411,
-      "length": 5,
-      "value": "50076"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1449,
+      "offset": 1413,
       "length": 6,
       "value": "500222"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
       "kind": "IntegerLiteral",
-      "offset": 1491,
+      "offset": 1455,
       "length": 5,
       "value": "90100"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1494,
+      "length": 5,
+      "value": "50142"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1339,
+      "length": 5,
+      "value": "50034"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1375,
+      "length": 5,
+      "value": "50126"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1413,
+      "length": 6,
+      "value": "500222"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1455,
+      "length": 5,
+      "value": "90100"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/MSALNativeAuthESTSApiErrorCodes.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1494,
+      "length": 5,
+      "value": "50142"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/errors\/sign_up\/MSALNativeAuthSignUpChallengeOauth2ErrorCode.swift",
@@ -13479,49 +15717,56 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1513,
+      "offset": 1524,
+      "length": 25,
+      "value": "\"\/oauth2\/v2.0\/introspect\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
+      "kind": "StringLiteral",
+      "offset": 1567,
       "length": 20,
       "value": "\"\/oauth2\/v2.0\/token\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1564,
+      "offset": 1618,
       "length": 27,
       "value": "\"\/resetpassword\/v1.0\/start\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1626,
+      "offset": 1680,
       "length": 31,
       "value": "\"\/resetpassword\/v1.0\/challenge\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1691,
+      "offset": 1745,
       "length": 30,
       "value": "\"\/resetpassword\/v1.0\/continue\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1755,
+      "offset": 1809,
       "length": 30,
       "value": "\"\/resetpassword\/v1.0\/complete\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1817,
+      "offset": 1871,
       "length": 28,
       "value": "\"\/resetpassword\/v1.0\/submit\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1885,
+      "offset": 1939,
       "length": 37,
       "value": "\"\/resetpassword\/v1.0\/poll_completion\""
     },
@@ -13563,49 +15808,56 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1513,
+      "offset": 1524,
+      "length": 25,
+      "value": "\"\/oauth2\/v2.0\/introspect\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
+      "kind": "StringLiteral",
+      "offset": 1567,
       "length": 20,
       "value": "\"\/oauth2\/v2.0\/token\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1564,
+      "offset": 1618,
       "length": 27,
       "value": "\"\/resetpassword\/v1.0\/start\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1626,
+      "offset": 1680,
       "length": 31,
       "value": "\"\/resetpassword\/v1.0\/challenge\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1691,
+      "offset": 1745,
       "length": 30,
       "value": "\"\/resetpassword\/v1.0\/continue\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1755,
+      "offset": 1809,
       "length": 30,
       "value": "\"\/resetpassword\/v1.0\/complete\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1817,
+      "offset": 1871,
       "length": 28,
       "value": "\"\/resetpassword\/v1.0\/submit\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/network\/MSALNativeAuthEndpoint.swift",
       "kind": "StringLiteral",
-      "offset": 1885,
+      "offset": 1939,
       "length": 37,
       "value": "\"\/resetpassword\/v1.0\/poll_completion\""
     },
@@ -13653,17 +15905,10 @@
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/MSALNativeAuthChannelType.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1442,
-      "length": 5,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/MSALNativeAuthChannelType.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1442,
-      "length": 5,
-      "value": "1"
+      "kind": "StringLiteral",
+      "offset": 1287,
+      "length": 25,
+      "value": "\"MSAL.MSALNativeAuthChannelType\""
     }
   ]
 }

@@ -4,3 +4,8 @@ framework module MSAL {
 
   module * { export * }
 }
+
+module MSAL.Swift {
+  header "MSAL-Swift.h"
+  requires objc
+}

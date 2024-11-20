@@ -57,10 +57,21 @@ extern NSString *MSALOAuthErrorKey;
 extern NSString *MSALOAuthSubErrorKey;
 
 /**
+    The suberror description returned by the service.
+ */
+extern NSString *MSALOAuthSubErrorDescriptionKey;
+
+/**
     The extended error description. Note that this string can change and should
     not be relied upon for any error handling logic.
  */
 extern NSString *MSALErrorDescriptionKey;
+
+/**
+    A list of STS-specific error codes returned by the service that can help in diagnostics. Note that error codes can change and should
+    not be relied upon for any error handling logic.
+ */
+extern NSString *MSALSTSErrorCodesKey;
 
 /**
  Internal error code returned together with MSALErrorInternal error.
@@ -126,6 +137,11 @@ extern NSString *MSALHomeAccountIdKey;
 extern NSString *MSALErrorDomain;
 
 /**
+Flag indicate the error returned from client-side throttling.
+ */
+extern NSString *MSALThrottlingCacheHitKey;
+
+/**
  MSALError enum contains all errors that should be considered for handling in runtime.
  */
 typedef NS_ENUM(NSInteger, MSALError)
@@ -177,6 +193,11 @@ typedef NS_ENUM(NSInteger, MSALError)
     The server error happens when server returns server_error
      */
     MSALErrorServerError                         = -50006,
+
+    /**
+     Workplacejoin migrate device registration is required to proceed.
+     */
+    MSALErrorInsufficientDeviceStrength          = -50007,
 };
 
 /**

@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MSAL
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Foundation
@@ -14,6 +14,19 @@ import _SwiftConcurrencyShims
   final public let required: Swift.Bool
   final public let regex: Swift.String?
   @objc deinit
+}
+@objc public protocol MFARequestChallengeDelegate {
+  @objc @_Concurrency.MainActor func onMFARequestChallengeError(error: MSAL.MFARequestChallengeError, newState: MSAL.MFARequiredState?)
+  @_Concurrency.MainActor @objc optional func onMFARequestChallengeVerificationRequired(newState: MSAL.MFARequiredState, sentTo: Swift.String, channelTargetType: MSAL.MSALNativeAuthChannelType, codeLength: Swift.Int)
+  @_Concurrency.MainActor @objc optional func onMFARequestChallengeSelectionRequired(authMethods: [MSAL.MSALAuthMethod], newState: MSAL.MFARequiredState)
+}
+@objc public protocol MFAGetAuthMethodsDelegate {
+  @objc @_Concurrency.MainActor func onMFAGetAuthMethodsError(error: MSAL.MFAGetAuthMethodsError, newState: MSAL.MFARequiredState?)
+  @_Concurrency.MainActor @objc optional func onMFAGetAuthMethodsSelectionRequired(authMethods: [MSAL.MSALAuthMethod], newState: MSAL.MFARequiredState)
+}
+@objc public protocol MFASubmitChallengeDelegate {
+  @objc @_Concurrency.MainActor func onMFASubmitChallengeError(error: MSAL.MFASubmitChallengeError, newState: MSAL.MFARequiredState?)
+  @_Concurrency.MainActor @objc optional func onSignInCompleted(result: MSAL.MSALNativeAuthUserAccountResult)
 }
 @objc public protocol SignInAfterSignUpDelegate {
   @objc @_Concurrency.MainActor func onSignInAfterSignUpError(error: MSAL.SignInAfterSignUpError)
@@ -47,6 +60,13 @@ import _SwiftConcurrencyShims
   @objc public func submitPassword(password: Swift.String, delegate: any MSAL.SignInPasswordRequiredDelegate)
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc public class MSALAuthMethod : ObjectiveC.NSObject {
+  final public let id: Swift.String
+  final public let challengeType: Swift.String
+  final public let loginHint: Swift.String
+  final public let channelTargetType: MSAL.MSALNativeAuthChannelType
+  @objc deinit
+}
 @objc @_hasMissingDesignatedInitializers @objcMembers public class RetrieveAccessTokenError : MSAL.MSALNativeAuthError {
   @objc override public var errorDescription: Swift.String? {
     @objc get
@@ -76,14 +96,25 @@ import _SwiftConcurrencyShims
   @objc public func signIn(scopes: [Swift.String]? = nil, delegate: any MSAL.SignInAfterResetPasswordDelegate)
   @objc deinit
 }
+@objc @_hasMissingDesignatedInitializers @objcMembers public class MFARequestChallengeError : MSAL.MSALNativeAuthError {
+  @objc override public var errorDescription: Swift.String? {
+    @objc get
+  }
+  @objc public var isBrowserRequired: Swift.Bool {
+    @objc get
+  }
+  @objc deinit
+}
 @objc public protocol SignInStartDelegate {
   @objc @_Concurrency.MainActor func onSignInStartError(error: MSAL.SignInStartError)
   @_Concurrency.MainActor @objc optional func onSignInCodeRequired(newState: MSAL.SignInCodeRequiredState, sentTo: Swift.String, channelTargetType: MSAL.MSALNativeAuthChannelType, codeLength: Swift.Int)
   @_Concurrency.MainActor @objc optional func onSignInPasswordRequired(newState: MSAL.SignInPasswordRequiredState)
+  @_Concurrency.MainActor @objc optional func onSignInAwaitingMFA(newState: MSAL.AwaitingMFAState)
   @_Concurrency.MainActor @objc optional func onSignInCompleted(result: MSAL.MSALNativeAuthUserAccountResult)
 }
 @objc public protocol SignInPasswordRequiredDelegate {
   @objc @_Concurrency.MainActor func onSignInPasswordRequiredError(error: MSAL.PasswordRequiredError, newState: MSAL.SignInPasswordRequiredState?)
+  @_Concurrency.MainActor @objc optional func onSignInAwaitingMFA(newState: MSAL.AwaitingMFAState)
   @_Concurrency.MainActor @objc optional func onSignInCompleted(result: MSAL.MSALNativeAuthUserAccountResult)
 }
 @objc public protocol SignInResendCodeDelegate {
@@ -124,6 +155,15 @@ import _SwiftConcurrencyShims
 @objc public protocol CredentialsDelegate {
   @objc @_Concurrency.MainActor func onAccessTokenRetrieveError(error: MSAL.RetrieveAccessTokenError)
   @_Concurrency.MainActor @objc optional func onAccessTokenRetrieveCompleted(result: MSAL.MSALNativeAuthTokenResult)
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class MFASubmitChallengeError : MSAL.MSALNativeAuthError {
+  @objc override public var errorDescription: Swift.String? {
+    @objc get
+  }
+  @objc public var isInvalidChallenge: Swift.Bool {
+    @objc get
+  }
+  @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class SignInStartError : MSAL.MSALNativeAuthError {
   @objc override public var errorDescription: Swift.String? {
@@ -176,6 +216,15 @@ import _SwiftConcurrencyShims
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class ResendCodeError : MSAL.MSALNativeAuthError {
   @objc override public var errorDescription: Swift.String? {
+    @objc get
+  }
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class MFAGetAuthMethodsError : MSAL.MSALNativeAuthError {
+  @objc override public var errorDescription: Swift.String? {
+    @objc get
+  }
+  @objc public var isBrowserRequired: Swift.Bool {
     @objc get
   }
   @objc deinit
@@ -289,6 +338,19 @@ import _SwiftConcurrencyShims
   }
   @objc deinit
 }
+@objc @_hasMissingDesignatedInitializers @objcMembers public class MFABaseState : MSAL.MSALNativeAuthBaseState {
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class AwaitingMFAState : MSAL.MFABaseState {
+  @objc public func requestChallenge(delegate: any MSAL.MFARequestChallengeDelegate)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class MFARequiredState : MSAL.MFABaseState {
+  @objc public func requestChallenge(authMethod: MSAL.MSALAuthMethod? = nil, delegate: any MSAL.MFARequestChallengeDelegate)
+  @objc public func getAuthMethods(delegate: any MSAL.MFAGetAuthMethodsDelegate)
+  @objc public func submitChallenge(challenge: Swift.String, delegate: any MSAL.MFASubmitChallengeDelegate)
+  @objc deinit
+}
 @objc @_hasMissingDesignatedInitializers @objcMembers final public class MSALNativeAuthPublicClientApplication : MSAL.MSALPublicClientApplication {
   @objc public init(configuration config: MSAL.MSALPublicClientApplicationConfig, challengeTypes: MSAL.MSALNativeAuthChallengeTypes) throws
   @objc public init(clientId: Swift.String, tenantSubdomain: Swift.String, challengeTypes: MSAL.MSALNativeAuthChallengeTypes, redirectUri: Swift.String? = nil) throws
@@ -298,15 +360,13 @@ import _SwiftConcurrencyShims
   @objc final public func getNativeAuthUserAccount(correlationId: Foundation.UUID? = nil) -> MSAL.MSALNativeAuthUserAccountResult?
   @objc deinit
 }
-@objc public enum MSALNativeAuthChannelType : Swift.Int {
-  case email
-  case phone
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
+@objc @_hasMissingDesignatedInitializers @objcMembers public class MSALNativeAuthChannelType : ObjectiveC.NSObject {
+  @objc final public let value: Swift.String
+  @objc public var isEmailType: Swift.Bool {
+    @objc get
   }
+  @objc public var isPhoneType: Swift.Bool {
+    @objc get
+  }
+  @objc deinit
 }
-extension MSAL.MSALNativeAuthChannelType : Swift.Equatable {}
-extension MSAL.MSALNativeAuthChannelType : Swift.Hashable {}
-extension MSAL.MSALNativeAuthChannelType : Swift.RawRepresentable {}
