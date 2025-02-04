@@ -22,9 +22,9 @@ To enable MAM without device enrollment (MAM-WE), we must create a new App Prote
 ### Step 3: Create and Deploy App Configuration Policy
 Instructions for creating and deploying a new App Configuration Policy can be found [here](https://learn.microsoft.com/mem/intune/apps/app-configuration-policies-use-ios). 
 1. To create an App Configuration Policy targeting the Chatr sample app, click on **Add** in the "App configuration policies" pane. 
-1. In the "Add configuration policy" pane pecify the configuration policy name and description. Under "Device rollmt type" select **Managed apps**. Click on **Select the required app**. 
+1. In the "Add configuration policy" pane specify the configuration policy name and description. Under "Device enrollment type" select **Managed apps**. Click on **Select the required app**. 
 1. At the top of the pane click **More apps** and scroll to the bottom of the pane.
-1. ter the Bundle ID of your app and click **OK**. The Chatr bundle ID can be found by selecting the project file in the Xcode project explorer, selecting the chatr target, and selecting the "General" tab. This app's Package ID is `Intune.chatr`.
+1. Enter the Bundle ID of your app and click **OK**. The Chatr bundle ID can be found by selecting the project file in the Xcode project explorer, selecting the chatr target, and selecting the "General" tab. This app's Package ID is `Intune.chatr`.
 1. Click the **Configuration settings** button in the "Add configuration policy" pane and set the key-value pair configuration you would like to apply to a user group for your app. For intance, to change the messaging group name on the Chat Page of the Chatr sample app to "Intune", you can create a configuration where the key is "GroupName" and the value is "Intune".
 1. Once you have added the key-value pair configuration click **OK** at the bottom of the "Configuration" pane and then click **Add** at the bottom of the "Add configuration policy" pane. Your app should now appear in the "App configuration policies" pane.
     
