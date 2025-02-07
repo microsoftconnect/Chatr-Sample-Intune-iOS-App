@@ -88,12 +88,17 @@ import _SwiftConcurrencyShims
     @objc get
   }
   @objc public func signOut()
+  @objc public func getAccessToken(parameters: MSAL.MSALNativeAuthGetAccessTokenParameters, delegate: any MSAL.CredentialsDelegate)
+  @available(*, deprecated, message: "This method is now deprecated. Use the method 'getAccessToken(parameters:)' instead.")
   @objc public func getAccessToken(forceRefresh: Swift.Bool = false, correlationId: Foundation.UUID? = nil, delegate: any MSAL.CredentialsDelegate)
+  @available(*, deprecated, message: "This method is now deprecated. Use the method 'getAccessToken(parameters:)' instead.")
   public func getAccessToken(scopes: [Swift.String], forceRefresh: Swift.Bool = false, correlationId: Foundation.UUID? = nil, delegate: any MSAL.CredentialsDelegate)
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class SignInAfterResetPasswordState : MSAL.SignInAfterPreviousFlowBaseState {
-  @objc public func signIn(scopes: [Swift.String]? = nil, delegate: any MSAL.SignInAfterResetPasswordDelegate)
+  @objc public func signIn(parameters: MSAL.MSALNativeAuthSignInAfterResetPasswordParameters, delegate: any MSAL.SignInAfterResetPasswordDelegate)
+  @objc @available(*, deprecated, message: "This method is now deprecated. Use the method 'signIn(parameters:)' instead.")
+  public func signIn(scopes: [Swift.String]? = nil, delegate: any MSAL.SignInAfterResetPasswordDelegate)
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class MFARequestChallengeError : MSAL.MSALNativeAuthError {
@@ -317,7 +322,9 @@ import _SwiftConcurrencyShims
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class SignInAfterSignUpState : MSAL.SignInAfterPreviousFlowBaseState {
-  @objc public func signIn(scopes: [Swift.String]? = nil, delegate: any MSAL.SignInAfterSignUpDelegate)
+  @objc public func signIn(parameters: MSAL.MSALNativeAuthSignInAfterSignUpParameters, delegate: any MSAL.SignInAfterSignUpDelegate)
+  @objc @available(*, deprecated, message: "This method is now deprecated. Use the method 'signIn(parameters:)' instead.")
+  public func signIn(scopes: [Swift.String]? = nil, delegate: any MSAL.SignInAfterSignUpDelegate)
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class ResetPasswordStartError : MSAL.MSALNativeAuthError {
@@ -354,10 +361,56 @@ import _SwiftConcurrencyShims
 @objc @_hasMissingDesignatedInitializers @objcMembers final public class MSALNativeAuthPublicClientApplication : MSAL.MSALPublicClientApplication {
   @objc public init(configuration config: MSAL.MSALPublicClientApplicationConfig, challengeTypes: MSAL.MSALNativeAuthChallengeTypes) throws
   @objc public init(clientId: Swift.String, tenantSubdomain: Swift.String, challengeTypes: MSAL.MSALNativeAuthChallengeTypes, redirectUri: Swift.String? = nil) throws
-  @objc final public func signUp(username: Swift.String, password: Swift.String? = nil, attributes: [Swift.String : Any]? = nil, correlationId: Foundation.UUID? = nil, delegate: any MSAL.SignUpStartDelegate)
-  @objc final public func signIn(username: Swift.String, password: Swift.String? = nil, scopes: [Swift.String]? = nil, correlationId: Foundation.UUID? = nil, delegate: any MSAL.SignInStartDelegate)
-  @objc final public func resetPassword(username: Swift.String, correlationId: Foundation.UUID? = nil, delegate: any MSAL.ResetPasswordStartDelegate)
+  @objc final public func signUp(parameters: MSAL.MSALNativeAuthSignUpParameters, delegate: any MSAL.SignUpStartDelegate)
+  @objc @available(*, deprecated, message: "This method is now deprecated. Use the method 'signUp(parameters:)' instead.")
+  final public func signUp(username: Swift.String, password: Swift.String? = nil, attributes: [Swift.String : Any]? = nil, correlationId: Foundation.UUID? = nil, delegate: any MSAL.SignUpStartDelegate)
+  @objc final public func signIn(parameters: MSAL.MSALNativeAuthSignInParameters, delegate: any MSAL.SignInStartDelegate)
+  @objc @available(*, deprecated, message: "This method is now deprecated. Use the method 'signIn(parameters:)' instead.")
+  final public func signIn(username: Swift.String, password: Swift.String? = nil, scopes: [Swift.String]? = nil, correlationId: Foundation.UUID? = nil, delegate: any MSAL.SignInStartDelegate)
+  @objc final public func resetPassword(parameters: MSAL.MSALNativeAuthResetPasswordParameters, delegate: any MSAL.ResetPasswordStartDelegate)
+  @objc @available(*, deprecated, message: "This method is now deprecated. Use the method 'resetPassword(parameters:)' instead.")
+  final public func resetPassword(username: Swift.String, correlationId: Foundation.UUID? = nil, delegate: any MSAL.ResetPasswordStartDelegate)
   @objc final public func getNativeAuthUserAccount(correlationId: Foundation.UUID? = nil) -> MSAL.MSALNativeAuthUserAccountResult?
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MSALNativeAuthGetAccessTokenParameters : ObjectiveC.NSObject {
+  @objc public var forceRefresh: Swift.Bool
+  @objc public var scopes: [Swift.String]?
+  @objc public var correlationId: Foundation.UUID?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @objcMembers public class MSALNativeAuthSignInParameters : ObjectiveC.NSObject {
+  @objc public var username: Swift.String
+  @objc public var password: Swift.String?
+  @objc public var scopes: [Swift.String]?
+  @objc public var claimsRequest: MSAL.MSALClaimsRequest?
+  @objc public var correlationId: Foundation.UUID?
+  @objc public init(username: Swift.String)
+  @objc deinit
+}
+@objc @objcMembers public class MSALNativeAuthSignUpParameters : ObjectiveC.NSObject {
+  @objc public var username: Swift.String
+  @objc public var password: Swift.String?
+  @objc public var attributes: [Swift.String : Any]?
+  @objc public var correlationId: Foundation.UUID?
+  @objc public init(username: Swift.String)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MSALNativeAuthSignInAfterSignUpParameters : ObjectiveC.NSObject {
+  @objc public var scopes: [Swift.String]?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @objcMembers public class MSALNativeAuthResetPasswordParameters : ObjectiveC.NSObject {
+  @objc public var username: Swift.String
+  @objc public var correlationId: Foundation.UUID?
+  @objc public init(username: Swift.String)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class MSALNativeAuthSignInAfterResetPasswordParameters : ObjectiveC.NSObject {
+  @objc public var scopes: [Swift.String]?
+  @objc override dynamic public init()
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers public class MSALNativeAuthChannelType : ObjectiveC.NSObject {

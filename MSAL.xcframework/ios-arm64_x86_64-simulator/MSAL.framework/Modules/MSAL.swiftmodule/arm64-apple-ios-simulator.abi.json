@@ -2627,6 +2627,41 @@
           {
             "kind": "Function",
             "name": "getAccessToken",
+            "printedName": "getAccessToken(parameters:delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthGetAccessTokenParameters",
+                "printedName": "MSAL.MSALNativeAuthGetAccessTokenParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthGetAccessTokenParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CredentialsDelegate",
+                "printedName": "MSAL.CredentialsDelegate",
+                "usr": "c:@M@MSAL@objc(pl)CredentialsDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthUserAccountResult(im)getAccessTokenWithParameters:delegate:",
+            "mangledName": "$s4MSAL31MSALNativeAuthUserAccountResultC14getAccessToken10parameters8delegateyAA0bc3GethI10ParametersC_AA19CredentialsDelegate_ptF",
+            "moduleName": "MSAL",
+            "objc_name": "getAccessTokenWithParameters:delegate:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getAccessToken",
             "printedName": "getAccessToken(forceRefresh:correlationId:delegate:)",
             "children": [
               {
@@ -2667,10 +2702,12 @@
             "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthUserAccountResult(im)getAccessTokenWithForceRefresh:correlationId:delegate:",
             "mangledName": "$s4MSAL31MSALNativeAuthUserAccountResultC14getAccessToken12forceRefresh13correlationId8delegateySb_10Foundation4UUIDVSgAA19CredentialsDelegate_ptF",
             "moduleName": "MSAL",
+            "deprecated": true,
             "objc_name": "getAccessTokenWithForceRefresh:correlationId:delegate:",
             "declAttributes": [
               "AccessControl",
               "ObjC",
+              "Available",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -2732,8 +2769,10 @@
             "usr": "s:4MSAL31MSALNativeAuthUserAccountResultC14getAccessToken6scopes12forceRefresh13correlationId8delegateySaySSG_Sb10Foundation4UUIDVSgAA19CredentialsDelegate_ptF",
             "mangledName": "$s4MSAL31MSALNativeAuthUserAccountResultC14getAccessToken6scopes12forceRefresh13correlationId8delegateySaySSG_Sb10Foundation4UUIDVSgAA19CredentialsDelegate_ptF",
             "moduleName": "MSAL",
+            "deprecated": true,
             "declAttributes": [
               "AccessControl",
+              "Available",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -2849,6 +2888,40 @@
           {
             "kind": "Function",
             "name": "signIn",
+            "printedName": "signIn(parameters:delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthSignInAfterResetPasswordParameters",
+                "printedName": "MSAL.MSALNativeAuthSignInAfterResetPasswordParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterResetPasswordParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SignInAfterResetPasswordDelegate",
+                "printedName": "MSAL.SignInAfterResetPasswordDelegate",
+                "usr": "c:@M@MSAL@objc(pl)SignInAfterResetPasswordDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(cs)SignInAfterResetPasswordState(im)signInParameters:delegate:",
+            "mangledName": "$s4MSAL29SignInAfterResetPasswordStateC04signC010parameters8delegateyAA014MSALNativeAuthbcdeF10ParametersC_AA0bcdeF8Delegate_ptF",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signIn",
             "printedName": "signIn(scopes:delegate:)",
             "children": [
               {
@@ -2890,8 +2963,10 @@
             "usr": "c:@M@MSAL@objc(cs)SignInAfterResetPasswordState(im)signInScopes:delegate:",
             "mangledName": "$s4MSAL29SignInAfterResetPasswordStateC04signC06scopes8delegateySaySSGSg_AA0bcdeF8Delegate_ptF",
             "moduleName": "MSAL",
+            "deprecated": true,
             "declAttributes": [
               "AccessControl",
+              "Available",
               "RawDocComment",
               "ObjC"
             ],
@@ -9802,6 +9877,40 @@
           {
             "kind": "Function",
             "name": "signIn",
+            "printedName": "signIn(parameters:delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthSignInAfterSignUpParameters",
+                "printedName": "MSAL.MSALNativeAuthSignInAfterSignUpParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterSignUpParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SignInAfterSignUpDelegate",
+                "printedName": "MSAL.SignInAfterSignUpDelegate",
+                "usr": "c:@M@MSAL@objc(pl)SignInAfterSignUpDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(cs)SignInAfterSignUpState(im)signInParameters:delegate:",
+            "mangledName": "$s4MSAL011SignInAfterB7UpStateC04signC010parameters8delegateyAA014MSALNativeAuthbcdbE10ParametersC_AA0bcdbE8Delegate_ptF",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signIn",
             "printedName": "signIn(scopes:delegate:)",
             "children": [
               {
@@ -9843,8 +9952,10 @@
             "usr": "c:@M@MSAL@objc(cs)SignInAfterSignUpState(im)signInScopes:delegate:",
             "mangledName": "$s4MSAL011SignInAfterB7UpStateC04signC06scopes8delegateySaySSGSg_AA0bcdbE8Delegate_ptF",
             "moduleName": "MSAL",
+            "deprecated": true,
             "declAttributes": [
               "AccessControl",
+              "Available",
               "RawDocComment",
               "ObjC"
             ],
@@ -10777,6 +10888,41 @@
           {
             "kind": "Function",
             "name": "signUp",
+            "printedName": "signUp(parameters:delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthSignUpParameters",
+                "printedName": "MSAL.MSALNativeAuthSignUpParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SignUpStartDelegate",
+                "printedName": "MSAL.SignUpStartDelegate",
+                "usr": "c:@M@MSAL@objc(pl)SignUpStartDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthPublicClientApplication(im)signUpWithParameters:delegate:",
+            "mangledName": "$s4MSAL37MSALNativeAuthPublicClientApplicationC6signUp10parameters8delegateyAA0bc4SignH10ParametersC_AA0kH13StartDelegate_ptF",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signUp",
             "printedName": "signUp(username:password:attributes:correlationId:delegate:)",
             "children": [
               {
@@ -10858,6 +11004,43 @@
             "declKind": "Func",
             "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthPublicClientApplication(im)signUpWithUsername:password:attributes:correlationId:delegate:",
             "mangledName": "$s4MSAL37MSALNativeAuthPublicClientApplicationC6signUp8username8password10attributes13correlationId8delegateySS_SSSgSDySSypGSg10Foundation4UUIDVSgAA04SignH13StartDelegate_ptF",
+            "moduleName": "MSAL",
+            "deprecated": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Available",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "signIn",
+            "printedName": "signIn(parameters:delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthSignInParameters",
+                "printedName": "MSAL.MSALNativeAuthSignInParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SignInStartDelegate",
+                "printedName": "MSAL.SignInStartDelegate",
+                "usr": "c:@M@MSAL@objc(pl)SignInStartDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthPublicClientApplication(im)signInParameters:delegate:",
+            "mangledName": "$s4MSAL37MSALNativeAuthPublicClientApplicationC6signIn10parameters8delegateyAA0bc4SignH10ParametersC_AA0kH13StartDelegate_ptF",
             "moduleName": "MSAL",
             "declAttributes": [
               "Final",
@@ -10947,6 +11130,43 @@
             "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthPublicClientApplication(im)signInUsername:password:scopes:correlationId:delegate:",
             "mangledName": "$s4MSAL37MSALNativeAuthPublicClientApplicationC6signIn8username8password6scopes13correlationId8delegateySS_SSSgSaySSGSg10Foundation4UUIDVSgAA04SignH13StartDelegate_ptF",
             "moduleName": "MSAL",
+            "deprecated": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "Available",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "resetPassword",
+            "printedName": "resetPassword(parameters:delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthResetPasswordParameters",
+                "printedName": "MSAL.MSALNativeAuthResetPasswordParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthResetPasswordParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ResetPasswordStartDelegate",
+                "printedName": "MSAL.ResetPasswordStartDelegate",
+                "usr": "c:@M@MSAL@objc(pl)ResetPasswordStartDelegate"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthPublicClientApplication(im)resetPasswordWithParameters:delegate:",
+            "mangledName": "$s4MSAL37MSALNativeAuthPublicClientApplicationC13resetPassword10parameters8delegateyAA0bc5ResetH10ParametersC_AA0kH13StartDelegate_ptF",
+            "moduleName": "MSAL",
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -10997,9 +11217,11 @@
             "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthPublicClientApplication(im)resetPasswordWithUsername:correlationId:delegate:",
             "mangledName": "$s4MSAL37MSALNativeAuthPublicClientApplicationC13resetPassword8username13correlationId8delegateySS_10Foundation4UUIDVSgAA05ResetH13StartDelegate_ptF",
             "moduleName": "MSAL",
+            "deprecated": true,
             "declAttributes": [
               "Final",
               "AccessControl",
+              "Available",
               "RawDocComment",
               "ObjC"
             ],
@@ -11421,6 +11643,2605 @@
         "moduleName": "MSAL",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MSALNativeAuthGetAccessTokenParameters",
+        "printedName": "MSALNativeAuthGetAccessTokenParameters",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "forceRefresh",
+            "printedName": "forceRefresh",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthGetAccessTokenParameters(py)forceRefresh",
+            "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersC12forceRefreshSbvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthGetAccessTokenParameters(im)forceRefresh",
+                "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersC12forceRefreshSbvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthGetAccessTokenParameters(im)setForceRefresh:",
+                "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersC12forceRefreshSbvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL38MSALNativeAuthGetAccessTokenParametersC12forceRefreshSbvM",
+                "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersC12forceRefreshSbvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "scopes",
+            "printedName": "scopes",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthGetAccessTokenParameters(py)scopes",
+            "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersC6scopesSaySSGSgvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthGetAccessTokenParameters(im)scopes",
+                "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersC6scopesSaySSGSgvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthGetAccessTokenParameters(im)setScopes:",
+                "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersC6scopesSaySSGSgvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL38MSALNativeAuthGetAccessTokenParametersC6scopesSaySSGSgvM",
+                "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersC6scopesSaySSGSgvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "correlationId",
+            "printedName": "correlationId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.UUID?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UUID",
+                    "printedName": "Foundation.UUID",
+                    "usr": "s:10Foundation4UUIDV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthGetAccessTokenParameters(py)correlationId",
+            "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersC13correlationId10Foundation4UUIDVSgvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.UUID?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UUID",
+                        "printedName": "Foundation.UUID",
+                        "usr": "s:10Foundation4UUIDV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthGetAccessTokenParameters(im)correlationId",
+                "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersC13correlationId10Foundation4UUIDVSgvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.UUID?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UUID",
+                        "printedName": "Foundation.UUID",
+                        "usr": "s:10Foundation4UUIDV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthGetAccessTokenParameters(im)setCorrelationId:",
+                "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersC13correlationId10Foundation4UUIDVSgvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL38MSALNativeAuthGetAccessTokenParametersC13correlationId10Foundation4UUIDVSgvM",
+                "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersC13correlationId10Foundation4UUIDVSgvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthGetAccessTokenParameters",
+                "printedName": "MSAL.MSALNativeAuthGetAccessTokenParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthGetAccessTokenParameters"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthGetAccessTokenParameters(im)init",
+            "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersCACycfc",
+            "moduleName": "MSAL",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthGetAccessTokenParameters",
+        "mangledName": "$s4MSAL38MSALNativeAuthGetAccessTokenParametersC",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MSALNativeAuthSignInParameters",
+        "printedName": "MSALNativeAuthSignInParameters",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "username",
+            "printedName": "username",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(py)username",
+            "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC8usernameSSvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(im)username",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC8usernameSSvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(im)setUsername:",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC8usernameSSvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL30MSALNativeAuthSignInParametersC8usernameSSvM",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC8usernameSSvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "password",
+            "printedName": "password",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(py)password",
+            "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC8passwordSSSgvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(im)password",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC8passwordSSSgvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(im)setPassword:",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC8passwordSSSgvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL30MSALNativeAuthSignInParametersC8passwordSSSgvM",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC8passwordSSSgvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "scopes",
+            "printedName": "scopes",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(py)scopes",
+            "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC6scopesSaySSGSgvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(im)scopes",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC6scopesSaySSGSgvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(im)setScopes:",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC6scopesSaySSGSgvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL30MSALNativeAuthSignInParametersC6scopesSaySSGSgvM",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC6scopesSaySSGSgvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "claimsRequest",
+            "printedName": "claimsRequest",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "MSAL.MSALClaimsRequest?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "MSALClaimsRequest",
+                    "printedName": "MSAL.MSALClaimsRequest",
+                    "usr": "c:objc(cs)MSALClaimsRequest"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(py)claimsRequest",
+            "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC13claimsRequestSo010MSALClaimsH0CSgvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MSAL.MSALClaimsRequest?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MSALClaimsRequest",
+                        "printedName": "MSAL.MSALClaimsRequest",
+                        "usr": "c:objc(cs)MSALClaimsRequest"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(im)claimsRequest",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC13claimsRequestSo010MSALClaimsH0CSgvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "MSAL.MSALClaimsRequest?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "MSALClaimsRequest",
+                        "printedName": "MSAL.MSALClaimsRequest",
+                        "usr": "c:objc(cs)MSALClaimsRequest"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(im)setClaimsRequest:",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC13claimsRequestSo010MSALClaimsH0CSgvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL30MSALNativeAuthSignInParametersC13claimsRequestSo010MSALClaimsH0CSgvM",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC13claimsRequestSo010MSALClaimsH0CSgvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "correlationId",
+            "printedName": "correlationId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.UUID?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UUID",
+                    "printedName": "Foundation.UUID",
+                    "usr": "s:10Foundation4UUIDV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(py)correlationId",
+            "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC13correlationId10Foundation4UUIDVSgvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.UUID?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UUID",
+                        "printedName": "Foundation.UUID",
+                        "usr": "s:10Foundation4UUIDV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(im)correlationId",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC13correlationId10Foundation4UUIDVSgvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.UUID?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UUID",
+                        "printedName": "Foundation.UUID",
+                        "usr": "s:10Foundation4UUIDV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(im)setCorrelationId:",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC13correlationId10Foundation4UUIDVSgvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL30MSALNativeAuthSignInParametersC13correlationId10Foundation4UUIDVSgvM",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC13correlationId10Foundation4UUIDVSgvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(username:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthSignInParameters",
+                "printedName": "MSAL.MSALNativeAuthSignInParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(im)initWithUsername:",
+            "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC8usernameACSS_tcfc",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthSignInParameters",
+                "printedName": "MSAL.MSALNativeAuthSignInParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters(im)init",
+            "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersCACycfc",
+            "moduleName": "MSAL",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInParameters",
+        "mangledName": "$s4MSAL30MSALNativeAuthSignInParametersC",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MSALNativeAuthSignUpParameters",
+        "printedName": "MSALNativeAuthSignUpParameters",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "username",
+            "printedName": "username",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(py)username",
+            "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC8usernameSSvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(im)username",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC8usernameSSvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(im)setUsername:",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC8usernameSSvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL30MSALNativeAuthSignUpParametersC8usernameSSvM",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC8usernameSSvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "password",
+            "printedName": "password",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(py)password",
+            "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC8passwordSSSgvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(im)password",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC8passwordSSSgvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(im)setPassword:",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC8passwordSSSgvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL30MSALNativeAuthSignUpParametersC8passwordSSSgvM",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC8passwordSSSgvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "attributes",
+            "printedName": "attributes",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(py)attributes",
+            "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC10attributesSDySSypGSgvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(im)attributes",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC10attributesSDySSypGSgvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(im)setAttributes:",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC10attributesSDySSypGSgvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL30MSALNativeAuthSignUpParametersC10attributesSDySSypGSgvM",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC10attributesSDySSypGSgvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "correlationId",
+            "printedName": "correlationId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.UUID?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UUID",
+                    "printedName": "Foundation.UUID",
+                    "usr": "s:10Foundation4UUIDV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(py)correlationId",
+            "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC13correlationId10Foundation4UUIDVSgvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.UUID?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UUID",
+                        "printedName": "Foundation.UUID",
+                        "usr": "s:10Foundation4UUIDV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(im)correlationId",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC13correlationId10Foundation4UUIDVSgvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.UUID?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UUID",
+                        "printedName": "Foundation.UUID",
+                        "usr": "s:10Foundation4UUIDV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(im)setCorrelationId:",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC13correlationId10Foundation4UUIDVSgvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL30MSALNativeAuthSignUpParametersC13correlationId10Foundation4UUIDVSgvM",
+                "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC13correlationId10Foundation4UUIDVSgvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(username:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthSignUpParameters",
+                "printedName": "MSAL.MSALNativeAuthSignUpParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(im)initWithUsername:",
+            "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC8usernameACSS_tcfc",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthSignUpParameters",
+                "printedName": "MSAL.MSALNativeAuthSignUpParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters(im)init",
+            "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersCACycfc",
+            "moduleName": "MSAL",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignUpParameters",
+        "mangledName": "$s4MSAL30MSALNativeAuthSignUpParametersC",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MSALNativeAuthSignInAfterSignUpParameters",
+        "printedName": "MSALNativeAuthSignInAfterSignUpParameters",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "scopes",
+            "printedName": "scopes",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterSignUpParameters(py)scopes",
+            "mangledName": "$s4MSAL025MSALNativeAuthSignInAfterD12UpParametersC6scopesSaySSGSgvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterSignUpParameters(im)scopes",
+                "mangledName": "$s4MSAL025MSALNativeAuthSignInAfterD12UpParametersC6scopesSaySSGSgvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterSignUpParameters(im)setScopes:",
+                "mangledName": "$s4MSAL025MSALNativeAuthSignInAfterD12UpParametersC6scopesSaySSGSgvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL025MSALNativeAuthSignInAfterD12UpParametersC6scopesSaySSGSgvM",
+                "mangledName": "$s4MSAL025MSALNativeAuthSignInAfterD12UpParametersC6scopesSaySSGSgvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthSignInAfterSignUpParameters",
+                "printedName": "MSAL.MSALNativeAuthSignInAfterSignUpParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterSignUpParameters"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterSignUpParameters(im)init",
+            "mangledName": "$s4MSAL025MSALNativeAuthSignInAfterD12UpParametersCACycfc",
+            "moduleName": "MSAL",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterSignUpParameters",
+        "mangledName": "$s4MSAL025MSALNativeAuthSignInAfterD12UpParametersC",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MSALNativeAuthResetPasswordParameters",
+        "printedName": "MSALNativeAuthResetPasswordParameters",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "username",
+            "printedName": "username",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthResetPasswordParameters(py)username",
+            "mangledName": "$s4MSAL37MSALNativeAuthResetPasswordParametersC8usernameSSvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthResetPasswordParameters(im)username",
+                "mangledName": "$s4MSAL37MSALNativeAuthResetPasswordParametersC8usernameSSvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthResetPasswordParameters(im)setUsername:",
+                "mangledName": "$s4MSAL37MSALNativeAuthResetPasswordParametersC8usernameSSvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL37MSALNativeAuthResetPasswordParametersC8usernameSSvM",
+                "mangledName": "$s4MSAL37MSALNativeAuthResetPasswordParametersC8usernameSSvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "correlationId",
+            "printedName": "correlationId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.UUID?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UUID",
+                    "printedName": "Foundation.UUID",
+                    "usr": "s:10Foundation4UUIDV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthResetPasswordParameters(py)correlationId",
+            "mangledName": "$s4MSAL37MSALNativeAuthResetPasswordParametersC13correlationId10Foundation4UUIDVSgvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.UUID?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UUID",
+                        "printedName": "Foundation.UUID",
+                        "usr": "s:10Foundation4UUIDV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthResetPasswordParameters(im)correlationId",
+                "mangledName": "$s4MSAL37MSALNativeAuthResetPasswordParametersC13correlationId10Foundation4UUIDVSgvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.UUID?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UUID",
+                        "printedName": "Foundation.UUID",
+                        "usr": "s:10Foundation4UUIDV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthResetPasswordParameters(im)setCorrelationId:",
+                "mangledName": "$s4MSAL37MSALNativeAuthResetPasswordParametersC13correlationId10Foundation4UUIDVSgvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL37MSALNativeAuthResetPasswordParametersC13correlationId10Foundation4UUIDVSgvM",
+                "mangledName": "$s4MSAL37MSALNativeAuthResetPasswordParametersC13correlationId10Foundation4UUIDVSgvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(username:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthResetPasswordParameters",
+                "printedName": "MSAL.MSALNativeAuthResetPasswordParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthResetPasswordParameters"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthResetPasswordParameters(im)initWithUsername:",
+            "mangledName": "$s4MSAL37MSALNativeAuthResetPasswordParametersC8usernameACSS_tcfc",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthResetPasswordParameters",
+                "printedName": "MSAL.MSALNativeAuthResetPasswordParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthResetPasswordParameters"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthResetPasswordParameters(im)init",
+            "mangledName": "$s4MSAL37MSALNativeAuthResetPasswordParametersCACycfc",
+            "moduleName": "MSAL",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthResetPasswordParameters",
+        "mangledName": "$s4MSAL37MSALNativeAuthResetPasswordParametersC",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "MSALNativeAuthSignInAfterResetPasswordParameters",
+        "printedName": "MSALNativeAuthSignInAfterResetPasswordParameters",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "scopes",
+            "printedName": "scopes",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterResetPasswordParameters(py)scopes",
+            "mangledName": "$s4MSAL48MSALNativeAuthSignInAfterResetPasswordParametersC6scopesSaySSGSgvp",
+            "moduleName": "MSAL",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterResetPasswordParameters(im)scopes",
+                "mangledName": "$s4MSAL48MSALNativeAuthSignInAfterResetPasswordParametersC6scopesSaySSGSgvg",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.String]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterResetPasswordParameters(im)setScopes:",
+                "mangledName": "$s4MSAL48MSALNativeAuthSignInAfterResetPasswordParametersC6scopesSaySSGSgvs",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:4MSAL48MSALNativeAuthSignInAfterResetPasswordParametersC6scopesSaySSGSgvM",
+                "mangledName": "$s4MSAL48MSALNativeAuthSignInAfterResetPasswordParametersC6scopesSaySSGSgvM",
+                "moduleName": "MSAL",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "MSALNativeAuthSignInAfterResetPasswordParameters",
+                "printedName": "MSAL.MSALNativeAuthSignInAfterResetPasswordParameters",
+                "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterResetPasswordParameters"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterResetPasswordParameters(im)init",
+            "mangledName": "$s4MSAL48MSALNativeAuthSignInAfterResetPasswordParametersCACycfc",
+            "moduleName": "MSAL",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@MSAL@objc(cs)MSALNativeAuthSignInAfterResetPasswordParameters",
+        "mangledName": "$s4MSAL48MSALNativeAuthSignInAfterResetPasswordParametersC",
+        "moduleName": "MSAL",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
         ]
       },
       {
@@ -13267,14 +16088,14 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/state_machine\/state\/SignInStates.swift",
       "kind": "StringLiteral",
-      "offset": 1967,
+      "offset": 2089,
       "length": 23,
       "value": "\"MSAL.SignInCodeRequiredState\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/state_machine\/state\/SignInStates.swift",
       "kind": "StringLiteral",
-      "offset": 4629,
+      "offset": 4895,
       "length": 27,
       "value": "\"MSAL.SignInPasswordRequiredState\""
     },
@@ -13302,14 +16123,14 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/MSALNativeAuthUserAccountResult.swift",
       "kind": "BooleanLiteral",
-      "offset": 3728,
+      "offset": 4747,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/MSALNativeAuthUserAccountResult.swift",
       "kind": "BooleanLiteral",
-      "offset": 5249,
+      "offset": 6395,
       "length": 5,
       "value": "false"
     },
@@ -15514,7 +18335,7 @@
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/state_machine\/state\/MFAStates.swift",
       "kind": "StringLiteral",
-      "offset": 3684,
+      "offset": 3806,
       "length": 16,
       "value": "\"MSAL.MFARequiredState\""
     },
@@ -15902,6 +18723,34 @@
       "offset": 1935,
       "length": 37,
       "value": "\"MSAL.MSALNativeAuthPublicClientApplication\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/parameters\/MSALNativeAuthGetAccessTokenParameters.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1543,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/parameters\/MSALNativeAuthSignInParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 1325,
+      "length": 30,
+      "value": "\"MSAL.MSALNativeAuthSignInParameters\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/parameters\/MSALNativeAuthSignUpParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 1325,
+      "length": 30,
+      "value": "\"MSAL.MSALNativeAuthSignUpParameters\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/parameters\/MSALNativeAuthResetPasswordParameters.swift",
+      "kind": "StringLiteral",
+      "offset": 1332,
+      "length": 37,
+      "value": "\"MSAL.MSALNativeAuthResetPasswordParameters\""
     },
     {
       "filePath": "\/Users\/runner\/work\/1\/s\/MSAL\/src\/native_auth\/public\/MSALNativeAuthChannelType.swift",

@@ -540,9 +540,26 @@ SWIFT_CLASS("_TtC4MSAL25MSALNativeAuthChannelType")
 @end
 
 
+
+/// Encapsulates the parameters passed to the getAccessToken method of MSALNativeAuthUserAccountResult
+SWIFT_CLASS("_TtC4MSAL38MSALNativeAuthGetAccessTokenParameters")
+@interface MSALNativeAuthGetAccessTokenParameters : NSObject
+/// Set to true to ignore any existing access token in the cache and force MSAL to get a new access token from the service.
+@property (nonatomic) BOOL forceRefresh;
+/// Permissions you want included in the access token received.
+/// Not all scopes are guaranteed to be included in the access token returned.
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable scopes;
+/// UUID to correlate this request with the server for debugging.
+@property (nonatomic, copy) NSUUID * _Nullable correlationId;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class MSALPublicClientApplicationConfig;
+@class MSALNativeAuthSignUpParameters;
 @protocol SignUpStartDelegate;
+@class MSALNativeAuthSignInParameters;
 @protocol SignInStartDelegate;
+@class MSALNativeAuthResetPasswordParameters;
 @protocol ResetPasswordStartDelegate;
 @class MSALAuthority;
 
@@ -582,6 +599,12 @@ SWIFT_CLASS("_TtC4MSAL37MSALNativeAuthPublicClientApplication")
 /// throws:
 /// An error that occurred creating the application object
 - (nullable instancetype)initWithClientId:(NSString * _Nonnull)clientId tenantSubdomain:(NSString * _Nonnull)tenantSubdomain challengeTypes:(MSALNativeAuthChallengeTypes)challengeTypes redirectUri:(NSString * _Nullable)redirectUri error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
+/// Sign up a user using parameters.
+/// \param parameters Parameters used for the Sign Up flow.
+///
+/// \param delegate Delegate that receives callbacks for the Sign Up flow.
+///
+- (void)signUpWithParameters:(MSALNativeAuthSignUpParameters * _Nonnull)parameters delegate:(id <SignUpStartDelegate> _Nonnull)delegate;
 /// Sign up a user with a given username and password.
 /// \param username Username for the new account.
 ///
@@ -593,7 +616,13 @@ SWIFT_CLASS("_TtC4MSAL37MSALNativeAuthPublicClientApplication")
 ///
 /// \param delegate Delegate that receives callbacks for the Sign Up flow.
 ///
-- (void)signUpWithUsername:(NSString * _Nonnull)username password:(NSString * _Nullable)password attributes:(NSDictionary<NSString *, id> * _Nullable)attributes correlationId:(NSUUID * _Nullable)correlationId delegate:(id <SignUpStartDelegate> _Nonnull)delegate;
+- (void)signUpWithUsername:(NSString * _Nonnull)username password:(NSString * _Nullable)password attributes:(NSDictionary<NSString *, id> * _Nullable)attributes correlationId:(NSUUID * _Nullable)correlationId delegate:(id <SignUpStartDelegate> _Nonnull)delegate SWIFT_DEPRECATED_MSG("This method is now deprecated. Use the method 'signUp(parameters:)' instead.");
+/// Sign in a user using parameters.
+/// \param parameters Parameters used for the Sign In flow.
+///
+/// \param delegate Delegate that receives callbacks for the Sign In flow.
+///
+- (void)signInParameters:(MSALNativeAuthSignInParameters * _Nonnull)parameters delegate:(id <SignInStartDelegate> _Nonnull)delegate;
 /// Sign in a user with a given username and password.
 /// \param username Username for the account
 ///
@@ -605,7 +634,13 @@ SWIFT_CLASS("_TtC4MSAL37MSALNativeAuthPublicClientApplication")
 ///
 /// \param delegate Delegate that receives callbacks for the Sign In flow.
 ///
-- (void)signInUsername:(NSString * _Nonnull)username password:(NSString * _Nullable)password scopes:(NSArray<NSString *> * _Nullable)scopes correlationId:(NSUUID * _Nullable)correlationId delegate:(id <SignInStartDelegate> _Nonnull)delegate;
+- (void)signInUsername:(NSString * _Nonnull)username password:(NSString * _Nullable)password scopes:(NSArray<NSString *> * _Nullable)scopes correlationId:(NSUUID * _Nullable)correlationId delegate:(id <SignInStartDelegate> _Nonnull)delegate SWIFT_DEPRECATED_MSG("This method is now deprecated. Use the method 'signIn(parameters:)' instead.");
+/// Reset the password using parameters
+/// \param parameters Parameters used for the Reset Password flow.
+///
+/// \param delegate Delegate that receives callbacks for the Reset Password flow.
+///
+- (void)resetPasswordWithParameters:(MSALNativeAuthResetPasswordParameters * _Nonnull)parameters delegate:(id <ResetPasswordStartDelegate> _Nonnull)delegate;
 /// Reset the password for a given username.
 /// \param username Username for the account.
 ///
@@ -613,7 +648,7 @@ SWIFT_CLASS("_TtC4MSAL37MSALNativeAuthPublicClientApplication")
 ///
 /// \param delegate Delegate that receives callbacks for the Reset Password flow.
 ///
-- (void)resetPasswordWithUsername:(NSString * _Nonnull)username correlationId:(NSUUID * _Nullable)correlationId delegate:(id <ResetPasswordStartDelegate> _Nonnull)delegate;
+- (void)resetPasswordWithUsername:(NSString * _Nonnull)username correlationId:(NSUUID * _Nullable)correlationId delegate:(id <ResetPasswordStartDelegate> _Nonnull)delegate SWIFT_DEPRECATED_MSG("This method is now deprecated. Use the method 'resetPassword(parameters:)' instead.");
 /// Retrieve the current signed in account from the cache.
 /// \param correlationId Optional. UUID to correlate this request with the server for debugging.
 ///
@@ -635,6 +670,77 @@ SWIFT_CLASS("_TtC4MSAL37MSALNativeAuthPublicClientApplication")
 /// Class that defines the structure of a Required Attribute
 SWIFT_CLASS("_TtC4MSAL31MSALNativeAuthRequiredAttribute")
 @interface MSALNativeAuthRequiredAttribute : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// Encapsulates the parameters passed to the resetPassword method of MSALNativeAuthPublicClientApplication
+SWIFT_CLASS("_TtC4MSAL37MSALNativeAuthResetPasswordParameters")
+@interface MSALNativeAuthResetPasswordParameters : NSObject
+/// username of the account to reset password.
+@property (nonatomic, copy) NSString * _Nonnull username;
+/// UUID to correlate this request with the server for debugging.
+@property (nonatomic, copy) NSUUID * _Nullable correlationId;
+- (nonnull instancetype)initWithUsername:(NSString * _Nonnull)username OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// Encapsulates the parameters passed to the signIn method after resetPassword
+SWIFT_CLASS("_TtC4MSAL48MSALNativeAuthSignInAfterResetPasswordParameters")
+@interface MSALNativeAuthSignInAfterResetPasswordParameters : NSObject
+/// Permissions you want included in the access token received.
+/// Not all scopes are guaranteed to be included in the access token returned.
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable scopes;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// Encapsulates the parameters passed to the signIn method after signUp
+SWIFT_CLASS("_TtC4MSAL41MSALNativeAuthSignInAfterSignUpParameters")
+@interface MSALNativeAuthSignInAfterSignUpParameters : NSObject
+/// Permissions you want included in the access token received.
+/// Not all scopes are guaranteed to be included in the access token returned.
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable scopes;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class MSALClaimsRequest;
+
+/// Encapsulates the parameters passed to the signIn method of MSALNativeAuthPublicClientApplication
+SWIFT_CLASS("_TtC4MSAL30MSALNativeAuthSignInParameters")
+@interface MSALNativeAuthSignInParameters : NSObject
+/// username of the account to sign in.
+@property (nonatomic, copy) NSString * _Nonnull username;
+/// password of the account to sign in.
+@property (nonatomic, copy) NSString * _Nullable password;
+/// Permissions you want included in the access token received.
+/// Not all scopes are guaranteed to be included in the access token returned.
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable scopes;
+/// The claims parameter that needs to be sent to the service.
+@property (nonatomic, strong) MSALClaimsRequest * _Nullable claimsRequest;
+/// UUID to correlate this request with the server for debugging.
+@property (nonatomic, copy) NSUUID * _Nullable correlationId;
+- (nonnull instancetype)initWithUsername:(NSString * _Nonnull)username OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// Encapsulates the parameters passed to the signUp method of MSALNativeAuthPublicClientApplication
+SWIFT_CLASS("_TtC4MSAL30MSALNativeAuthSignUpParameters")
+@interface MSALNativeAuthSignUpParameters : NSObject
+/// username of the account to sign up.
+@property (nonatomic, copy) NSString * _Nonnull username;
+/// password of the account to sign up.
+@property (nonatomic, copy) NSString * _Nullable password;
+/// user attributes to be used during account creation.
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+/// UUID to correlate this request with the server for debugging.
+@property (nonatomic, copy) NSUUID * _Nullable correlationId;
+- (nonnull instancetype)initWithUsername:(NSString * _Nonnull)username OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -666,6 +772,11 @@ SWIFT_CLASS("_TtC4MSAL31MSALNativeAuthUserAccountResult")
 @property (nonatomic, readonly, copy) NSString * _Nullable idToken;
 /// Removes all the data from the cache.
 - (void)signOut;
+/// \param parameters Parameters used for the Get Access Token flow.
+///
+/// \param delegate Delegate that receives callbacks for the Get Access Token flow.
+///
+- (void)getAccessTokenWithParameters:(MSALNativeAuthGetAccessTokenParameters * _Nonnull)parameters delegate:(id <CredentialsDelegate> _Nonnull)delegate;
 /// Retrieves the access token for the default OIDC(openid, offline_access, profile) scopes from the cache.
 /// \param forceRefresh Optional. Ignore any existing access token in the cache and force MSAL to get a new access token from the service.
 ///
@@ -673,7 +784,7 @@ SWIFT_CLASS("_TtC4MSAL31MSALNativeAuthUserAccountResult")
 ///
 /// \param delegate Delegate that receives callbacks for the Get Access Token flow.
 ///
-- (void)getAccessTokenWithForceRefresh:(BOOL)forceRefresh correlationId:(NSUUID * _Nullable)correlationId delegate:(id <CredentialsDelegate> _Nonnull)delegate;
+- (void)getAccessTokenWithForceRefresh:(BOOL)forceRefresh correlationId:(NSUUID * _Nullable)correlationId delegate:(id <CredentialsDelegate> _Nonnull)delegate SWIFT_DEPRECATED_MSG("This method is now deprecated. Use the method 'getAccessToken(parameters:)' instead.");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -897,11 +1008,17 @@ SWIFT_CLASS("_TtC4MSAL29SignInAfterResetPasswordError")
 SWIFT_CLASS("_TtC4MSAL29SignInAfterResetPasswordState")
 @interface SignInAfterResetPasswordState : SignInAfterPreviousFlowBaseState
 /// Sign in the user that just reset the password.
+/// \param parameters Parameters used to Sign In the user after the Reset Password flow.
+///
+/// \param delegate Delegate that receives callbacks for the Sign In flow.
+///
+- (void)signInParameters:(MSALNativeAuthSignInAfterResetPasswordParameters * _Nonnull)parameters delegate:(id <SignInAfterResetPasswordDelegate> _Nonnull)delegate;
+/// Sign in the user that just reset the password.
 /// \param scopes Optional. Permissions you want included in the access token received after sign in flow has completed.
 ///
 /// \param delegate Delegate that receives callbacks for the Sign In flow.
 ///
-- (void)signInScopes:(NSArray<NSString *> * _Nullable)scopes delegate:(id <SignInAfterResetPasswordDelegate> _Nonnull)delegate;
+- (void)signInScopes:(NSArray<NSString *> * _Nullable)scopes delegate:(id <SignInAfterResetPasswordDelegate> _Nonnull)delegate SWIFT_DEPRECATED_MSG("This method is now deprecated. Use the method 'signIn(parameters:)' instead.");
 @end
 
 @class SignInAfterSignUpError;
@@ -935,11 +1052,17 @@ SWIFT_CLASS("_TtC4MSAL22SignInAfterSignUpError")
 SWIFT_CLASS("_TtC4MSAL22SignInAfterSignUpState")
 @interface SignInAfterSignUpState : SignInAfterPreviousFlowBaseState
 /// Sign in the user that signed up.
+/// \param parameters Parameters used to Sign In the user after the Sign Up flow.
+///
+/// \param delegate Delegate that receives callbacks for the Sign In flow.
+///
+- (void)signInParameters:(MSALNativeAuthSignInAfterSignUpParameters * _Nonnull)parameters delegate:(id <SignInAfterSignUpDelegate> _Nonnull)delegate;
+/// Sign in the user that signed up.
 /// \param scopes Optional. Permissions you want included in the access token received after sign in flow has completed.
 ///
 /// \param delegate Delegate that receives callbacks for the Sign In flow.
 ///
-- (void)signInScopes:(NSArray<NSString *> * _Nullable)scopes delegate:(id <SignInAfterSignUpDelegate> _Nonnull)delegate;
+- (void)signInScopes:(NSArray<NSString *> * _Nullable)scopes delegate:(id <SignInAfterSignUpDelegate> _Nonnull)delegate SWIFT_DEPRECATED_MSG("This method is now deprecated. Use the method 'signIn(parameters:)' instead.");
 @end
 
 
@@ -1889,9 +2012,26 @@ SWIFT_CLASS("_TtC4MSAL25MSALNativeAuthChannelType")
 @end
 
 
+
+/// Encapsulates the parameters passed to the getAccessToken method of MSALNativeAuthUserAccountResult
+SWIFT_CLASS("_TtC4MSAL38MSALNativeAuthGetAccessTokenParameters")
+@interface MSALNativeAuthGetAccessTokenParameters : NSObject
+/// Set to true to ignore any existing access token in the cache and force MSAL to get a new access token from the service.
+@property (nonatomic) BOOL forceRefresh;
+/// Permissions you want included in the access token received.
+/// Not all scopes are guaranteed to be included in the access token returned.
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable scopes;
+/// UUID to correlate this request with the server for debugging.
+@property (nonatomic, copy) NSUUID * _Nullable correlationId;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class MSALPublicClientApplicationConfig;
+@class MSALNativeAuthSignUpParameters;
 @protocol SignUpStartDelegate;
+@class MSALNativeAuthSignInParameters;
 @protocol SignInStartDelegate;
+@class MSALNativeAuthResetPasswordParameters;
 @protocol ResetPasswordStartDelegate;
 @class MSALAuthority;
 
@@ -1931,6 +2071,12 @@ SWIFT_CLASS("_TtC4MSAL37MSALNativeAuthPublicClientApplication")
 /// throws:
 /// An error that occurred creating the application object
 - (nullable instancetype)initWithClientId:(NSString * _Nonnull)clientId tenantSubdomain:(NSString * _Nonnull)tenantSubdomain challengeTypes:(MSALNativeAuthChallengeTypes)challengeTypes redirectUri:(NSString * _Nullable)redirectUri error:(NSError * _Nullable * _Nullable)error OBJC_DESIGNATED_INITIALIZER;
+/// Sign up a user using parameters.
+/// \param parameters Parameters used for the Sign Up flow.
+///
+/// \param delegate Delegate that receives callbacks for the Sign Up flow.
+///
+- (void)signUpWithParameters:(MSALNativeAuthSignUpParameters * _Nonnull)parameters delegate:(id <SignUpStartDelegate> _Nonnull)delegate;
 /// Sign up a user with a given username and password.
 /// \param username Username for the new account.
 ///
@@ -1942,7 +2088,13 @@ SWIFT_CLASS("_TtC4MSAL37MSALNativeAuthPublicClientApplication")
 ///
 /// \param delegate Delegate that receives callbacks for the Sign Up flow.
 ///
-- (void)signUpWithUsername:(NSString * _Nonnull)username password:(NSString * _Nullable)password attributes:(NSDictionary<NSString *, id> * _Nullable)attributes correlationId:(NSUUID * _Nullable)correlationId delegate:(id <SignUpStartDelegate> _Nonnull)delegate;
+- (void)signUpWithUsername:(NSString * _Nonnull)username password:(NSString * _Nullable)password attributes:(NSDictionary<NSString *, id> * _Nullable)attributes correlationId:(NSUUID * _Nullable)correlationId delegate:(id <SignUpStartDelegate> _Nonnull)delegate SWIFT_DEPRECATED_MSG("This method is now deprecated. Use the method 'signUp(parameters:)' instead.");
+/// Sign in a user using parameters.
+/// \param parameters Parameters used for the Sign In flow.
+///
+/// \param delegate Delegate that receives callbacks for the Sign In flow.
+///
+- (void)signInParameters:(MSALNativeAuthSignInParameters * _Nonnull)parameters delegate:(id <SignInStartDelegate> _Nonnull)delegate;
 /// Sign in a user with a given username and password.
 /// \param username Username for the account
 ///
@@ -1954,7 +2106,13 @@ SWIFT_CLASS("_TtC4MSAL37MSALNativeAuthPublicClientApplication")
 ///
 /// \param delegate Delegate that receives callbacks for the Sign In flow.
 ///
-- (void)signInUsername:(NSString * _Nonnull)username password:(NSString * _Nullable)password scopes:(NSArray<NSString *> * _Nullable)scopes correlationId:(NSUUID * _Nullable)correlationId delegate:(id <SignInStartDelegate> _Nonnull)delegate;
+- (void)signInUsername:(NSString * _Nonnull)username password:(NSString * _Nullable)password scopes:(NSArray<NSString *> * _Nullable)scopes correlationId:(NSUUID * _Nullable)correlationId delegate:(id <SignInStartDelegate> _Nonnull)delegate SWIFT_DEPRECATED_MSG("This method is now deprecated. Use the method 'signIn(parameters:)' instead.");
+/// Reset the password using parameters
+/// \param parameters Parameters used for the Reset Password flow.
+///
+/// \param delegate Delegate that receives callbacks for the Reset Password flow.
+///
+- (void)resetPasswordWithParameters:(MSALNativeAuthResetPasswordParameters * _Nonnull)parameters delegate:(id <ResetPasswordStartDelegate> _Nonnull)delegate;
 /// Reset the password for a given username.
 /// \param username Username for the account.
 ///
@@ -1962,7 +2120,7 @@ SWIFT_CLASS("_TtC4MSAL37MSALNativeAuthPublicClientApplication")
 ///
 /// \param delegate Delegate that receives callbacks for the Reset Password flow.
 ///
-- (void)resetPasswordWithUsername:(NSString * _Nonnull)username correlationId:(NSUUID * _Nullable)correlationId delegate:(id <ResetPasswordStartDelegate> _Nonnull)delegate;
+- (void)resetPasswordWithUsername:(NSString * _Nonnull)username correlationId:(NSUUID * _Nullable)correlationId delegate:(id <ResetPasswordStartDelegate> _Nonnull)delegate SWIFT_DEPRECATED_MSG("This method is now deprecated. Use the method 'resetPassword(parameters:)' instead.");
 /// Retrieve the current signed in account from the cache.
 /// \param correlationId Optional. UUID to correlate this request with the server for debugging.
 ///
@@ -1984,6 +2142,77 @@ SWIFT_CLASS("_TtC4MSAL37MSALNativeAuthPublicClientApplication")
 /// Class that defines the structure of a Required Attribute
 SWIFT_CLASS("_TtC4MSAL31MSALNativeAuthRequiredAttribute")
 @interface MSALNativeAuthRequiredAttribute : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// Encapsulates the parameters passed to the resetPassword method of MSALNativeAuthPublicClientApplication
+SWIFT_CLASS("_TtC4MSAL37MSALNativeAuthResetPasswordParameters")
+@interface MSALNativeAuthResetPasswordParameters : NSObject
+/// username of the account to reset password.
+@property (nonatomic, copy) NSString * _Nonnull username;
+/// UUID to correlate this request with the server for debugging.
+@property (nonatomic, copy) NSUUID * _Nullable correlationId;
+- (nonnull instancetype)initWithUsername:(NSString * _Nonnull)username OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// Encapsulates the parameters passed to the signIn method after resetPassword
+SWIFT_CLASS("_TtC4MSAL48MSALNativeAuthSignInAfterResetPasswordParameters")
+@interface MSALNativeAuthSignInAfterResetPasswordParameters : NSObject
+/// Permissions you want included in the access token received.
+/// Not all scopes are guaranteed to be included in the access token returned.
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable scopes;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// Encapsulates the parameters passed to the signIn method after signUp
+SWIFT_CLASS("_TtC4MSAL41MSALNativeAuthSignInAfterSignUpParameters")
+@interface MSALNativeAuthSignInAfterSignUpParameters : NSObject
+/// Permissions you want included in the access token received.
+/// Not all scopes are guaranteed to be included in the access token returned.
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable scopes;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class MSALClaimsRequest;
+
+/// Encapsulates the parameters passed to the signIn method of MSALNativeAuthPublicClientApplication
+SWIFT_CLASS("_TtC4MSAL30MSALNativeAuthSignInParameters")
+@interface MSALNativeAuthSignInParameters : NSObject
+/// username of the account to sign in.
+@property (nonatomic, copy) NSString * _Nonnull username;
+/// password of the account to sign in.
+@property (nonatomic, copy) NSString * _Nullable password;
+/// Permissions you want included in the access token received.
+/// Not all scopes are guaranteed to be included in the access token returned.
+@property (nonatomic, copy) NSArray<NSString *> * _Nullable scopes;
+/// The claims parameter that needs to be sent to the service.
+@property (nonatomic, strong) MSALClaimsRequest * _Nullable claimsRequest;
+/// UUID to correlate this request with the server for debugging.
+@property (nonatomic, copy) NSUUID * _Nullable correlationId;
+- (nonnull instancetype)initWithUsername:(NSString * _Nonnull)username OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+/// Encapsulates the parameters passed to the signUp method of MSALNativeAuthPublicClientApplication
+SWIFT_CLASS("_TtC4MSAL30MSALNativeAuthSignUpParameters")
+@interface MSALNativeAuthSignUpParameters : NSObject
+/// username of the account to sign up.
+@property (nonatomic, copy) NSString * _Nonnull username;
+/// password of the account to sign up.
+@property (nonatomic, copy) NSString * _Nullable password;
+/// user attributes to be used during account creation.
+@property (nonatomic, copy) NSDictionary<NSString *, id> * _Nullable attributes;
+/// UUID to correlate this request with the server for debugging.
+@property (nonatomic, copy) NSUUID * _Nullable correlationId;
+- (nonnull instancetype)initWithUsername:(NSString * _Nonnull)username OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2015,6 +2244,11 @@ SWIFT_CLASS("_TtC4MSAL31MSALNativeAuthUserAccountResult")
 @property (nonatomic, readonly, copy) NSString * _Nullable idToken;
 /// Removes all the data from the cache.
 - (void)signOut;
+/// \param parameters Parameters used for the Get Access Token flow.
+///
+/// \param delegate Delegate that receives callbacks for the Get Access Token flow.
+///
+- (void)getAccessTokenWithParameters:(MSALNativeAuthGetAccessTokenParameters * _Nonnull)parameters delegate:(id <CredentialsDelegate> _Nonnull)delegate;
 /// Retrieves the access token for the default OIDC(openid, offline_access, profile) scopes from the cache.
 /// \param forceRefresh Optional. Ignore any existing access token in the cache and force MSAL to get a new access token from the service.
 ///
@@ -2022,7 +2256,7 @@ SWIFT_CLASS("_TtC4MSAL31MSALNativeAuthUserAccountResult")
 ///
 /// \param delegate Delegate that receives callbacks for the Get Access Token flow.
 ///
-- (void)getAccessTokenWithForceRefresh:(BOOL)forceRefresh correlationId:(NSUUID * _Nullable)correlationId delegate:(id <CredentialsDelegate> _Nonnull)delegate;
+- (void)getAccessTokenWithForceRefresh:(BOOL)forceRefresh correlationId:(NSUUID * _Nullable)correlationId delegate:(id <CredentialsDelegate> _Nonnull)delegate SWIFT_DEPRECATED_MSG("This method is now deprecated. Use the method 'getAccessToken(parameters:)' instead.");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -2246,11 +2480,17 @@ SWIFT_CLASS("_TtC4MSAL29SignInAfterResetPasswordError")
 SWIFT_CLASS("_TtC4MSAL29SignInAfterResetPasswordState")
 @interface SignInAfterResetPasswordState : SignInAfterPreviousFlowBaseState
 /// Sign in the user that just reset the password.
+/// \param parameters Parameters used to Sign In the user after the Reset Password flow.
+///
+/// \param delegate Delegate that receives callbacks for the Sign In flow.
+///
+- (void)signInParameters:(MSALNativeAuthSignInAfterResetPasswordParameters * _Nonnull)parameters delegate:(id <SignInAfterResetPasswordDelegate> _Nonnull)delegate;
+/// Sign in the user that just reset the password.
 /// \param scopes Optional. Permissions you want included in the access token received after sign in flow has completed.
 ///
 /// \param delegate Delegate that receives callbacks for the Sign In flow.
 ///
-- (void)signInScopes:(NSArray<NSString *> * _Nullable)scopes delegate:(id <SignInAfterResetPasswordDelegate> _Nonnull)delegate;
+- (void)signInScopes:(NSArray<NSString *> * _Nullable)scopes delegate:(id <SignInAfterResetPasswordDelegate> _Nonnull)delegate SWIFT_DEPRECATED_MSG("This method is now deprecated. Use the method 'signIn(parameters:)' instead.");
 @end
 
 @class SignInAfterSignUpError;
@@ -2284,11 +2524,17 @@ SWIFT_CLASS("_TtC4MSAL22SignInAfterSignUpError")
 SWIFT_CLASS("_TtC4MSAL22SignInAfterSignUpState")
 @interface SignInAfterSignUpState : SignInAfterPreviousFlowBaseState
 /// Sign in the user that signed up.
+/// \param parameters Parameters used to Sign In the user after the Sign Up flow.
+///
+/// \param delegate Delegate that receives callbacks for the Sign In flow.
+///
+- (void)signInParameters:(MSALNativeAuthSignInAfterSignUpParameters * _Nonnull)parameters delegate:(id <SignInAfterSignUpDelegate> _Nonnull)delegate;
+/// Sign in the user that signed up.
 /// \param scopes Optional. Permissions you want included in the access token received after sign in flow has completed.
 ///
 /// \param delegate Delegate that receives callbacks for the Sign In flow.
 ///
-- (void)signInScopes:(NSArray<NSString *> * _Nullable)scopes delegate:(id <SignInAfterSignUpDelegate> _Nonnull)delegate;
+- (void)signInScopes:(NSArray<NSString *> * _Nullable)scopes delegate:(id <SignInAfterSignUpDelegate> _Nonnull)delegate SWIFT_DEPRECATED_MSG("This method is now deprecated. Use the method 'signIn(parameters:)' instead.");
 @end
 
 
