@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AzureAD/microsoft-authentication-library-for-objc.git",
       "state" : {
-        "revision" : "8f966b3c88bf0c4b32cd1ab706d7d674b6fdf528",
-        "version" : "1.7.0"
+        "revision" : "65f9fd9996868cff916f63117531324340e4365c",
+        "version" : "1.8.0"
       }
     },
     {
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/microsoftconnect/ms-intune-app-sdk-ios.git",
       "state" : {
-        "revision" : "36a574218a2b4910238fd65eeb1e87e8dd7a5ddc",
-        "version" : "20.4.0"
+        "revision" : "fbec4b5b2c7982a9c3b5b59190ce644e1f2b9ae9",
+        "version" : "20.4.1"
       }
     }
   ],
