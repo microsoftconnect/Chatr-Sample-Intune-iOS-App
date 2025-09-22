@@ -63,6 +63,13 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>IntuneMAMSettings</key>
+	<dict>
+		<key>ADALClientId</key>
+		<string>Insert_Entra_Client_ID</string>
+		<key>ADALRedirectUri</key>
+		<string>Insert_Entra_Redirect_URI</string>
+	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
