@@ -33,7 +33,7 @@ Instructions for creating and deploying a new App Configuration Policy can be fo
 2. This app's bundle ID is `Intune.chatr`. Make sure you update this bundle ID to match the app registration. The bundle ID can be found by selecting the project file in the Xcode project explorer, selecting the chatr target, and selecting the "General" tab.
 3. In the Info.plist file, update the values for `ADALClientId` and `ADALRedirectUri` under IntuneMAMSettings dictionary to match the client ID and redirect URI from your app registration. The redirect URI should be in the format `msauth.<bundle-id>://auth`. 
 4. If your app registration was configured as a single-tenant app, you will also need to add the `ADALAuthority` value to the Info.plist file under IntuneMAMSettings. This can be skipped for multi-tenant app registrations.
-5. The redirect URI also needs to be added to the `URL Schemes` under `URL Types` in the Info.plist file.
+5. The redirect URI scheme which is of the format `msauth.<bundle-id>` needs to be added to the `URL Schemes` under `URL Types` in the Info.plist file.
 
 ### Step 5: Launch the App & Sign-In
 Chatr should now be properly configured with Intune. When prompted to sign in, use one of the users in the group used in Step 2 or Step 3. 
