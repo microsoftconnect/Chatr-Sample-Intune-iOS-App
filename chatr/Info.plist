@@ -29,7 +29,7 @@
 			<array>
 				<string>chatr</string>
 				<string>chatr-intunemam</string>
-				<string>msauth.com.microsoft.intunemam</string>
+				<string>msauth.Intune.chatr</string>
 			</array>
 		</dict>
 	</array>
@@ -56,6 +56,8 @@
 		<string>wandera</string>
 		<string>https-intunemam</string>
 		<string>http-intunemam</string>
+		<string>msauthv2</string>
+		<string>msauthv3</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -63,6 +65,13 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>IntuneMAMSettings</key>
+	<dict>
+		<key>ADALClientId</key>
+		<string>Insert_Entra_Client_ID</string>
+		<key>ADALRedirectUri</key>
+		<string>Insert_Entra_Redirect_URI</string>
+	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
