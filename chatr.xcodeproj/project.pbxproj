@@ -409,7 +409,7 @@
 					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = chatr/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,7 +437,7 @@
 					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = chatr/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,7 +480,7 @@
 			repositoryURL = "https://github.com/AzureAD/microsoft-authentication-library-for-objc.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.7.0;
+				minimumVersion = 2.0.0;
 			};
 		};
 		AC7BDDA42D7A745F00C46F2D /* XCRemoteSwiftPackageReference "ms-intune-app-sdk-ios" */ = {
@@ -488,7 +488,7 @@
 			repositoryURL = "https://github.com/microsoftconnect/ms-intune-app-sdk-ios.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 20.4.0;
+				minimumVersion = 21.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
