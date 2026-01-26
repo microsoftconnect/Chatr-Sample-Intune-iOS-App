@@ -7,7 +7,9 @@ import UIKit
 class UIUtils{
     
     class func getCurrentViewController() -> UIViewController{
-        var topController = UIApplication.shared.keyWindow?.rootViewController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        var topController = appDelegate.window?.rootViewController
+        
         if (nil != topController) {
             var presentedViewController = topController!.presentedViewController
             //Loop until there are no more view controllers to go to
