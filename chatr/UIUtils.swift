@@ -6,7 +6,15 @@ import UIKit
 
 class UIUtils{
     
-    class func getCurrentViewController() -> UIViewController{
+    class func getCurrentViewController() -> UIViewController {
+        if Thread.isMainThread {
+            return getTopViewController()
+        } else {
+            return DispatchQueue.main.sync { getTopViewController() }
+        }
+    }
+
+    private class func getTopViewController() -> UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         var topController = appDelegate.window?.rootViewController
         
