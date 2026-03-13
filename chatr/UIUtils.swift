@@ -6,8 +6,18 @@ import UIKit
 
 class UIUtils{
     
-    class func getCurrentViewController() -> UIViewController{
-        var topController = UIApplication.shared.keyWindow?.rootViewController
+    class func getCurrentViewController() -> UIViewController {
+        if Thread.isMainThread {
+            return getTopViewController()
+        } else {
+            return DispatchQueue.main.sync { getTopViewController() }
+        }
+    }
+
+    private class func getTopViewController() -> UIViewController {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        var topController = appDelegate.window?.rootViewController
+        
         if (nil != topController) {
             var presentedViewController = topController!.presentedViewController
             //Loop until there are no more view controllers to go to
